@@ -1601,18 +1601,39 @@ _FUNCTION_SEL_SYS = (
     "\n"
     "RESTRAINT: do NOT select a function merely because it is imperfect or could be made more explicit. "
     "Select a function ONLY when developing it is expected to produce MEANINGFUL additional development. "
-    "When every applicable function has reached developmental sufficiency and the paragraph is "
-    "coherent, set selected_function null and continuity_decision 'complete' (the closure case) — never "
-    "invent a weakness to have something to teach.\n"
+    "\n"
+    "COMPLETION IS A WHOLE-PARAGRAPH JUDGMENT, NOT A PER-FUNCTION ONE (decisive — apply strictly). "
+    "Distinguish THREE separate levels and never collapse them: (1) the learner may have COMPLETED the "
+    "specific requested intellectual operation this turn; (2) the SELECTED communicative function may as "
+    "a result have become developmentally SUFFICIENT; (3) the PARAGRAPH AS A WHOLE may STILL require work "
+    "on another function or on functional organization. A successful revision that satisfies (1) and (2) "
+    "does NOT by itself justify 'complete'. After ANY successful revision you MUST re-scan ALL applicable "
+    "functions (focus, develop, support, and — for multi-sentence work — functional_organization) before "
+    "deciding, and ask: is there another function or an organizational relation whose development would "
+    "still offer SUBSTANTIAL developmental value to a naive reader? If YES, set continuity_decision "
+    "'advance' (or 'recurse' if the newly limiting function is upstream) and select THAT function — do "
+    "NOT mark the paragraph complete. Set selected_function null and continuity_decision 'complete' ONLY "
+    "when ALL of the following hold together: (a) the Focus is sufficient; (b) every NECESSARY "
+    "communicative function is sufficiently fulfilled (support present where the developing understanding "
+    "needs warranting; develop has actually unfolded the thesis, not merely restated it); (c) the "
+    "functions are organized COHERENTLY so a naive reader can progressively construct the intended "
+    "understanding (functional_organization is 'coherent', not 'weak' or 'partial'); and (d) NO remaining "
+    "functional or organizational need offers substantial developmental value — only optional refinement "
+    "remains. If any one of (a)-(d) is not yet true, the paragraph is NOT complete. Never invent a "
+    "weakness to have something to teach, but equally never declare closure while a genuine, "
+    "high-value functional or organizational need remains.\n"
     "\n"
     "REVISION COMPARISON (Turn 2+, when a PREVIOUS draft is provided): internally compare the previous "
     "and current drafts. (1) Identify the specific intellectual OPERATION the learner performed. (2) "
-    "Determine whether the prior function is NOW developmentally sufficient. (3) Do NOT repeat a request "
-    "the learner already fulfilled, and do NOT raise the bar after the original request was met. Set "
-    "continuity_decision = 'hold' only when a concrete unresolved need remains on the prior function; "
-    "'advance' when the prior function can now support the next work; 'recurse' when the revision "
-    "reveals a newly limiting UPSTREAM function; 'complete' when the paragraph is coherent and remaining "
-    "work would mainly be refinement. On the first turn set 'first_turn'.\n"
+    "Determine whether the prior (selected) function is NOW developmentally sufficient. (3) Do NOT repeat "
+    "a request the learner already fulfilled, and do NOT raise the bar on the SAME function after the "
+    "original request was met. (4) Then apply the WHOLE-PARAGRAPH COMPLETION judgment above: even when "
+    "the prior function is now sufficient, re-scan the other functions and functional organization. Set "
+    "continuity_decision = 'hold' only when a concrete unresolved need remains on the SAME prior "
+    "function; 'advance' when the prior function is now sufficient AND another function/organization is "
+    "the next high-value work; 'recurse' when the revision reveals a newly limiting UPSTREAM function; "
+    "'complete' ONLY when the whole-paragraph criteria (a)-(d) all hold. On the first turn set "
+    "'first_turn'.\n"
     "\n"
     "PROVISIONAL JUDGMENT: separate OBSERVED features (words actually on the page) from HYPOTHESIZED "
     "interpretation; do not infer fixed traits or mindset as fact. Give confidence high|medium|low (no "
@@ -1712,6 +1733,44 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
     raw_fn = raw_fn.strip().lower() if isinstance(raw_fn, str) else ""
     if raw_fn in ("null", "none", ""):
         raw_fn = ""
+
+    # WHOLE-PARAGRAPH COMPLETION GUARD (deterministic): a model 'complete' verdict is only honored
+    # when the schema itself shows the whole-paragraph criteria met — Focus sufficient, every
+    # NECESSARY function (focus/develop/support, where support is applicable) sufficiently fulfilled,
+    # and functional organization coherent. Otherwise closure is premature: redirect to the limiting
+    # function so one successful revision never marks the whole paragraph complete.
+    def _fn_st(name):
+        info = fns.get(name)
+        return ((info or {}).get("status") or "").lower() if isinstance(info, dict) else ""
+    _focus_ok = (fd.get("focus_status") or "").lower() == "sufficient"
+    _develop_st = _fn_st("develop")
+    _support_st = _fn_st("support")
+    _org_st = ((fd.get("functional_organization") or {}).get("status") or "").lower()
+    _develop_ok = _develop_st in ("sufficient", "not_needed")
+    _support_ok = _support_st in ("sufficient", "not_needed")
+    _org_ok = _org_st in ("coherent", "")  # empty when single-sentence / not assessed
+    _whole_complete = _focus_ok and _develop_ok and _support_ok and _org_ok
+    if cont == "complete" and not _whole_complete:
+        # pick the highest-leverage unmet function to redirect to (develop -> support -> organization)
+        if not _focus_ok:
+            _redir = "focus"
+        elif _develop_st in ("missing", "partial"):
+            _redir = "develop"
+        elif _support_st in ("missing", "partial"):
+            _redir = "support"
+        elif _org_st in ("weak", "partial"):
+            _redir = "functional_organization"
+        else:
+            _redir = "develop"
+        raw_fn = _redir
+        cont = "advance"
+        fd["continuity_decision"] = "advance"
+        fd["selected_function"] = _redir
+        fd["_completion_guard"] = ("premature 'complete' overridden: whole-paragraph criteria not met "
+                                   f"(focus_ok={_focus_ok}, develop={_develop_st or 'na'}, "
+                                   f"support={_support_st or 'na'}, org={_org_st or 'na'}); redirected "
+                                   f"to {_redir}.")
+
     # closure whenever the paragraph is complete or no function was selected
     if cont == "complete" or not raw_fn:
         selected_fn = None

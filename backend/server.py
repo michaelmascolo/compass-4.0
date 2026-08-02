@@ -2232,6 +2232,32 @@ async def get_session(session_id: str):
     return Session(**doc)
 
 
+@api_router.get("/dev/functional-v3-trace/{session_id}")
+async def get_functional_v3_trace(session_id: str):
+    """DEV-ONLY. Retrieve the existing functional_v3 reasoning trace records for one session.
+    Reads the append-only trace log (JSON-lines, each line prefixed by the logger timestamp) and
+    returns the records matching this session_id, oldest-first. Not linked from any UI; intended for
+    the development team during live calibration of the functional_v3 experience."""
+    records: List[dict] = []
+    try:
+        if FUNCTIONAL_V3_TRACE_PATH.exists():
+            with open(FUNCTIONAL_V3_TRACE_PATH, "r") as fh:
+                for line in fh:
+                    brace = line.find("{")
+                    if brace == -1:
+                        continue
+                    try:
+                        rec = json.loads(line[brace:])
+                    except json.JSONDecodeError:
+                        continue
+                    if rec.get("session_id") == session_id:
+                        records.append(rec)
+    except Exception as e:  # noqa: BLE001
+        raise HTTPException(status_code=500, detail=f"trace read failed: {e}")
+    return {"session_id": session_id, "engine": "functional_v3", "count": len(records), "trace": records}
+
+
+
 class ReasoningModePatch(BaseModel):
     reasoning_mode: str  # exhaustive | triage_experimental
 
