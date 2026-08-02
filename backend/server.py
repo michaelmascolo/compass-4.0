@@ -89,6 +89,12 @@ def _log_functional_v3_trace(session: "Session", req: "InteractRequest", result:
             # which reasoning module / instructional object was selected
             "reasoning_module_selected": decision.get("selected_instructional_object") or "",
             "coaching_path": result.get("coaching_path") or "",
+            # COMPASS 3.0 function-centered decision summary
+            "functional_decision": decision.get("functional_decision") or {},
+            "selected_function": (decision.get("functional_decision") or {}).get("selected_function"),
+            "focus_status": (decision.get("functional_decision") or {}).get("focus_status"),
+            "continuity_decision": (decision.get("functional_decision") or {}).get("continuity_decision"),
+            "naive_reader_need": (decision.get("functional_decision") or {}).get("naive_reader_need"),
             # total latency for the engine turn (wall clock + engine self-report)
             "total_latency_s": round(latency_s, 3),
             "engine_reported_total_s": meta.get("t_total_s"),

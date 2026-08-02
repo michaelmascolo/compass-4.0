@@ -213,6 +213,18 @@ MINIMAL_OBJECTS: Dict[str, Dict[str, Any]] = {
         "teaching_strategy": "Have the writer read the sentence aloud and revise where a reader would stumble; address clarity, not a rule list.",
         "exit_criterion": "A reader can take in each sentence on a single read.",
     },
+    "Organization": {
+        "essence": "The functional arrangement of a paragraph's ideas so a naive reader can progressively construct the intended understanding — how the thesis, its development, and its support relate to and follow one another. It is about the reader's PATH through the ideas, not the order of words in a sentence.",
+        "observable_indicators": {
+            "present": "The reader can follow one coherent path in which each idea builds on the last and visibly unfolds the thesis.",
+            "partial": "The needed ideas are present but their relationships or sequence make the reader work to see how they unfold the thesis.",
+            "missing": "Ideas accumulate without a discernible organizing path relative to the thesis.",
+            "misleading": "The arrangement implies a relationship among ideas that the content does not actually support.",
+        },
+        "developmental_variations": ["Accumulated list", "Loosely grouped", "Partially sequenced", "Coherent reader path"],
+        "teaching_strategy": "Help the writer see the paragraph through a naive reader's eyes: which idea must come first for the next to make sense, and how each idea develops the thesis. Have the writer decide the order and name the connections; never reorganize the paragraph for them.",
+        "exit_criterion": "A naive reader can follow one coherent path in which each idea visibly unfolds the thesis.",
+    },
 }
 
 # alias/normalization so a teacher override or engine label resolves to a known object
@@ -1476,6 +1488,324 @@ _DOES_WORK = re.compile(
 )
 
 
+# ===========================================================================
+# COMPASS 3.0 — SPRINT 1: FUNCTION-CENTERED TEACHER REVIEW
+# ---------------------------------------------------------------------------
+# The internal unit of analysis is the COMMUNICATIVE FUNCTION, not a structural
+# label. The selector reads the paragraph as a set of functions the writing is
+# (or is not) performing for a naive reader, chooses the ONE function with the
+# greatest developmental leverage, and maps it to a student-facing structural
+# term ONLY for the dialogue layer. Emits the full internal decision schema.
+# canonical_v2 (compass_structure_engine.py) is untouched.
+# ===========================================================================
+
+# internal communicative function -> student-facing structural term (dialogue layer only)
+_FUNCTION_TO_TERM = {
+    "orient": "Opening",
+    "focus": "Thesis",
+    "develop": "Elaboration",
+    "support": "Evidence / Example",
+    "consolidate": "Conclusion",
+    "functional_organization": "Organization",
+    "local_organization": "Sentence Construction",
+}
+# likely (NOT required) instructional sequence used only for deterministic fallbacks
+_FUNCTION_SEQUENCE = ["focus", "develop", "support", "orient", "consolidate"]
+
+
+def _fn_status_to_structural(s: Optional[str]) -> str:
+    """Map a communicative-function status onto the four structural statuses run() expects."""
+    s = (s or "").lower()
+    if s == "sufficient":
+        return "present"
+    if s in ("missing", "partial", "misleading"):
+        return s
+    return "missing"
+
+
+_FUNCTION_DEFINITIONS = (
+    "THE FIVE COMMUNICATIVE FUNCTIONS (your internal unit of analysis — NEVER shown to the learner):\n"
+    "\n"
+    "ORIENT — Communicative question: What does the reader need BEFORE they can understand the focus?\n"
+    "  (student-facing structural term: Opening). Often not_needed for a single stand-alone paragraph.\n"
+    "\n"
+    "FOCUS — Communicative question: What is the central understanding I want the reader to construct?\n"
+    "  (student-facing term: Thesis). The thesis is NOT the topic. The topic is what the writing is "
+    "ABOUT; the thesis is what the writer wants to SAY about that topic — the answer in miniature that "
+    "provides the organizing meaning (or at least sufficient organizing power) for the rest of the "
+    "paragraph.\n"
+    "\n"
+    "DEVELOP — Communicative question: What does the naive reader still need to understand ABOUT the "
+    "focus? (student-facing term: Elaboration). Elaboration UNFOLDS the thesis; it does not merely add "
+    "more related material.\n"
+    "\n"
+    "SUPPORT — Communicative question: What would convince the reader that this developing "
+    "understanding is warranted or well founded? (student-facing term: Evidence / Example). Support is "
+    "SUBORDINATE to the development of the thesis; evidence/examples support particular parts of the "
+    "unfolding understanding — never select Support to prop up a thesis that has not yet been "
+    "developed.\n"
+    "\n"
+    "CONSOLIDATE — Communicative question: What integrated understanding should the reader leave with? "
+    "(student-facing term: Conclusion). Often not_needed for a single stand-alone paragraph.\n"
+    "\n"
+    "ALSO ANALYZE TWO ORGANIZING RELATIONS:\n"
+    "FUNCTIONAL_ORGANIZATION — Are the functions organized coherently so the reader can PROGRESSIVELY "
+    "construct the intended understanding? (student-facing term: Organization). This is the reader's "
+    "PATH through the ideas.\n"
+    "LOCAL_ORGANIZATION — Does a particular sentence or passage perform its immediate communicative "
+    "purpose, and what does the naive reader need NEXT? (student-facing term: Sentence Construction).\n"
+    "\n"
+    "The likely instructional sequence may be Thesis -> Elaboration -> Evidence / Example -> Opening -> "
+    "Conclusion, but this is NOT a required paragraph order. A finished paragraph may organize its "
+    "functions in any coherent way."
+)
+
+
+_FUNCTION_SEL_SYS = (
+    "You are the Compass 3.0 Instructional Decision layer, performing an INTERNAL, function-centered "
+    "analysis (never shown to the learner) that determines the single instructional target for this "
+    "turn. You do NOT diagnose errors or list problems. You ask: 'which single communicative FUNCTION, "
+    "if developed next, will most improve this writer's ability to help a naive reader construct the "
+    "intended understanding?' (the One Thing Rule / highest developmental leverage).\n"
+    "\n"
+    + _FUNCTION_DEFINITIONS + "\n"
+    "\n"
+    "TOPIC vs FOCUS (apply every time; genre-neutral): distinguish (1) the ASSIGNMENT TOPIC, (2) the "
+    "SUBJECT MATTER the writer chose, and (3) the FOCUS/THESIS — the single integrated understanding "
+    "the writer wants the reader to take away. 'My thesis is HOW X changed me' or 'the causes of Y' "
+    "NAMES the topic; it is NOT yet a focus. A focus says something specific ABOUT the topic ('failing "
+    "at something does not mean you should stop trying'; 'the fixed mindset is the belief that ability "
+    "cannot change'). RECOGNITION RULE (binding): if a sentence expresses a single integrated "
+    "understanding that CAN serve as the organizing meaning for the paragraph — even if simple — it "
+    "SHALL be recognized as the focus (focus_status not 'missing'); do NOT downgrade it to 'topic' "
+    "merely because a more sophisticated, deeper, or more polished formulation could be imagined. "
+    "Developing writers often compose RETROSPECTIVELY (write material, then the integrated "
+    "understanding emerges); accept that route — once the integrated understanding is present, it IS "
+    "the focus whether or not it was written first.\n"
+    "\n"
+    "GENERATIVE (DEVELOPMENTAL) SUFFICIENCY — this is the OPERATIVE test. A function is 'sufficient' NOT "
+    "when it is complete or polished, but when it has enough internal organization to SUPPORT "
+    "productive work on the function(s) that depend on it. For FOCUS: it is sufficient the moment it "
+    "provides a recognizable, integrated main point that can ORGANIZE elaboration — do NOT hold Focus "
+    "to make the thesis more elegant, deeper, more profound, or 'more specific about who you are'. "
+    "Producing conceptual differentiation, internal structure, and how/why explanation IS THE WORK OF "
+    "DEVELOP — its absence is the REASON TO ADVANCE to Develop, never grounds to hold Focus. If the "
+    "focus can now organize meaningful elaboration, select DEVELOP (or a later function), not focus. "
+    "'Could be deeper/richer/sharper' is NEVER grounds to hold a function.\n"
+    "\n"
+    "SELECTION PREFERENCE when a paragraph already attempts development and support but its later ideas "
+    "accumulate without clearly unfolding the thesis for a naive reader: prefer DEVELOP when the core "
+    "instructional operation is helping the writer show HOW particular ideas unfold the thesis; prefer "
+    "FUNCTIONAL_ORGANIZATION when the functions and relevant content are present but their RELATIONSHIPS "
+    "and the reader's SEQUENCE are the chief limiting condition.\n"
+    "\n"
+    "RESTRAINT: do NOT select a function merely because it is imperfect or could be made more explicit. "
+    "Select a function ONLY when developing it is expected to produce MEANINGFUL additional development. "
+    "When every applicable function has reached developmental sufficiency and the paragraph is "
+    "coherent, set selected_function null and continuity_decision 'complete' (the closure case) — never "
+    "invent a weakness to have something to teach.\n"
+    "\n"
+    "REVISION COMPARISON (Turn 2+, when a PREVIOUS draft is provided): internally compare the previous "
+    "and current drafts. (1) Identify the specific intellectual OPERATION the learner performed. (2) "
+    "Determine whether the prior function is NOW developmentally sufficient. (3) Do NOT repeat a request "
+    "the learner already fulfilled, and do NOT raise the bar after the original request was met. Set "
+    "continuity_decision = 'hold' only when a concrete unresolved need remains on the prior function; "
+    "'advance' when the prior function can now support the next work; 'recurse' when the revision "
+    "reveals a newly limiting UPSTREAM function; 'complete' when the paragraph is coherent and remaining "
+    "work would mainly be refinement. On the first turn set 'first_turn'.\n"
+    "\n"
+    "PROVISIONAL JUDGMENT: separate OBSERVED features (words actually on the page) from HYPOTHESIZED "
+    "interpretation; do not infer fixed traits or mindset as fact. Give confidence high|medium|low (no "
+    "numbers). Ground every judgment in the actual words on the page.\n"
+    "\n"
+    "Respond with ONLY the JSON object specified in the user message and nothing else."
+)
+
+
+async def _select_functions(session_id: str, assignment: str, unit: str, student_text: str,
+                            prior_target: Optional[str] = None, prior_variation: str = "",
+                            prior_student_text: str = "") -> Dict[str, Any]:
+    """Compass 3.0 function-centered selection. Emits the full internal decision schema, then adapts
+    it to the contract run() consumes (mapping selected_function -> student-facing term). The full
+    schema is attached under `_functional_decision` for the trace + teacher review surface."""
+    if prior_target and prior_student_text:
+        continuity_block = (
+            "REVISION COMPARISON CONTEXT (Turn 2+):\n"
+            f"The prior turn's instructional target was: {prior_target}"
+            f"{f' (variation: {prior_variation})' if prior_variation else ''}.\n"
+            "THE LEARNER'S PREVIOUS DRAFT (compare against the current writing):\n"
+            f"\"\"\"\n{prior_student_text}\n\"\"\"\n"
+            "Identify the intellectual operation performed, decide hold/advance/recurse/complete per "
+            "the rules, and do NOT repeat a fulfilled request.\n\n"
+        )
+    else:
+        continuity_block = ""
+    prompt = (
+        f"ASSIGNMENT (authoritative task): {assignment or '(not specified)'}\n"
+        f"UNIT the writer is producing: {unit or 'one paragraph'}\n\n"
+        f"{continuity_block}"
+        f"THE WRITER'S CURRENT WRITING:\n\"\"\"\n{student_text}\n\"\"\"\n\n"
+        "Return ONLY this JSON object (fill every field; use \"\" or [] where genuinely empty):\n"
+        "{\n"
+        '  "communicative_task": "what this paragraph is trying to make a reader understand",\n'
+        '  "topic": "what the writing is about",\n'
+        '  "current_focus": "the single integrated understanding the writer is CURRENTLY expressing, '
+        'as a short quotation or close paraphrase in the LEARNER\'S OWN words (\\"\\" if none present)",\n'
+        '  "focus_status": "missing|partial|sufficient|misleading",\n'
+        '  "focus_reasoning": "why the focus is at that status; recognize a simple integrated meaning '
+        'as sufficient, do not demand a deeper/polished version",\n'
+        '  "functions": {\n'
+        '    "orient": {"status": "not_needed|missing|partial|sufficient|misleading", "evidence": "..."},\n'
+        '    "focus": {"status": "missing|partial|sufficient|misleading", "evidence": "..."},\n'
+        '    "develop": {"status": "missing|partial|sufficient|misleading", "evidence": "..."},\n'
+        '    "support": {"status": "not_needed|missing|partial|sufficient|misleading", "evidence": "..."},\n'
+        '    "consolidate": {"status": "not_needed|missing|partial|sufficient|misleading", "evidence": "..."}\n'
+        '  },\n'
+        '  "functional_organization": {"status": "weak|partial|coherent", "reader_path": "the path a '
+        'naive reader currently takes through the ideas", "limiting_relation": "the one relationship or '
+        'sequence most limiting reader understanding (\\"\\" if none)"},\n'
+        '  "naive_reader_need": "the single most important thing a naive reader needs NEXT to understand '
+        'the focus",\n'
+        '  "selected_function": "orient|focus|develop|support|consolidate|functional_organization|'
+        'local_organization, or null if the paragraph is coherent",\n'
+        '  "student_facing_term": "Opening|Thesis|Elaboration|Evidence / Example|Conclusion|Organization|'
+        'Sentence Construction",\n'
+        '  "selected_operation": "the ONE concrete developmental operation this turn should help the '
+        'writer perform (learner-owned; never something you would write for them)",\n'
+        '  "local_target": {"quoted_text": "the specific words in the writing this operation acts on '
+        '(\\"\\" if whole-paragraph)", "purpose": "what that passage is trying to do", '
+        '"remaining_reader_need": "what the reader still needs there"},\n'
+        '  "developmental_sufficiency": "continue|reached",\n'
+        '  "progress_since_last_turn": "the operation the learner performed since the previous draft '
+        '(\\"\\" on the first turn)",\n'
+        '  "continuity_decision": "first_turn|hold|advance|recurse|complete",\n'
+        '  "confidence": "high|medium|low"\n'
+        "}"
+    )
+    chat = LlmChat(api_key=_KEY, session_id=f"fn-sel-{session_id}",
+                   system_message=_FUNCTION_SEL_SYS).with_model(*SEL_MODEL)
+    raw = await chat.send_message(UserMessage(text=prompt))
+    try:
+        fd = _extract_json(raw)
+    except (json.JSONDecodeError, ValueError):
+        try:
+            raw = await chat.send_message(UserMessage(
+                text="Your previous reply was not valid JSON. Reply again with STRICTLY valid JSON for "
+                     "the SAME schema — every field present, no comments, no trailing commas."))
+            fd = _extract_json(raw)
+        except (json.JSONDecodeError, ValueError):
+            fd = {}
+    _parse_fallback = not fd
+    if _parse_fallback:
+        fd = {
+            "selected_function": None, "student_facing_term": "",
+            "focus_status": "partial", "developmental_sufficiency": "continue",
+            "continuity_decision": "first_turn", "confidence": "low",
+            "focus_reasoning": "parse_fallback: selector reply was unparseable; deferring to closure "
+                               "rather than acting on unreliable output.",
+            "functions": {}, "functional_organization": {},
+        }
+
+    fns = fd.get("functions") or {}
+    cont = (fd.get("continuity_decision") or "first_turn").lower()
+    raw_fn = (fd.get("selected_function") or "")
+    raw_fn = raw_fn.strip().lower() if isinstance(raw_fn, str) else ""
+    if raw_fn in ("null", "none", ""):
+        raw_fn = ""
+    # closure whenever the paragraph is complete or no function was selected
+    if cont == "complete" or not raw_fn:
+        selected_fn = None
+        term = None
+    else:
+        selected_fn = raw_fn
+        term = _FUNCTION_TO_TERM.get(selected_fn)  # authoritative mapping (trust map over model echo)
+        if not term:
+            term = fd.get("student_facing_term") or "Elaboration"
+    fd["student_facing_term"] = term or ""
+
+    # status for the selected function -> structural status run() expects
+    if selected_fn == "focus":
+        struct_status = _fn_status_to_structural(fd.get("focus_status"))
+    elif selected_fn and selected_fn in fns and isinstance(fns[selected_fn], dict):
+        struct_status = _fn_status_to_structural(fns[selected_fn].get("status"))
+    elif selected_fn in ("functional_organization", "local_organization"):
+        fo = (fd.get("functional_organization") or {}).get("status", "partial")
+        struct_status = {"coherent": "present", "partial": "partial", "weak": "missing"}.get(str(fo).lower(), "partial")
+    else:
+        struct_status = "missing"
+
+    # functions already sufficient / not needed -> established student terms (context for teacher review)
+    established = []
+    not_applicable = []
+    for fn_name, term_name in _FUNCTION_TO_TERM.items():
+        info = fns.get(fn_name) if isinstance(fns.get(fn_name), dict) else None
+        st = (info or {}).get("status", "").lower() if info else ""
+        if fn_name == "focus" and not info:
+            st = (fd.get("focus_status") or "").lower()
+        if fn_name == selected_fn:
+            continue
+        if st == "sufficient":
+            established.append(term_name)
+        elif st == "not_needed":
+            not_applicable.append(term_name)
+
+    candidate_objects = []
+    for fn_name in _FUNCTION_SEQUENCE:
+        info = fns.get(fn_name) if isinstance(fns.get(fn_name), dict) else None
+        st = (info or {}).get("status", "") if info else (fd.get("focus_status", "") if fn_name == "focus" else "")
+        candidate_objects.append({
+            "object": _FUNCTION_TO_TERM[fn_name],
+            "status": _fn_status_to_structural(st),
+            "note": ((info or {}).get("evidence", "") if info else fd.get("focus_reasoning", ""))[:120],
+        })
+
+    devsuff = (fd.get("developmental_sufficiency") or ("reached" if selected_fn is None else "continue")).lower()
+    current_focus = (fd.get("current_focus") or "").strip()
+
+    # observed evidence for the provisional block (from the function evidences actually on the page)
+    observed = [f"{_FUNCTION_TO_TERM[k]}: {v.get('evidence','')}"
+                for k, v in fns.items() if isinstance(v, dict) and v.get("evidence")]
+
+    justification = fd.get("focus_reasoning") or ""
+    if selected_fn and selected_fn not in ("focus",):
+        justification = (fns.get(selected_fn, {}) or {}).get("evidence") or fd.get("naive_reader_need") or justification
+
+    return {
+        "selected": term,
+        "status": struct_status,
+        "developmental_variation": (fd.get("functional_organization") or {}).get("limiting_relation", "")
+                                   if selected_fn in ("functional_organization", "local_organization")
+                                   else (fns.get(selected_fn, {}) or {}).get("status", "") if selected_fn else "",
+        "estimated_developmental_level": "",
+        "candidate_objects": candidate_objects,
+        "established": established,
+        "not_applicable": not_applicable,
+        "justification": justification,
+        "selection_contrast": fd.get("naive_reader_need") or "",
+        "instructional_action": "scaffold",
+        "instructional_intent": fd.get("selected_operation") or "",
+        "developmental_sufficiency": devsuff,
+        "sufficiency_reasoning": fd.get("focus_reasoning") or "",
+        "next_objective": "",
+        "next_objective_reasoning": "",
+        "current_thesis": current_focus,
+        "thesis_is_verbatim": _thesis_is_verbatim(current_focus, student_text),
+        "confidence": (fd.get("confidence") or ("high" if selected_fn else "medium")).lower(),
+        "_provisional": {
+            "observed_evidence": observed,
+            "hypothesized_interpretation": fd.get("focus_reasoning") or "",
+            "unknowns": [],
+            "confidence": (fd.get("confidence") or "medium").lower(),
+            "continuity_decision": cont,
+            "selected_function": selected_fn,
+        },
+        "_functional_decision": fd,
+        "_prompt_bytes": len(prompt) + len(_FUNCTION_SEL_SYS),
+        "_completion_bytes": len(raw or ""),
+    }
+
+
+
 # ---------------------------------------------------------------------------
 # ORCHESTRATION — the ONLY component that decides what is taught, then hands a
 # FIXED target to the dialogue engine. Writes state + audit (Sprint 1-4 reused).
@@ -1512,15 +1842,15 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
             t_override = ov
             break
 
-    # STEP 1 — highest-priority structure (engine recommendation is always computed
-    # so the teacher trace can preserve it even under override)
-    # Canonical selection is activated per-session (reasoning_mode == "canonical_v2")
-    # OR globally by the CANONICAL_SELECTION env flag. Otherwise legacy selection.
-    _canonical = (session.get("reasoning_mode") == "canonical_v2") or _canonical_selection_enabled()
+    # STEP 1 — COMPASS 3.0 function-centered selection. The internal unit of analysis is the
+    # communicative function; the selector emits the full internal decision schema and maps the
+    # chosen function to a student-facing structural term for the dialogue layer.
+    _canonical = True  # canonical primaries are the student-facing vocabulary for the mapped terms
     t_s0 = time.perf_counter()
-    sel = await select_structure(state.id, assignment, unit, student_text, canonical=_canonical,
-                                 prior_target=prior_target, prior_variation=prior_variation,
-                                 prior_student_text=prior_student_text)
+    sel = await _select_functions(state.id, assignment, unit, student_text,
+                                  prior_target=prior_target, prior_variation=prior_variation,
+                                  prior_student_text=prior_student_text)
+    functional_decision = sel.get("_functional_decision") or {}
     t_select = time.perf_counter() - t_s0
     engine_structure = sel.get("selected")
     established = sel.get("established") or []
@@ -1630,6 +1960,11 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
     if sel.get("_provisional"):
         instructional_analysis["provisional_judgment"] = sel["_provisional"]
         instructional_analysis["canonical_selection"] = True
+    # COMPASS 3.0 — attach the full function-centered internal decision (teacher review + trace)
+    instructional_analysis["functional_decision"] = functional_decision
+    instructional_analysis["selected_function"] = functional_decision.get("selected_function")
+    instructional_analysis["naive_reader_need"] = functional_decision.get("naive_reader_need")
+    instructional_analysis["continuity_decision"] = functional_decision.get("continuity_decision")
 
     # write the authoritative decision onto persistent state (Sprint 1-4 fields reused)
     state.selected_instructional_object = target
@@ -1701,9 +2036,12 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
     if instructional_need == "NO_CURRENT_INSTRUCTIONAL_TARGET":
         invitation, dlg_bytes = await generate_closure(state.id, assignment, student_text, established)
     else:
-        # FIRST-TURN vs CONTINUATION: continuation only when the SAME object stayed active
-        # from the prior turn (instruction already presented on it); otherwise first turn.
-        dialogue_mode = "continuation" if (prior_target and prior_target == target) else "first_turn"
+        # FIRST-TURN vs CONTINUATION (Compass 3.0): a continuation turn is ANY follow-up turn that
+        # has a previous draft to compare against, so the dialogue names the operation the learner
+        # performed and states hold/advance/recurse — even when the target changed (advance/recurse).
+        _is_followup = bool(prior_student_text) and (kind in ("revise", "continue", "answer", "explain")
+                                                     or bool(prior_target))
+        dialogue_mode = "continuation" if _is_followup else "first_turn"
         # RESCUE only after the learner remains stuck across continuation attempts, or asks for help.
         rescue = (dialogue_mode == "continuation"
                   and (state.current_target_attempts >= 2 or _wants_help(learner_content)))
@@ -1782,6 +2120,7 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
             "established_structures": established,
             "current_thesis": sel.get("current_thesis") or "",
             "thesis_is_verbatim": bool(sel.get("thesis_is_verbatim")),
+            "functional_decision": functional_decision,
         },
         "_meta": efficiency,
     }
