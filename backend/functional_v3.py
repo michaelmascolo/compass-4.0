@@ -1006,6 +1006,24 @@ _DLG_SYS = (
     "has packed inside it\"; \"evidence helps readers see why your idea is believable\". Never define a "
     "structural part without explaining its job for the reader.\n"
     "\n"
+    "═══ CONTENT-NEUTRAL SCAFFOLDING (HIGHEST PRIORITY — governs every turn). Distinguish three acts: "
+    "(1) TEACH the communicative function; (2) LOCATE that function in the learner's own writing; (3) "
+    "SUPPLY the conceptual content needed to perform it. You may do (1) and (2). You must NEVER do (3). "
+    "Teach the operation, locate it in the learner's writing, and ask the learner to perform it — but "
+    "do NOT supply the conceptual bridge the learner should construct. Do NOT propose candidate "
+    "explanations, causal chains, mechanisms, reasons, examples, definitions, or interpretations unless "
+    "the learner has ALREADY produced them in their writing. The learner supplies the CONTENT; you "
+    "supply only the developmental GUIDANCE. When discussing Elaboration, direct attention back to the "
+    "learner's own thesis and to what a naive reader still would not understand, but leave the "
+    "conceptual work to the learner. Do NOT hint the answer through a leading question that presupposes "
+    "a particular content (e.g. 'what belief underneath makes them think ability is permanent?' already "
+    "supplies the idea of an underlying belief) — instead ask an OPEN question that names WHICH meaning "
+    "to unfold without naming HOW it unfolds ('your thesis says abilities are seen as \"fixed\" — what "
+    "would a reader who has never heard this need you to make clear about what that means?'). "
+    "SELF-CHECK before you answer: 'If the learner could COPY my conceptual explanation into their "
+    "paragraph and thereby satisfy the instructional target, I have scaffolded too much.' If your draft "
+    "response fails this check, revise it until the cognitive work clearly remains with the learner.\n"
+    "\n"
     "There are two kinds of turn. The user message tells you which one this is.\n"
     "\n"
     "═══ FIRST TURN on a newly active structure. Compass is a developmental TEACHER, not a writing "
@@ -1620,7 +1638,10 @@ _FUNCTION_SEL_SYS = (
     "completely?'. Record elaboration_target {meaning_relation, why_least_understood, what_would_help} "
     "and make naive_reader_need express that the reader does not yet fully understand that meaning "
     "relation. Do NOT invent a new idea outside the thesis; the elaboration target must be a meaning the "
-    "thesis ALREADY expresses but has left compressed.\n"
+    "thesis ALREADY expresses but has left compressed. CONTENT-NEUTRAL: what_would_help names only the "
+    "KIND of operation (define / distinguish / trace / unpack), never the actual explanation, causal "
+    "chain, example, or interpretation — that conceptual content is the learner's to supply, never "
+    "Compass's.\n"
     "\n"
     "RESTRAINT: do NOT select a function merely because it is imperfect or could be made more explicit. "
     "Select a function ONLY when developing it is expected to produce MEANINGFUL additional development. "
@@ -1702,8 +1723,10 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         'relationship the thesis expresses (organized meaning, NOT vocabulary); [] if no thesis yet"],\n'
         '  "elaboration_target": {"meaning_relation": "the ONE decomposed meaning a naive reader is '
         'LEAST likely to fully understand (\\"\\" if develop is not in play)", "why_least_understood": '
-        '"why the reader would not yet fully grasp that meaning", "what_would_help": "what would help '
-        'the reader understand THAT meaning more completely (a direction, never text you would write)"},\n'
+        '"why the reader would not yet fully grasp that meaning", "what_would_help": "name ONLY the KIND '
+        'of developmental operation that would unfold this meaning (e.g. define a key term, distinguish '
+        'two ideas, trace a relation, unpack an implication) — do NOT supply the actual explanation, '
+        'cause, example, or interpretation; that content is the learner\'s to produce"},\n'
         '  "functions": {\n'
         '    "orient": {"status": "not_needed|missing|partial|sufficient|misleading", "evidence": "..."},\n'
         '    "focus": {"status": "missing|partial|sufficient|misleading", "evidence": "..."},\n'
@@ -1864,19 +1887,18 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
     _elab_ctx = ""
     et = fd.get("elaboration_target") or {}
     if selected_fn == "develop" and isinstance(et, dict) and (et.get("meaning_relation") or "").strip():
-        decomp = fd.get("thesis_decomposition") or []
-        decomp_txt = "; ".join(str(d) for d in decomp if str(d).strip())
         _elab_ctx = (
-            "THESIS MEANING TO ELABORATE (INTERNAL — do NOT quote, name, or read this out; it only "
-            "focuses your one invitation). The thesis decomposes into these communicative meanings: "
-            f"{decomp_txt or '(not decomposed)'}. Of these, the meaning a naive reader is LEAST likely "
-            f"to fully understand is: \"{et.get('meaning_relation','')}\" — because "
-            f"{et.get('why_least_understood','') or 'it is left compressed in the thesis'}. Your "
-            "governing question this turn is NOT 'what new idea comes next?' but 'what meaning already "
-            "expressed by this thesis does the reader still not fully understand?'. Help the writer "
-            "unfold THAT meaning for the reader (direction, not a rewrite): "
-            f"{et.get('what_would_help','') or 'invite them to make that meaning fully understandable to a naive reader'}. "
-            "Do not introduce a meaning the thesis does not already contain.\n"
+            "ELABORATION FOCUS (INTERNAL — do NOT quote, name, or read out; it only points your one "
+            "invitation at the right place). Of the meanings the learner's OWN thesis expresses, the one "
+            f"a naive reader is least likely to fully understand is: \"{et.get('meaning_relation','')}\". "
+            "Direct the learner's attention back to THAT meaning in their thesis and to what a naive "
+            "reader would still not understand about it, then ask them to unfold it. CONTENT-NEUTRAL — "
+            "absolute: do NOT supply the explanation, cause, mechanism, reason, example, definition, or "
+            "interpretation that would unfold this meaning; do NOT hint it through a leading question "
+            "that presupposes a particular answer. Name only WHICH meaning to develop, never HOW it "
+            "develops. The learner must produce all conceptual content. SELF-CHECK: if the learner could "
+            "copy any sentence of your response into their paragraph and thereby satisfy the target, you "
+            "have said too much — revise until only developmental guidance remains.\n"
         )
 
     return {
