@@ -33,11 +33,70 @@ EMERGENT_LLM_KEY = os.environ.get('EMERGENT_LLM_KEY')
 DEFAULT_REASONING_MODE = os.environ.get("COMPASS_REASONING_MODE", "consolidated_v2")
 RP5_MODES = ("consolidated_v2", "structure_v5", "canonical_v2")
 
+# ---------------------------------------------------------------------------
+# COMPASS ENGINE SELECTOR (experimental pathway)
+# ---------------------------------------------------------------------------
+# `canonical_v2` = the protected production engine (compass_structure_engine).
+# `functional_v3` = an independent experimental pathway. It is CURRENTLY an exact
+# duplicate of the production engine (module `functional_v3`), so both engines
+# behave identically until Compass 3.0 reasoning is specified.
+#
+# Switching engines requires NO code change — only the COMPASS_ENGINE env var:
+#     COMPASS_ENGINE=canonical_v2   (default)
+#     COMPASS_ENGINE=functional_v3
+COMPASS_ENGINES = ("canonical_v2", "functional_v3")
+COMPASS_ENGINE = os.environ.get("COMPASS_ENGINE", "canonical_v2")
+if COMPASS_ENGINE not in COMPASS_ENGINES:
+    COMPASS_ENGINE = "canonical_v2"
+
 app = FastAPI()
 api_router = APIRouter(prefix="/api")
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+# ---------------------------------------------------------------------------
+# functional_v3 trace logger (experimental pathway observability)
+# ---------------------------------------------------------------------------
+# Writes one JSON record per experimental-engine turn to a dedicated file so the
+# functional_v3 pathway can be inspected in isolation. Logs ONLY test-useful
+# signals (prompt, submitted paragraph, module selected, latency). NEVER logs
+# chain-of-thought / internal reasoning.
+FUNCTIONAL_V3_TRACE_PATH = ROOT_DIR / "functional_v3_trace.log"
+functional_v3_tracer = logging.getLogger("functional_v3.trace")
+functional_v3_tracer.setLevel(logging.INFO)
+functional_v3_tracer.propagate = False
+if not functional_v3_tracer.handlers:
+    _fv3_handler = logging.FileHandler(FUNCTIONAL_V3_TRACE_PATH)
+    _fv3_handler.setFormatter(logging.Formatter('%(asctime)s %(message)s'))
+    functional_v3_tracer.addHandler(_fv3_handler)
+
+
+def _log_functional_v3_trace(session: "Session", req: "InteractRequest", result: dict, latency_s: float) -> None:
+    """Emit a single functional_v3 trace record. Best-effort; never blocks coaching."""
+    try:
+        decision = result.get("decision", {}) or {}
+        meta = result.get("_meta", {}) or {}
+        record = {
+            "engine": "functional_v3",
+            "session_id": session.id,
+            "timestamp": now_iso(),
+            # the assignment prompt the learner is responding to (display prompt)
+            "prompt": session.assignment_prompt or session.assignment or "",
+            # the paragraph the learner submitted this turn
+            "submitted_paragraph": req.content,
+            "turn_kind": req.kind,
+            # which reasoning module / instructional object was selected
+            "reasoning_module_selected": decision.get("selected_instructional_object") or "",
+            "coaching_path": result.get("coaching_path") or "",
+            # total latency for the engine turn (wall clock + engine self-report)
+            "total_latency_s": round(latency_s, 3),
+            "engine_reported_total_s": meta.get("t_total_s"),
+        }
+        functional_v3_tracer.info(json.dumps(record))
+        logger.info(f"[functional_v3] session={session.id} module={record['reasoning_module_selected']} latency={record['total_latency_s']}s")
+    except Exception as e:  # noqa: BLE001
+        logger.error(f"[functional_v3] trace logging failed: {e}")
 
 
 # ---------------------------------------------------------------------------
@@ -3521,10 +3580,16 @@ async def _finalize_structure_v5(session_id: str, ai_turn_id: str, req: Interact
     instructional decision + audit to the persistent state itself (Sprint 1-4 reused);
     here we only persist the learner-facing dialogue. No theory / bridge / RP4."""
     import compass_structure_engine as se
+    # Experimental engine selector. Default `canonical_v2` uses the protected
+    # production engine untouched. `functional_v3` routes to the parallel
+    # experimental module (currently an exact duplicate) + trace logging.
+    if COMPASS_ENGINE == "functional_v3":
+        import functional_v3 as se
     doc = await db.sessions.find_one({"id": session_id}, {"_id": 0})
     if not doc:
         return
     session = Session(**doc)
+    _t_engine0 = time.perf_counter()
     try:
         result = await se.run(session.model_dump(), req.content, req.kind)
     except Exception as e:  # noqa: BLE001
@@ -3534,6 +3599,8 @@ async def _finalize_structure_v5(session_id: str, ai_turn_id: str, req: Interact
             {"$set": {"turns.$.status": "failed", "turns.$.content": "", "updated_at": now_iso()}},
         )
         return
+    if COMPASS_ENGINE == "functional_v3":
+        _log_functional_v3_trace(session, req, result, time.perf_counter() - _t_engine0)
     doc2 = await db.sessions.find_one({"id": session_id}, {"_id": 0})
     if not doc2:
         return
