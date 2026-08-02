@@ -1177,7 +1177,8 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
                             structure: str, obj: Dict[str, Any], status: str,
                             kind: str, action: str = "scaffold",
                             mode: str = "first_turn", sufficiency: str = "continue",
-                            rescue: bool = False, prior_student_text: str = "") -> str:
+                            rescue: bool = False, prior_student_text: str = "",
+                            elaboration_context: str = "") -> str:
     src = _resolve_teaching_source(structure, obj)
     disp = src["display_name"]
     _action_hint = {
@@ -1432,6 +1433,7 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
         f"{_mode_block}\n"
         f"{_support_block}\n"
         f"{_elab_block}"
+        f"{elaboration_context}"
         f"{_ops_block}"
         f"THE INSTRUCTIONAL DECISION IS ALREADY MADE. Help the writer build exactly this — do not "
         f"reconsider or broaden it. Use ONLY this canonical structure name with the learner; never use "
@@ -1599,6 +1601,27 @@ _FUNCTION_SEL_SYS = (
     "FUNCTIONAL_ORGANIZATION when the functions and relevant content are present but their RELATIONSHIPS "
     "and the reader's SEQUENCE are the chief limiting condition.\n"
     "\n"
+    "THESIS DECOMPOSITION (internal hidden reasoning; NEVER shown to the learner): when a Focus/thesis "
+    "is present, internally decompose it into its principal COMMUNICATIVE MEANINGS and the RELATIONSHIPS "
+    "among those meanings. The goal is NOT to identify important words or vocabulary targets — it is to "
+    "recover the organized meaning the writer is trying to communicate. For example, 'The fixed mindset "
+    "is the belief that one's abilities are fixed and cannot change.' decomposes into meaning relations "
+    "such as: a fixed mindset is a belief; the belief concerns one's abilities; those abilities are "
+    "understood as fixed; 'fixed' is understood as meaning they cannot change. These are communicative "
+    "meanings and relationships, not words to define. Record them in thesis_decomposition (each entry a "
+    "short natural-language statement of one meaning or relation).\n"
+    "\n"
+    "SELECTING AN ELABORATION TARGET (applies whenever DEVELOP is or may become the selected function): "
+    "from the decomposed meanings, determine which single communicative MEANING or RELATIONSHIP is LEAST "
+    "likely to be fully understood by a naive reader. That meaning relation becomes the current "
+    "elaboration target. The instructional question is therefore NOT 'what additional idea should come "
+    "next?' — it is 'what meaning expressed by THIS thesis does the reader still not fully understand?'. "
+    "ONLY AFTER identifying that meaning do you ask 'what would help the reader understand this more "
+    "completely?'. Record elaboration_target {meaning_relation, why_least_understood, what_would_help} "
+    "and make naive_reader_need express that the reader does not yet fully understand that meaning "
+    "relation. Do NOT invent a new idea outside the thesis; the elaboration target must be a meaning the "
+    "thesis ALREADY expresses but has left compressed.\n"
+    "\n"
     "RESTRAINT: do NOT select a function merely because it is imperfect or could be made more explicit. "
     "Select a function ONLY when developing it is expected to produce MEANINGFUL additional development. "
     "\n"
@@ -1675,6 +1698,12 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         '  "focus_status": "missing|partial|sufficient|misleading",\n'
         '  "focus_reasoning": "why the focus is at that status; recognize a simple integrated meaning '
         'as sufficient, do not demand a deeper/polished version",\n'
+        '  "thesis_decomposition": ["each entry states ONE principal communicative meaning or '
+        'relationship the thesis expresses (organized meaning, NOT vocabulary); [] if no thesis yet"],\n'
+        '  "elaboration_target": {"meaning_relation": "the ONE decomposed meaning a naive reader is '
+        'LEAST likely to fully understand (\\"\\" if develop is not in play)", "why_least_understood": '
+        '"why the reader would not yet fully grasp that meaning", "what_would_help": "what would help '
+        'the reader understand THAT meaning more completely (a direction, never text you would write)"},\n'
         '  "functions": {\n'
         '    "orient": {"status": "not_needed|missing|partial|sufficient|misleading", "evidence": "..."},\n'
         '    "focus": {"status": "missing|partial|sufficient|misleading", "evidence": "..."},\n'
@@ -1829,6 +1858,27 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
     if selected_fn and selected_fn not in ("focus",):
         justification = (fns.get(selected_fn, {}) or {}).get("evidence") or fd.get("naive_reader_need") or justification
 
+    # ELABORATION CONTEXT (hidden reasoning -> dialogue guidance): only when develop is the target.
+    # Names the ONE thesis meaning the naive reader least understands so the invitation targets THAT
+    # meaning rather than asking for a new idea. Never shown/quoted to the learner.
+    _elab_ctx = ""
+    et = fd.get("elaboration_target") or {}
+    if selected_fn == "develop" and isinstance(et, dict) and (et.get("meaning_relation") or "").strip():
+        decomp = fd.get("thesis_decomposition") or []
+        decomp_txt = "; ".join(str(d) for d in decomp if str(d).strip())
+        _elab_ctx = (
+            "THESIS MEANING TO ELABORATE (INTERNAL — do NOT quote, name, or read this out; it only "
+            "focuses your one invitation). The thesis decomposes into these communicative meanings: "
+            f"{decomp_txt or '(not decomposed)'}. Of these, the meaning a naive reader is LEAST likely "
+            f"to fully understand is: \"{et.get('meaning_relation','')}\" — because "
+            f"{et.get('why_least_understood','') or 'it is left compressed in the thesis'}. Your "
+            "governing question this turn is NOT 'what new idea comes next?' but 'what meaning already "
+            "expressed by this thesis does the reader still not fully understand?'. Help the writer "
+            "unfold THAT meaning for the reader (direction, not a rewrite): "
+            f"{et.get('what_would_help','') or 'invite them to make that meaning fully understandable to a naive reader'}. "
+            "Do not introduce a meaning the thesis does not already contain.\n"
+        )
+
     return {
         "selected": term,
         "status": struct_status,
@@ -1850,6 +1900,7 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         "current_thesis": current_focus,
         "thesis_is_verbatim": _thesis_is_verbatim(current_focus, student_text),
         "confidence": (fd.get("confidence") or ("high" if selected_fn else "medium")).lower(),
+        "_elaboration_context": _elab_ctx,
         "_provisional": {
             "observed_evidence": observed,
             "hypothesized_interpretation": fd.get("focus_reasoning") or "",
@@ -2107,7 +2158,8 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
         invitation, dlg_bytes = await generate_dialogue(state.id, assignment, unit, student_text,
                                                         target, obj, status, kind, instructional_action,
                                                         mode=dialogue_mode, sufficiency=developmental_sufficiency,
-                                                        rescue=rescue, prior_student_text=prior_student_text)
+                                                        rescue=rescue, prior_student_text=prior_student_text,
+                                                        elaboration_context=sel.get("_elaboration_context", ""))
     t_dialogue = time.perf_counter() - t_d0
 
     ownership_ok = not bool(_DOES_WORK.search(invitation or ""))
