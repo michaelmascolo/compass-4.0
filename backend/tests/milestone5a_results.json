@@ -1,0 +1,452 @@
+[
+  {
+    "n": 1,
+    "genre": "argumentative",
+    "brainstorm": false,
+    "first": {
+      "type": "interpretation_only",
+      "focus": "writing",
+      "cultural_resource": "",
+      "writing_not_content_check": "Invitation asks the student to identify the problem their own essay will address \u2014 teaching the writing function of problem-framing \u2014 and supplies no substantive ideas.",
+      "student_facing": "You've started by naming the topic \u2014 that's a real beginning. Right now your reader knows the subject but doesn't yet know what question or problem your essay is wrestling with. What is the specific tension or problem about social media and teen friendships that made you want to argue about it?",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 31.7
+  },
+  {
+    "n": 2,
+    "genre": "argumentative",
+    "brainstorm": false,
+    "first": {
+      "type": "instruct_then_invite",
+      "focus": "writing",
+      "cultural_resource": "Claim",
+      "writing_not_content_check": "Teaches the writing function of a claim (arguability, topic vs. position) \u2014 supplies no substantive ideas about social media or friendship.",
+      "student_facing": "You've named the territory you want to write about \u2014 social media and friendship. Now here's the key move: a thesis isn't just a topic, it's a position a reader could actually disagree with. Try writing one sentence that says what you believe social media *does* to teen friendships \u2014 something a thoughtful person might push back on.",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 32.9
+  },
+  {
+    "n": 3,
+    "genre": "argumentative",
+    "brainstorm": false,
+    "first": {
+      "type": "instruct_then_invite",
+      "focus": "writing",
+      "cultural_resource": "Paragraph Purpose \u2014 topic vs. purpose distinction",
+      "writing_not_content_check": "Teaches the communicative function of a body paragraph (doing a job, not just naming a topic); supplies no substantive ideas about social media or friendships.",
+      "student_facing": "You've made a start by naming social media and friendships as your subject. Right now, your paragraph tells us the topic \u2014 but a body paragraph in an argument also needs to do a job for the reader, like making a specific claim or showing why something is true. Can you tell me, in one sentence: what is this paragraph trying to convince your reader of?",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 32.3
+  },
+  {
+    "n": 4,
+    "genre": "argumentative",
+    "brainstorm": false,
+    "first": {
+      "type": "instruct_then_invite",
+      "focus": "writing",
+      "cultural_resource": "Claim",
+      "writing_not_content_check": "Teaches the communicative function of a claim (what makes an assertion arguable vs. procedural) \u2014 supplies no substantive ideas about car traffic.",
+      "student_facing": "You've made a clear choice \u2014 the city should reduce car traffic downtown. That gives you a starting position. Right now, though, your sentence tells the reader your topic and what the essay will do, rather than asserting something they could actually push back on. What is it about reducing car traffic that you want a skeptical reader to accept \u2014 what's the real claim you're asking them to agree with?",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 37.0
+  },
+  {
+    "n": 5,
+    "genre": "argumentative",
+    "brainstorm": false,
+    "first": {
+      "type": "instruct_then_invite",
+      "focus": "writing",
+      "cultural_resource": "Interpretation / Reasoning: making the 'because' visible",
+      "writing_not_content_check": "Teaches the communicative function of analysis (explain what evidence shows) \u2014 does not supply any substantive idea about traffic or downtown.",
+      "student_facing": "You've set up a three-part structure \u2014 a claim, some evidence, and a gesture toward analysis. Right now the analysis circles back to repeat the claim rather than explaining it. What does 'there are many cars' actually *show* your reader \u2014 what does it mean for downtown, and why does it matter to your argument?",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 35.9
+  },
+  {
+    "n": 6,
+    "genre": "argumentative",
+    "brainstorm": false,
+    "first": {
+      "type": "instruct_then_invite",
+      "focus": "writing",
+      "cultural_resource": "Thesis as controlling idea",
+      "writing_not_content_check": "Teaches the communicative function of a thesis (controlling idea vs. blueprint) and asks the student to generate their own core claim \u2014 supplies no substantive ideas.",
+      "student_facing": "You've given your reader a clear direction \u2014 three reasons stacked up front. Here's a question to sit with: right now your thesis tells the reader *that* social media harms friendships and *how many* reasons you have, but what is the one central idea you want the reader to actually believe by the end? Try stating what social media *does* to teen friendships \u2014 the core harm \u2014 in a way a reasonable person could push back on, without listing the three reasons.",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 40.0
+  },
+  {
+    "n": 7,
+    "genre": "argumentative",
+    "brainstorm": false,
+    "first": {
+      "type": "instruct_then_invite",
+      "focus": "writing",
+      "cultural_resource": "Significance / Problem framing",
+      "writing_not_content_check": "Teaches the communicative function of problem framing (a writing principle); does not supply any specific reasons, examples, or claims about downtown traffic.",
+      "student_facing": "You've made a start by stating your position clearly at the end \u2014 that's real work. Right now your opening asks a question about traffic and then steps back to say 'cars have existed for a long time,' but a reader who already knows cars exist may not yet feel why *this* city's downtown traffic is worth arguing about. Before you draft another sentence: what is the actual problem a downtown resident or visitor would recognize? Try describing that specific situation in one sentence \u2014 not the answer yet, just the problem.",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 40.7
+  },
+  {
+    "n": 8,
+    "genre": "argumentative",
+    "brainstorm": false,
+    "first": {
+      "type": "invite_only",
+      "focus": "writing",
+      "cultural_resource": "Claim",
+      "writing_not_content_check": "Invites the student to identify the argumentative function of their existing claim \u2014 no substantive ideas introduced.",
+      "student_facing": "Your thesis does real argumentative work \u2014 it distinguishes two kinds of friendship and makes a claim about what social media does to each. Before you build the essay around it, try this: state, in your own words, what a reader who disagrees with you would say back. What exactly would they contest \u2014 the weak-tie claim, the strong-tie claim, or the mechanism ('rewards breadth over depth')? Pinning down the contestable core will help you decide what your essay actually has to prove.",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 36.7
+  },
+  {
+    "n": 9,
+    "genre": "narrative",
+    "brainstorm": false,
+    "first": {
+      "type": "interpretation_only",
+      "focus": "writing",
+      "cultural_resource": "",
+      "writing_not_content_check": "Teaches the communicative function of purpose in an opening (reader needs to know what the essay is about) without supplying any substantive ideas.",
+      "student_facing": "You've started placing us in a moment \u2014 a park, a sunny day, something that happened. That's a real beginning. Right now your reader knows where you were but not yet why this moment matters to them. Before you write another sentence, can you tell me (just in your own words, not for the draft): what actually happened, and how did it change the way you see something?",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 35.7
+  },
+  {
+    "n": 10,
+    "genre": "narrative",
+    "brainstorm": false,
+    "first": {
+      "type": "interpretation_only",
+      "focus": "writing",
+      "cultural_resource": "Paragraph Purpose",
+      "writing_not_content_check": "Invitation asks the student to name their paragraph's communicative function \u2014 a writing principle; supplies no substantive ideas.",
+      "student_facing": "You've planted three quiet details \u2014 the tea, the watching, the blue kettle \u2014 and together they feel like the beginning of something. Before you write the next sentence, try to say in your own words (not in the draft yet): what is this paragraph trying to do for the reader? Is it setting a scene, introducing someone, or something else?",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 33.7
+  },
+  {
+    "n": 11,
+    "genre": "narrative",
+    "brainstorm": false,
+    "first": {
+      "type": "interpretation_only",
+      "focus": "writing",
+      "cultural_resource": "",
+      "writing_not_content_check": "Invitation targets scene development (a narrative writing function \u2014 giving the reader sensory/situational access to a moment); it supplies no ideas, arguments, or content of my own.",
+      "student_facing": "You've got the skeleton of a story here \u2014 a before, a failure, a feeling, and a turnaround. Right now each moment is just named, not lived in. Pick one of those four moments and tell me: what was actually happening in that moment? What would a reader need to see or hear to be there with you?",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 34.7
+  },
+  {
+    "n": 12,
+    "genre": "narrative",
+    "brainstorm": false,
+    "first": {
+      "type": "interpretation_only",
+      "focus": "writing",
+      "cultural_resource": "",
+      "writing_not_content_check": "Invitation asks the student to perform the communicative function of a meaning-developing conclusion using their own insight \u2014 supplies no substantive ideas.",
+      "student_facing": "You've brought us to the end of the story \u2014 the moment when your dad found you. Right now the ending tells us what happened, but the assignment asks about a moment that *changed how you see something*. What did that experience make you see differently \u2014 about your dad, yourself, or the world? Sit with that question for a moment, then write one or two sentences that try to capture it.",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 31.1
+  },
+  {
+    "n": 13,
+    "genre": "narrative",
+    "brainstorm": false,
+    "first": {
+      "type": "interpretation_only",
+      "focus": "writing",
+      "cultural_resource": "",
+      "writing_not_content_check": "Invitation asks about communicative purpose and reader orientation \u2014 writing functions \u2014 and supplies no substantive ideas about what the essay should say.",
+      "student_facing": "Those two sentences do something quiet and powerful \u2014 they make the reader feel the weight of something unresolved before knowing what it is. As you think about continuing, what is it you want your reader to understand or feel by the end of this opening? What situation does a reader need just enough of to follow where this is going?",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 39.7
+  },
+  {
+    "n": 14,
+    "genre": "narrative",
+    "brainstorm": false,
+    "first": {
+      "type": "interpretation_only",
+      "focus": "writing",
+      "cultural_resource": "",
+      "writing_not_content_check": "Invitation asks the student to identify which moment to foreground \u2014 a question of narrative organization and emphasis, not a suggestion of what the moment should be.",
+      "student_facing": "You've got the bones of a trip here \u2014 departure, arrival, eating, leaving. Right now each moment is given equal weight, but your assignment asks about a moment that *changed* how you see something. Which one of these stops, even briefly, felt different from the others \u2014 the one where something shifted for you?",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 33.4
+  },
+  {
+    "n": 15,
+    "genre": "informative",
+    "brainstorm": false,
+    "first": {
+      "type": "invite_only",
+      "focus": "writing",
+      "cultural_resource": "orienting context (Audience Awareness)",
+      "writing_not_content_check": "Invitation targets the writing function of orienting a naive reader (audience awareness); supplies no substantive ideas about GPS.",
+      "student_facing": "You've made a start \u2014 you know your topic is GPS and you've identified a few things about it. Now, picture someone who has never heard of GPS sitting down to read this. What's the very first thing they would need to understand before anything else makes sense to them? Write one or two sentences that give that reader a foothold.",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 33.2
+  },
+  {
+    "n": 16,
+    "genre": "informative",
+    "brainstorm": false,
+    "first": {
+      "type": "instruct_then_invite",
+      "focus": "writing",
+      "cultural_resource": "Whole Essay Purpose",
+      "writing_not_content_check": "Teaches the communicative function of a central purpose statement; supplies no substantive ideas about vaccines.",
+      "student_facing": "You've made a start by identifying four things your piece will touch on. Right now, each sentence stands alone \u2014 a reader can't yet see why these ideas follow each other in this order. Before writing more, try this: in one sentence, tell me what you want a reader to understand about vaccines by the end of your piece. That single purpose will help you decide what comes first and why.",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 31.5
+  },
+  {
+    "n": 17,
+    "genre": "informative",
+    "brainstorm": false,
+    "first": {
+      "type": "interpretation_only",
+      "focus": "writing",
+      "cultural_resource": "",
+      "writing_not_content_check": "Invitation targets the communicative function of reader orientation in an introduction; supplies no substantive ideas about the internet.",
+      "student_facing": "You've made a start by naming your topic and signaling your plan. Before diving in, try this: imagine a reader who knows almost nothing about the internet picking up your essay. What's the one thing you most want them to understand or wonder about by the end of your first paragraph \u2014 not just what the essay is about, but why it's worth reading? Write a sentence or two that gets at that.",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 32.7
+  },
+  {
+    "n": 18,
+    "genre": "informative",
+    "brainstorm": false,
+    "first": {
+      "type": "interpretation_only",
+      "focus": "writing",
+      "cultural_resource": "",
+      "writing_not_content_check": "Invitation targets the paragraph's governing movement and communicative function \u2014 it does not supply any substantive ideas; the student generates the process-statement themselves.",
+      "student_facing": "You've made a start by identifying three ingredients \u2014 sunlight, water, and carbon dioxide. Right now those pieces sit separately, and a reader who's new to this topic would want to know how they fit together in the process. Before you write more, try this: in one sentence, tell me what a plant actually *does* with those three things.",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 32.2
+  },
+  {
+    "n": 19,
+    "genre": "informative",
+    "brainstorm": false,
+    "first": {
+      "type": "interpretation_only",
+      "focus": "writing",
+      "cultural_resource": "",
+      "writing_not_content_check": "Invitation targets the writing function of paragraph purpose (what job a paragraph does for a reader) and supplies no substantive ideas of my own.",
+      "student_facing": "You've named three things about electric cars \u2014 batteries, quietness, and cost. Here's a question to push your thinking: what is this paragraph trying to do for a reader who knows nothing about electric cars yet? Try writing one sentence that names the job this paragraph is doing, not just the topic it covers.",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 32.7
+  },
+  {
+    "n": 20,
+    "genre": "informative",
+    "brainstorm": false,
+    "first": {
+      "type": "instruct_then_invite",
+      "focus": "writing",
+      "cultural_resource": "Whole Essay Purpose \u2014 central communicative goal",
+      "writing_not_content_check": "Invitation targets the FUNCTION of a purpose statement (how writing is organized for a reader) and asks the student to supply their own content \u2014 no substantive ideas introduced.",
+      "student_facing": "You've started with a real topic and some recognizable ideas about recycling. Before adding more, try this: in one sentence, what do you most want your reader to understand about how recycling works or what it does? Write that sentence and share it \u2014 it will help us see where the piece is headed.",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 36.9
+  },
+  {
+    "n": 21,
+    "genre": "analytical",
+    "brainstorm": false,
+    "first": {
+      "type": "instruct_then_invite",
+      "focus": "writing",
+      "cultural_resource": "Interpretation / Reasoning: make the 'because' visible",
+      "writing_not_content_check": "Invitation teaches the writing function of connecting evidence to effect (interpretive reasoning); supplies no specific image, claim, or idea \u2014 those remain entirely the student's.",
+      "student_facing": "You've made a start by naming imagery as important in this poem. Now try this: pick one specific image from the poem and tell your reader what it actually shows or does \u2014 not that it exists, but what it makes happen for the reader. What does that image cause the reader to feel, see, or understand?",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 33.5
+  },
+  {
+    "n": 22,
+    "genre": "analytical",
+    "brainstorm": false,
+    "first": {
+      "type": "instruct_then_invite",
+      "focus": "writing",
+      "cultural_resource": "Claim",
+      "writing_not_content_check": "Teaches the function of a claim (contestability, organizing the essay) \u2014 supplies no substantive ideas about the painting.",
+      "student_facing": "You've made a start by naming a painting as your subject. Right now your sentence tells a reader what the essay is *about*, but an analytical essay needs to tell the reader what you're *claiming* about it \u2014 something a thoughtful reader could actually push back on. What is the one thing you want your reader to understand or see differently about how this painting produces its effect?",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 33.6
+  },
+  {
+    "n": 23,
+    "genre": "analytical",
+    "brainstorm": false,
+    "first": {
+      "type": "invite_only",
+      "focus": "writing",
+      "cultural_resource": "Interpretation / Reasoning: making the 'because' visible",
+      "writing_not_content_check": "Invitation targets the writing function of making reasoning visible (connecting technique to effect to purpose) \u2014 supplies no substantive ideas about what the text means or what the argument should say.",
+      "student_facing": "You've named a real technique \u2014 short sentences \u2014 and connected it to an effect. Now take one more step: what does that dramatic effect actually do for the reader in this specific moment of the text? In other words, can you say what the short sentences make the reader feel, understand, or notice \u2014 and why that matters for what the author is trying to accomplish?",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 40.1
+  },
+  {
+    "n": 24,
+    "genre": "analytical",
+    "brainstorm": false,
+    "first": {
+      "type": "interpretation_only",
+      "focus": "writing",
+      "cultural_resource": "",
+      "writing_not_content_check": "Invitation targets the communicative function of making a contestable claim \u2014 teaches WHAT a claim does (something a reader could dispute), supplies no substantive ideas about the square.",
+      "student_facing": "You've named some features of the square \u2014 benches, fountain, open space, people gathering. That's a starting place. Now, what do you think this space *does* to the people in it, or makes them feel or do? In one sentence, try to say what you believe is true about this square that a reader might not immediately see or agree with.",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 32.6
+  },
+  {
+    "n": 25,
+    "genre": "analytical",
+    "brainstorm": false,
+    "first": {
+      "type": "interpretation_only",
+      "focus": "writing",
+      "cultural_resource": "",
+      "writing_not_content_check": "Invitation targets the communicative function of thesis/claim (what the essay establishes for the reader) \u2014 supplies no substantive ideas about the film or music.",
+      "student_facing": "You've identified your subject \u2014 a movie's use of music \u2014 and that's a real starting point. Right now your opening tells the reader *that* music does things, but not *what* the essay is going to show them about how or why. What is the one thing you want your reader to understand by the end of this essay that they probably don't understand yet?",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 29.9
+  },
+  {
+    "n": 26,
+    "genre": "analytical",
+    "brainstorm": false,
+    "first": {
+      "type": "interpretation_only",
+      "focus": "writing",
+      "cultural_resource": "",
+      "writing_not_content_check": "Invitation asks about the paragraph's argumentative purpose and the function of reasoning \u2014 not about which text to choose or what the argument should say.",
+      "student_facing": "You've made a start by naming what character development is. Now, think about the specific text you're analyzing: what exactly changes for the character, and what in the text causes or shows that change? In one or two sentences, try saying what the paragraph is actually trying to prove to a reader about how that change works.",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 33.3
+  },
+  {
+    "n": 27,
+    "genre": "narrative",
+    "brainstorm": false,
+    "first": {
+      "type": "interpretation_only",
+      "focus": "writing",
+      "cultural_resource": "",
+      "writing_not_content_check": "Invitation asks about communicative purpose of the opening \u2014 teaches the writing function of intentional orientation \u2014 supplies no substantive ideas.",
+      "student_facing": "That opening sentence does real work \u2014 it holds a smell, a timeline, and a genuine tension between memory and accusation all at once. Before you write the next sentence, can you say, in your own words, what you want a reader to feel or understand by the time they finish the opening? Not what happened, but what the opening is trying to do to the reader.",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 37.5
+  },
+  {
+    "n": 28,
+    "genre": "analytical",
+    "brainstorm": false,
+    "first": {
+      "type": "invite_only",
+      "focus": "writing",
+      "cultural_resource": "Paragraph Purpose",
+      "writing_not_content_check": "Invitation targets the paragraph's communicative function (what job it does, how reasoning extends to meaning) and supplies no substantive ideas about the space or its effects.",
+      "student_facing": "You've opened with a sharp observation: the room's design eliminates bystanders. That's a claim with real analytical bite. Now push one step further \u2014 what does eliminating bystanders *do* to the people in the room, and how does that connect to the larger effect the space produces? What job is this paragraph doing for the essay it will belong to?",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 37.4
+  },
+  {
+    "n": 29,
+    "genre": "informative",
+    "brainstorm": false,
+    "first": {
+      "type": "interpretation_only",
+      "focus": "writing",
+      "cultural_resource": "",
+      "writing_not_content_check": "Invitation asks the student to name the paragraph's communicative purpose for the reader \u2014 a writing function \u2014 and supplies no substantive ideas of its own.",
+      "student_facing": "You've opened with a tight, precise sentence that tells the reader what a blockchain is and why tampering is detectable \u2014 that's doing real work. Right now it's one sentence forming the beginning of a paragraph. What job do you want this paragraph to do for a reader who's never encountered a blockchain? Try writing one more sentence that names that job, even roughly \u2014 something like 'In this paragraph I want to help the reader understand ___.'",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 35.9
+  },
+  {
+    "n": 30,
+    "genre": "argumentative",
+    "brainstorm": true,
+    "first": {
+      "type": "invite_only",
+      "focus": "content",
+      "cultural_resource": "",
+      "writing_not_content_check": "Content mode invoked per explicit teacher permission (brainstorming ON); invitation asks student to generate their own observations, supplying no ideas of our own.",
+      "student_facing": "That's a perfectly honest starting place. Since brainstorming is the goal right now, try this: jot down two or three moments \u2014 from your own life or things you've noticed \u2014 where social media either brought friends closer or pushed them apart. Don't worry about what position to take yet; just name the moments that feel real to you, and we'll see what they point toward.",
+      "redflags": []
+    },
+    "ok_boundary": true,
+    "elapsed_s": 31.8
+  }
+]

@@ -1,0 +1,613 @@
+[
+  {
+    "n": 1,
+    "category": "effective",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "deepen meaning",
+      "broaden significance",
+      "call to reflection",
+      "restatement-with-development"
+    ],
+    "completes_purpose": "Potentially yes \u2014 it synthesizes a core distinction rather than merely summarizing. Uncertain without the essay body to confirm it follows from developed argument.",
+    "relationship_to_opening": "Unknown \u2014 no introduction visible; cannot assess whether the conclusion returns to or resolves an opening frame.",
+    "final_understanding": "The risk of social media is not disconnection but the illusion of connection; protecting genuine presence matters more than maximizing contact.",
+    "focus": "writing",
+    "type": "invite_only",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "This conclusion is doing real work \u2014 it reframes the essay's question in a way that deepens rather than just repeats. Before you finalize it, sit with this: what does your reader now understand about teen friendships and social media that they couldn't have understood before reading your argument? Make sure the ending completes that journey rather than arriving ahead of it.",
+    "elapsed_s": 42.9
+  },
+  {
+    "n": 2,
+    "category": "effective",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "synthesis",
+      "deepen meaning",
+      "leave lasting impression",
+      "broaden significance (loneliness becomes universally portable)"
+    ],
+    "completes_purpose": "Partially \u2014 it synthesizes the central interpretive claim effectively, but without the essay's opening in view, it is unclear whether it returns to the opening problem or answers an opening question.",
+    "relationship_to_opening": "Unknown \u2014 no introduction is available; this is the key unresolved tension.",
+    "final_understanding": "The unnamed town is a deliberate rhetorical choice that universalizes loneliness by making the reader a carrier of it.",
+    "focus": "writing",
+    "type": "invite_only",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "This is a genuinely strong concluding sentence \u2014 it completes the analytical move by naming the effect the unnamed town produces and why it works. Before you decide it's done, sit with the whole essay's arc for a moment: what did your reader understand at the start, and what do they understand now that they didn't before? If there's a gap between those two points, your conclusion may have room to make that shift explicit \u2014 even in one additional sentence.",
+    "elapsed_s": 51.5
+  },
+  {
+    "n": 3,
+    "category": "effective",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "resolve narrative",
+      "reveal significance",
+      "complete the experience",
+      "invite reflection"
+    ],
+    "completes_purpose": "Partially \u2014 it names an insight and ends on a strong image, but without the visible prior understanding it's transforming, it stops rather than fully completes the arc.",
+    "relationship_to_opening": "Unknown \u2014 opening not visible; the ending implies a before-state but doesn't echo or return to it explicitly.",
+    "final_understanding": "Being unaccounted for feels less like freedom and more like disappearing \u2014 but what the writer thought it meant before is not yet on the page.",
+    "focus": "writing",
+    "type": "invite_only",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "That final image \u2014 standing in the rain, unaccounted for \u2014 lands with real weight. Before you decide whether it's finished, sit with this question: what did you understand *before* that moment that this experience quietly changed? Bringing that shift \u2014 even in a sentence \u2014 into the ending could help your reader feel the full arc of what happened to you.",
+    "elapsed_s": 51.5
+  },
+  {
+    "n": 4,
+    "category": "effective",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "deepening meaning",
+      "articulating insight",
+      "refusing false resolution",
+      "leaving lasting impression"
+    ],
+    "completes_purpose": "Likely completes the reflective purpose well on its own terms, but relationship to the opening is unknown \u2014 completion relative to the whole essay cannot be confirmed.",
+    "relationship_to_opening": "Unknown \u2014 full essay not supplied.",
+    "final_understanding": "Repair is not passive or emotional \u2014 it is a recurring, chosen act, especially on hard days.",
+    "focus": "writing",
+    "type": "invite_only",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "This conclusion does real work \u2014 it refuses easy resolution and lands on something precise and earned: repair as a practice, not a feeling. As you consider whether it completes the essay, think about what the reader has traveled through to arrive here. What does this sentence return to or answer from your opening? Does the reader land exactly where you want them?",
+    "elapsed_s": 40.0
+  },
+  {
+    "n": 5,
+    "category": "effective",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "synthesis",
+      "restatement-with-development",
+      "broaden significance",
+      "leave lasting impression"
+    ],
+    "completes_purpose": "Partially \u2014 the synthesis move is strong, but without the body it is unclear whether this fully completes what the essay built toward or leaves something unconnected.",
+    "relationship_to_opening": "Unknown \u2014 no introduction provided; potential for return-to-opening structure is unexplored.",
+    "final_understanding": "The water cycle is not a sequence but a continuous single motion; no water is lost.",
+    "focus": "writing",
+    "type": "invite_only",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "This sentence already does real work \u2014 it reframes the water cycle as continuous motion rather than a sequence of steps, and the final phrase ('not a drop is ever truly lost') lands as a genuine insight. Now consider what understanding you want your reader to carry away from the whole essay: does this conclusion complete that purpose, or is there something the essay built toward that your reader still needs you to connect here?",
+    "elapsed_s": 42.5
+  },
+  {
+    "n": 6,
+    "category": "merely_stops",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "stopping \u2014 not yet synthesizing, deepening, or returning to purpose"
+    ],
+    "completes_purpose": "No \u2014 merely stops; does not integrate reasons or reinforce the persuasive claim.",
+    "relationship_to_opening": "Unknown \u2014 introduction not available.",
+    "final_understanding": "Reader currently left without any synthesized understanding of why social media harms friendships.",
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "You've marked the end of your third reason \u2014 that's a clear stopping point. A conclusion does a different job than just signaling you're done: it's your chance to help the reader understand what all three reasons, taken together, mean. Before you write anything, can you tell me: after reading your whole argument, what do you want your reader to walk away understanding or thinking about social media and teen friendships?",
+    "elapsed_s": 36.0
+  },
+  {
+    "n": 7,
+    "category": "merely_stops",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "marks termination"
+    ],
+    "completes_purpose": "Stops rather than completes \u2014 no synthesis, significance, or broader understanding offered.",
+    "relationship_to_opening": "Cannot assess without the introduction; no connection attempted.",
+    "final_understanding": "Reader is told the process is over but gains no integrated understanding of why or what it means.",
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start by marking the end of the process \u2014 that's the right instinct for a conclusion. Here's something to consider: your reader now knows the last step, but a conclusion in an explanatory piece can do more than stop; it can help the reader understand why the whole process matters or what it means to see it as a complete system. What do you want your reader to walk away understanding about how a bill becomes a law that they didn't fully grasp before they started reading?",
+    "elapsed_s": 37.0
+  },
+  {
+    "n": 8,
+    "category": "merely_stops",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "chronological stopping"
+    ],
+    "completes_purpose": "No \u2014 it stops the story but does not complete the communicative purpose; no synthesis, significance, resolution of meaning, or insight.",
+    "relationship_to_opening": "Unknown \u2014 full essay not available.",
+    "final_understanding": "Currently none; reader understands only that the day ended.",
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "You've given us the ending action \u2014 you got in the car and the day was over. That's the moment right before the conclusion does its real work. What do you want the reader to *understand* about this experience now that it's over \u2014 not just that it ended, but what it meant?",
+    "elapsed_s": 36.3
+  },
+  {
+    "n": 9,
+    "category": "merely_stops",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "completion attempted"
+    ],
+    "completes_purpose": "Does not complete the analytical purpose; names a device without explaining its effect or meaning.",
+    "relationship_to_opening": "No opening visible; cannot assess.",
+    "final_understanding": "Currently leaves the reader with only 'the poem uses imagery' \u2014 no interpretive payoff.",
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start by naming imagery as something you noticed in the poem. For a conclusion to an analytical essay, the reader needs to leave with an understanding of what the poem's use of imagery *does* \u2014 what effect it produces or what it means. What do you want your reader to understand about this poem that they didn't fully understand before reading your essay?",
+    "elapsed_s": 36.1
+  },
+  {
+    "n": 10,
+    "category": "merely_stops",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "signals ending only"
+    ],
+    "completes_purpose": "No \u2014 it stops rather than completes; no insight, synthesis, or significance is communicated.",
+    "relationship_to_opening": "Unknown (body not visible); no evident return to an opening idea or experience frame.",
+    "final_understanding": "Reader currently gains no understanding; student needs to articulate what the experience taught them.",
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start by marking the ending \u2014 that's a real move in any piece of writing. For a reflection, the conclusion's job isn't just to close but to leave the reader with the insight the experience gave you: what do you understand now that you didn't before the trip? Try writing one or two sentences that answer that question in your own words.",
+    "elapsed_s": 40.2
+  },
+  {
+    "n": 11,
+    "category": "only_summarizes",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "summary only \u2014 synthesis, significance, and lasting impression absent"
+    ],
+    "completes_purpose": "No \u2014 restates claims without completing the persuasive purpose or deepening meaning.",
+    "relationship_to_opening": "Unknown (no intro available); 'as I said' signals backward reference, not completion.",
+    "final_understanding": "Reader should leave understanding WHY it matters that social media harms teen friendships \u2014 not just WHAT the three reasons are.",
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "You've laid out your three reasons clearly \u2014 that's a real foundation. Right now, your ending lists what you argued, but a conclusion's job is to leave the reader with something more than a recap: what should the reader *understand* now that they've read your whole argument? Try writing one or two sentences that complete that thought \u2014 not what you said, but what it means.",
+    "elapsed_s": 36.9
+  },
+  {
+    "n": 12,
+    "category": "only_summarizes",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "restatement without development"
+    ],
+    "completes_purpose": "Does not complete the persuasive purpose \u2014 lists reasons and restates the claim but adds no synthesis, implication, or significance; it stops rather than completes.",
+    "relationship_to_opening": "Unknown; introduction not provided.",
+    "final_understanding": "Reader should leave understanding not just what the writer thinks, but why it matters for the city \u2014 that understanding is currently absent.",
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "You've drafted a conclusion that names your three reasons and restates the position \u2014 that's a real starting point. Now think about what you want your reader to walk away understanding that they didn't fully grasp before reading your essay. What does reducing downtown car traffic actually make possible for the city, in your view? Try writing one or two sentences that complete that thought in your own words.",
+    "elapsed_s": 46.2
+  },
+  {
+    "n": 13,
+    "category": "only_summarizes",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "restatement without development \u2014 summary only"
+    ],
+    "completes_purpose": "Does not complete; it stops. Lists stages already explained without integrating them into a larger understanding.",
+    "relationship_to_opening": "Cannot assess without introduction, but current draft doesn't return to any framing idea.",
+    "final_understanding": "Reader should leave understanding the water cycle as a connected, continuous system \u2014 not just a list of three names.",
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "You've given your reader a quick recap of the three stages \u2014 that's a starting point. Now think about this: after reading your explanation of the water cycle, what should your reader understand about *why* it matters or how it works as a whole system? Try writing one or two sentences that give the reader that bigger understanding, rather than just listing the stages again.",
+    "elapsed_s": 37.7
+  },
+  {
+    "n": 14,
+    "category": "only_summarizes",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "return to purpose"
+    ],
+    "completes_purpose": "No \u2014 it lists techniques without synthesizing their combined effect or completing the analytical purpose.",
+    "relationship_to_opening": "Unknown (no intro available); likely mirrors a thesis that named three techniques.",
+    "final_understanding": "Reader should understand what unified effect the three techniques produce \u2014 currently absent.",
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "You've named the techniques you analyzed, which gives you a starting point. Right now the conclusion lists what you covered, but the reader already knows that from the essay itself. The conclusion's job is to leave the reader understanding something \u2014 what effect do all three techniques, working together, produce in the text? Try answering that question in your own words.",
+    "elapsed_s": 36.4
+  },
+  {
+    "n": 15,
+    "category": "persuasive",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "broaden significance",
+      "reframe argument",
+      "leave lasting impression"
+    ],
+    "completes_purpose": "Partially \u2014 it deepens meaning and reframes, but without seeing the body it's unclear whether it fully synthesizes the argument's specific reasons or only its overarching idea.",
+    "relationship_to_opening": "Unknown; no introduction provided.",
+    "final_understanding": "The reader should understand that reducing car traffic is not a technical policy but a question of civic values and who public space belongs to.",
+    "focus": "writing",
+    "type": "invite_only",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "This conclusion does real work \u2014 it reframes the argument around a bigger idea (who the city is for) rather than just repeating your reasons, which is exactly what synthesis looks like. Before you finalize it, ask yourself: what should your reader understand or feel moved to do that they couldn't have gotten from just reading your body paragraphs? If you can answer that, check whether those two sentences already deliver it \u2014 or whether one more move would complete the thought.",
+    "elapsed_s": 47.2
+  },
+  {
+    "n": 16,
+    "category": "persuasive",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "leave lasting impression",
+      "return to purpose",
+      "restatement-with-development (partial)"
+    ],
+    "completes_purpose": "The sentence gestures at completion but may function more as a slogan than a synthesis \u2014 it asserts the principle without integrating the essay's reasoning or deepening its significance.",
+    "relationship_to_opening": "Unknown \u2014 introduction not supplied.",
+    "final_understanding": "Closeness requires physical presence; social media is insufficient for real friendship.",
+    "focus": "writing",
+    "type": "invite_only",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "That final line does real work \u2014 it turns the whole argument into a principle the reader can carry with them. Before you decide this is finished, ask yourself: what has the reader just traveled through in this essay? What do you most want them to hold onto after that journey \u2014 and does your conclusion land them exactly there?",
+    "elapsed_s": 44.1
+  },
+  {
+    "n": 17,
+    "category": "explanatory",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "synthesis",
+      "restatement-with-development",
+      "return to purpose"
+    ],
+    "completes_purpose": "Largely completes the explanatory purpose by resolving the core concept into a clear, reframed understanding; may stop short of broader significance or implication.",
+    "relationship_to_opening": "Unknown \u2014 full essay not supplied; the memory/wall contrast suggests it may echo an opening framing.",
+    "final_understanding": "Vaccines work by training recognition, not by blocking threats \u2014 a conceptual reframe of immunity.",
+    "focus": "writing",
+    "type": "invite_only",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "Your conclusion does something strong: it reframes the whole explanation rather than just repeating it \u2014 the shift from 'wall' to 'memory' gives the reader a new way to hold the idea. That's synthesis working. Now consider: after landing on that reframe, is there anything the reader should carry forward \u2014 a broader implication of understanding immunity this way, or a sense of why this shift in thinking matters beyond vaccines? What would you want them to sit with?",
+    "elapsed_s": 41.4
+  },
+  {
+    "n": 18,
+    "category": "explanatory",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "synthesize",
+      "deepen meaning",
+      "leave lasting impression"
+    ],
+    "completes_purpose": "Partially \u2014 the sentence synthesizes elegantly but doesn't yet confirm what the reader now understands or why it matters beyond the mechanism itself; may or may not complete depending on what the essay body already accomplished.",
+    "relationship_to_opening": "Unknown \u2014 opening not supplied; may need to return to an opening question or framing.",
+    "final_understanding": "That compounding works because returns generate their own returns, making time the essential variable \u2014 but broader significance for the reader is not yet stated.",
+    "focus": "writing",
+    "type": "invite_only",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "That's a strong synthesizing sentence \u2014 it captures both the mechanism and the insight. Before you decide if this is your full conclusion, consider: after reading your whole essay, what should a reader now understand about compounding that they couldn't have understood at the start? What does knowing this process actually change for them?",
+    "elapsed_s": 38.0
+  },
+  {
+    "n": 19,
+    "category": "analytical",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "deepen meaning",
+      "broaden significance"
+    ],
+    "completes_purpose": "Not yet \u2014 the sentence offers a sharp analytical point but does not synthesize the essay's full interpretive work or articulate final significance.",
+    "relationship_to_opening": "Unknown; full essay not visible.",
+    "final_understanding": "What the reader should grasp: how the text's formal contrast between the two voices enacts meaning the narrator refuses to voice \u2014 but this needs to be arrived at, not merely stated.",
+    "focus": "writing",
+    "type": "invite_only",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "You've landed on something precise \u2014 the contrast between the two sentence rhythms quietly delivers a verdict the narrator won't state directly. That's a strong analytical observation. Now, as a conclusion, this sentence needs to complete the whole essay's work: what should the reader understand about how the text produces its effect that they couldn't have understood before reading your analysis?",
+    "elapsed_s": 41.1
+  },
+  {
+    "n": 20,
+    "category": "analytical",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "deepen meaning",
+      "return to purpose",
+      "leave lasting impression"
+    ],
+    "completes_purpose": "Potentially \u2014 the emotional transfer claim is a strong completing gesture, but synthesis of the analytical argument is unverifiable without the body.",
+    "relationship_to_opening": "Unknown; no introduction supplied.",
+    "final_understanding": "The film's formal choice (held empty frame + silence) is the mechanism by which grief passes from character to viewer.",
+    "focus": "writing",
+    "type": "invite_only",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "This sentence does real work \u2014 it captures the moment the film's silence transfers its weight to the viewer, and that shift from 'character's grief' to 'ours to carry' is a strong completing move. Before you decide this is finished, ask yourself: what does a reader now understand about *how* the film produces that transfer that they couldn't have understood before reading your essay? Sit with that question, then decide whether this sentence completes the analytical journey your essay has been making.",
+    "elapsed_s": 46.8
+  },
+  {
+    "n": 21,
+    "category": "narrative",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "deepen meaning",
+      "leave lasting impression",
+      "invite reflection",
+      "broaden significance"
+    ],
+    "completes_purpose": "Partially \u2014 it completes the image and names a lesson, but may not yet complete the narrator's transformation or the reader's understanding of who the writer was/became.",
+    "relationship_to_opening": "Cannot assess without the opening; the return-to-purpose relationship is unverifiable.",
+    "final_understanding": "Bad news can be delivered with gentleness \u2014 but the reader's understanding of what changed in the writer is implicit rather than fully felt.",
+    "focus": "writing",
+    "type": "invite_only",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "That closing image is doing real work \u2014 the untouched tea and its rattle carry both the tenderness and the weight of the moment. As you look at the whole essay, think about what your reader now understands about *you* that they didn't before the experience began. What has changed in you, and does the ending let the reader feel that change, or does it leave it implicit?",
+    "elapsed_s": 43.9
+  },
+  {
+    "n": 22,
+    "category": "narrative",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "resolve narrative",
+      "imply significance",
+      "leave lasting impression"
+    ],
+    "completes_purpose": "Partially \u2014 it resolves the scene effectively, but significance is implied rather than developed; the reader feels something but the writer has not yet articulated what the experience meant.",
+    "relationship_to_opening": "Cannot assess without the full narrative.",
+    "final_understanding": "The reader understands (implicitly) that finishing on one's own terms matters more than recognition \u2014 but this remains the reader's inference, not the writer's voiced insight.",
+    "focus": "writing",
+    "type": "interpretation_only",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "There's something quietly powerful in that final image \u2014 the grin, the unclamped lace, the absence of applause. You've given the reader a moment, and it lands. Before you decide whether this is your conclusion or still mid-story: what do you want the reader to carry away from this experience \u2014 not just the scene, but what it meant?",
+    "elapsed_s": 53.0
+  },
+  {
+    "n": 23,
+    "category": "reflective",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "deepen meaning",
+      "leave lasting impression",
+      "articulate insight"
+    ],
+    "completes_purpose": "Potentially yes \u2014 the insight is well-formed \u2014 but completion depends on whether it is anchored to the specific experience the essay built; risk of feeling like a general aphorism rather than a specific completion.",
+    "relationship_to_opening": "Unknown \u2014 no prior text provided.",
+    "final_understanding": "That maturity is the capacity to read a moment and choose the right kind of strength for it.",
+    "focus": "writing",
+    "type": "invite_only",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "That closing image \u2014 the scar fading while the lesson stays \u2014 does real work. As you read it back, consider what the reader has been through in the essay before reaching this line: what understanding were you building toward, and does this conclusion land as the arrival point of that whole journey, or does it feel like it could belong to any reflective essay? Think about whether the final sentence \u2014 'growing up is mostly learning which one a moment asks of you' \u2014 is completing something specific your essay built, or whether it still needs to be tied more tightly to the particular experience you reflected on.",
+    "elapsed_s": 50.7
+  },
+  {
+    "n": 24,
+    "category": "reflective",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "articulate insight",
+      "leave lasting impression",
+      "invite reflection",
+      "resolve narrative"
+    ],
+    "completes_purpose": "Appears to complete a reflective arc \u2014 insight is stated, image is resonant. Cannot confirm it completes the whole essay without the body.",
+    "relationship_to_opening": "Unknown \u2014 opening not supplied.",
+    "final_understanding": "Silence is a choice; the writer now chooses presence over protective silence.",
+    "focus": "writing",
+    "type": "invite_only",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "This ending does real work \u2014 the image of the stone in the pocket and the pivot to 'the next time' give the reader something to carry away. As you think about the whole essay this conclusion is meant to complete: what is the one understanding you want the reader to leave with that the rest of the essay has been building toward? Sitting with that question may help you feel whether this ending lands exactly where the essay needs it to.",
+    "elapsed_s": 43.9
+  },
+  {
+    "n": 25,
+    "category": "introduces_new_idea",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "partial restatement of position"
+    ],
+    "completes_purpose": "No \u2014 sentence 2 opens new unrelated topics rather than completing the friendship argument.",
+    "relationship_to_opening": "Unknown; no prior draft of introduction provided.",
+    "final_understanding": "Should leave reader understanding why social media harms friendships \u2014 currently absent.",
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start by stating your position \u2014 that's a real move in a conclusion. Right now, the second sentence pulls the reader toward several new topics (sleep, the economy, eyesight) rather than completing the argument about friendships. A conclusion's job is to finish what the essay began, not open new doors. What is the one thing you most want your reader to walk away understanding about social media and teen friendships \u2014 something your essay has actually built toward?",
+    "elapsed_s": 37.7
+  },
+  {
+    "n": 26,
+    "category": "introduces_new_idea",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "restatement (minimal)"
+    ],
+    "completes_purpose": "No \u2014 it restates the position without synthesis, meaning, or significance, then introduces entirely new topics that break completion.",
+    "relationship_to_opening": "Cannot assess without seeing the introduction.",
+    "final_understanding": "Reader should leave understanding why reducing car traffic is the right decision for the city; currently the reader is left confused by unrelated new agenda items.",
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start by stating your position, and that gives us something to work with. A conclusion's job is to complete what the essay set out to do \u2014 in this case, leave the reader understanding *why* reducing car traffic is the right call for the city. Before you revise, ask yourself: what should a reader walk away understanding that they didn't fully grasp before reading your argument?",
+    "elapsed_s": 39.6
+  },
+  {
+    "n": 27,
+    "category": "introduces_new_idea",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "partial restatement of mood claim \u2014 no synthesis, no deepened meaning, no completion"
+    ],
+    "completes_purpose": "No \u2014 sentence 1 gestures at completion but sentence 2 introduces unrelated content, fracturing completion.",
+    "relationship_to_opening": "Unknown (essay not supplied); sentence 2 does not relate to the analytical purpose.",
+    "final_understanding": "Reader should understand how and why imagery produces the mournful mood as the text's defining effect \u2014 currently not delivered.",
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start by naming the mood the imagery creates \u2014 that's a real observation about the text's effect. Right now, though, the conclusion takes a turn away from that idea toward the poet's biography and other writers. Think about what you've been arguing throughout the essay: what should a reader understand about *how* this text produces its mournful effect that they didn't fully grasp before reaching this final moment? Try drafting one or two sentences that complete that thought, staying inside the world of the text.",
+    "elapsed_s": 42.7
+  },
+  {
+    "n": 28,
+    "category": "mixed",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "synthesize explanation and argument",
+      "broaden significance",
+      "return to dual purpose"
+    ],
+    "completes_purpose": "Partially \u2014 the sentence connects both purposes but does not yet develop the significance or leave the reader with a full final understanding.",
+    "relationship_to_opening": "Unknown; no prior draft available.",
+    "final_understanding": "Reader should understand that the structure of algorithmic logic is itself the justification for human regulatory intervention.",
+    "focus": "writing",
+    "type": "invite_only",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "You've drafted a sentence that does real concluding work \u2014 it connects the explanation of how algorithms function to the case for regulating them, which is exactly what this assignment asks for. That's a strong start. Before expanding it, sit with this question: after reading your whole essay, what should a reader now understand or believe that they didn't fully hold before \u2014 and does your ending capture that understanding?",
+    "elapsed_s": 40.2
+  },
+  {
+    "n": 29,
+    "category": "mixed",
+    "brainstorm": false,
+    "applies": true,
+    "functions": [
+      "return to purpose",
+      "invite reflection",
+      "begin synthesis"
+    ],
+    "completes_purpose": "Not yet \u2014 the insight is named but not developed; the conclusion has an effective opening move but needs to deepen meaning and explain significance.",
+    "relationship_to_opening": "Unknown \u2014 the essay's opening is not visible, but this passage references the recital memory in a way that suggests it may echo an earlier scene.",
+    "final_understanding": "What the reader should understand: that learning emerges through recovery from failure, not avoidance of it \u2014 but this needs fuller articulation.",
+    "focus": "writing",
+    "type": "invite_only",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "This opening move is doing real work \u2014 the image of the wrong note as a beginning rather than an ending captures the essay's insight with striking economy. As you develop the conclusion, consider: what should a reader now understand about learning that they couldn't have understood before the story began? Let that understanding shape what you add next.",
+    "elapsed_s": 45.5
+  },
+  {
+    "n": 30,
+    "category": "brainstorm_conclusion",
+    "brainstorm": true,
+    "applies": true,
+    "functions": [
+      "completing the persuasive purpose",
+      "leaving the reader with the significance of the claim"
+    ],
+    "completes_purpose": "Unknown until student articulates what the argument established.",
+    "relationship_to_opening": "Unknown \u2014 essay body not shared.",
+    "final_understanding": "Student has not yet identified what they want the reader to finally understand; this is the productive edge.",
+    "focus": "writing",
+    "type": "invite_only",
+    "rule_flags": [],
+    "content_flags": [],
+    "ok": true,
+    "student_facing": "Your whole argument has been building toward something \u2014 a position on whether social media helps or hurts teen friendships. Before you draft a word of the conclusion, try this: in one sentence, say what you want your reader to walk away believing or understanding that they didn't fully grasp before they started reading. What's the thing your argument has been trying to make them see?",
+    "elapsed_s": 32.5
+  }
+]

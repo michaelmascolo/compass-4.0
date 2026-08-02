@@ -1,0 +1,353 @@
+[
+  {
+    "id": "TC01",
+    "name": "Misunderstanding the assignment",
+    "object": "thesis",
+    "object_raw": "Thesis — turn a general topic into a contestable answer to the assignment question",
+    "bottleneck": "draft names the topic (school) but does not assert any position about year-round school; reader cannot tell what the essay is arguing.",
+    "diagnosed": [
+      "no thesis — draft does not answer the assignment question",
+      "draft is about school generally, not year-round school specifically",
+      "no contestable claim exists for the body to develop"
+    ],
+    "evidence": [
+      "four sentences confirm basic understanding that school has value — student can generate ideas about school."
+    ],
+    "strategy": [
+      "brief direct explanation",
+      "reminder of the assignment",
+      "partial scaffold"
+    ],
+    "dependency": "thesis",
+    "dependency_status": "none",
+    "sequence": "continue",
+    "sufficiency": "not_yet",
+    "exit": "can every part of the essay be organized around one central claim, and could a thoughtful reader restate it?",
+    "next": "once a contestable thesis exists, develop supporting claims and organize the body around them.",
+    "coaching": "You've already done something real here — you've told your reader that school matters and helps people build a future, and that's a meaningful foundation to build from. Now let's talk about one specific part of an essay called the **thesis**, which is the single sentence that tells your reader the main idea your whole essay is trying to get them to understand and accept. An essay is made up of a few pieces working together — a central claim, reasons, and evidence — and the thesis is what ties all of those parts together by giving the reader one clear idea to hold onto from the very beginning. One strategy writers use to find their thesis is to ask themselves: *What is the most important idea I want my reader to walk away believing?* — and then turn that answer into a focused statement that someone could actually agree or disagree with. Right now your draft tells us that school is important, but it doesn't yet answer the assignment's actual question: would *year-round* school help students learn? Try writing just one sentence that says whether you think year-round school would or would not help students learn, and includes at least one reason why — once your thesis takes that clear position, we'll use it to build out your supporting reasons and organize the rest of your essay around it.",
+    "coaching_words": 230,
+    "_secs": 74.1
+  },
+  {
+    "id": "TC07",
+    "name": "Strong thesis that should not be over-taught",
+    "object": "thesis",
+    "object_raw": "Thesis consolidation — confirm what the claim commits the essay to prove",
+    "bottleneck": "no body yet — cannot verify thesis-body alignment; otherwise the thesis is sufficient.",
+    "diagnosed": [
+      "thesis is strong — consolidate and release to drafting",
+      "no body yet — thesis-body alignment cannot be checked yet",
+      "forward: student could benefit from naming what the body must establish before drafting"
+    ],
+    "evidence": [
+      "claim is contestable — a reasonable reader could dispute it",
+      "warrant is logically connected to claim"
+    ],
+    "strategy": [
+      "brief consolidation of what the student has learned",
+      "connection between local writing and whole-essay purpose"
+    ],
+    "dependency": "",
+    "dependency_status": "none",
+    "sequence": "consolidate",
+    "sufficiency": "sufficient",
+    "exit": "can every part of the essay be organized around this one central claim, and could a thoughtful reader restate it? — yes, criterion met.",
+    "next": "draft body paragraphs; check that each advances the central claim.",
+    "coaching": "Your two-sentence opening does something genuinely difficult: it doesn't just take a side, it reframes the entire debate — the idea that proximity was *mistaken* for teamwork is a contestable, specific claim that a thoughtful reader could push back on, which is exactly what a strong thesis does. That's a good moment to pause on, because a thesis is the part of an essay that tells your reader the single main idea the whole piece exists to establish — it anchors everything else, from your introduction to the way you organize each paragraph. One strategy writers use at this stage is to ask: *What is the most important idea I want a skeptical reader to accept by the end?* — and then check that their thesis statement, and only their thesis statement, answers that question. Your claim already does this, so the move now is to confirm what it commits you to proving: what would the body of your essay need to establish for a reader who *doesn't* yet believe that old collaboration was mostly proximity to be convinced? Naming those two or three obligations will help you keep every paragraph organized around that central claim — and that's exactly where we're headed next, drafting body paragraphs that each advance it.",
+    "coaching_words": 211,
+    "_secs": 82.5
+  },
+  {
+    "id": "TC13",
+    "name": "Effective topic sentence",
+    "object": "evidence",
+    "object_raw": "Supporting Detail — introduce one specific textual image",
+    "bottleneck": "topic sentence is ready to govern; no specific detail exists to develop it.",
+    "diagnosed": [
+      "no supporting detail present — paragraph is a topic sentence only",
+      "no explanation/analysis present — evidence-to-claim reasoning not yet attempted",
+      "poem/text not cited — specific image unidentified"
+    ],
+    "evidence": [
+      "topic sentence makes a contestable interpretive claim, not a topic announcement."
+    ],
+    "strategy": [
+      "focused question",
+      "connection between local writing and whole-essay purpose"
+    ],
+    "dependency": "explanation",
+    "dependency_status": "identified",
+    "sequence": "continue",
+    "sufficiency": "not_yet",
+    "exit": "paragraph has at least one specific detail that can be understood as developing the controlling idea.",
+    "next": "once a specific image is named, teach explanation/analysis: what does this image show about the distance?",
+    "coaching": "Your opening sentence does something many writers struggle to do: it makes a claim rather than just naming a topic, and it ties two specific ideas together — the poem's winter images and the gap between a father's love and a son's understanding of it. That sentence is ready to lead a paragraph, so today we're working on supporting detail, which means introducing one specific image from the poem that gives your reader actual grounds to believe the claim you've made. Evidence does that work in an essay — it gives your reader a reason to accept, question, or build on what you're arguing, rather than simply taking your word for it. A useful strategy writers use here is to ask: what does my claim require the reader to believe, and what specific moment in the poem would give them a reason to believe it? Try this now: go back to the poem and name one particular image of winter cold — a line, a detail, a moment — and then note, in your own words, what that image shows about the distance between the father and the son. Once you have that specific image on the page, we'll move to the next step: explaining exactly how it does the work your claim says it does.",
+    "coaching_words": 216,
+    "_secs": 72.5
+  },
+  {
+    "id": "TC19",
+    "name": "Conclusion that merely repeats",
+    "object": "thesis",
+    "object_raw": "Conclusion — move from restatement to synthesis and significance",
+    "bottleneck": "student conflates repetition with conclusion; cannot yet articulate what the reader gains beyond the claim.",
+    "diagnosed": [
+      "conclusion is pure restatement — no synthesis or implication",
+      "no significance or 'so what' delivered to reader",
+      "formulaic opening ('in conclusion') and circular repetition"
+    ],
+    "evidence": [
+      "three sentences all restate the same claim — clear restatement pattern."
+    ],
+    "strategy": [
+      "focused question",
+      "connection between local writing and whole-essay purpose",
+      "naive-reader perspective"
+    ],
+    "dependency": "closure",
+    "dependency_status": "identified",
+    "sequence": "continue",
+    "sufficiency": "not_yet",
+    "exit": "can the reader understand what was established and why it matters — not just that the essay stopped?",
+    "next": "use the articulated significance to write a revised conclusion that synthesizes rather than restates.",
+    "coaching": "You already know exactly where a conclusion belongs — you've returned to your main point at the end, which is the right instinct. Today we're working on your conclusion, and specifically on what a conclusion actually does: it gives your reader a sense that the writing has arrived somewhere, not just come back to the start. Right now your ending repeats what you said earlier, but a strong conclusion moves beyond repetition to show your reader what the whole argument *adds up to* — not just what you argued, but why it matters that they understand it. One strategy writers use is to pause before drafting the conclusion and ask: \"What is the most important thing I want my reader to walk away understanding or accepting?\" — then turn that answer into a statement that feels like an arrival, not a loop. So here's your one move: in your own words, what should a reader now understand about video games and violence that they didn't understand before you made this argument — and why does that matter? Once you've put that significance into words, we'll come back and use it to write a conclusion that synthesizes your whole argument rather than restating it.",
+    "coaching_words": 203,
+    "_secs": 80.1
+  },
+  {
+    "id": "TC25",
+    "name": "Student asks the AI to write the answer",
+    "object": "thesis",
+    "object_raw": "Thesis — turning topic words into a contestable claim",
+    "bottleneck": "topic words vs. contestable claim: student names the subject but has not yet asserted anything a reader could dispute.",
+    "diagnosed": [
+      "no thesis yet — topic words only, no position",
+      "student expresses uncertainty about how to begin — may need concept of claim introduced"
+    ],
+    "evidence": [
+      "student named three relevant concepts — shows engagement with the subject."
+    ],
+    "strategy": [
+      "brief direct explanation",
+      "ordinary-language restatement",
+      "focused question"
+    ],
+    "dependency": "",
+    "dependency_status": "none",
+    "sequence": "continue",
+    "sufficiency": "not_yet",
+    "exit": "can every part of the essay be organized around one central claim, and could a thoughtful reader restate it?",
+    "next": "once a rough claim exists, right-size scope and confirm it answers the assignment.",
+    "coaching": "You've already identified the real territory of this essay — public transit, money, and cities — and that's a genuine starting point, not nothing. Now let's work on your thesis, which is the one sentence that tells your reader the main idea your whole essay is trying to get them to accept. An essay is built from a few parts working together — a central claim, the reasons behind it, and the way those reasons connect — and the thesis is where all of that starts, because every paragraph will exist to support it. One strategy writers use to build a thesis is to ask themselves: *what's the most important idea I want my reader to understand or accept?* — then turn that answer into a focused statement someone could actually disagree with. So try this: what do *you* think — should public transit be free, or not? Just take a side in one sentence, even a rough one, using your own words. Once you have that claim on paper, we'll look at whether it's scoped just right and whether it truly answers the assignment.",
+    "coaching_words": 185,
+    "_secs": 72.3
+  },
+  {
+    "id": "TC31",
+    "name": "Ambiguous: both-sides could be a legitimate nuanced thesis",
+    "object": "thesis",
+    "object_raw": "Thesis — sharpen the conditional claim so its evaluative implication is clear",
+    "bottleneck": "claim is contestable but its implication for the assignment ('is it effective?') is not yet clear — reader cannot tell what position is being taken on remote learning.",
+    "diagnosed": [
+      "claim is a genuine conditional, not evasion — telos goal partly met",
+      "claim risks being read as truism ('it depends') without a sharper implication",
+      "scope and direction of the evaluative argument not yet clear to reader"
+    ],
+    "evidence": [
+      "conditional structure avoids evasion; claim is genuinely contestable"
+    ],
+    "strategy": [
+      "focused question",
+      "naive-reader perspective",
+      "connection between local writing and whole-essay purpose"
+    ],
+    "dependency": null,
+    "dependency_status": "identified",
+    "sequence": "continue",
+    "sufficiency": "not_yet",
+    "exit": "can every part of the essay be organized around this one central claim, and could a thoughtful reader restate it as a position? — not yet, because the direction is ambiguous.",
+    "next": "once the evaluative direction is explicit, check whether the claim is appropriately scoped (too broad? / needs qualification?) and begin planning organization.",
+    "coaching": "Your thesis already does something most writers avoid: instead of landing on a simple \"yes\" or \"no,\" you've proposed that effectiveness depends on the match between the medium and the learner — that's a real, contestable position, not a fence-sit. Today we're working on your thesis, which is the structural element that gives your reader the single main idea the whole essay exists to establish and develop; it anchors everything else — your introduction, your organization, your sense of who you're writing for. A thesis does real work when a reader can not only restate it but feel its edge — the specific claim it's asking them to accept. One strategy writers use is to ask: *What is the most important idea I want my reader to understand or accept?* — and then push that answer until it becomes a focused, supportable statement rather than a framework. Right now a reader might push back, \"Isn't this just saying 'it depends'?\" — so look at what you've already written and ask yourself: what exactly does a learner need to have for remote learning to work for them, and what does that mean about whether remote learning should be used? Once your thesis states not just the condition but what the condition *implies* about effectiveness, we'll check whether the claim is appropriately scoped and start planning how to organize your essay around it.",
+    "coaching_words": 231,
+    "_secs": 90.8
+  },
+  {
+    "id": "TC37",
+    "name": "Compare/contrast — no organizing scheme",
+    "object": "overall_organization",
+    "object_raw": "Overall organization — choosing a comparison structure",
+    "bottleneck": "student has raw material but no organizational plan; sentences are ordered by occurrence, not by the logic comparison requires.",
+    "diagnosed": [
+      "no organizational plan for comparison (block vs. point-by-point)",
+      "no controlling claim or thesis",
+      "sentences are isolated fragments, not organized paragraphs",
+      "no reader orientation or introduction"
+    ],
+    "evidence": [
+      "two approaches named",
+      "three potential comparison points surfaced (cost, fairness, speed)"
+    ],
+    "strategy": [
+      "brief direct explanation",
+      "contrastive example",
+      "focused question"
+    ],
+    "dependency": null,
+    "dependency_status": "being_taught",
+    "sequence": "continue",
+    "sufficiency": "not_yet",
+    "exit": "can the reader reasonably follow the intended progression of ideas? (overall organization exit criterion)",
+    "next": "once structure is chosen, develop a controlling claim that governs the chosen comparison.",
+    "coaching": "You've already done something useful: you've identified two real approaches — congestion pricing and public transit investment — and you've started noticing distinct qualities of each, like cost and fairness. Today we're working on **overall organization**, specifically choosing a comparison structure, which is the order that lets your reader follow your ideas from start to finish. In an essay, organization works hand in hand with your thesis, your paragraphs, and your transitions — it's the plan that holds everything together so a reader can follow how your ideas develop. One strategy writers use before drafting a comparison is to ask: *What are the major jobs this essay needs to do, and in what order does my reader need them?* For a comparison essay, that usually means choosing between two structures: either you cover one approach fully and then the other (block structure), or you move point by point — cost, fairness, effectiveness — showing how both approaches handle each idea in turn. Look at the observations you've already written and ask yourself: which of those two structures would make it easier for a reader to see how congestion pricing and public transit actually compare? Once you've chosen a structure, we'll come back and build a controlling claim — a thesis — that tells your reader exactly what your comparison will argue.",
+    "coaching_words": 221,
+    "_secs": 84.0
+  },
+  {
+    "id": "TC43",
+    "name": "Persuasive letter — audience/tone mismatch",
+    "object": null,
+    "object_raw": "Audience Awareness — modeling the principal as reader and what they need",
+    "bottleneck": "writing is self-referential — student is not yet modeling the principal as a reader with distinct knowledge, expectations, and needs.",
+    "diagnosed": [
+      "tone entirely mismatched to a principal audience — informal/venting register",
+      "no specific proposal named",
+      "no communicative purpose articulated beyond complaint",
+      "no audience modeling — written from personal frustration only"
+    ],
+    "evidence": [
+      "draft is written entirely from personal frustration with no reader address"
+    ],
+    "strategy": [
+      "brief direct explanation",
+      "naive-reader perspective",
+      "focused question"
+    ],
+    "dependency": null,
+    "dependency_status": "identified",
+    "sequence": "continue",
+    "sufficiency": "not_yet",
+    "exit": "can the remainder of the letter be organized around a reasonably clear communicative purpose aimed at the principal? (communicative purpose exit criterion)",
+    "next": "once student names the reader's needs, move to tone/register as the second target.",
+    "coaching": "Your letter makes one thing unmistakably clear: you genuinely care about this issue and you want something to change — that real conviction is exactly the fuel a strong proposal needs. Today we're working on audience awareness, which means thinking carefully about who your specific reader is and what they need from your letter before you write another word. Audience awareness is the way writers adjust their message so it actually lands — a letter written for a friend reads completely differently from one written for someone with the power to make a decision, because those two readers need different things. In a persuasive letter, audience awareness sits at the foundation: your proposal, your reasons, and even your word choices all grow out of your sense of who is reading and what will move them to act. One strategy writers use is to pause before drafting and ask, \"What does this specific reader need to hear in order to say yes?\" — because once you can answer that, every sentence in your letter has a direction. Right now your writing sounds like you're venting to a friend, and a principal is a formal authority figure who needs a reason to act, not just a complaint — so think about this: what is the ONE thing you most want your principal to understand or do after reading your letter? Once you can name that, we'll come back and use it to shape how your whole letter speaks to that reader — and after that, we'll look at the tone and register that will help your principal take you seriously.",
+    "coaching_words": 268,
+    "_secs": 82.9
+  },
+  {
+    "id": "TC49",
+    "name": "Annotated bibliography — describes, doesn't evaluate",
+    "object": "thesis",
+    "object_raw": "Central Claim — forming an evaluative judgment about the source",
+    "bottleneck": "student describes the source instead of evaluating it; no assertion the reader is asked to accept about the source's value.",
+    "diagnosed": [
+      "no evaluative central claim — annotation only describes",
+      "no reasoning connecting source features to their significance",
+      "no communicative purpose articulated by the student"
+    ],
+    "evidence": [
+      "four sentences are all descriptive — consistent pattern, not a random omission."
+    ],
+    "strategy": [
+      "brief direct explanation",
+      "partial scaffold",
+      "reminder of the assignment"
+    ],
+    "dependency": "thesis",
+    "dependency_status": "identified",
+    "sequence": "continue",
+    "sufficiency": "not_yet",
+    "exit": "can the student state a clear position on the source's value that a reader could question or accept?",
+    "next": "once an evaluative judgment is formed, connect source features (date, length, content) as evidence that supports or complicates that judgment.",
+    "coaching": "You've already done something useful here — you've gathered real facts about this source: its topic, its date, its length, and that it contains statistics. That gives you material to work with. Today we're focusing on your annotation's central claim, which is the evaluative judgment at the heart of what an annotation does — it's the main idea you want your reader to understand and accept about this source. An annotation isn't just a description; it's an argument: you're telling your reader whether this source is valuable, reliable, or useful for your research, and why. One strategy writers use when forming a central claim is to ask themselves, \"What is the single most important thing I want my reader to understand or accept?\" — and then shape that answer into a focused, supportable statement. So look at what you've already noticed about this source and try finishing this sentence in your own words: *This source is [useful / limited / reliable / problematic] for my research because ___.* Once you have that judgment in place, we'll come back and put those details you noticed — the date, the statistics, the length — to work as evidence that supports or complicates it.",
+    "coaching_words": 201,
+    "_secs": 73.4
+  },
+  {
+    "id": "TC55",
+    "name": "Sentence variety — choppy monotony",
+    "object": null,
+    "object_raw": "Sentence variety — joining or varying at least one pair of sentences to create rhythm/emphasis.",
+    "bottleneck": "uniform sentence structure flattens emphasis; the student has the events but not the sentence-level tools to make the reader feel them.",
+    "diagnosed": [
+      "all eight sentences use identical 'i + verb' structure — no variety in length, structure, or emphasis.",
+      "uniform rhythm undercuts the hectic feeling the narrative is trying to convey.",
+      "no controlling idea or governing sentence to shape the reader's experience.",
+      "emotional detail ('i was mad') is present but isolated and flat.",
+      "narrative events are named but not rendered with any sensory or descriptive specificity."
+    ],
+    "evidence": [
+      "all eight events are present and in correct order — student controls narrative sequence"
+    ],
+    "strategy": [
+      "brief direct explanation",
+      "partial scaffold",
+      "focused question"
+    ],
+    "dependency": "",
+    "dependency_status": "none",
+    "sequence": "continue",
+    "sufficiency": "not_yet",
+    "exit": "student creates at least one sentence that varies in length or structure and can explain why the change changes the reader's experience.",
+    "next": "student varies one sentence pair; then consolidate the principle and invite application to a second moment.",
+    "coaching": "You've captured the whole arc of a rough morning — every moment is there, from waking up late all the way to arriving at school, and that complete sequence gives you real material to work with. A paragraph is built from a few elements working together — the events, the details, and the sentences themselves — and today we're focusing on **sentence variety**, which means changing the length or structure of your sentences to create rhythm and emphasis. Sentence variety is the way writers control how a reader *feels* moving through a piece; when sentences are all the same shape, the writing feels flat even when the events are exciting. One strategy writers use is to take two short sentences that belong together — an action and a reaction, or a cause and an effect — and join them into one longer sentence, so the reader feels the connection instead of just reading two separate facts. Pick the moment in your morning that felt the most hectic or the most frustrating — maybe missing the bus, or grabbing the toast — and try writing just that moment as two sentences joined together, so the reader can feel why one thing led to the other. Once you've tried that, we'll look at how you can use the same move in a second moment in your paragraph.",
+    "coaching_words": 225,
+    "_secs": 86.2
+  },
+  {
+    "id": "TC61",
+    "name": "Quote dropped in without attribution/integration",
+    "object": "evidence",
+    "object_raw": "Signal phrase / evidence integration (introducing and attributing the quotation)",
+    "bottleneck": "quotation is present and relevant but unframed — no signal phrase, no attribution; reader cannot locate the source or understand why the quote appears here.",
+    "diagnosed": [
+      "signal phrase / attribution missing — quotation is unframed",
+      "interpretation thin — 'shows loneliness' labels but doesn't reason",
+      "controlling idea / topic sentence underdeveloped — opening sentence is bare assertion"
+    ],
+    "evidence": [
+      "quotation is topically relevant to the claim"
+    ],
+    "strategy": [
+      "brief direct explanation",
+      "partial scaffold",
+      "introduction of canonical terminology"
+    ],
+    "dependency": "evidence",
+    "dependency_status": "identified",
+    "sequence": "continue",
+    "sufficiency": "not_yet",
+    "exit": "the quotation is introduced with a signal phrase that names the source and connects it to the claim, so the reader can locate and evaluate the evidence.",
+    "next": "once signal phrase is in place, develop the interpretation sentence (what do these specific words mean for the loneliness claim).",
+    "coaching": "You've already done something important: you found a specific line from the text that connects directly to your point about loneliness, and that's a real writer's move. Today we're working on evidence integration — specifically the signal phrase, which is how you introduce a quotation so the reader knows where it comes from and why it's there. Evidence gives your reader reasons to believe your claim, but only if they can see how it connects — right now your quotation is sitting on its own, without anything tying it to your idea or telling the reader where those words come from. In an essay, a signal phrase is the hinge between your claim and your evidence, and without it, even a strong quotation can feel dropped in rather than argued with. One strategy writers use is to ask: what does my claim need the reader to believe, and what words can I add to show that this quotation is the answer? Try going back to that quotation and adding a phrase before it — in your own words — that names the source and connects the line to your point about loneliness. Once that signal phrase is in place, we'll move on to the next step: writing a sentence that explains exactly what those specific words reveal about the character's loneliness.",
+    "coaching_words": 221,
+    "_secs": 89.2
+  },
+  {
+    "id": "TC66",
+    "name": "Perfectionist stuck — won't commit anything",
+    "object": "thesis",
+    "object_raw": "Communicative Purpose / operative position (prerequisite to thesis)",
+    "bottleneck": "no communicative purpose articulated; student cannot tell what they are trying to establish, so every attempt feels wrong.",
+    "diagnosed": [
+      "no operative purpose articulated — student cannot draft without a starting position",
+      "perfectionism blocking initial production — stakes need lowering",
+      "no thesis or claim present — cannot be worked on until a rough position exists"
+    ],
+    "evidence": [
+      "student says 'nothing i write is good enough' — implies they have tried and have implicit standards"
+    ],
+    "strategy": [
+      "focused question",
+      "ordinary-language restatement",
+      "brief direct explanation"
+    ],
+    "dependency": "thesis",
+    "dependency_status": "identified",
+    "sequence": "continue",
+    "sufficiency": "not_yet",
+    "exit": "can the remainder of the composition be organized around a reasonably clear communicative purpose? (exit: purpose)",
+    "next": "once a rough position is stated, help student turn it into a working thesis claim.",
+    "coaching": "The fact that you keep deleting things actually tells me something important: you have a sense of what feels wrong, which means you have standards — that's a real writer's instinct. Before we touch any drafting, let's focus on what comes before everything else, something writers call an operative position — the one thing you believe about standardized testing that your whole essay will eventually exist to explain and defend. Every essay is built around a few structural elements that work together: a central claim, the reasons behind it, and the way they connect — and your operative position is the seed all of that grows from, the single idea that gives a reader a reason to keep reading. One strategy writers use at this stage is to ask themselves: *What is the most important thing I want my reader to understand or accept about this topic?* — and then say it plainly, even if it comes out rough. So right now, without worrying about proof or polish, try writing one messy sentence that finishes this thought: *The most important thing I believe about standardized testing is…* Once you have that rough belief on the page, we'll come back and shape it into a working thesis — the kind of clear, focused claim that tells your reader exactly what your essay is out to establish.",
+    "coaching_words": 225,
+    "_secs": 71.3
+  }
+]

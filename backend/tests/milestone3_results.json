@@ -1,0 +1,1112 @@
+[
+  {
+    "n": 1,
+    "desc": "Topic without claim",
+    "genre": "argumentative",
+    "aud": "peers",
+    "text": "This essay is about year-round school. Year-round school is a topic people discuss a lot these days.",
+    "first": {
+      "operative_purpose": "Draft a thesis that takes a position on year-round school.",
+      "current_organization": "Two topic-naming sentences; no position or claim present.",
+      "supporting_evidence": [
+        "Student initiated writing and named a real topic"
+      ],
+      "complicating_evidence": [
+        "Both sentences are topic announcements \u2014 no differentiation toward argumentation"
+      ],
+      "alternative_interpretations": [
+        "Student may have a position but defaulted to topic announcement as a safe opening move",
+        "Student may not yet distinguish topic from claim"
+      ],
+      "primary_tension": "Topic present, arguable claim absent",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "candidate_invitations": [
+        "You've named the topic \u2014 now write one sentence that says what you think about year-round school and what you want your reader to believe by the end.",
+        "Before writing more, think: what would you tell a friend who asked 'should schools go year-round?' \u2014 write that answer as your next sentence."
+      ],
+      "selected_invitation": "You've started by naming the topic \u2014 that's a real first move. Now, what do you actually think about year-round school? Try writing one sentence that tells your reader not just what the essay is about, but what position you want them to agree with by the end.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 259,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 25.3
+  },
+  {
+    "n": 2,
+    "desc": "Opinion without reasoning",
+    "genre": "argumentative",
+    "aud": "peers",
+    "text": "School uniforms are bad and I don't like them.",
+    "first": {
+      "operative_purpose": "Draft a thesis that goes beyond personal preference.",
+      "current_organization": "Single sentence expressing personal dislike; topic present, no supporting reason.",
+      "supporting_evidence": [
+        "student states a clear position"
+      ],
+      "complicating_evidence": [
+        "claim is non-arguable as written; grounded only in personal feeling"
+      ],
+      "alternative_interpretations": [
+        "student may have reasons and just defaulted to informal register",
+        "student may not yet distinguish topic from claim"
+      ],
+      "primary_tension": "opinion vs. arguable claim",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "candidate_invitations": [
+        "Think of a reader who disagrees \u2014 what one reason would you give them? Write your position and that reason in a single sentence.",
+        "What would a student who supports uniforms say \u2014 and what's your answer to them? Use that answer to rewrite your sentence."
+      ],
+      "selected_invitation": "Think of a reader who disagrees \u2014 what one reason would you give them? Write your position and that reason in a single sentence.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 128,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 24.5
+  },
+  {
+    "n": 3,
+    "desc": "Factual statement mistaken for thesis",
+    "genre": "expository",
+    "aud": "general",
+    "text": "Water evaporates from oceans, forms clouds, and falls as rain.",
+    "first": {
+      "operative_purpose": "Draft your thesis.",
+      "current_organization": "Single descriptive sentence naming three steps of the water cycle; no claim about climate role.",
+      "supporting_evidence": [
+        "Sentence accurately describes water cycle steps"
+      ],
+      "complicating_evidence": [
+        "No climate role addressed despite assignment context",
+        "No arguable element present"
+      ],
+      "alternative_interpretations": [
+        "Student may be warming up and intends to add a claim",
+        "Student may not yet see description as distinct from argumentation"
+      ],
+      "primary_tension": "True statement stands in for a claim \u2014 nothing is at stake",
+      "relevant_domains": [
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "What does the water cycle do to climate that a reader could actually disagree with \u2014 can you put that in one sentence?",
+        "Your sentence describes the cycle accurately \u2014 now ask: what would someone who reads your essay need to be convinced of about climate that they don't already know?"
+      ],
+      "selected_invitation": "You've captured a real process \u2014 evaporation, clouds, rain. Now try this: what does that process *do* to climate that isn't obvious, or that someone might actually dispute? Write one sentence that takes a position a reader could push back on.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 242,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 25.5
+  },
+  {
+    "n": 4,
+    "desc": "Overly broad claim",
+    "genre": "argumentative",
+    "aud": "general",
+    "text": "The internet has completely changed everything about human life and society forever.",
+    "first": {
+      "operative_purpose": "Draft your thesis.",
+      "current_organization": "Single broad topic sentence; no argument yet differentiated from topic.",
+      "supporting_evidence": [
+        "Student produced a sentence oriented toward the assignment"
+      ],
+      "complicating_evidence": [
+        "Sentence is a truism; nothing is at stake for a reader"
+      ],
+      "alternative_interpretations": [
+        "Student may be using the broad sentence as a deliberate placeholder while thinking through specifics",
+        "Student may believe broad = strong and need gentle reorientation"
+      ],
+      "primary_tension": "Claim too broad to support in one essay",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "candidate_invitations": [
+        "What is the one specific change the internet made that you most want a reader to accept? Write a sentence naming that particular change and a position someone could push back on.",
+        "Who is a reader who might disagree with your claim, and what would they say? Naming that disagreement might help you focus what exactly you're arguing."
+      ],
+      "selected_invitation": "What is the one specific change the internet made that you most want a reader to accept? Write a sentence naming that particular change and a position someone could push back on.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 178,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 25.8
+  },
+  {
+    "n": 5,
+    "desc": "Vague claim",
+    "genre": "argumentative",
+    "aud": "general",
+    "text": "Social media has a really big impact on young people in a lot of different ways.",
+    "first": {
+      "operative_purpose": "Draft a thesis that makes an arguable claim.",
+      "current_organization": "Single sentence names a topic and gestures at broad impact; no claim is differentiated from the topic.",
+      "supporting_evidence": [
+        "Sentence addresses the assigned domain (social media, young people)"
+      ],
+      "complicating_evidence": [
+        "'In a lot of different ways' suggests no single governing claim has emerged yet"
+      ],
+      "alternative_interpretations": [
+        "Student may have a specific claim in mind and this is a placeholder opener",
+        "Student may be genuinely unsure what position to take"
+      ],
+      "primary_tension": "Topic present but no arguable claim",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "candidate_invitations": [
+        "Rewrite the sentence so it takes a specific position about social media and teens that a reasonable reader could disagree with.",
+        "Before rewriting, say in plain words: what do you want a reader to believe about social media and teens after reading your essay?"
+      ],
+      "selected_invitation": "Rewrite the sentence so it takes a specific position about social media and teens that a reasonable reader could disagree with.",
+      "changes_since_previous": "Initial turn; no prior draft to compare.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": false,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 127,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 27.6
+  },
+  {
+    "n": 6,
+    "desc": "Multiple competing claims",
+    "genre": "argumentative",
+    "aud": "general",
+    "text": "Remote work saves money. Also it makes people lonely. And it will reshape cities. Companies should probably let people choose.",
+    "first": {
+      "operative_purpose": "Draft your thesis.",
+      "current_organization": "Four loosely juxtaposed observations; no hierarchy, no governing claim.",
+      "supporting_evidence": [
+        "Four distinct angles show substantive engagement with the topic",
+        "Recommendation sentence shows nascent claim-making move"
+      ],
+      "complicating_evidence": [
+        "Hedge word 'probably' weakens the claim's assertiveness",
+        "No reasoning connects the observations to the recommendation"
+      ],
+      "alternative_interpretations": [
+        "Student may intend 'let people choose' as the thesis and the rest as support \u2014 just not yet integrated",
+        "Student may be brainstorming rather than drafting a thesis"
+      ],
+      "primary_tension": "Several candidate claims compete; none governs",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "candidate_invitations": [
+        "Which of your four observations do you most want to convince a reader of? Write one sentence that makes that the claim the others would have to serve.",
+        "Your last sentence suggests companies should let workers choose \u2014 what would convince a skeptical reader that this is actually better than a company-wide policy?"
+      ],
+      "selected_invitation": "Which of your four observations do you most want to convince a reader of? Try writing a single sentence that makes that one idea the claim the rest would have to serve.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 168,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 27.5
+  },
+  {
+    "n": 7,
+    "desc": "Clear but unsupported claim",
+    "genre": "argumentative",
+    "aud": "school board",
+    "text": "Standardized testing should be abolished because it fails to measure real learning.",
+    "first": {
+      "operative_purpose": "Draft your thesis.",
+      "current_organization": "Single sentence: policy claim + one 'because' reason; claim and reason are present but the reason is a phrase, not yet explained.",
+      "supporting_evidence": [
+        "claim is genuinely arguable",
+        "reason is present and attached"
+      ],
+      "complicating_evidence": [
+        "'real learning' is undefined and common",
+        "no indication of scope or what the essay will actually support"
+      ],
+      "alternative_interpretations": [
+        "student may have a rich conception of 'real learning' not yet on the page",
+        "the brevity may reflect confidence, not underdevelopment"
+      ],
+      "primary_tension": "'real learning' is vague \u2014 reader cannot yet tell what is asserted",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Interpretation / Reasoning"
+      ],
+      "candidate_invitations": [
+        "What specifically does standardized testing fail to measure, and why does that failure matter \u2014 try spelling that out in one or two sentences after your current claim.",
+        "A reader who supports standardized testing might say it does measure real learning \u2014 what would you say in response, and does that change how you'd word your claim?"
+      ],
+      "selected_invitation": "You've made a clear, arguable claim with a reason attached \u2014 that's real argumentative work. Now push that reason further: what specifically does standardized testing fail to measure, and how does that failure harm students or learning in a way a reader might not already accept? Try adding that explanation in one or two sentences.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 332,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 28.0
+  },
+  {
+    "n": 8,
+    "desc": "Implicit claim",
+    "genre": "argumentative",
+    "aud": "general",
+    "text": "Fast fashion brands release dozens of collections a year. Landfills are filling with barely-worn clothes. Workers are paid pennies. Something about this cannot continue.",
+    "first": {
+      "operative_purpose": "Draft a thesis for a fast-fashion argument essay.",
+      "current_organization": "Three factual observations followed by a hedged, vague proto-claim; no explicit thesis yet.",
+      "supporting_evidence": [
+        "final sentence signals argumentative intent",
+        "three distinct observations suggest awareness of multiple stakes"
+      ],
+      "complicating_evidence": [
+        "'something' could be deliberate rhetorical delay, not underdevelopment"
+      ],
+      "alternative_interpretations": [
+        "vagueness is intentional suspense before a later thesis",
+        "student has a clear internal claim not yet surfaced in text"
+      ],
+      "primary_tension": "'Something' is vague \u2014 claim scope is undetermined",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "candidate_invitations": [
+        "What exactly cannot continue \u2014 the pace, the waste, or the labor conditions? Try stating, in one sentence, the specific claim the whole essay will establish.",
+        "Your three opening sentences each point to a different problem. Which one is the core of what you want to argue \u2014 and what do you want the reader to believe or do because of it?"
+      ],
+      "selected_invitation": "Your closing sentence \u2014 \"Something about this cannot continue\" \u2014 is doing real argumentative work, but \"something\" leaves the reader guessing. What exactly cannot continue: the pace of production, the labor conditions, the waste, or all three? Try stating, in one sentence, the specific claim you want the whole essay to establish.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 331,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 27.8
+  },
+  {
+    "n": 9,
+    "desc": "Delayed claim (purposeful)",
+    "genre": "argumentative",
+    "aud": "engaged reader",
+    "text": "The camera on the corner has been there so long that no one looks at it anymore. That is exactly the problem I want to build toward before I say what I think we should do.",
+    "first": {
+      "operative_purpose": "Draft an opening that orients the reader before a thesis arrives.",
+      "current_organization": "Single image (camera on corner) + explicit meta-commentary on delay strategy.",
+      "supporting_evidence": [
+        "explicit acknowledgment of delay as intentional",
+        "image is concrete and evocative"
+      ],
+      "complicating_evidence": [
+        "meta-commentary risks breaking the opening's immersive quality",
+        "no reader orientation beyond the image yet"
+      ],
+      "alternative_interpretations": [
+        "student knows the argument and is scaffolding the reader; meta-statement is a placeholder",
+        "student is still discovering the argument and the meta-statement masks uncertainty"
+      ],
+      "primary_tension": "meta-commentary names a delay but does not yet ground the significance of the image",
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "What do you want a reader to understand or wonder by the end of this opening \u2014 not the thesis yet, just what the image is preparing them for?",
+        "You say 'that is exactly the problem' \u2014 can you name that problem in one phrase, even privately, before you decide how much to reveal to the reader?"
+      ],
+      "selected_invitation": "That opening image \u2014 the camera no one notices anymore \u2014 quietly names a problem about attention and habituation. Before you move forward, can you say in a sentence or two what you want a reader to understand (or feel, or wonder) by the time they finish that first paragraph? Not your thesis yet \u2014 just what the opening is preparing the reader for.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 348,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 29.6
+  },
+  {
+    "n": 10,
+    "desc": "Distributed claim",
+    "genre": "analytical",
+    "aud": "class",
+    "text": "The poem keeps returning to clocks. It also mentions seasons more than once. The speaker seems afraid of aging. Time is clearly important throughout.",
+    "first": {
+      "operative_purpose": "Draft a thesis.",
+      "current_organization": "Four observations listed sequentially; no claim governs them; topic present but no arguable position.",
+      "supporting_evidence": [
+        "Three distinct textual observations signal active reading",
+        "Final sentence shows attempt to generalize"
+      ],
+      "complicating_evidence": [
+        "'Time is clearly important' is not arguable; no position taken",
+        "No sentence a reader could disagree with"
+      ],
+      "alternative_interpretations": [
+        "Student may have a claim in mind but not know how to commit to it in writing",
+        "Listing may be a deliberate prewriting strategy rather than confusion about thesis"
+      ],
+      "primary_tension": "Topic vs. claim: 'time is important' restates topic",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "candidate_invitations": [
+        "You've spotted clocks, seasons, and a fear of aging \u2014 now write one sentence that says what the poem is claiming about time, something a reader could actually disagree with.",
+        "Look at your three observations \u2014 clocks, seasons, fear of aging. Which one feels most important for understanding the poem? Say why in one sentence that makes a claim."
+      ],
+      "selected_invitation": "You've noticed three things the poem does with time \u2014 clocks, seasons, and the speaker's fear of aging. That's real analytical work. Now try this: if someone asked you 'so what does the poem actually say about time?', what would your answer be? Write one sentence that makes a claim a reader could push back on.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 311,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 27.1
+  },
+  {
+    "n": 11,
+    "desc": "Exploratory thesis",
+    "genre": "reflective",
+    "aud": "general",
+    "text": "I want to understand whether honesty is always kind, or whether kindness sometimes requires a gentle untruth. I am not sure yet, and this essay is my attempt to find out.",
+    "first": {
+      "operative_purpose": "Draft a guiding thesis or question that can organize the essay.",
+      "current_organization": "A clearly framed question followed by an explicit declaration of uncertainty and exploratory intent \u2014 no claim yet, but a coherent purpose statement.",
+      "supporting_evidence": [
+        "The question is genuinely arguable \u2014 two defensible positions exist.",
+        "The second sentence shows metacognitive awareness of essay purpose."
+      ],
+      "complicating_evidence": [
+        "No lean or tension within the question yet \u2014 equally open on both sides, which may limit organizational pull.",
+        "Single first draft; cannot assess stability or flexibility of this organization."
+      ],
+      "alternative_interpretations": [
+        "Student may already have a view and is performing uncertainty as a rhetorical move.",
+        "Student may be uncertain in a way that signals the question itself needs further narrowing before drafting can proceed."
+      ],
+      "primary_tension": "The question is sharp but no provisional answer or lean organizes it yet \u2014 direction is latent.",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "candidate_invitations": [
+        "Before writing more, try to say in one sentence what you already half-believe \u2014 even tentatively \u2014 and what makes you doubt it.",
+        "Think of one specific moment \u2014 real or imagined \u2014 where honesty and kindness actually pulled in different directions. What happened, and what did it show you?"
+      ],
+      "selected_invitation": "Before writing more, try to say in one sentence what you already half-believe \u2014 even tentatively \u2014 and what makes you doubt it.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": false,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 127,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 34.4
+  },
+  {
+    "n": 12,
+    "desc": "Interpretive thesis",
+    "genre": "literary_analysis",
+    "aud": "seminar",
+    "text": "The novel's final silence is not emptiness but the character's first honest choice, and the book has been teaching us to read silence this way all along.",
+    "first": {
+      "operative_purpose": "Draft your thesis.",
+      "current_organization": "Single-sentence interpretive thesis with two coordinated moves: reframe silence as positive choice, then claim the novel prepares the reader for this reading.",
+      "supporting_evidence": [
+        "Oppositional structure signals interpretive intent",
+        "Whole-novel arc claim shows awareness of how endings get prepared"
+      ],
+      "complicating_evidence": [
+        "'Teaching us to read silence this way' is vague \u2014 could be tightened",
+        "No textual specificity yet to anchor the claim"
+      ],
+      "alternative_interpretations": [
+        "The claim may be appropriately general at this draft stage, with specificity meant for the body",
+        "The phrase 'first honest choice' may carry a precise meaning the writer has in mind but has not surfaced"
+      ],
+      "primary_tension": "Second clause ('teaching us to read silence this way') is broad \u2014 what this teaching looks like is unspecified",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Interpretation / Reasoning"
+      ],
+      "candidate_invitations": [
+        "What would a reader who disagrees say the final silence means \u2014 and how does your reading rule that out?",
+        "What specific moment earlier in the novel would you point to as one instance of it 'teaching' us to read silence this way?"
+      ],
+      "selected_invitation": "What would a reader who disagrees say the final silence means \u2014 and how does your reading rule that out?",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": false,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 104,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 33.8
+  },
+  {
+    "n": 13,
+    "desc": "Argumentative thesis",
+    "genre": "argumentative",
+    "aud": "public",
+    "text": "Cities should ban single-use plastics because the environmental cost far outweighs the minor convenience they provide.",
+    "first": {
+      "operative_purpose": "Draft and sharpen a thesis.",
+      "current_organization": "Single-sentence claim with position and a cost-benefit rationale.",
+      "supporting_evidence": [
+        "Uses 'because' to attach reasoning \u2014 claim is not a bare assertion.",
+        "Position is arguable (ban could be disputed)."
+      ],
+      "complicating_evidence": [
+        "'Environmental cost' is vague \u2014 claim could mean many different things.",
+        "Scope ('cities') may not match the essay's eventual evidence."
+      ],
+      "alternative_interpretations": [
+        "The vagueness of 'environmental cost' may be deliberate, leaving room for the body to define it.",
+        "The student may intend a broader national/global argument and used 'cities' loosely."
+      ],
+      "primary_tension": "'Far outweighs' asserts magnitude but leaves it unspecified, so the claim risks being unmoored from what the essay can support.",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "candidate_invitations": [
+        "What specific environmental harm \u2014 ocean pollution, landfill accumulation, toxicity \u2014 do you most want the essay to establish? Adding that to your claim would tell the reader exactly what stake you're arguing for.",
+        "Your claim rests on 'far outweighs' \u2014 who in your imagined audience might push back on that, and what would they say convenience provides? Answering that could sharpen exactly what your essay needs to prove."
+      ],
+      "selected_invitation": "What specific environmental harm \u2014 ocean pollution, landfill accumulation, toxicity \u2014 do you most want the essay to establish? Adding that to your claim would tell the reader exactly what stake you're arguing for.",
+      "changes_since_previous": "Initial \u2014 first draft submitted, no prior theory to compare.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 213,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 36.8
+  },
+  {
+    "n": 14,
+    "desc": "Analytical thesis",
+    "genre": "analytical",
+    "aud": "class",
+    "text": "The campaign succeeded because it reframed a boring product as a marker of identity, turning buyers into advocates.",
+    "first": {
+      "operative_purpose": "Draft your thesis.",
+      "current_organization": "Single-sentence thesis with two linked moves: product reframing \u2192 buyer-to-advocate transformation.",
+      "supporting_evidence": [
+        "sentence asserts an arguable causal position, not just a topic",
+        "two-part structure (reframe \u2192 advocate) shows intentional analytical move"
+      ],
+      "complicating_evidence": [
+        "'marker of identity' could mean many things; reader cannot yet verify the claim",
+        "no body text to confirm alignment between claim and argument"
+      ],
+      "alternative_interpretations": [
+        "student may have a clear mechanism in mind and the vagueness is only surface \u2014 one elaborating question may suffice",
+        "student may be using 'advocates' loosely and the concept may shift under pressure"
+      ],
+      "primary_tension": "'marker of identity' is asserted but not explained \u2014 reader cannot yet see how reframing produces advocacy",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Interpretation / Reasoning"
+      ],
+      "candidate_invitations": [
+        "What does 'reframed as a marker of identity' actually mean in this campaign \u2014 and how did that specific move cause buyers to become advocates rather than just repeat customers? Try making that mechanism explicit in one additional clause.",
+        "Your claim hinges on 'marker of identity' \u2014 what would a reader need to know about that phrase to believe the rest follows? Try defining it in one sentence and see if that changes what your thesis says."
+      ],
+      "selected_invitation": "What does 'reframed as a marker of identity' actually mean in this campaign \u2014 and how did that specific move cause buyers to become advocates rather than just repeat customers? Try making that mechanism explicit in one additional clause.",
+      "changes_since_previous": "initial \u2014 first draft submitted, no prior draft to compare",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 237,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 34.0
+  },
+  {
+    "n": 15,
+    "desc": "Research question instead of thesis",
+    "genre": "research",
+    "aud": "academic",
+    "text": "How does tree canopy coverage affect summer temperatures in low-income neighborhoods compared to wealthier ones?",
+    "first": {
+      "operative_purpose": "Move from guiding question toward a provisional thesis.",
+      "current_organization": "A single focused research question; no claim or thesis yet present.",
+      "supporting_evidence": [
+        "Question is specific, focused, and comparative \u2014 strong foundation for a claim"
+      ],
+      "complicating_evidence": [
+        "Question form alone does not yet fulfill thesis function for a research essay"
+      ],
+      "alternative_interpretations": [
+        "Student may already have a hypothesis and is hedging; student may be genuinely open and need to discover a position through research"
+      ],
+      "primary_tension": "Question does not yet commit to an answer or position",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "candidate_invitations": [
+        "What answer do you currently suspect this research will lead you toward? State that suspicion in one sentence.",
+        "What difference between the two neighborhoods \u2014 canopy, temperature, or something else \u2014 do you think would most surprise a reader? Naming that could become the core of your claim."
+      ],
+      "selected_invitation": "Your question targets a real inequality \u2014 tree canopy and temperature across income levels \u2014 and that tension is worth pursuing. Right now it opens an inquiry without yet committing to a direction. What answer do you currently suspect this research will lead you toward? Try stating that suspicion in one sentence, as if you're telling a friend what you think the essay will ultimately show.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 391,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 30.6
+  },
+  {
+    "n": 16,
+    "desc": "Personal essay without explicit thesis",
+    "genre": "personal",
+    "aud": "general",
+    "text": "Mr. Alvarez never once told me I was talented. He just kept handing me harder problems, as if my confusion were a door rather than a wall.",
+    "first": {
+      "operative_purpose": "Draft your opening.",
+      "current_organization": "Deliberately indirect opening (J): two sentences enact a relationship dynamic rather than name or explain it; the metaphor does significant orienting work.",
+      "supporting_evidence": [
+        "Metaphor is conceptually precise and non-formulaic",
+        "First sentence performs contrast efficiently \u2014 no filler"
+      ],
+      "complicating_evidence": [
+        "Only two sentences \u2014 insufficient evidence of intentional direction beyond this moment",
+        "Metaphor could be a discovered phrase rather than a planned organizing idea"
+      ],
+      "alternative_interpretations": [
+        "The metaphor is intuitive and the student may not yet have a conscious controlling idea to build from",
+        "The student may have a clear sense of direction not yet visible in the text"
+      ],
+      "primary_tension": "The opening is interesting but not yet orienting \u2014 reader doesn't know what the essay will pursue",
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "Before writing the next sentence, say what you want a reader to understand about Mr. Alvarez \u2014 or about yourself \u2014 by the end of the opening. Just tell me in your own words.",
+        "You've written that confusion was 'a door rather than a wall' \u2014 can you say what Mr. Alvarez understood about difficulty that the opening is starting to show?"
+      ],
+      "selected_invitation": "Before writing the next sentence, say what you want a reader to understand about Mr. Alvarez \u2014 or about yourself \u2014 by the end of the opening. Just tell me in your own words.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": false,
+        "no_stage_language": false,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 173,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 35.8
+  },
+  {
+    "n": 17,
+    "desc": "Narrative that should not be forced into a thesis",
+    "genre": "narrative",
+    "aud": "general",
+    "text": "I had thirty seconds to decide, the whistle in my mouth and both teams staring, and the ball still rolling toward the line.",
+    "first": {
+      "operative_purpose": "Draft your opening.",
+      "current_organization": "Single sentence in medias res; scene is established but decision and stakes are not yet differentiated.",
+      "supporting_evidence": [
+        "Compressed sensory detail suggests intentional craft",
+        "In medias res choice fits assignment purpose"
+      ],
+      "complicating_evidence": [
+        "Single sentence \u2014 insufficient to assess integration or direction",
+        "Decision itself is entirely absent from the text"
+      ],
+      "alternative_interpretations": [
+        "Student may not yet know what the decision is and is using scene as a placeholder",
+        "Student may have a clear controlling idea and is strategically withholding it"
+      ],
+      "primary_tension": "Scene is engaging but the decision itself is unspecified",
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "You've dropped the reader right into a charged moment. What was the decision you were facing, and why did it feel so hard to make in that moment?",
+        "The scene puts pressure on both the narrator and the reader. Who are you in this moment \u2014 what role gives you that whistle \u2014 and what would it cost you to decide either way?"
+      ],
+      "selected_invitation": "You've dropped the reader right into a charged moment \u2014 the whistle, the staring teams, the rolling ball. That pressure is immediate and real. As you think about where to take this next, what was the decision you were facing, and why did it feel so hard to make in that moment?",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 277,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 29.2
+  },
+  {
+    "n": 18,
+    "desc": "Claim that does not match the assignment",
+    "genre": "argumentative",
+    "aud": "teacher",
+    "text": "Teachers are underpaid and deserve a raise, which is the most important issue in education today.",
+    "first": {
+      "operative_purpose": "Draft a thesis that addresses the homework-and-learning question.",
+      "current_organization": "One declarative sentence stating an opinion on teacher pay \u2014 topic and claim are present but address a different subject than the assignment.",
+      "supporting_evidence": [
+        "Student produced a complete, grammatical opinion sentence showing capacity for assertion"
+      ],
+      "complicating_evidence": [
+        "Sentence is entirely off-topic relative to the assignment"
+      ],
+      "alternative_interpretations": [
+        "Student may have misread the assignment",
+        "Student may be exploring a related issue before narrowing"
+      ],
+      "primary_tension": "Claim does not address the assignment",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "candidate_invitations": [
+        "Can you write one sentence that tells the reader your position on whether homework actually helps students learn?",
+        "Before writing the sentence, can you say in a few words what you think about homework \u2014 does it help students learn, hurt it, or something else?"
+      ],
+      "selected_invitation": "Can you write one sentence that tells the reader your position on whether homework helps students learn?",
+      "changes_since_previous": "Initial turn; no prior theory to compare.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 104,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 26.0
+  },
+  {
+    "n": 19,
+    "desc": "Claim that does not match the body",
+    "genre": "argumentative",
+    "aud": "general",
+    "text": "Zoos should be abolished. In fact, modern zoos fund conservation, protect endangered species, and educate millions of children every year, which is why they are so valuable.",
+    "first": {
+      "operative_purpose": "Draft your thesis and first point.",
+      "current_organization": "Two competing claims in two sentences: abolition stated first, then a list of benefits that implies the opposite position.",
+      "supporting_evidence": [
+        "second sentence contains concrete reasons, suggesting the student may intend a pro-zoo argument"
+      ],
+      "complicating_evidence": [
+        "first sentence is a direct abolition claim that contradicts the second \u2014 could be intentional framing"
+      ],
+      "alternative_interpretations": [
+        "student may be attempting a concession-then-rebuttal structure but hasn't controlled it yet",
+        "student may have two genuinely competing ideas and not yet chosen between them"
+      ],
+      "primary_tension": "abolition claim vs. conservation/education defense",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Opening / Introduction"
+      ],
+      "candidate_invitations": [
+        "Your first sentence says abolish zoos; your second says they're valuable \u2014 which position do you want to defend? Write one sentence that commits to one side in a way a reader could argue against.",
+        "If you wanted to keep your second sentence as your main argument, what would you need to change about your first sentence so a reader isn't immediately confused about where you stand?"
+      ],
+      "selected_invitation": "Your opening sentence says zoos should be abolished, but the rest of your draft argues they're valuable \u2014 those two ideas are pulling in opposite directions. Which position do you actually want to defend? Once you decide, try writing one sentence that commits to that position and that a reader could genuinely push back on.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 324,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 28.6
+  },
+  {
+    "n": 20,
+    "desc": "Claim that changes during revision",
+    "genre": "argumentative",
+    "aud": "general",
+    "text": "Electric cars are good for the environment.",
+    "first": {
+      "operative_purpose": "Draft your thesis.",
+      "current_organization": "Single evaluative sentence: topic + positive judgment, no elaboration or reasoning.",
+      "supporting_evidence": [
+        "sentence addresses assignment topic",
+        "evaluative stance signals argumentative intent"
+      ],
+      "complicating_evidence": [
+        "'good for environment' is widely accepted \u2014 low contestability",
+        "no reasoning or scope limits visible"
+      ],
+      "alternative_interpretations": [
+        "student may intend a nuanced argument but defaulted to a general opener",
+        "student may not yet distinguish thesis from topic sentence"
+      ],
+      "primary_tension": "opinion stated but reasoning absent",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "candidate_invitations": [
+        "What would someone who doubts your claim actually say \u2014 and what does your essay need to prove to answer them? Revise the sentence to capture that specific, arguable point.",
+        "Can you say what specific thing about the environment you want your essay to establish \u2014 and why a careful reader might not already agree?"
+      ],
+      "selected_invitation": "What would someone who doubts your claim actually say \u2014 and what does your essay need to prove to answer them? Rewrite the sentence so it captures that specific, arguable idea.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 176,
+        "preserved_alternatives": true
+      }
+    },
+    "revised_text": "Electric cars reduce tailpipe emissions, but unless the electricity that charges them comes from clean sources, their climate benefit is smaller than most buyers assume.",
+    "second": {
+      "operative_purpose": "Sharpen the thesis toward an arguable, consequential position.",
+      "current_organization": "Concessive structure: affirmation + qualification + implied conclusion. Problem is named; resolution not yet stated.",
+      "supporting_evidence": [
+        "revision introduces causal reasoning absent in prior draft",
+        "concessive structure shows awareness of counterargument"
+      ],
+      "complicating_evidence": [
+        "no resolution stated \u2014 still reads as setup rather than controlling claim",
+        "one revision cannot confirm stable argumentative control"
+      ],
+      "alternative_interpretations": [
+        "student may have a full argument in mind and is testing an opening move",
+        "student may be uncertain what position to take and is deferring commitment"
+      ],
+      "primary_tension": "claim diagnoses a problem but does not yet commit to a position or call to action",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Interpretation / Reasoning",
+        "Whole Essay Purpose"
+      ],
+      "candidate_invitations": [
+        "Your claim now names a real tension \u2014 try writing one sentence that states what your essay concludes or argues should happen because of that tension.",
+        "The current sentence sets up a problem well \u2014 who do you think should act on it, and what should they do? Write one sentence that answers that."
+      ],
+      "selected_invitation": "You've sharpened the claim considerably \u2014 the tension between tailpipe emissions and grid source is now doing real argumentative work. One thing the claim still leaves open is what follows from it: if the benefit is 'smaller than buyers assume,' what should buyers, policymakers, or the grid do about that? Try writing one sentence that names the consequence or position your essay will actually argue for.",
+      "changes_since_previous": "Claim moved from unqualified positive judgment to concessive structure with causal reasoning; contestability increased substantially; resolution still absent.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 406,
+        "preserved_alternatives": true
+      }
+    },
+    "theory_versions": 2,
+    "elapsed_s": 59.4
+  },
+  {
+    "n": 21,
+    "desc": "Formulaic three-part thesis",
+    "genre": "argumentative",
+    "aud": "teacher",
+    "text": "Junk food should be banned in schools because it is unhealthy, it is distracting, and it is expensive.",
+    "first": {
+      "operative_purpose": "Draft a thesis that controls the essay's direction.",
+      "current_organization": "Classic three-part thesis structure: position + three parallel reasons listed.",
+      "supporting_evidence": [
+        "Clear position stated; topic distinguished from claim."
+      ],
+      "complicating_evidence": [
+        "Unhealthy, distracting, and expensive span different domains and may not unify.",
+        "Form may be template-driven rather than argument-driven."
+      ],
+      "alternative_interpretations": [
+        "Student has a genuine multi-pronged argument and three reasons do cohere for them.",
+        "Student is fulfilling a teacher formula and the real argument hasn't been articulated yet."
+      ],
+      "primary_tension": "Three reasons may not cohere into one controlling idea \u2014 they span health, behavior, and economics.",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "candidate_invitations": [
+        "Look at your three reasons \u2014 do they pull toward one central idea, or does one feel like the real engine? Write one sentence stating what you most want the reader to understand.",
+        "Pick one reader who would strongly disagree with your ban \u2014 what would they say, and how does your argument answer them? Then see if that changes how you'd write your thesis."
+      ],
+      "selected_invitation": "Look at your three reasons \u2014 do they pull toward one central idea, or does one feel like the real engine? Write one sentence stating what you most want the reader to understand.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 177,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 30.9
+  },
+  {
+    "n": 22,
+    "desc": "Strong conventional thesis",
+    "genre": "argumentative",
+    "aud": "informed public",
+    "text": "Lowering the voting age to sixteen would strengthen democracy, because sixteen-year-olds already bear adult responsibilities the state expects them to take seriously, and early voting builds lifelong civic habits.",
+    "first": {
+      "operative_purpose": "Draft your thesis.",
+      "current_organization": "Single-sentence thesis: position + two coordinated reasons.",
+      "supporting_evidence": [
+        "Claim is arguable (not merely topical)",
+        "Two reasons are logically distinct"
+      ],
+      "complicating_evidence": [
+        "'adult responsibilities' is unspecified \u2014 could refer to many things",
+        "'lifelong civic habits' asserts an empirical effect that needs evidence"
+      ],
+      "alternative_interpretations": [
+        "The vagueness may be deliberate holding space while the student plans body paragraphs",
+        "The two-part structure may signal the student already has two body sections planned"
+      ],
+      "primary_tension": "Key terms 'adult responsibilities' and 'lifelong civic habits' are vague \u2014 reader cannot yet tell what is asserted",
+      "relevant_domains": [
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "Pick one of your two reasons and write a sentence saying exactly what you mean by it \u2014 what specific responsibility or habit \u2014 so a reader knows what evidence would support it.",
+        "Look at your phrase 'strengthen democracy' \u2014 write one sentence explaining what specifically would be different about democracy if sixteen-year-olds voted, so a reader can tell whether that outcome is deliverable in this essay."
+      ],
+      "selected_invitation": "Pick one of your two reasons and write a sentence saying exactly what you mean by it \u2014 what specific responsibility or habit \u2014 so a reader knows what evidence would support it.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": false,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 176,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 30.7
+  },
+  {
+    "n": 23,
+    "desc": "Strong unconventional thesis",
+    "genre": "argumentative",
+    "aud": "literary reader",
+    "text": "Ask most people to define success and they will describe a finish line; this essay argues that the metaphor itself is the problem, and that a life organized around finish lines is designed to feel like failure.",
+    "first": {
+      "operative_purpose": "Draft your thesis.",
+      "current_organization": "Single sentence performs two moves: names the common view, then pivots to identify the metaphor as the problem and its consequence.",
+      "supporting_evidence": [
+        "clean pivot from common view to counter-position",
+        "specific, arguable assertion about the metaphor"
+      ],
+      "complicating_evidence": [
+        "two distinct claims (metaphor is the problem; finish-line life feels like failure) sit without explicit subordination"
+      ],
+      "alternative_interpretations": [
+        "student may intend the emotional consequence as the real thesis, with the metaphor critique as setup",
+        "student may plan to develop both claims as equally governing"
+      ],
+      "primary_tension": "claim may be doing two jobs (critique the metaphor + diagnose its emotional consequence) that could compete",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Opening / Introduction"
+      ],
+      "candidate_invitations": [
+        "In one sentence, state what you want the reader to believe by the end that they probably don't believe right now \u2014 this will help clarify whether the essay's main claim is about the metaphor itself or about the emotional life it produces.",
+        "Your sentence asserts both that the metaphor is the problem and that it produces a feeling of failure \u2014 which of those two ideas should the whole essay prove, and which is there to support the other?"
+      ],
+      "selected_invitation": "In one sentence, state what you want the reader to believe by the end that they probably don't believe right now \u2014 this will help clarify whether the essay's main claim is about the metaphor itself or about the emotional life it produces.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 238,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 30.3
+  },
+  {
+    "n": 24,
+    "desc": "Revision after a developmental invitation",
+    "genre": "argumentative",
+    "aud": "naive reader",
+    "text": "Phones in schools are a problem.",
+    "first": {
+      "operative_purpose": "Draft a thesis for a phones-in-schools argument.",
+      "current_organization": "Single declarative sentence naming topic and labeling it a problem; no position, reasoning, or scope visible.",
+      "supporting_evidence": [
+        "'Problem' signals a negative evaluative orientation \u2014 a potential direction for a claim."
+      ],
+      "complicating_evidence": [
+        "'Phones in schools are a problem' is a factual-sounding generalization; a reader cannot yet identify what would count as disagreement or support."
+      ],
+      "alternative_interpretations": [
+        "Student may have a developed position and is warming up in writing.",
+        "Student may be genuinely uncertain what position to take."
+      ],
+      "primary_tension": "'Problem' is vague \u2014 could mean distraction, inequity, cheating, or many things.",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "candidate_invitations": [
+        "You've identified phones as a problem \u2014 what specific action or belief do you want your reader to come away with? Write one sentence stating that, in a way someone could push back on.",
+        "Before deciding your claim, try finishing this sentence in two different ways: 'Schools should _____ phones because _____' \u2014 then pick the version you actually believe."
+      ],
+      "selected_invitation": "You've named the topic \u2014 phones in schools \u2014 and pointed toward a problem. Now take one more step: what exactly do you want your reader to believe or do about that problem? Try writing one sentence that someone could actually disagree with.",
+      "changes_since_previous": "Initial turn; no prior theory.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 240,
+        "preserved_alternatives": true
+      }
+    },
+    "revised_text": "Because phones are engineered to capture attention, schools that allow unrestricted use during class are effectively competing with billion-dollar companies for their students' focus \u2014 and losing.",
+    "second": {
+      "operative_purpose": "Develop the thesis into a claim that can govern a whole argument.",
+      "current_organization": "Single arguable sentence with a causal warrant ('engineered to capture attention'), a concrete actor ('schools that allow unrestricted use'), and a vivid consequence ('competing with billion-dollar companies \u2014 and losing'). Claim is now distinguishable from topic.",
+      "supporting_evidence": [
+        "Causal mechanism ('engineered to capture attention') gives the claim a defensible warrant.",
+        "Specificity ('unrestricted use during class') scopes the policy context."
+      ],
+      "complicating_evidence": [
+        "The consequence of 'losing' is not yet articulated; a reader may not know what the essay will establish.",
+        "Single sentence \u2014 no evidence yet that the claim can govern a multi-part argument."
+      ],
+      "alternative_interpretations": [
+        "Student may intend 'losing' as the central concept to unpack across the essay \u2014 a purposeful open frame.",
+        "Student may have a full argument in mind not yet visible in this sentence."
+      ],
+      "primary_tension": "'Losing' is vivid but the consequence (for whom, in what way) is unspecified \u2014 scope is unclear.",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "candidate_invitations": [
+        "What does the essay need to establish for a reader to accept that schools are 'losing' \u2014 what specific consequence or harm follows from that loss?",
+        "Does this claim tell your reader what the essay will argue should happen, or only what is happening \u2014 and is that the choice you want to make?"
+      ],
+      "selected_invitation": "What does the essay need to establish for a reader to accept that schools are 'losing' \u2014 what specific consequence or stake follows from that loss?",
+      "changes_since_previous": "Major reorganization: student moved from a topic label ('problem') to a causally warranted, metaphorically vivid arguable claim. Topic-claim differentiation is now visible. Tension shifts from 'no claim present' to 'claim present but consequence/scope unspecified.'",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "thesis_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 147,
+        "preserved_alternatives": true
+      }
+    },
+    "theory_versions": 2,
+    "elapsed_s": 66.6
+  }
+]

@@ -1,0 +1,1028 @@
+[
+  {
+    "n": 1,
+    "desc": "Topic but no clear purpose",
+    "genre": "argumentative",
+    "text": "There are many things about traffic downtown. Traffic is a big topic. Downtown areas have a lot of cars and people and stores and buses.",
+    "first": {
+      "operative_purpose": "Draft a body paragraph.",
+      "current_organization": "Three sentences naming a topic area; no claim, no local movement, no argumentative direction.",
+      "supporting_evidence": [
+        "Student is engaging with the assignment topic",
+        "Listing details shows some orientation to the domain"
+      ],
+      "complicating_evidence": [
+        "No arguable claim present",
+        "Sentences do not advance toward a position"
+      ],
+      "alternative_interpretations": [
+        "Student may be brainstorming rather than drafting",
+        "Student may believe topic naming is thesis-making"
+      ],
+      "primary_tension": "Assignment requires argument; draft offers only topic naming",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Paragraph Purpose"
+      ],
+      "candidate_invitations": [
+        "In one sentence, state your position: should cities reduce car traffic downtown, and what is your main reason?",
+        "Look at your three sentences \u2014 what job are they doing for your argument: introducing a topic, or making a point? Name the difference in a sentence."
+      ],
+      "selected_invitation": "In one sentence, state your position: should cities reduce car traffic downtown, and what is your main reason?",
+      "changes_since_previous": "Initial \u2014 no prior draft.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 110,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 27.4
+  },
+  {
+    "n": 2,
+    "desc": "Clear purpose, disconnected from whole",
+    "genre": "argumentative",
+    "text": "Bicycles are an efficient form of transport. A cyclist can travel four times faster than a walker using the same energy, and bikes take up little space. Cycling is also good exercise.",
+    "first": {
+      "operative_purpose": "Draft a body paragraph for an argumentative essay about reducing downtown car traffic.",
+      "current_organization": "Three sentences list facts about bicycles (speed efficiency, space, health) without a governing claim or explicit connection to the essay's argument.",
+      "supporting_evidence": [
+        "Three sentences all concern bicycles \u2014 coherent topic focus.",
+        "Speed and space facts are potentially relevant to a traffic-reduction argument."
+      ],
+      "complicating_evidence": [
+        "No sentence connects to the essay's central question about car traffic.",
+        "Health benefit (exercise) may serve a different argument than traffic reduction."
+      ],
+      "alternative_interpretations": [
+        "Student may have a clear thesis in mind but hasn't written it yet \u2014 paragraph is an evidence list awaiting a claim.",
+        "Student may be treating this as an introductory context paragraph, not a core argument paragraph."
+      ],
+      "primary_tension": "Topic named (bikes are efficient) but no arguable claim governs the paragraph.",
+      "relevant_domains": [
+        "Paragraph Purpose",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "In one sentence, say what job this paragraph is doing for your argument about downtown car traffic \u2014 not just its topic, but its purpose.",
+        "Looking at your three sentences, what would a reader learn about why cities should (or shouldn't) reduce car traffic \u2014 and is that what you want them to take away?"
+      ],
+      "selected_invitation": "You've made some clear, factual observations about bicycles here. Before going further, can you say in one sentence what job this paragraph is doing for your essay's argument \u2014 not just what it's about, but what it's trying to establish for the reader about whether cities should reduce car traffic downtown?",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 308,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 32.3
+  },
+  {
+    "n": 3,
+    "desc": "Several competing purposes",
+    "genre": "argumentative",
+    "text": "Downtown congestion wastes hours. Also, my uncle drives a delivery truck and says parking is impossible. Meanwhile, air quality studies show particulates rise near intersections, and some cities have beautiful pedestrian squares.",
+    "first": {
+      "operative_purpose": "Draft a body paragraph that performs a coherent function within the argument.",
+      "current_organization": "Four loosely associated observations juxtaposed without a governing sentence or local movement; no evident coordination toward a single purpose.",
+      "supporting_evidence": [
+        "Multiple relevant evidence types suggest genuine engagement with the topic.",
+        "Range of material (personal, empirical, comparative) shows potential for a developed argument."
+      ],
+      "complicating_evidence": [
+        "No governing sentence; paragraph lacks a local movement.",
+        "Four topics in four sentences suggests listing rather than arguing."
+      ],
+      "alternative_interpretations": [
+        "Student may be brainstorming rather than drafting a finished paragraph.",
+        "Student may have an implicit claim organizing this material that they haven't yet made explicit."
+      ],
+      "primary_tension": "Multiple possible paragraph jobs compete: establish harms of traffic, introduce evidence inventory, argue for pedestrian spaces.",
+      "relevant_domains": [
+        "Paragraph Purpose",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "Before adding or cutting anything, say in one sentence what job this paragraph is supposed to do for the essay's argument \u2014 what should the reader accept or understand after reading it?",
+        "You have four different kinds of observations here \u2014 pick the one you think most strongly supports the case for reducing car traffic downtown, and explain in a sentence or two why it supports that case."
+      ],
+      "selected_invitation": "Before adding or cutting anything, say in one sentence what job this paragraph is supposed to do for the essay's argument \u2014 what should the reader accept or understand after reading it?",
+      "changes_since_previous": "Initial \u2014 no prior theory.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 185,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 35.7
+  },
+  {
+    "n": 4,
+    "desc": "Changes purpose midway",
+    "genre": "argumentative",
+    "text": "Reducing car traffic would cut emissions significantly, since transport is a leading source of urban CO2. Speaking of downtown, the new food hall on Main Street has fifteen vendors and is always crowded on weekends.",
+    "first": {
+      "operative_purpose": "Draft a body paragraph supporting an argument about reducing downtown car traffic.",
+      "current_organization": "Two sentences: one making an emissions claim, one introducing an unrelated food hall detail.",
+      "supporting_evidence": [
+        "Sentence 1 is argumentatively oriented and relevant to the assignment."
+      ],
+      "complicating_evidence": [
+        "Sentence 2 breaks coherence and suggests either distraction or uncertainty about paragraph purpose."
+      ],
+      "alternative_interpretations": [
+        "Student may be testing ideas and knows the food hall sentence is weak.",
+        "Student may not yet see the two sentences as serving different purposes."
+      ],
+      "primary_tension": "Two competing purposes in one paragraph (argument vs. unrelated description).",
+      "relevant_domains": [
+        "Paragraph Purpose",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "In one sentence, say what job the food hall sentence is doing for your argument about car traffic \u2014 once you see it, you can decide whether to keep, cut, or reshape it.",
+        "Before adding more to this paragraph, try finishing this sentence: 'This paragraph should convince the reader that ___.' Then check whether both sentences do that work."
+      ],
+      "selected_invitation": "You've started a paragraph connecting car traffic to CO2 emissions \u2014 that's a real argumentative move. But then the paragraph takes a turn toward the food hall on Main Street. In one sentence, can you say what job the food hall sentence is doing for your argument about car traffic? Once you see it, you can decide whether to keep it, cut it, or reshape it.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 357,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 29.4
+  },
+  {
+    "n": 5,
+    "desc": "Clear function, no explicit topic sentence",
+    "genre": "argumentative",
+    "text": "First the buses slowed. Then delivery vans double-parked. By eight-thirty the intersection was gridlocked and an ambulance sat trapped for four minutes. Scenes like this repeat across the city every morning, which is exactly why the current system cannot continue.",
+    "first": {
+      "operative_purpose": "Draft a body paragraph \u2014 but the current text is an opening/intro move, so the student may need to locate the thesis before building body paragraphs.",
+      "current_organization": "Narrative vignette followed by a pivot sentence asserting the status quo cannot continue; no explicit claim yet.",
+      "supporting_evidence": [
+        "Vivid, specific scene suggests purposeful rhetorical choice",
+        "Pivot sentence shows awareness that evidence must connect to argument"
+      ],
+      "complicating_evidence": [
+        "No claim is stated; reader cannot yet tell what position is being argued",
+        "Task was 'draft a body paragraph' but text reads as an opening"
+      ],
+      "alternative_interpretations": [
+        "This may be a deliberate intro paragraph with a claim to follow",
+        "Student may intend 'cannot continue' as the thesis and consider the paragraph complete"
+      ],
+      "primary_tension": "'Cannot continue' gestures at a claim but does not state one \u2014 topic vs. claim distinction is unresolved",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Paragraph Purpose"
+      ],
+      "candidate_invitations": [
+        "In one sentence, state the specific claim about downtown car traffic that this whole essay is trying to prove.",
+        "Name, in a few words, the one job this paragraph is doing for the essay \u2014 then say what job the next paragraph needs to do."
+      ],
+      "selected_invitation": "In one sentence, state the specific claim about downtown car traffic that this whole essay is trying to prove.",
+      "changes_since_previous": "Initial \u2014 no prior theory.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 110,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 32.8
+  },
+  {
+    "n": 6,
+    "desc": "Formulaic topic sentence that does not govern",
+    "genre": "argumentative",
+    "text": "Cars cause pollution. My favorite car is a red convertible. Convertibles look cool in movies. Some actors drive them in famous scenes.",
+    "first": {
+      "operative_purpose": "Draft a body paragraph for an argumentative essay about reducing car traffic downtown.",
+      "current_organization": "Four loosely sequential sentences: one pollution claim, one personal preference, two observations about movies. No governing sentence coordinates them toward the essay's argument.",
+      "supporting_evidence": [
+        "Sentence 1 connects to the essay's topic and could anchor an argument about pollution and traffic."
+      ],
+      "complicating_evidence": [
+        "Sentences 2-4 move away from the argument entirely, suggesting the paragraph's purpose is not yet differentiated from free association."
+      ],
+      "alternative_interpretations": [
+        "Student may be brainstorming rather than drafting a purposeful paragraph.",
+        "Student may not yet have a thesis, making paragraph purpose coordination premature."
+      ],
+      "primary_tension": "Argumentative purpose (pollution claim) vs. personal/associative content (favorites, movies).",
+      "relevant_domains": [
+        "Paragraph Purpose",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "In one sentence, say what job you want this paragraph to do for your argument about car traffic downtown.",
+        "Looking at your four sentences, which one feels most connected to whether cities should reduce car traffic \u2014 and what would you need to say next to support it?"
+      ],
+      "selected_invitation": "In one sentence, can you say what job you want this paragraph to do for your argument about car traffic downtown?",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 113,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 29.8
+  },
+  {
+    "n": 7,
+    "desc": "Evidence without interpretation",
+    "genre": "argumentative",
+    "text": "A 2019 study found downtown traffic dropped 22% after congestion pricing in one city. Retail revenue changed by 4%. Bus ridership rose 11%. Average commute times fell by nine minutes.",
+    "first": {
+      "operative_purpose": "Draft a body paragraph for an argumentative essay.",
+      "current_organization": "Four data points from a single study, listed sequentially, no governing claim or interpretive sentence.",
+      "supporting_evidence": [
+        "Four distinct, specific data points suggest intentional evidence-gathering.",
+        "Congestion pricing context is specific and relevant to the assignment topic."
+      ],
+      "complicating_evidence": [
+        "No sentence connects the data to a position; impossible to know the paragraph's argument job.",
+        "Retail revenue 'changed by 4%' is ambiguous \u2014 direction unspecified, may signal uncertainty in student's understanding."
+      ],
+      "alternative_interpretations": [
+        "Student may already have a thesis elsewhere and is drafting evidence first, expecting to add interpretation later.",
+        "Student may be unsure of their own position and is listing data while deciding what to argue."
+      ],
+      "primary_tension": "Evidence is present but not interpreted or connected to a claim.",
+      "relevant_domains": [
+        "Paragraph Purpose",
+        "Interpretation / Reasoning"
+      ],
+      "candidate_invitations": [
+        "What do these four findings, taken together, show about whether cities should reduce car traffic? Try stating that in one sentence.",
+        "Which of these four findings do you think is the strongest reason for your argument, and why does it matter more than the others?"
+      ],
+      "selected_invitation": "What do these four findings, taken together, show about whether cities should reduce car traffic? Try stating that in one sentence.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 131,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 32.3
+  },
+  {
+    "n": 8,
+    "desc": "Interpretation without sufficient evidence",
+    "genre": "argumentative",
+    "text": "Clearly, reducing cars would transform downtown into a thriving, healthier, more human place where everyone would be happier and businesses would boom like never before.",
+    "first": {
+      "operative_purpose": "Draft a body paragraph that does a definable job for the argument.",
+      "current_organization": "Single sweeping assertion; reads as a thesis or conclusion, not a body paragraph with local movement.",
+      "supporting_evidence": [
+        "Student takes a clear stance; shows willingness to argue."
+      ],
+      "complicating_evidence": [
+        "Sweeping language ('everyone would be happier', 'boom like never before') suggests claim is not yet scoped to what evidence can support."
+      ],
+      "alternative_interpretations": [
+        "Student may intend this as a topic sentence and has more content planned.",
+        "Student may be conflating the essay opener with a body paragraph intentionally."
+      ],
+      "primary_tension": "Sentence functions as thesis but is assigned as body paragraph.",
+      "relevant_domains": [
+        "Paragraph Purpose",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "Pick one of the effects you named \u2014 health, business, or livability \u2014 and say what specific reason or evidence this paragraph will use to show it's true.",
+        "This sentence makes a big claim for the whole essay \u2014 what one specific thing would a reader need to see in this paragraph to start believing it?"
+      ],
+      "selected_invitation": "You've made a strong opening move by staking out a clear position. Right now, though, this sentence is doing the work of a thesis rather than a body paragraph \u2014 it tells us what you believe but not what this particular paragraph will prove or show. Can you say, in a sentence or two, what one specific reason or piece of evidence this paragraph is going to use to support that belief?",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": false,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 384,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 30.9
+  },
+  {
+    "n": 9,
+    "desc": "Supplies necessary context",
+    "genre": "research",
+    "text": "Congestion pricing charges drivers a fee to enter a defined zone during peak hours. London introduced it in 2003 and Stockholm in 2007. Understanding how these systems are designed is necessary before evaluating their effects.",
+    "first": {
+      "operative_purpose": "Draft a context paragraph that orients the reader for a research essay on congestion pricing.",
+      "current_organization": "Three sentences: definition \u2192 historical examples \u2192 directional signal. Moves from what to when to why-read-on.",
+      "supporting_evidence": [
+        "Sentence 3 shows purposeful framing beyond mere description",
+        "Definition is precise and functional"
+      ],
+      "complicating_evidence": [
+        "Sentence 3 is generic \u2014 'evaluating their effects' does not differentiate this essay's angle",
+        "No stakes or significance yet visible"
+      ],
+      "alternative_interpretations": [
+        "Student may have a clear thesis not yet written and is deliberately withholding it",
+        "Sentence 3 may be a placeholder the student intends to develop"
+      ],
+      "primary_tension": "Sentence 3 signals direction but stakes are not established \u2014 reader doesn't yet know why evaluation matters",
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Paragraph Purpose"
+      ],
+      "candidate_invitations": [
+        "What is the specific problem or question about congestion pricing that makes evaluation necessary \u2014 what is actually at stake for the reader?",
+        "In one sentence, say what a reader who finished this paragraph should understand about why the essay exists \u2014 not just what congestion pricing is, but why it is worth examining."
+      ],
+      "selected_invitation": "What is the specific problem or question about congestion pricing that makes evaluation necessary \u2014 what is actually at stake for the reader?",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": false,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 141,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 30.3
+  },
+  {
+    "n": 10,
+    "desc": "Overloaded with unnecessary background",
+    "genre": "research",
+    "text": "The wheel was invented around 3500 BCE. Roman roads spanned 80,000 km. The Model T appeared in 1908. Highways expanded after 1956. Traffic lights were patented in 1923. Eventually cities became congested and someone proposed charging drivers.",
+    "first": {
+      "operative_purpose": "Draft a paragraph.",
+      "current_organization": "Six loosely chronological facts strung together with a single pivot sentence; no governing idea stated.",
+      "supporting_evidence": [
+        "Chronological structure shows deliberate sequencing",
+        "Pivot sentence shows awareness that background must connect to topic"
+      ],
+      "complicating_evidence": [
+        "Facts have no interpretive frame",
+        "Pivot sentence is vague ('someone proposed charging drivers')"
+      ],
+      "alternative_interpretations": [
+        "Student is deliberately sketching a placeholder and knows it needs development",
+        "Student believes historical enumeration is sufficient context"
+      ],
+      "primary_tension": "List of facts vs. need for a governing idea",
+      "relevant_domains": [
+        "Paragraph Purpose",
+        "Organization"
+      ],
+      "candidate_invitations": [
+        "In one sentence, say what you want the reader to understand by the end of this paragraph and how that sets up your argument.",
+        "Look at your six facts and ask: which ones does a reader actually need in order to follow your argument about congestion pricing \u2014 and which could be cut without losing anything?"
+      ],
+      "selected_invitation": "In one sentence, say what you want the reader to understand by the end of this paragraph and how that sets up your argument.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 124,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 29.0
+  },
+  {
+    "n": 11,
+    "desc": "Develops the central claim",
+    "genre": "argumentative",
+    "text": "If cities reduce car traffic, the freed street space becomes the argument's strongest asset. A single traffic lane converted to a bus-and-bike corridor moves several times more people per hour, which means the same street serves more residents without expanding at all.",
+    "first": {
+      "operative_purpose": "Draft a body paragraph.",
+      "current_organization": "Two-sentence paragraph: an orienting claim about freed street space as the argument's asset, followed by a concrete efficiency example (lane-to-corridor conversion).",
+      "supporting_evidence": [
+        "Phrase 'the argument's strongest asset' shows essay-level awareness.",
+        "Lane conversion statistic is specific and relevant."
+      ],
+      "complicating_evidence": [
+        "No sentence explicitly states what this paragraph is trying to establish for the reader.",
+        "The interpretive step ('what this shows') is absent."
+      ],
+      "alternative_interpretations": [
+        "The student may already have a clear thesis in mind and is drafting efficiently toward it \u2014 the missing interpretation may come in a next sentence.",
+        "The paragraph may be intended as an opening hook, not a standard body paragraph, making the absence of an explicit job-statement purposeful."
+      ],
+      "primary_tension": "The paragraph's job within the whole essay is unnamed \u2014 is it introducing the efficiency argument, presenting evidence, or developing a sub-claim?",
+      "relevant_domains": [
+        "Paragraph Purpose",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "In one sentence, state the job this paragraph is doing for your overall argument \u2014 what should the reader understand or believe after reading it?",
+        "Your lane-conversion example is doing real work \u2014 now say explicitly what it shows about your argument: why does that statistic matter for the claim you're making?"
+      ],
+      "selected_invitation": "In one sentence, state the job this paragraph is doing for your overall argument \u2014 what should the reader understand or believe after reading it?",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": false,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 145,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 38.1
+  },
+  {
+    "n": 12,
+    "desc": "Repeats the thesis without developing",
+    "genre": "argumentative",
+    "text": "Cities should reduce car traffic downtown. It is important for cities to reduce the amount of car traffic. Reducing downtown car traffic is something cities should do because it would reduce car traffic downtown.",
+    "first": {
+      "operative_purpose": "Draft a body paragraph that does a definable job for the essay.",
+      "current_organization": "Three restatements of the same assertion; no reasoning, evidence, or internal differentiation.",
+      "supporting_evidence": [
+        "Consistent position held across all three sentences"
+      ],
+      "complicating_evidence": [
+        "No sentence adds new information; may indicate uncertainty about what to say next rather than a structural choice"
+      ],
+      "alternative_interpretations": [
+        "Student may be drafting a thesis/intro placeholder, not a body paragraph",
+        "Repetition may reflect a belief that restatement strengthens a claim"
+      ],
+      "primary_tension": "Topic vs. claim not yet distinguished",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Paragraph Purpose"
+      ],
+      "candidate_invitations": [
+        "Can you say, in one sentence, why reducing car traffic would matter \u2014 what would actually improve for people living or working downtown?",
+        "Before adding more sentences, can you name \u2014 in a few words \u2014 the one job you want this paragraph to do for someone reading your essay?"
+      ],
+      "selected_invitation": "Can you say, in one sentence, why reducing car traffic would matter \u2014 what would actually change for people living or working downtown?",
+      "changes_since_previous": "Initial turn \u2014 no prior theory to compare.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 135,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 29.9
+  },
+  {
+    "n": 13,
+    "desc": "Complicates or qualifies the thesis",
+    "genre": "argumentative",
+    "text": "Reducing car traffic helps most residents, but not all equally. Shift workers who finish after transit stops and people with mobility impairments may lose access unless the plan funds alternatives, which complicates the simple case for a ban.",
+    "first": {
+      "operative_purpose": "Draft a body paragraph and understand its function relative to the argument.",
+      "current_organization": "Two sentences: first asserts benefit with an equity hedge; second names two specific unserved groups and frames their exclusion as complicating 'the simple case for a ban.'",
+      "supporting_evidence": [
+        "Specific groups named (shift workers, mobility-impaired) shows differentiated thinking.",
+        "Conditional ('unless plan funds alternatives') shows awareness of how the complication could be resolved."
+      ],
+      "complicating_evidence": [
+        "The paragraph does not signal its own job \u2014 reader cannot tell if this is a concession to be answered or the essay's main point.",
+        "No sentence governs the paragraph's function relative to the argument."
+      ],
+      "alternative_interpretations": [
+        "This could be the student's thesis-level claim \u2014 that equity conditions must be met for a ban to be justified \u2014 rather than a body paragraph.",
+        "This could be a concession paragraph the student intends to rebut in the next paragraph but has not yet written."
+      ],
+      "primary_tension": "Paragraph's function is ambiguous: concession, qualification, or counterargument \u2014 its role in the whole essay is unclear.",
+      "relevant_domains": [
+        "Paragraph Purpose",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "In one sentence, say what job this paragraph is doing for your argument \u2014 is it a concession you'll answer, a limit on your claim, or something else?",
+        "What position does your essay as a whole take, and does this paragraph support, qualify, or complicate that position?"
+      ],
+      "selected_invitation": "In one sentence, say what job this paragraph is doing for your argument \u2014 is it a concession you'll answer, a limit on your claim, or something else?",
+      "changes_since_previous": "Initial turn \u2014 no prior theory to compare.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": false,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 149,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 39.3
+  },
+  {
+    "n": 14,
+    "desc": "Acknowledges another perspective",
+    "genre": "argumentative",
+    "text": "Small-business owners often oppose car restrictions. They argue that customers who cannot drive and park will simply shop elsewhere, and that deliveries become harder and more expensive.",
+    "first": {
+      "operative_purpose": "Draft a body paragraph.",
+      "current_organization": "Two sentences presenting a single opposing perspective (small-business owners) with two sub-claims: lost customers, harder deliveries.",
+      "supporting_evidence": [
+        "paragraph presents a coherent opposing voice with two specific reasons"
+      ],
+      "complicating_evidence": [
+        "no sentence signals the paragraph's purpose or its relation to the student's claim; paragraph could be read as agreement, counterargument, or neutral summary"
+      ],
+      "alternative_interpretations": [
+        "student is building toward a refutation and simply hasn't written it yet",
+        "student is genuinely uncertain of their own position and is exploring through the counterargument"
+      ],
+      "primary_tension": "paragraph raises objection but does not position it relative to the student's own claim",
+      "relevant_domains": [
+        "Paragraph Purpose",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "In one sentence, state what job this paragraph is doing for your essay \u2014 are you raising an objection you plan to answer, or conceding a real limitation of the policy?",
+        "What is the main claim your essay is arguing \u2014 the position you want the reader to accept by the end \u2014 and how does this paragraph about business owners connect to it?"
+      ],
+      "selected_invitation": "In one sentence, state what job this paragraph is doing for your essay \u2014 are you raising an objection you plan to answer, or conceding a real limitation of the policy?",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 167,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 31.4
+  },
+  {
+    "n": 15,
+    "desc": "Responds to an objection",
+    "genre": "argumentative",
+    "text": "Business owners fear losing driving customers. But data from pedestrianized districts shows foot traffic and spending often rise, because people on foot linger and return more often than drivers who park briefly, so the feared losses rarely materialize.",
+    "first": {
+      "operative_purpose": "Draft a body paragraph for an argumentative essay on reducing downtown car traffic.",
+      "current_organization": "Concession-rebuttal structure: names a fear, cites evidence, draws inference about materialization of losses.",
+      "supporting_evidence": [
+        "causal link made explicit with 'because'",
+        "inference drawn ('rarely materialize') shows reasoning beyond description"
+      ],
+      "complicating_evidence": [
+        "no signal of how this connects to a thesis or neighboring paragraph",
+        "evidence cited vaguely ('data from pedestrianized districts') without grounding"
+      ],
+      "alternative_interpretations": [
+        "student may already have a whole-essay plan and this fits intentionally \u2014 absence of framing is a draft-stage artifact, not a gap",
+        "student may be treating the paragraph as self-contained, not yet coordinating with a whole"
+      ],
+      "primary_tension": "paragraph's relation to the thesis and neighboring paragraphs is invisible",
+      "relevant_domains": [
+        "Paragraph Purpose",
+        "Interpretation / Reasoning"
+      ],
+      "candidate_invitations": [
+        "In one sentence, state the job this paragraph is doing for the whole essay argument \u2014 what does it accomplish for a skeptical reader?",
+        "Where in your essay would this paragraph appear, and what would the reader have just read before reaching it?"
+      ],
+      "selected_invitation": "In one sentence, state the job this paragraph is doing for the whole essay argument \u2014 what does it accomplish for a skeptical reader?",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 133,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 35.4
+  },
+  {
+    "n": 16,
+    "desc": "Transitional / bridge paragraph",
+    "genre": "argumentative",
+    "text": "So far the case has rested on efficiency and emissions. But numbers alone do not decide how a city should feel to the people who live in it. The next question is therefore not what works, but what kind of downtown we actually want.",
+    "first": {
+      "operative_purpose": "Draft a bridge paragraph.",
+      "current_organization": "Three sentences: names prior material (efficiency/emissions), reframes from numbers to lived experience, opens a new question (what kind of downtown do we want).",
+      "supporting_evidence": [
+        "paragraph explicitly names prior content and signals a shift in register"
+      ],
+      "complicating_evidence": [
+        "no visible connection to a thesis; the new question is open-ended, which may float rather than advance an argument"
+      ],
+      "alternative_interpretations": [
+        "paragraph may be functioning as an introduction to a new section rather than a true bridge",
+        "the rhetorical question may be the student's actual claim, not a transition"
+      ],
+      "primary_tension": "the opened question ('what kind of downtown') is not yet answered \u2014 bridge works only if next paragraph takes it up",
+      "relevant_domains": [
+        "Paragraph Purpose",
+        "Organization"
+      ],
+      "candidate_invitations": [
+        "Before you draft what follows, say in one sentence what you want the next paragraph to do with the question you've just opened.",
+        "You've shifted from 'what works' to 'what we want' \u2014 can you say what your answer to that question is, in a sentence or two, before drafting further?"
+      ],
+      "selected_invitation": "Before you draft what follows, can you say in one sentence what you want the next paragraph to do with the question you've just opened?",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 135,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 29.4
+  },
+  {
+    "n": 17,
+    "desc": "Narrative paragraph (not forced into argument)",
+    "genre": "narrative",
+    "text": "The 7:14 was already packed when I squeezed on. A man's umbrella dripped onto my shoe. Somewhere near the bridge the train stopped, the lights flickered, and for a moment the whole car went silent and still.",
+    "first": {
+      "operative_purpose": "Draft a paragraph for a narrative about a morning commute.",
+      "current_organization": "Three short sentences form a compressed scene: entry onto packed train, incidental sensory detail, then a suspended moment of stillness. Organization is accumulative, sensory, suggestive.",
+      "supporting_evidence": [
+        "Purposeful ending on charged moment suggests narrative intentionality",
+        "Sensory specificity (dripping umbrella, flickering lights) shows selective attention"
+      ],
+      "complicating_evidence": [
+        "Only three sentences \u2014 too little to confirm sustained organizational control",
+        "No controlling idea or narrative thread yet visible"
+      ],
+      "alternative_interpretations": [
+        "The stillness is the essay's central event and the opening is already doing its key work",
+        "The opening is a warm-up and the student has not yet identified the narrative's purpose"
+      ],
+      "primary_tension": "Opening is evocative but direction of the narrative is invisible \u2014 reader cannot yet know what is at stake or where this goes",
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Paragraph Purpose"
+      ],
+      "candidate_invitations": [
+        "Before writing the next paragraph, state in one sentence what you want the reader to feel or wonder after this opening \u2014 that will show you what the narrative needs to do next.",
+        "The moment of silence near the bridge feels like the heart of this opening \u2014 can you say in a sentence what that silence means to the narrator, or what it makes possible in the story?"
+      ],
+      "selected_invitation": "Before writing the next paragraph, state in one sentence what you want the reader to feel or wonder after this opening \u2014 that will show you what the narrative needs to do next.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 176,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 32.5
+  },
+  {
+    "n": 18,
+    "desc": "Reflective paragraph around uncertainty",
+    "genre": "reflective",
+    "text": "I am not sure whether I hate the traffic or depend on it. The jams are maddening, yet the car is the only place all day where no one asks anything of me. Maybe what I resent is not the congestion but the fact that I need it.",
+    "first": {
+      "operative_purpose": "Draft a paragraph.",
+      "current_organization": "Three sentences: contradictory feeling named, context supplied, interpretive reversal offered. The final sentence functions as a potential controlling claim.",
+      "supporting_evidence": [
+        "final sentence performs a genuine interpretive reversal",
+        "three sentences are locally integrated"
+      ],
+      "complicating_evidence": [
+        "no neighboring paragraphs exist yet \u2014 paragraph's role in the whole is undetermined"
+      ],
+      "alternative_interpretations": [
+        "this paragraph is a finished introduction and student knows what follows",
+        "student is still discovering the essay's direction through the writing itself"
+      ],
+      "primary_tension": "paragraph could be an introduction or a self-contained reflection \u2014 its role in a whole is unclear",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Paragraph Purpose"
+      ],
+      "candidate_invitations": [
+        "Can you say, in one sentence, what the contradiction between hating and needing the traffic reveals about how you move through your city?",
+        "What would the next paragraph need to do \u2014 what would it add or complicate \u2014 for this opening to feel like a beginning rather than a complete thought?"
+      ],
+      "selected_invitation": "Can you say, in one sentence, what the contradiction between hating and needing the traffic reveals about how you move through your city?",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 137,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 28.4
+  },
+  {
+    "n": 19,
+    "desc": "Descriptive serving a larger analytical purpose",
+    "genre": "analytical",
+    "text": "The plaza slopes gently toward a shallow fountain ringed by wide, backless stone ledges. There are no signs, no gates, and no single entrance. People drift in from four directions and settle facing one another rather than the street.",
+    "first": {
+      "operative_purpose": "Draft a paragraph \u2014 currently an opening.",
+      "current_organization": "Three sentences: physical description (slope, fountain, ledges) \u2192 spatial openness (no signs, no gates, no single entrance) \u2192 observed behavioral consequence (people face each other, not the street). Local movement proceeds from space to behavior.",
+      "supporting_evidence": [
+        "Final sentence links spatial form to social behavior \u2014 analytical logic is operational.",
+        "Absence of signs/gates is noted purposefully, not incidentally \u2014 suggests awareness of design as argument."
+      ],
+      "complicating_evidence": [
+        "No claim or question is stated; the essay's direction remains implicit.",
+        "Single-paragraph, first draft \u2014 insufficient evidence to confirm intentional design of the whole."
+      ],
+      "alternative_interpretations": [
+        "The paragraph may be a descriptive warm-up with no analytical claim yet in mind.",
+        "The final sentence may already function as the thesis in the student's operative plan, even though it is not named as such."
+      ],
+      "primary_tension": "The central claim or question is implicit; the reader cannot yet predict the essay's analytical direction.",
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Paragraph Purpose"
+      ],
+      "candidate_invitations": [
+        "You've connected space to behavior in your final sentence \u2014 now say in a sentence what central claim or question the rest of the essay will pursue, so the opening can prepare the reader for it.",
+        "Your opening leads the reader to expect something \u2014 can you say what a reader would predict the next paragraph will do, and whether that matches what you intend?"
+      ],
+      "selected_invitation": "You've connected space to behavior in your final sentence \u2014 now say in a sentence what central claim or question the rest of the essay will pursue, so the opening can prepare the reader for it.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": false,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 193,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 36.4
+  },
+  {
+    "n": 20,
+    "desc": "Weakness caused by mismatch with assignment",
+    "genre": "argumentative",
+    "text": "Electric cars are the real solution. As batteries improve and charging spreads, downtown emissions will fall without restricting anyone's driving at all, so the city should focus on incentivizing EV adoption.",
+    "first": {
+      "operative_purpose": "Draft a body paragraph arguing about congestion pricing.",
+      "current_organization": "Two sentences asserting EVs as an alternative solution, implying congestion pricing is unnecessary \u2014 but the assigned topic (congestion pricing) is absent.",
+      "supporting_evidence": [
+        "Draft shows coherent causal reasoning and a clear position"
+      ],
+      "complicating_evidence": [
+        "Draft does not mention congestion pricing; assignment requires it specifically"
+      ],
+      "alternative_interpretations": [
+        "Student intends EV paragraph as a counterargument section within a larger congestion pricing essay",
+        "Student has not yet registered the assignment constraint"
+      ],
+      "primary_tension": "Draft argues against restricting driving but doesn't engage congestion pricing directly",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Paragraph Purpose"
+      ],
+      "candidate_invitations": [
+        "Before developing this paragraph, can you write one sentence stating what you think congestion pricing would or wouldn't accomplish, and why a reader might disagree with you?",
+        "You've built a case for EVs as an alternative \u2014 could this paragraph be doing the job of a counterargument in an essay that ultimately argues for or against congestion pricing? Say in a sentence what that larger claim would be."
+      ],
+      "selected_invitation": "You've drafted a clear position about EVs and emissions \u2014 that's a real starting point. The assignment asks you to argue specifically about congestion pricing, though, so this paragraph is currently doing work for a different essay. Before developing this further, can you say in one sentence what you think congestion pricing would or wouldn't accomplish, and why a reader might find that worth arguing about?",
+      "changes_since_previous": "Initial turn \u2014 no prior draft to compare.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 410,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 32.2
+  },
+  {
+    "n": 21,
+    "desc": "Works only with the preceding paragraph",
+    "genre": "argumentative",
+    "text": "This is why the objection collapses. If even the merchants' own sales data point the other way, then the strongest practical argument against the plan is really an argument for it.",
+    "first": {
+      "operative_purpose": "Draft the paragraph following the evidence paragraph \u2014 the student has produced what appears to be a rebuttal conclusion.",
+      "current_organization": "Two sentences: an assertion that the objection collapses, then a conditional restatement of why. No evidence is restated; no reasoning bridge is visible.",
+      "supporting_evidence": [
+        "uses opponent's data as the pivot \u2014 shows awareness of argumentative reversal",
+        "conditional structure signals logical relationship"
+      ],
+      "complicating_evidence": [
+        "no sentence in this draft shows the reader the actual reasoning; the conclusion is asserted, not constructed"
+      ],
+      "alternative_interpretations": [
+        "this is intentionally a punchy closing and the evidence paragraph already did the work \u2014 in that case the gap is structural, not local",
+        "student is still drafting and this is a placeholder conclusion sentence"
+      ],
+      "primary_tension": "assertion of collapse is not demonstrated within this paragraph",
+      "relevant_domains": [
+        "Paragraph Purpose",
+        "Organization"
+      ],
+      "candidate_invitations": [
+        "What specific thing did the sales data show, and how does that finding make the objection reverse into support for the plan?",
+        "In one sentence, state the job this paragraph is doing for the whole essay \u2014 is it interpreting evidence, closing the rebuttal, or something else \u2014 and then check whether the two sentences you have actually perform that job."
+      ],
+      "selected_invitation": "What specific thing did the sales data show, and how does that finding make the objection reverse into support for the plan?",
+      "changes_since_previous": "initial \u2014 no prior draft",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 124,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 33.2
+  },
+  {
+    "n": 22,
+    "desc": "Function clear only via the following paragraph",
+    "genre": "argumentative",
+    "text": "Consider what a street is actually for. Not, at first, for any particular mode of travel, but for the movement and gathering of people. Hold that question for a moment.",
+    "first": {
+      "operative_purpose": "Draft a paragraph that sets up the next point in an argumentative essay about reducing car traffic downtown.",
+      "current_organization": "A two-sentence rhetorical opening that poses a reframing question and asks the reader to hold it \u2014 no claim stated, no evidence, no explicit thesis.",
+      "supporting_evidence": [
+        "'Hold that question' signals intentional pacing, not accidental vagueness"
+      ],
+      "complicating_evidence": [
+        "no claim or direction yet stated; unclear if student knows where this leads"
+      ],
+      "alternative_interpretations": [
+        "student has a clear thesis in mind and is building purposefully toward it",
+        "student is writing to discover what the claim will be"
+      ],
+      "primary_tension": "no governing claim visible yet",
+      "relevant_domains": [
+        "Paragraph Purpose",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "Before writing the next sentence, say in a few words what job this opening paragraph does for the essay and what the reader should be ready to think when they leave it.",
+        "You've asked the reader to hold a question \u2014 what answer does your essay ultimately want them to arrive at? Can you state it in one sentence?"
+      ],
+      "selected_invitation": "Before writing the next sentence, say in a few words what job this opening paragraph does for the essay and what the reader should be ready to think when they leave it.",
+      "changes_since_previous": "initial \u2014 first draft, no prior theory",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 168,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 32.2
+  },
+  {
+    "n": 23,
+    "desc": "Strong unconventional paragraph organization",
+    "genre": "argumentative",
+    "text": "Ten thousand cars. Forty parked delivery vans. One ambulance, motionless. Now subtract the private cars and run the morning again: the vans still deliver, the buses flow, the ambulance arrives in ninety seconds. The difference is not magic; it is arithmetic about space.",
+    "first": {
+      "operative_purpose": "Draft a body paragraph for an argumentative essay on reducing downtown car traffic.",
+      "current_organization": "Vivid concrete scenario followed by a removal thought-experiment, closing on an aphoristic claim ('arithmetic about space'). Organized as descriptive-narrative serving analysis.",
+      "supporting_evidence": [
+        "Aphoristic closing ('arithmetic about space') signals intentional argumentative direction",
+        "Thought-experiment structure shows purposeful analytical move"
+      ],
+      "complicating_evidence": [
+        "No thesis or surrounding paragraphs to establish function in the whole",
+        "Paragraph reads as a strong introduction but may not do a body-paragraph job"
+      ],
+      "alternative_interpretations": [
+        "Paragraph is a rhetorical introduction meant to hook the reader, not develop a body claim",
+        "Student has a thesis in mind and is building toward it; paragraph is subordinate scene-setting"
+      ],
+      "primary_tension": "Paragraph function relative to the essay whole is not visible (no thesis context)",
+      "relevant_domains": [
+        "Paragraph Purpose",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "In one sentence, state the claim this paragraph is meant to support \u2014 what should the reader be convinced of by the end of the full essay?",
+        "You've built a clear thought-experiment and landed on 'arithmetic about space' \u2014 can you say, in a sentence, what job you want this paragraph to do for the essay: is it setting up a problem, proving a point, or something else?"
+      ],
+      "selected_invitation": "You've built a clear thought-experiment and landed on 'arithmetic about space' \u2014 can you say, in a sentence, what job you want this paragraph to do for the essay: is it setting up a problem, proving a point, or something else?",
+      "changes_since_previous": "Initial turn; no prior theory. Paragraph is first draft with no predecessor.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 226,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 55.0
+  },
+  {
+    "n": 24,
+    "desc": "Revision that reorganizes paragraph purpose after an invitation",
+    "genre": "argumentative",
+    "text": "Downtown has a lot of traffic. There are cars and buses and trucks. Parking is hard. Pollution is bad. It is a problem.",
+    "first": {
+      "operative_purpose": "Draft a body paragraph that does a definable job for an argumentative essay.",
+      "current_organization": "Five short declarative sentences listing downtown problems; no argument, no claim, no paragraph function distinguishable.",
+      "supporting_evidence": [
+        "All five sentences are on-topic",
+        "'It is a problem' gestures toward an evaluative stance"
+      ],
+      "complicating_evidence": [
+        "No claim or argument present",
+        "No paragraph function visible relative to an essay whole"
+      ],
+      "alternative_interpretations": [
+        "Student may be brainstorming rather than drafting a final paragraph",
+        "Student may have a clear position orally but not yet on the page"
+      ],
+      "primary_tension": "List of problems vs. need for a controlling claim",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Paragraph Purpose"
+      ],
+      "candidate_invitations": [
+        "In one sentence, say what you think cities should do about downtown traffic and why \u2014 that's the claim your paragraph can then support.",
+        "Of the problems you listed \u2014 traffic, parking, pollution \u2014 which one do you think most justifies cities taking action, and what action should they take?"
+      ],
+      "selected_invitation": "You've named several real downtown problems \u2014 traffic, parking, pollution. Now I'm curious: what do you want a reader to *do* with that list? In one sentence, can you say what you think cities should actually do about it, and why that matters?",
+      "changes_since_previous": "Initial turn \u2014 no prior draft to compare.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 243,
+        "preserved_alternatives": true
+      }
+    },
+    "revised_text": "The clearest cost of downtown car traffic is space. Private cars occupy the majority of road area while carrying a minority of travelers, which means that every lane devoted to them is a lane not serving the buses, deliveries, and emergency vehicles the city actually depends on.",
+    "second": {
+      "operative_purpose": "Identify or articulate a thesis that can govern the developing essay.",
+      "current_organization": "One focused paragraph with a topic (space cost) and embedded reasoning (opportunity cost of car lanes); no explicit thesis governing the essay.",
+      "supporting_evidence": [
+        "Revision replaced five vague sentences with one focused argumentative paragraph",
+        "Opportunity-cost logic is self-generated and coherent"
+      ],
+      "complicating_evidence": [
+        "No explicit thesis; unclear if the space-cost claim governs the whole essay or is one of several points"
+      ],
+      "alternative_interpretations": [
+        "This paragraph may already be functioning as the student's implicit thesis, externalized as a body paragraph",
+        "Student may intend multiple cost-based paragraphs, with space as just one"
+      ],
+      "primary_tension": "Paragraph makes a local claim but no essay-level thesis is stated",
+      "relevant_domains": [
+        "Central Claim / Thesis",
+        "Paragraph Purpose"
+      ],
+      "candidate_invitations": [
+        "In one sentence, state the single controlling claim the whole essay is trying to establish \u2014 the position a reader could actually disagree with.",
+        "Name, in a phrase, the one job this paragraph is doing for the essay \u2014 then say what the next paragraph would need to do to keep the argument moving."
+      ],
+      "selected_invitation": "In one sentence, state the single controlling claim the whole essay is trying to establish \u2014 the position a reader could actually disagree with.",
+      "changes_since_previous": "Major reorganization: five undifferentiated observations replaced by a focused two-sentence argumentative paragraph with embedded causal reasoning; topic and claim now distinguishable; opportunity-cost logic is new.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "paragraph_selected": true,
+        "no_stage_language": false,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 144,
+        "preserved_alternatives": true
+      }
+    },
+    "theory_versions": 2,
+    "elapsed_s": 64.4
+  }
+]

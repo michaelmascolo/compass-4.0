@@ -1,0 +1,576 @@
+[
+  {
+    "n": 1,
+    "category": "persuasive",
+    "expected": [
+      "persuasive"
+    ],
+    "primary": "persuade",
+    "secondary": [
+      "inform"
+    ],
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start by naming the topic \u2014 that's a real first move. Right now your reader knows the subject is uniforms, but not yet where you stand: should the school require them or not? Before writing another sentence, try this: in your own words, what's your actual answer to that question? Once you've got that, consider how your introduction could signal it to your reader.",
+    "elapsed_s": 41.0
+  },
+  {
+    "n": 2,
+    "category": "persuasive",
+    "expected": [
+      "persuasive"
+    ],
+    "primary": "persuade",
+    "secondary": [
+      "inform"
+    ],
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've written a thesis that takes a position \u2014 that's the right move for a persuasive essay. Right now, though, 'reading is good and libraries have books' are things most readers would simply nod at without needing to be convinced. A useful thesis for persuasion gives a reader something they could actually push back on. Can you try rewriting your sentence so it names a specific reason *this town* needs a library \u2014 something a skeptical reader might genuinely question?",
+    "elapsed_s": 41.4
+  },
+  {
+    "n": 3,
+    "category": "persuasive",
+    "expected": [
+      "persuasive"
+    ],
+    "primary": "persuade",
+    "secondary": [],
+    "focus": "writing",
+    "type": "invite_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made a clear opening move: year-round school is bad because kids need breaks. That's a real claim with a real reason behind it. Now, what's one specific thing that happens to kids when they don't get enough breaks \u2014 something a skeptical reader would have to take seriously?",
+    "elapsed_s": 32.1
+  },
+  {
+    "n": 4,
+    "category": "persuasive",
+    "expected": [
+      "persuasive"
+    ],
+    "primary": "persuade",
+    "secondary": [
+      "inform"
+    ],
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made a clear opening move \u2014 you've named your topic, your audience, and your request in just three sentences. Your principal, though, is a busy reader who will need a reason to take this seriously before agreeing to anything. What is one specific thing about teens being tired that you think your principal might not already know or might be underestimating \u2014 and how could you use that to open your letter?",
+    "elapsed_s": 39.0
+  },
+  {
+    "n": 5,
+    "category": "explanatory",
+    "expected": [
+      "explanatory",
+      "informative"
+    ],
+    "primary": "explain",
+    "secondary": [
+      "inform"
+    ],
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start by naming the main players \u2014 Congress and the president. Before writing more, try this: in one sentence, tell me what you want your reader to understand by the end of your explanation. What should they be able to do or say after reading it?",
+    "elapsed_s": 34.3
+  },
+  {
+    "n": 6,
+    "category": "explanatory",
+    "expected": [
+      "explanatory",
+      "informative"
+    ],
+    "primary": "explain",
+    "secondary": [],
+    "focus": "writing",
+    "type": "invite_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made a real start \u2014 you've named the topic and gestured at the cause. Now think about the reader sitting down with this: what do they need to understand *first* before \"light\" can mean anything to them in this context? What's the actual question your explanation is going to answer?",
+    "elapsed_s": 33.4
+  },
+  {
+    "n": 7,
+    "category": "explanatory",
+    "expected": [
+      "explanatory",
+      "informative"
+    ],
+    "primary": "explain",
+    "secondary": [],
+    "focus": "writing",
+    "type": "invite_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start by putting three moments in order: something happens, the immune system reacts, then protection follows. That sequence is the skeleton of an explanation. Can you pick one of those three moments and say, in your own words, exactly what is happening \u2014 what the vaccine is doing, or what the immune system is doing, or what 'protected' actually means?",
+    "elapsed_s": 34.1
+  },
+  {
+    "n": 8,
+    "category": "explanatory",
+    "expected": [
+      "explanatory",
+      "informative"
+    ],
+    "primary": "explain",
+    "secondary": [
+      "analyze"
+    ],
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start by connecting the Dust Bowl to the idea of causes \u2014 that's the right territory for this assignment. Right now your sentence tells the reader the topic, but not yet what you want them to understand about it. Try rewriting just that sentence so it names the actual cause or causes you think most explain the Dust Bowl, in a way that a reader could question or push back on.",
+    "elapsed_s": 33.2
+  },
+  {
+    "n": 9,
+    "category": "informative",
+    "expected": [
+      "informative",
+      "explanatory"
+    ],
+    "primary": "inform/explain",
+    "secondary": [],
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've got four facts about solar power on the page \u2014 that's a real start. Right now each sentence stands alone, like items on a list. Can you pick the one fact that feels most important to your reader, and write a sentence that tells the reader why you're sharing these facts about solar power?",
+    "elapsed_s": 32.2
+  },
+  {
+    "n": 10,
+    "category": "informative",
+    "expected": [
+      "informative",
+      "explanatory"
+    ],
+    "primary": "inform/explain",
+    "secondary": [],
+    "focus": "writing",
+    "type": "invite_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "Your opening tells us the topic is the water cycle \u2014 that's a real start. Now think about a reader who has never heard of it: what's the very first thing they'd need to understand before anything else makes sense? Try writing one sentence that gives that reader a foothold.",
+    "elapsed_s": 31.7
+  },
+  {
+    "n": 11,
+    "category": "informative",
+    "expected": [
+      "informative",
+      "explanatory"
+    ],
+    "primary": "inform/advise",
+    "secondary": [
+      "possibly persuade teens to adopt habits"
+    ],
+    "focus": "writing",
+    "type": "invite_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start by naming your topic and signaling there's useful information ahead \u2014 that's a real opening move. For a teen reader picking up a fact sheet, what's the first thing they'd need to understand or care about to want to keep reading? Try writing one or two sentences that answer that question.",
+    "elapsed_s": 35.6
+  },
+  {
+    "n": 12,
+    "category": "informative",
+    "expected": [
+      "informative",
+      "explanatory"
+    ],
+    "primary": "explain",
+    "secondary": [
+      "inform"
+    ],
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've got the core sequence here \u2014 data, routers, packets, arrival. Right now these are four separate moments; the paragraph hasn't yet shown the reader what job it's doing: is it explaining the sequence of steps, or telling the reader why packets exist at all? Before adding more, try stating in a single sentence what you want this paragraph to *do* for a reader who has never heard of internet routing.",
+    "elapsed_s": 42.9
+  },
+  {
+    "n": 13,
+    "category": "analytical",
+    "expected": [
+      "analytical"
+    ],
+    "primary": "analyze (interpret how imagery creates mood)",
+    "secondary": [],
+    "focus": "writing",
+    "type": "invite_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've started by identifying that the poem uses imagery \u2014 that's a real entry point. Now, try this: pick one specific image from the poem and write a sentence that says what mood it creates. Don't explain what imagery is \u2014 just show me what this particular image does to how the poem feels.",
+    "elapsed_s": 33.1
+  },
+  {
+    "n": 14,
+    "category": "analytical",
+    "expected": [
+      "analytical"
+    ],
+    "primary": "analyze (interpret a literary technique's effect)",
+    "secondary": [
+      "persuade reader to accept the interpretation"
+    ],
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start by naming the technique and gesturing at its effect \u2014 that's the right territory for an analysis thesis. Right now your sentence tells the reader the topic ('point of view') but not what you're claiming about it: what does the point of view actually do to the story, and why does that matter? Try rewriting the sentence so it states a specific effect the author's choice of point of view creates \u2014 something a reader could look at the story and disagree with.",
+    "elapsed_s": 38.2
+  },
+  {
+    "n": 15,
+    "category": "analytical",
+    "expected": [
+      "analytical"
+    ],
+    "primary": "analyze",
+    "secondary": [
+      "interpret"
+    ],
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've planted three observations about the plaza \u2014 benches, fountain, people sitting. That's real material to work with. Now try this: pick one of those observations and ask yourself, *why* do people sit there rather than somewhere else? What does that tell you about how the space is designed to shape what people do? Write a sentence or two that moves from what you saw to what it means.",
+    "elapsed_s": 37.2
+  },
+  {
+    "n": 16,
+    "category": "analytical",
+    "expected": [
+      "analytical"
+    ],
+    "primary": "analyze",
+    "secondary": [
+      "interpret"
+    ],
+    "focus": "writing",
+    "type": "invite_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made an observation about sentence length \u2014 that's a real starting point for this kind of analysis. Right now, your three sentences are circling the same idea rather than moving through it. Try this: pick one specific sentence from the passage and say, in your own words, what it *does* to the reader when they read it \u2014 not just that it feels \"a certain way,\" but what that way actually is.",
+    "elapsed_s": 32.7
+  },
+  {
+    "n": 17,
+    "category": "narrative",
+    "expected": [
+      "narrative"
+    ],
+    "primary": "narrate",
+    "secondary": [
+      "reflect"
+    ],
+    "focus": "writing",
+    "type": "interpretation_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start \u2014 that shift from 'normal' to 'not normal' is doing something. Before you write the next sentence, can you tell me: what is the one moment you most want your reader to feel or understand by the end of this story?",
+    "elapsed_s": 32.0
+  },
+  {
+    "n": 18,
+    "category": "narrative",
+    "expected": [
+      "narrative"
+    ],
+    "primary": "narrate",
+    "secondary": [
+      "reflect"
+    ],
+    "focus": "writing",
+    "type": "invite_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've put the tradition on the page \u2014 the gathering, your grandma, the dumplings. Right now the sentences tell us what happens, and the last one, \"It is nice,\" carries a lot of weight. What is it, exactly, that makes it nice? Try staying in one moment at that table and describing what you noticed \u2014 something you saw, heard, or felt \u2014 that captures what \"nice\" actually means to you.",
+    "elapsed_s": 38.1
+  },
+  {
+    "n": 19,
+    "category": "narrative",
+    "expected": [
+      "narrative"
+    ],
+    "primary": "narrate",
+    "secondary": [
+      "reflect"
+    ],
+    "focus": "writing",
+    "type": "invite_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've mapped out the shape of your story in four beats \u2014 meeting, judging, discovering you were wrong, becoming friends. That arc is a real starting point. Before you draft, can you pinpoint the exact moment your mind about this person began to shift \u2014 what happened or what you noticed \u2014 so that change becomes the center of the story?",
+    "elapsed_s": 34.5
+  },
+  {
+    "n": 20,
+    "category": "narrative",
+    "expected": [
+      "narrative"
+    ],
+    "primary": "reflect",
+    "secondary": [
+      "narrate"
+    ],
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made a move that many writers make at the end \u2014 naming what the experience meant. That gives the reader a landing place. Now ask yourself: what does your reader understand *now*, at the end, that they couldn't have understood at the start? Try writing one or two sentences that show that shift \u2014 not just name it.",
+    "elapsed_s": 34.5
+  },
+  {
+    "n": 21,
+    "category": "reflective",
+    "expected": [
+      "reflective"
+    ],
+    "primary": "reflect",
+    "secondary": [
+      "narrate"
+    ],
+    "focus": "writing",
+    "type": "invite_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've given us a real moment \u2014 failing the driving test twice, and the embarrassment that came with it. What's interesting is your last sentence: \"I am not sure what to think about it.\" That uncertainty could actually be the heart of this reflection. What do you think the experience was trying to teach you, even if you're still working it out?",
+    "elapsed_s": 35.0
+  },
+  {
+    "n": 22,
+    "category": "reflective",
+    "expected": [
+      "reflective"
+    ],
+    "primary": "reflect",
+    "secondary": [
+      "explore"
+    ],
+    "focus": "writing",
+    "type": "interpretation_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start, and that honesty \u2014 'I am still figuring out what it made me think about' \u2014 is actually useful. Before writing more, can you name the book and say, in a few words, what question or idea it left you sitting with?",
+    "elapsed_s": 34.8
+  },
+  {
+    "n": 23,
+    "category": "reflective",
+    "expected": [
+      "reflective"
+    ],
+    "primary": "reflect",
+    "secondary": [
+      "explore personal meaning of a value"
+    ],
+    "focus": "writing",
+    "type": "interpretation_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've named something real here \u2014 honesty matters to you, and you've noticed it's sometimes hard. That tension is exactly where a reflection gets interesting. Can you think of a specific moment when being honest actually cost you something, or when you had to decide whether to be honest at all? Describe what happened in a sentence or two.",
+    "elapsed_s": 35.4
+  },
+  {
+    "n": 24,
+    "category": "reflective",
+    "expected": [
+      "reflective"
+    ],
+    "primary": "reflect",
+    "secondary": [
+      "interpret personal experience"
+    ],
+    "focus": "writing",
+    "type": "interpretation_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start \u2014 you've named the project, the action, and even a tentative thought about community. That last line, \"Community is important I guess,\" sounds like you're not quite sure what you actually think yet. What's one specific moment from the project that stuck with you \u2014 something you saw, heard, or felt \u2014 that made community feel real rather than just a word?",
+    "elapsed_s": 34.7
+  },
+  {
+    "n": 25,
+    "category": "evaluative",
+    "expected": [
+      "evaluative",
+      "persuasive"
+    ],
+    "primary": "evaluate",
+    "secondary": [
+      "recommend"
+    ],
+    "focus": "writing",
+    "type": "interpretation_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made a clear recommendation at the end \u2014 that's a real move a reviewer makes. Right now, though, the paragraph doesn't yet tell the reader *why* the movie succeeds or fails at what it was trying to do. What was this movie trying to accomplish, and does your paragraph show whether it pulled that off?",
+    "elapsed_s": 34.7
+  },
+  {
+    "n": 26,
+    "category": "comparative",
+    "expected": [
+      "comparative",
+      "analytical"
+    ],
+    "primary": "compare",
+    "secondary": [
+      "explain"
+    ],
+    "focus": "writing",
+    "type": "invite_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've named both approaches and signaled they're different \u2014 that's a real start. Right now your paragraph tells us a comparison is coming but hasn't made the move yet. In one sentence, can you say what the most important difference between congestion pricing and car bans actually is? That one sentence will give your paragraph a job to do.",
+    "elapsed_s": 32.7
+  },
+  {
+    "n": 27,
+    "category": "proposal",
+    "expected": [
+      "proposal",
+      "persuasive"
+    ],
+    "primary": "propose",
+    "secondary": [
+      "persuade"
+    ],
+    "focus": "writing",
+    "type": "interpretation_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start by naming a problem and signaling you have a solution \u2014 that's the backbone of a proposal. Your reader will want to know: what is actually happening at lunch that makes food waste a problem worth solving? Try describing the situation in a bit more detail so your reader can picture it and feel why it matters.",
+    "elapsed_s": 34.1
+  },
+  {
+    "n": 28,
+    "category": "mixed",
+    "expected": [
+      "persuasive",
+      "explanatory",
+      "informative"
+    ],
+    "primary": "argue (whether algorithms should be regulated)",
+    "secondary": [
+      "explain (how algorithms work)"
+    ],
+    "focus": "writing",
+    "type": "interpretation_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start by naming the topic and gesturing at both explaining and arguing \u2014 that's the dual job this essay has. Right now, though, 'algorithms are complicated' and 'they should maybe be regulated' sit side by side without showing a reader why those two ideas belong together or why they matter. Before you draft more, can you write one or two sentences \u2014 just for yourself, not for the essay yet \u2014 that describe the specific problem with social media algorithms that makes regulation worth debating?",
+    "elapsed_s": 39.8
+  },
+  {
+    "n": 29,
+    "category": "mixed",
+    "expected": [
+      "analytical",
+      "persuasive"
+    ],
+    "primary": "persuade (recommend a course of action regarding a policy)",
+    "secondary": [
+      "analyze (examine effects)"
+    ],
+    "focus": "writing",
+    "type": "instruct_then_invite",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start by naming both moves your essay will make \u2014 examining effects and reaching a verdict. Right now your reader knows the essay's shape but not its position: 'what should happen' could mean anything. Try writing one sentence that tells your reader what you actually think should happen with this policy, and why \u2014 something a thoughtful person could disagree with.",
+    "elapsed_s": 39.0
+  },
+  {
+    "n": 30,
+    "category": "mixed",
+    "expected": [
+      "reflective",
+      "narrative",
+      "analytical"
+    ],
+    "primary": "reflect",
+    "secondary": [
+      "narrate"
+    ],
+    "focus": "writing",
+    "type": "invite_only",
+    "purpose_ok": true,
+    "mixed_ok": true,
+    "template_flags": [],
+    "ok": true,
+    "student_facing": "You've made a start by naming the experience and the insight together \u2014 that's exactly what this assignment asks for. Right now your sentence tells us that a failure happened and that you learned something, but we can't yet see or feel either one. What's one specific moment from that failure \u2014 something you actually did, saw, or felt \u2014 that you could put into words here?",
+    "elapsed_s": 40.7
+  }
+]

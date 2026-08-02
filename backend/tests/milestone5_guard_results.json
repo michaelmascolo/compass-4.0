@@ -1,0 +1,30 @@
+[
+  {
+    "n": 2,
+    "profile": "needs_instruction",
+    "type": "instruct_then_invite",
+    "ok": true,
+    "elapsed_s": 31.1
+  },
+  {
+    "n": 12,
+    "profile": "misuses",
+    "type": "instruct_then_invite",
+    "ok": true,
+    "elapsed_s": 32.3
+  },
+  {
+    "n": 22,
+    "profile": "rigid_formula",
+    "type": "invite_only",
+    "ok": false,
+    "elapsed_s": 35.7
+  },
+  {
+    "n": 23,
+    "profile": "rigid_formula",
+    "type": "instruct_then_invite",
+    "ok": true,
+    "elapsed_s": 38.6
+  }
+]

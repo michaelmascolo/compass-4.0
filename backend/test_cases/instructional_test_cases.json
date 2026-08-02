@@ -1,0 +1,1275 @@
+{
+ "note": "Instructional benchmark suite. Expanded 2026-07 to test whether the instructional architecture GENERALIZES across a broad range of writing situations (genres/communicative purposes, writing elements, proficiency levels incl. ELL, and student states) rather than optimizing for the original 32 cases. TC01-TC32 original; TC33-TC66 diversity expansion.",
+ "cases": [
+  {
+   "id": "TC01",
+   "name": "Misunderstanding the assignment",
+   "level": "grade 8",
+   "assignment": "Argue whether year-round school would help students learn.",
+   "pedagogical_purpose": "Help the student answer the actual question with a clear position.",
+   "current_writing_task": "Draft your argument.",
+   "initial_draft": "School is important. Kids need to learn a lot of things like math and reading. Teachers work hard. School helps you get a job later.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "does not address the year-round question"
+   ],
+   "expected_primary_target": "purpose/assignment alignment",
+   "avoid_behaviors": [
+    "accepting off-assignment content",
+    "rewriting the draft"
+   ]
+  },
+  {
+   "id": "TC02",
+   "name": "Answering a broader question than asked",
+   "level": "grade 10",
+   "assignment": "Argue whether social media harms teen friendships specifically.",
+   "pedagogical_purpose": "Keep the essay scoped to the assignment.",
+   "current_writing_task": "Draft your argument.",
+   "initial_draft": "Social media is bad for society. It spreads misinformation, hurts democracy, and makes people addicted to their phones. It changes how everyone lives.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "scope too broad; not about teen friendships"
+   ],
+   "expected_primary_target": "purpose/scope",
+   "avoid_behaviors": [
+    "developing the broad version"
+   ]
+  },
+  {
+   "id": "TC03",
+   "name": "No thesis",
+   "level": "grade 9",
+   "assignment": "Argue whether homework should be limited.",
+   "pedagogical_purpose": "Form a clear thesis.",
+   "current_writing_task": "Draft your argument.",
+   "initial_draft": "Homework. Students get a lot of homework. Some people like it and some people don't. There are many opinions about homework.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "no position/thesis"
+   ],
+   "expected_primary_target": "thesis",
+   "avoid_behaviors": [
+    "writing a thesis for the student"
+   ]
+  },
+  {
+   "id": "TC04",
+   "name": "Topic mistaken for thesis",
+   "level": "grade 9",
+   "assignment": "Argue a position on school uniforms.",
+   "pedagogical_purpose": "Distinguish topic from thesis.",
+   "current_writing_task": "Draft your argument.",
+   "initial_draft": "This essay is about school uniforms. I will talk about school uniforms and whether they are good or bad.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "announces topic, not a claim"
+   ],
+   "expected_primary_target": "thesis",
+   "avoid_behaviors": [
+    "accepting the topic sentence as a thesis"
+   ]
+  },
+  {
+   "id": "TC05",
+   "name": "Vague thesis",
+   "level": "grade 10",
+   "assignment": "Argue whether cities should ban cars downtown.",
+   "pedagogical_purpose": "Sharpen a vague thesis into a precise claim.",
+   "current_writing_task": "Refine your thesis.",
+   "initial_draft": "Banning cars downtown could be good in some ways but it also has some problems, so it is a complicated issue with different sides.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "too vague; no committed position"
+   ],
+   "expected_primary_target": "thesis precision",
+   "avoid_behaviors": [
+    "supplying the precise thesis"
+   ]
+  },
+  {
+   "id": "TC06",
+   "name": "Adequate thesis",
+   "level": "grade 11",
+   "assignment": "Argue whether standardized tests should be required for college.",
+   "pedagogical_purpose": "Move from an adequate thesis to support.",
+   "current_writing_task": "Develop your argument.",
+   "initial_draft": "Colleges should stop requiring standardized tests because the scores track family income more than a student's ability to succeed.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "thesis adequate; next is support/evidence"
+   ],
+   "expected_primary_target": "evidence/support",
+   "avoid_behaviors": [
+    "over-teaching the already-adequate thesis"
+   ]
+  },
+  {
+   "id": "TC07",
+   "name": "Strong thesis that should not be over-taught",
+   "level": "college",
+   "assignment": "Argue a position on remote work.",
+   "pedagogical_purpose": "Avoid unnecessary intervention on strong writing.",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "Remote work does not erode collaboration; it exposes how much of our old collaboration was proximity mistaken for teamwork. When presence is no longer automatic, teams must design connection deliberately—and the deliberate version is usually better.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "thesis is strong"
+   ],
+   "expected_primary_target": "light / consolidate or move forward",
+   "avoid_behaviors": [
+    "inventing a thesis problem",
+    "over-teaching"
+   ]
+  },
+  {
+   "id": "TC08",
+   "name": "Evidence without explanation",
+   "level": "grade 10",
+   "assignment": "Argue whether phones should be banned in class.",
+   "pedagogical_purpose": "Connect evidence to the claim through explanation.",
+   "current_writing_task": "Develop a body paragraph.",
+   "initial_draft": "Phones hurt learning. A study found that students who used phones in class scored 20% lower on tests. Another survey said 60% of teachers see phones as a distraction.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "evidence dropped in without interpretation"
+   ],
+   "expected_primary_target": "explanation/analysis",
+   "avoid_behaviors": [
+    "adding evidence for the student"
+   ]
+  },
+  {
+   "id": "TC09",
+   "name": "Explanation without evidence",
+   "level": "grade 10",
+   "assignment": "Argue whether zoos are ethical.",
+   "pedagogical_purpose": "Ground reasoning in evidence.",
+   "current_writing_task": "Develop a body paragraph.",
+   "initial_draft": "Zoos are unethical because keeping animals in captivity is wrong. It just feels cruel to lock animals up when they should be free. Everyone knows this is true.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "assertion/reasoning with no evidence"
+   ],
+   "expected_primary_target": "evidence",
+   "avoid_behaviors": [
+    "supplying evidence"
+   ]
+  },
+  {
+   "id": "TC10",
+   "name": "Irrelevant evidence",
+   "level": "grade 9",
+   "assignment": "Argue whether recess should be longer.",
+   "pedagogical_purpose": "Judge evidence relevance to the claim.",
+   "current_writing_task": "Develop a body paragraph.",
+   "initial_draft": "Recess should be longer. Exercise is good for your heart and reduces the risk of heart disease later in life. Also, the school cafeteria food is not very healthy.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "evidence not relevant to 'longer recess helps learning/behavior'"
+   ],
+   "expected_primary_target": "evidence relevance",
+   "avoid_behaviors": [
+    "accepting irrelevant support"
+   ]
+  },
+  {
+   "id": "TC11",
+   "name": "Weak paragraph unity",
+   "level": "grade 9",
+   "assignment": "Explain the causes of the American Revolution.",
+   "pedagogical_purpose": "Build paragraph unity.",
+   "current_writing_task": "Revise this paragraph.",
+   "initial_draft": "Taxes were a big cause of the revolution. The colonists were mad about taxes without representation. Also George Washington was a great general. The Boston Tea Party happened. Britain was far away across the ocean.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "sentences don't serve one governing idea"
+   ],
+   "expected_primary_target": "unity",
+   "avoid_behaviors": [
+    "reordering the paragraph for the student"
+   ]
+  },
+  {
+   "id": "TC12",
+   "name": "Missing topic sentence",
+   "level": "grade 10",
+   "assignment": "Analyze a theme in a novel.",
+   "pedagogical_purpose": "Establish a topic sentence.",
+   "current_writing_task": "Revise this paragraph.",
+   "initial_draft": "In chapter three, the main character gives away his coat. Later he shares his food. At the end he stays behind so others can escape. These are all in the book.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "no topic sentence stating the paragraph's claim"
+   ],
+   "expected_primary_target": "topic sentence",
+   "avoid_behaviors": [
+    "writing the topic sentence"
+   ]
+  },
+  {
+   "id": "TC13",
+   "name": "Effective topic sentence",
+   "level": "grade 11",
+   "assignment": "Analyze a theme in a poem.",
+   "pedagogical_purpose": "Recognize a working topic sentence; move to development.",
+   "current_writing_task": "Develop this paragraph.",
+   "initial_draft": "The poem's repeated images of winter cold quietly measure the distance between the father's love and the son's understanding of it.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "topic sentence works; needs development"
+   ],
+   "expected_primary_target": "development / evidence",
+   "avoid_behaviors": [
+    "over-teaching the good topic sentence"
+   ]
+  },
+  {
+   "id": "TC14",
+   "name": "Poor organization",
+   "level": "grade 10",
+   "assignment": "Argue whether school should start later.",
+   "pedagogical_purpose": "Improve whole-essay organization.",
+   "current_writing_task": "Revise your draft's order.",
+   "initial_draft": "School should start later. Buses would need new schedules. Teens need more sleep. Also parents might have trouble with work. Sleep affects grades. In conclusion later is better. Sports practice could be an issue.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "ideas out of logical order"
+   ],
+   "expected_primary_target": "organization",
+   "avoid_behaviors": [
+    "reorganizing it for the student"
+   ]
+  },
+  {
+   "id": "TC15",
+   "name": "Weak transition",
+   "level": "grade 9",
+   "assignment": "Argue whether junk food should be taxed.",
+   "pedagogical_purpose": "Make relationships between ideas explicit.",
+   "current_writing_task": "Revise transitions.",
+   "initial_draft": "Junk food causes health problems. Taxes reduce how much people buy something. Kids eat a lot of junk food. A tax would raise money for schools.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "missing/weak relationships between sentences"
+   ],
+   "expected_primary_target": "transition/coherence",
+   "avoid_behaviors": [
+    "inserting transition words for the student"
+   ]
+  },
+  {
+   "id": "TC16",
+   "name": "Forced/unnecessary transition",
+   "level": "grade 10",
+   "assignment": "Explain how photosynthesis works.",
+   "pedagogical_purpose": "Use transitions only where relationships need signaling.",
+   "current_writing_task": "Revise transitions.",
+   "initial_draft": "Firstly, plants have leaves. Secondly, leaves are green. Furthermore, moreover, in addition, plants also need water. Consequently, therefore, plants make food.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "mechanical, stacked transition words"
+   ],
+   "expected_primary_target": "transition/coherence",
+   "avoid_behaviors": [
+    "adding more transition words"
+   ]
+  },
+  {
+   "id": "TC17",
+   "name": "Introduction with no context",
+   "level": "grade 10",
+   "assignment": "Explain the significance of the printing press.",
+   "pedagogical_purpose": "Provide reader context in the introduction.",
+   "current_writing_task": "Revise your introduction.",
+   "initial_draft": "It changed everything. People could finally do it faster and cheaper. This was a huge deal and it mattered a lot for the whole world.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "no subject/context; reader lost"
+   ],
+   "expected_primary_target": "background/context",
+   "avoid_behaviors": [
+    "writing the introduction"
+   ]
+  },
+  {
+   "id": "TC18",
+   "name": "Effective introduction",
+   "level": "college",
+   "assignment": "Argue a position on universal basic income.",
+   "pedagogical_purpose": "Recognize an effective intro; move forward.",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "Every automation debate eventually arrives at the same anxious question: what happens to people when the work runs out? Universal basic income is the boldest answer on offer—not a safety net but a floor. This essay argues that a floor, not a net, is what a post-automation economy actually requires.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "intro effective"
+   ],
+   "expected_primary_target": "light / move forward",
+   "avoid_behaviors": [
+    "inventing an intro problem"
+   ]
+  },
+  {
+   "id": "TC19",
+   "name": "Conclusion that merely repeats",
+   "level": "grade 10",
+   "assignment": "Argue whether video games cause violence.",
+   "pedagogical_purpose": "Make the conclusion do communicative work.",
+   "current_writing_task": "Revise your conclusion.",
+   "initial_draft": "In conclusion, video games do not cause violence. As I said, studies don't show a link. As I stated earlier, most gamers are not violent. So in conclusion video games do not cause violence.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "restates without adding significance"
+   ],
+   "expected_primary_target": "conclusion",
+   "avoid_behaviors": [
+    "writing the conclusion"
+   ]
+  },
+  {
+   "id": "TC20",
+   "name": "Sentence-level confusion",
+   "level": "grade 9",
+   "assignment": "Explain your favorite hobby.",
+   "pedagogical_purpose": "Clarify a confusing sentence.",
+   "current_writing_task": "Revise this sentence.",
+   "initial_draft": "The thing about when I do the hobby which is skateboarding because it makes me feel and the tricks are hard but worth doing them even falling down a lot happens.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "syntax breakdown; no clear assertion"
+   ],
+   "expected_primary_target": "sentence",
+   "avoid_behaviors": [
+    "rewriting the sentence"
+   ]
+  },
+  {
+   "id": "TC21",
+   "name": "Unclear pronoun reference",
+   "level": "grade 10",
+   "assignment": "Explain a conflict between two characters.",
+   "pedagogical_purpose": "Clarify pronoun reference.",
+   "current_writing_task": "Revise for clarity.",
+   "initial_draft": "When John talked to his father about his car, he told him that he had ruined it and that he would have to pay him back for it, which made him angry.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "ambiguous 'he/him/it' references"
+   ],
+   "expected_primary_target": "word choice / sentence clarity",
+   "avoid_behaviors": [
+    "rewriting the sentence for the student"
+   ]
+  },
+  {
+   "id": "TC22",
+   "name": "Overly colloquial writing",
+   "level": "grade 10",
+   "assignment": "Write a formal argument about renewable energy.",
+   "pedagogical_purpose": "Adjust tone for a formal audience.",
+   "current_writing_task": "Revise for tone.",
+   "initial_draft": "Ok so basically renewable energy is super important lol. Fossil fuels are trash and kinda ruining the planet ngl. We gotta switch or we're totally doomed tbh.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "tone unsuited to a formal audience"
+   ],
+   "expected_primary_target": "tone / word choice",
+   "avoid_behaviors": [
+    "rewriting into formal prose for the student"
+   ]
+  },
+  {
+   "id": "TC23",
+   "name": "Sophisticated writing with a subtle conceptual problem",
+   "level": "college",
+   "assignment": "Analyze whether meritocracy is fair.",
+   "pedagogical_purpose": "Surface a subtle reasoning gap.",
+   "current_writing_task": "Refine your reasoning.",
+   "initial_draft": "Meritocracy is fair because it rewards the talented and hardworking. Since the successful are demonstrably talented and hardworking—otherwise they would not be successful—the system evidently rewards the right people, proving that it works as intended.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "circular reasoning: success defines merit"
+   ],
+   "expected_primary_target": "explanation/reasoning",
+   "avoid_behaviors": [
+    "over-editing sentences instead of the reasoning",
+    "supplying the fix"
+   ]
+  },
+  {
+   "id": "TC24",
+   "name": "Student resistance",
+   "level": "grade 9",
+   "assignment": "Argue whether cellphones help or hurt learning.",
+   "pedagogical_purpose": "Maintain supportive instructional direction under resistance.",
+   "current_writing_task": "Draft your argument.",
+   "initial_draft": "Phones are fine. I don't see why this even matters. My essay is done and it's good enough.",
+   "responses": [
+    "I already said phones are fine. Why do I need a thesis? This is dumb."
+   ],
+   "initial_profile": [],
+   "expected_issues": [
+    "resistance; no developed position"
+   ],
+   "expected_primary_target": "thesis / purpose",
+   "avoid_behaviors": [
+    "becoming permissive",
+    "harsh correction",
+    "doing the work for them"
+   ]
+  },
+  {
+   "id": "TC25",
+   "name": "Student asks the AI to write the answer",
+   "level": "grade 10",
+   "assignment": "Argue whether public transit should be free.",
+   "pedagogical_purpose": "Preserve student authorship (anti-coauthoring).",
+   "current_writing_task": "Draft your thesis.",
+   "initial_draft": "Public transit and money and cities. I don't know how to start.",
+   "responses": [
+    "Can you just write the thesis for me? Just give me a good one I can use."
+   ],
+   "initial_profile": [],
+   "expected_issues": [
+    "request to co-author"
+   ],
+   "expected_primary_target": "thesis (student-performed)",
+   "avoid_behaviors": [
+    "writing the thesis",
+    "supplying copyable text"
+   ]
+  },
+  {
+   "id": "TC26",
+   "name": "Very short response",
+   "level": "grade 8",
+   "assignment": "Argue whether pets should be allowed in classrooms.",
+   "pedagogical_purpose": "Elicit a performable act from a minimal response.",
+   "current_writing_task": "Draft your argument.",
+   "initial_draft": "Pets are good.",
+   "responses": [
+    "idk",
+    "maybe"
+   ],
+   "initial_profile": [],
+   "expected_issues": [
+    "minimal; no claim or reasoning"
+   ],
+   "expected_primary_target": "thesis / position",
+   "avoid_behaviors": [
+    "overwhelming the student",
+    "writing content for them"
+   ]
+  },
+  {
+   "id": "TC27",
+   "name": "Student confused by terminology",
+   "level": "grade 9",
+   "assignment": "Argue whether school lunches should be free.",
+   "pedagogical_purpose": "Define canonical terms in accessible language.",
+   "current_writing_task": "Draft your thesis.",
+   "initial_draft": "School lunches cost money for some kids and that is hard for families.",
+   "responses": [
+    "What's a thesis? I don't know what that word means."
+   ],
+   "initial_profile": [],
+   "expected_issues": [
+    "needs the term 'thesis' taught plainly"
+   ],
+   "expected_primary_target": "thesis (taught + defined)",
+   "avoid_behaviors": [
+    "assuming the term is known",
+    "only asking questions without teaching"
+   ]
+  },
+  {
+   "id": "TC28",
+   "name": "Student successfully performs the requested act",
+   "level": "grade 10",
+   "assignment": "Argue whether social media harms teen friendships.",
+   "pedagogical_purpose": "Consolidate and advance after success.",
+   "current_writing_task": "State your position.",
+   "initial_draft": "Social media is both good and bad for friendships.",
+   "responses": [
+    "Social media mostly harms close teen friendships, because it replaces deep face-to-face time with shallow likes and comments that don't build real trust."
+   ],
+   "initial_profile": [],
+   "expected_issues": [
+    "turn 1 no position; turn 2 clear position achieved"
+   ],
+   "expected_primary_target": "thesis then consolidate/advance",
+   "avoid_behaviors": [
+    "ignoring the success",
+    "immediately piling on a new demand without consolidating"
+   ]
+  },
+  {
+   "id": "TC29",
+   "name": "Student needing the same scaffold repeatedly",
+   "level": "grade 8",
+   "assignment": "Argue whether students should choose their own books.",
+   "pedagogical_purpose": "Persist patiently on one target across attempts.",
+   "current_writing_task": "Draft your thesis.",
+   "initial_draft": "Books are good to read. Reading helps you learn things.",
+   "responses": [
+    "I like reading books about dragons and space.",
+    "Reading is fun and my favorite books are long ones."
+   ],
+   "initial_profile": [],
+   "expected_issues": [
+    "repeatedly avoids taking a position"
+   ],
+   "expected_primary_target": "thesis (same target, varied scaffold)",
+   "avoid_behaviors": [
+    "switching targets prematurely",
+    "giving up and writing it for them"
+   ]
+  },
+  {
+   "id": "TC30",
+   "name": "Returning student showing increased independent control",
+   "level": "grade 10",
+   "assignment": "Argue whether AI should be allowed for homework.",
+   "pedagogical_purpose": "Scaffold from prior developmental control; recognize independence.",
+   "current_writing_task": "Draft your argument.",
+   "initial_draft": "AI should be allowed for homework only as a tutor, not a ghostwriter, because a tool that explains builds skill while a tool that answers replaces it — and the difference is who does the thinking.",
+   "responses": [],
+   "initial_profile": [
+    {
+     "element": "Thesis",
+     "control_statement": "independently formulates clear, contestable theses",
+     "trend": "consolidating",
+     "evidence": "prior sessions",
+     "episodes": 4
+    },
+    {
+     "element": "Evidence",
+     "control_statement": "still needs support explaining evidence",
+     "trend": "emerging",
+     "evidence": "prior sessions",
+     "episodes": 2
+    }
+   ],
+   "expected_issues": [
+    "thesis already strong (per profile); support/explanation is the growth edge"
+   ],
+   "expected_primary_target": "evidence/explanation (not thesis)",
+   "avoid_behaviors": [
+    "re-teaching the thesis the student already controls",
+    "ignoring the developmental profile"
+   ]
+  },
+  {
+   "id": "TC31",
+   "name": "Ambiguous: both-sides could be a legitimate nuanced thesis",
+   "level": "college",
+   "assignment": "Evaluate whether remote learning is effective.",
+   "pedagogical_purpose": "Distinguish evasive 'both' from a genuine nuanced claim.",
+   "current_writing_task": "State your position.",
+   "initial_draft": "Remote learning is effective for motivated, self-regulating students and ineffective for those who depend on external structure; its value is therefore not a property of the medium but of the match between medium and learner.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "nuanced position may be adequate, not evasive"
+   ],
+   "expected_primary_target": "possibly light / support",
+   "avoid_behaviors": [
+    "forcing a single-side thesis onto a legitimate nuanced claim",
+    "over-teaching"
+   ]
+  },
+  {
+   "id": "TC32",
+   "name": "Ambiguous: reflective piece not needing a thesis",
+   "level": "adult",
+   "assignment": "Reflect on something a job taught you.",
+   "pedagogical_purpose": "Honor reflective purpose; meaning over thesis.",
+   "current_writing_task": "Draft your reflection.",
+   "initial_draft": "The night shift taught me that calm isn't the absence of fear. I was terrified most nights, but I learned to do the next necessary thing anyway, and somehow that became its own kind of steadiness.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "reflection; should not be forced into argument thesis"
+   ],
+   "expected_primary_target": "meaning / significance (not argumentative thesis)",
+   "avoid_behaviors": [
+    "imposing a claim-evidence structure",
+    "forcing a thesis"
+   ]
+  },
+  {
+   "id": "TC33",
+   "name": "Narrative — telling instead of showing",
+   "level": "grade 8",
+   "assignment": "Write a personal narrative about a moment that changed you.",
+   "pedagogical_purpose": "Help the writer render experience concretely for a reader.",
+   "current_writing_task": "Draft the key moment.",
+   "initial_draft": "The day I moved schools was really scary and sad. I felt nervous and alone and I didn't know anyone. It was a hard time but I got through it.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "abstract 'telling' with no concrete scene or sensory detail"
+   ],
+   "expected_primary_target": "showing vs. telling — render one concrete moment",
+   "avoid_behaviors": [
+    "writing the scene for the student",
+    "supplying sample sentences",
+    "treating this like an argument needing a thesis"
+   ]
+  },
+  {
+   "id": "TC34",
+   "name": "Narrative — summary where a scene is needed",
+   "level": "grade 10",
+   "assignment": "Write a narrative about a conflict with someone close to you.",
+   "pedagogical_purpose": "Distinguish scene from summary; slow down the important beat.",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "Over the next three years my brother and I fought constantly about everything and eventually we stopped talking, which was the worst part of my life.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "compresses the emotional climax into summary; no scene"
+   ],
+   "expected_primary_target": "pacing — expand the pivotal moment into a scene",
+   "avoid_behaviors": [
+    "inventing plot details for the student",
+    "imposing essay structure on a narrative"
+   ]
+  },
+  {
+   "id": "TC35",
+   "name": "Descriptive — flat detail, no dominant impression",
+   "level": "grade 9",
+   "assignment": "Describe a place that matters to you.",
+   "pedagogical_purpose": "Guide selection of detail toward a unifying impression.",
+   "current_writing_task": "Draft the description.",
+   "initial_draft": "My grandmother's kitchen has a table and some chairs. There is a stove and a window. The walls are yellow and there is a clock.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "inventory of neutral details with no dominant impression or sensory life"
+   ],
+   "expected_primary_target": "dominant impression — let detail serve a feeling/meaning",
+   "avoid_behaviors": [
+    "listing details for the student",
+    "supplying adjectives/imagery"
+   ]
+  },
+  {
+   "id": "TC36",
+   "name": "Process / how-to — steps out of order and unclear",
+   "level": "grade 7",
+   "assignment": "Explain how to do something you know well, step by step.",
+   "pedagogical_purpose": "Sequence and reader-usability of instructions.",
+   "current_writing_task": "Draft the instructions.",
+   "initial_draft": "To make a paper airplane you fold it and then you throw it. First get paper. You have to make the wings even or it won't fly. Fold it in half.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "steps out of logical sequence; a reader could not follow"
+   ],
+   "expected_primary_target": "logical sequencing of steps for the reader",
+   "avoid_behaviors": [
+    "rewriting the instructions",
+    "numbering the steps for the student"
+   ]
+  },
+  {
+   "id": "TC37",
+   "name": "Compare/contrast — no organizing scheme",
+   "level": "grade 11",
+   "assignment": "Compare two approaches to reducing traffic in cities.",
+   "pedagogical_purpose": "Choose an organizing structure that serves comparison.",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "Congestion pricing charges drivers money. Public transit investment builds trains and buses. Congestion pricing can feel unfair. Buses are slow sometimes. Trains cost a lot to build.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "details alternate randomly; no point-by-point or block structure"
+   ],
+   "expected_primary_target": "organizing structure for comparison (point-by-point vs. block)",
+   "avoid_behaviors": [
+    "choosing the structure for the student",
+    "reorganizing the draft yourself"
+   ]
+  },
+  {
+   "id": "TC38",
+   "name": "Cause/effect — correlation asserted as cause",
+   "level": "college",
+   "assignment": "Explain a cause of a social trend you have observed.",
+   "pedagogical_purpose": "Strengthen causal reasoning; test the logic of a claim.",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "Teen anxiety rose at the same time smartphones became common, so smartphones are clearly the cause of the anxiety epidemic.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "treats correlation as proven causation; no mechanism or alternative explanations"
+   ],
+   "expected_primary_target": "causal reasoning — evidence of mechanism vs. correlation",
+   "avoid_behaviors": [
+    "supplying the counter-explanations",
+    "telling the student their claim is simply wrong"
+   ]
+  },
+  {
+   "id": "TC39",
+   "name": "Literary analysis — plot summary instead of a claim",
+   "level": "grade 10",
+   "assignment": "Write an analysis of how the author develops a theme in the story.",
+   "pedagogical_purpose": "Move from retelling to interpretive claim about the text.",
+   "current_writing_task": "Draft your analysis.",
+   "initial_draft": "In the story the boy finds a bird with a broken wing. He takes care of it. Then the bird dies at the end and he is sad. The author shows a lot of things happening.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "summarizes plot; no interpretive claim about how theme is built"
+   ],
+   "expected_primary_target": "interpretive claim (analysis vs. summary)",
+   "avoid_behaviors": [
+    "supplying an interpretation/thesis",
+    "naming the theme for the student"
+   ]
+  },
+  {
+   "id": "TC40",
+   "name": "Rhetorical analysis — describes what, not how",
+   "level": "college",
+   "assignment": "Analyze how the author persuades their audience in the speech.",
+   "pedagogical_purpose": "Analyze rhetorical strategy (how) rather than restating content (what).",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "The speaker says we must act on climate change now. He says it is urgent and that future generations depend on us. He believes we can still fix it.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "paraphrases the message; does not analyze the rhetorical means"
+   ],
+   "expected_primary_target": "analyze rhetorical strategy (how the text works on the audience)",
+   "avoid_behaviors": [
+    "naming the devices for the student",
+    "supplying analysis"
+   ]
+  },
+  {
+   "id": "TC41",
+   "name": "Research synthesis — source dump, no synthesis",
+   "level": "college",
+   "assignment": "Synthesize at least two sources to make a point about remote learning.",
+   "pedagogical_purpose": "Integrate sources into the writer's own line of reasoning.",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "Smith (2021) says remote learning hurts test scores. Jones (2022) says remote learning helps flexibility. Lee (2020) says results are mixed.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "strings sources together with no synthesis or writer's claim"
+   ],
+   "expected_primary_target": "synthesis — put sources in conversation to serve the writer's point",
+   "avoid_behaviors": [
+    "supplying the synthesizing claim",
+    "rewriting the sources together"
+   ]
+  },
+  {
+   "id": "TC42",
+   "name": "Lab report — subjective register in methods",
+   "level": "grade 11",
+   "assignment": "Write the methods section of your lab report.",
+   "pedagogical_purpose": "Honor scientific register: precise, replicable, objective.",
+   "current_writing_task": "Draft the methods.",
+   "initial_draft": "We did the experiment and it was pretty fun. We kind of heated the water up a lot and waited a while and then looked at what happened.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "vague, subjective, non-replicable; wrong register for a methods section"
+   ],
+   "expected_primary_target": "precision/replicability appropriate to scientific register",
+   "avoid_behaviors": [
+    "writing the methods for the student",
+    "supplying exact measurements"
+   ]
+  },
+  {
+   "id": "TC43",
+   "name": "Persuasive letter — audience/tone mismatch",
+   "level": "grade 8",
+   "assignment": "Write a letter to your principal proposing a change.",
+   "pedagogical_purpose": "Match tone and appeals to a specific audience.",
+   "current_writing_task": "Draft the letter.",
+   "initial_draft": "Hey, the lunch here is honestly terrible and everyone hates it, you should just fix it because it's so bad and unfair to us.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "tone inappropriate for the audience; appeals unlikely to persuade a principal"
+   ],
+   "expected_primary_target": "audience awareness — tone and appeals for this reader",
+   "avoid_behaviors": [
+    "rewriting the letter",
+    "supplying polished sentences"
+   ]
+  },
+  {
+   "id": "TC44",
+   "name": "Op-ed — strong public-audience opening (restraint)",
+   "level": "college",
+   "assignment": "Write an op-ed on a local issue for a general newspaper audience.",
+   "pedagogical_purpose": "Recognize an effective public-audience hook and stance.",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "Every morning, two thousand commuters idle on a bridge that was declared unsafe a decade ago. We keep calling it a budget problem. It is not a budget problem; it is a decision to treat their time and safety as expendable.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "opening is strong for the genre and audience"
+   ],
+   "expected_primary_target": "light / consolidate the effective public-audience move, then advance",
+   "avoid_behaviors": [
+    "inventing a problem",
+    "over-teaching a strong opening",
+    "forcing an academic thesis format onto an op-ed"
+   ]
+  },
+  {
+   "id": "TC45",
+   "name": "Personal statement — cliché instead of authentic voice",
+   "level": "grade 12",
+   "assignment": "Draft your college personal statement about a formative experience.",
+   "pedagogical_purpose": "Develop authentic, specific voice over generic cliché.",
+   "current_writing_task": "Draft the opening.",
+   "initial_draft": "Ever since I was a little kid I have always wanted to help people and make a difference in the world. Playing sports taught me teamwork, hard work, and never giving up.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "generic clichés; no specific, authentic, revealing detail"
+   ],
+   "expected_primary_target": "authentic voice via specific, revealing detail",
+   "avoid_behaviors": [
+    "writing the anecdote for the student",
+    "supplying voice/phrasing"
+   ]
+  },
+  {
+   "id": "TC46",
+   "name": "Business email — buries the purpose",
+   "level": "adult / professional",
+   "assignment": "Write a short email asking a colleague to review a document by Friday.",
+   "pedagogical_purpose": "Purpose-first, concise professional communication.",
+   "current_writing_task": "Draft the email.",
+   "initial_draft": "Hi, I hope you are doing well and had a great weekend. Things have been really busy over here with a lot going on lately and I wanted to reach out about a few things that have been on my mind regarding the project we discussed.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "request buried; reader can't find the ask or the deadline"
+   ],
+   "expected_primary_target": "purpose-first structure — lead with the request and deadline",
+   "avoid_behaviors": [
+    "rewriting the email",
+    "supplying the exact wording"
+   ]
+  },
+  {
+   "id": "TC47",
+   "name": "Cover letter — claims without evidence",
+   "level": "adult / professional",
+   "assignment": "Write a cover letter paragraph about your qualifications.",
+   "pedagogical_purpose": "Support claims with concrete evidence of qualification.",
+   "current_writing_task": "Draft the paragraph.",
+   "initial_draft": "I am a hard worker, a great team player, and highly detail-oriented. I would be a perfect fit for this role and I am very passionate about the work.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "asserts traits with no evidence a reader could verify"
+   ],
+   "expected_primary_target": "support claims with concrete evidence",
+   "avoid_behaviors": [
+    "inventing accomplishments for the student",
+    "writing the evidence"
+   ]
+  },
+  {
+   "id": "TC48",
+   "name": "Summary/precis — inserts opinion, loses fidelity",
+   "level": "grade 10",
+   "assignment": "Write an objective summary of the article.",
+   "pedagogical_purpose": "Fidelity and concision proper to a summary; withhold opinion.",
+   "current_writing_task": "Draft the summary.",
+   "initial_draft": "The article talks about zoos. Honestly zoos are kind of cruel if you ask me. It says some zoos help endangered animals which I guess is good.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "injects personal opinion; misrepresents the source's balance"
+   ],
+   "expected_primary_target": "summary fidelity — represent the source, not the writer's opinion",
+   "avoid_behaviors": [
+    "writing the summary",
+    "supplying the source's main points"
+   ]
+  },
+  {
+   "id": "TC49",
+   "name": "Annotated bibliography — describes, doesn't evaluate",
+   "level": "college",
+   "assignment": "Write an annotation evaluating a source for your research project.",
+   "pedagogical_purpose": "Evaluate a source's relevance/reliability, not just describe it.",
+   "current_writing_task": "Draft the annotation.",
+   "initial_draft": "This article is about social media and mental health. It has a lot of information and statistics. The author wrote it in 2019. It is 12 pages long.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "describes surface features; no evaluation of credibility or usefulness"
+   ],
+   "expected_primary_target": "evaluation of the source (relevance/reliability) vs. description",
+   "avoid_behaviors": [
+    "evaluating the source for the student",
+    "supplying the assessment"
+   ]
+  },
+  {
+   "id": "TC50",
+   "name": "Creative/poetry — do not impose essay logic",
+   "level": "grade 9",
+   "assignment": "Write a free-verse poem about a memory.",
+   "pedagogical_purpose": "Honor the genre's resources (image, line, sound); do not essay-ify.",
+   "current_writing_task": "Draft the poem.",
+   "initial_draft": "the porch light / a moth against the screen / my father's cough in the next room / I pretend to be asleep",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "draft uses image and line effectively for the form"
+   ],
+   "expected_primary_target": "light / consolidate the working images; invite the writer to develop by their own instinct",
+   "avoid_behaviors": [
+    "imposing a thesis or paragraph structure on a poem",
+    "supplying lines",
+    "'fixing' the poem into prose"
+   ]
+  },
+  {
+   "id": "TC51",
+   "name": "Reflective portfolio — stops at events, no significance",
+   "level": "college",
+   "assignment": "Reflect on what a semester project taught you.",
+   "pedagogical_purpose": "Move from recounting events to making meaning of them.",
+   "current_writing_task": "Draft the reflection.",
+   "initial_draft": "First we picked a topic, then we did research, then we made the presentation, then we presented it to the class and got a good grade.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "chronological recount with no reflection on significance/learning"
+   ],
+   "expected_primary_target": "significance — what the experience means / what was learned",
+   "avoid_behaviors": [
+    "supplying the 'lesson learned'",
+    "forcing an argumentative thesis onto reflection"
+   ]
+  },
+  {
+   "id": "TC52",
+   "name": "Audience awareness — too technical for lay reader",
+   "level": "college",
+   "assignment": "Explain your research to a general audience.",
+   "pedagogical_purpose": "Adjust for a non-expert reader's knowledge.",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "We employed a stochastic gradient descent optimizer with L2 regularization to minimize categorical cross-entropy across the held-out validation partition.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "jargon dense; inaccessible to the stated general audience"
+   ],
+   "expected_primary_target": "audience awareness — translate for a non-expert reader",
+   "avoid_behaviors": [
+    "rewriting it in plain language for the student",
+    "supplying the lay explanation"
+   ]
+  },
+  {
+   "id": "TC53",
+   "name": "Tone inconsistency — casual in a formal task",
+   "level": "grade 11",
+   "assignment": "Write a formal analytical essay on economic inequality.",
+   "pedagogical_purpose": "Consistency of register with task and audience.",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "Economic inequality is a serious structural problem. But honestly the rich just kinda hoard everything lol and it's super messed up if you think about it.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "register lurches from formal to casual mid-paragraph"
+   ],
+   "expected_primary_target": "tone/register consistency for a formal essay",
+   "avoid_behaviors": [
+    "rewriting the sentence",
+    "supplying the formal version"
+   ]
+  },
+  {
+   "id": "TC54",
+   "name": "Vague diction — 'things' and 'stuff'",
+   "level": "grade 8",
+   "assignment": "Explain why a hobby is important to you.",
+   "pedagogical_purpose": "Precise word choice that carries meaning.",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "Playing music is a good thing because it helps with stuff and makes things better and you learn a lot of things from doing it.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "placeholder nouns ('things','stuff') carry no meaning"
+   ],
+   "expected_primary_target": "precise diction — name what the vague words stand for",
+   "avoid_behaviors": [
+    "supplying specific replacements",
+    "rewriting the sentence"
+   ]
+  },
+  {
+   "id": "TC55",
+   "name": "Sentence variety — choppy monotony",
+   "level": "grade 9",
+   "assignment": "Write a narrative paragraph about a busy morning.",
+   "pedagogical_purpose": "Sentence variety to control rhythm and emphasis.",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "I woke up. I was late. I ran downstairs. I grabbed toast. I missed the bus. I was mad. I walked to school. I got there late.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "uniform short simple sentences; monotonous rhythm"
+   ],
+   "expected_primary_target": "sentence variety — combine/vary for rhythm and emphasis",
+   "avoid_behaviors": [
+    "combining the sentences for the student",
+    "supplying rewritten sentences"
+   ]
+  },
+  {
+   "id": "TC56",
+   "name": "Cohesion — paragraphs don't connect",
+   "level": "college",
+   "assignment": "Argue for stronger public libraries.",
+   "pedagogical_purpose": "Connective tissue between ideas/paragraphs.",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "Libraries provide internet access to people without it. Libraries hold community events. Some libraries are old buildings. Funding for libraries has dropped.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "true statements sit in isolation; no logical connection between them"
+   ],
+   "expected_primary_target": "cohesion — show how the ideas relate and build",
+   "avoid_behaviors": [
+    "supplying transitions/connective sentences",
+    "reordering the draft yourself"
+   ]
+  },
+  {
+   "id": "TC57",
+   "name": "Counterargument absent in an argument",
+   "level": "grade 12",
+   "assignment": "Argue whether cities should ban cars downtown.",
+   "pedagogical_purpose": "Anticipate and engage opposing views.",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "Cities should ban cars downtown because it reduces pollution, makes streets safer, and encourages walking. These are all clearly good things for everyone.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "one-sided; never acknowledges or answers opposing concerns"
+   ],
+   "expected_primary_target": "counterargument — engage a serious opposing view",
+   "avoid_behaviors": [
+    "supplying the counterargument",
+    "writing the rebuttal"
+   ]
+  },
+  {
+   "id": "TC58",
+   "name": "Concession is a straw man",
+   "level": "college",
+   "assignment": "Argue for a four-day school week.",
+   "pedagogical_purpose": "Represent opposing views fairly before responding.",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "Some people think a four-day week is bad, but they just don't care about students being happy, so they are obviously wrong.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "opposing view distorted into a straw man; not fairly represented"
+   ],
+   "expected_primary_target": "fair representation of the opposing view before rebutting",
+   "avoid_behaviors": [
+    "supplying a fair version of the opposing view",
+    "rewriting the concession"
+   ]
+  },
+  {
+   "id": "TC59",
+   "name": "Conclusion introduces a new argument",
+   "level": "grade 11",
+   "assignment": "Conclude your essay on renewable energy.",
+   "pedagogical_purpose": "Function of a conclusion vs. opening new lines of argument.",
+   "current_writing_task": "Draft the conclusion.",
+   "initial_draft": "In conclusion, renewable energy is important. Also, nuclear power is actually the best solution and we should build many new reactors immediately for a totally different reason.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "introduces a brand-new claim in the conclusion"
+   ],
+   "expected_primary_target": "function of a conclusion (synthesize, not open new arguments)",
+   "avoid_behaviors": [
+    "writing the conclusion",
+    "supplying the closing sentences"
+   ]
+  },
+  {
+   "id": "TC60",
+   "name": "Wordiness / padding",
+   "level": "college",
+   "assignment": "Write a concise argument paragraph.",
+   "pedagogical_purpose": "Conciseness — cut padding without losing meaning.",
+   "current_writing_task": "Revise for concision.",
+   "initial_draft": "Due to the fact that in this day and age it is basically very much true that most people generally tend to believe that exercise is something that is good for them, it can be said that fitness is important.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "heavy padding and filler; one idea inflated to a long sentence"
+   ],
+   "expected_primary_target": "conciseness — cut filler while keeping the idea",
+   "avoid_behaviors": [
+    "supplying the trimmed sentence",
+    "rewriting it for the student"
+   ]
+  },
+  {
+   "id": "TC61",
+   "name": "Quote dropped in without attribution/integration",
+   "level": "grade 11",
+   "assignment": "Use a quotation from the text to support your point.",
+   "pedagogical_purpose": "Integrate and frame evidence (signal phrase, attribution).",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "The character is lonely. \"The house was empty and the phone never rang.\" This shows loneliness in the story.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "quote dropped in with no signal phrase, framing, or attribution"
+   ],
+   "expected_primary_target": "integrating evidence — frame and attribute the quotation",
+   "avoid_behaviors": [
+    "writing the integrated version",
+    "supplying the signal phrase"
+   ]
+  },
+  {
+   "id": "TC62",
+   "name": "Faulty parallelism in a series",
+   "level": "grade 10",
+   "assignment": "Write about the benefits of volunteering.",
+   "pedagogical_purpose": "Parallel structure in coordinated series.",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "Volunteering helps you meet people, learning new skills, and it builds your confidence.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "items in the series are not grammatically parallel"
+   ],
+   "expected_primary_target": "parallel structure in the series",
+   "avoid_behaviors": [
+    "supplying the corrected series",
+    "rewriting the sentence"
+   ]
+  },
+  {
+   "id": "TC63",
+   "name": "Point-of-view shifting (you/one/I)",
+   "level": "grade 10",
+   "assignment": "Write about how to manage stress.",
+   "pedagogical_purpose": "Consistent point of view across the paragraph.",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "When I feel stressed, you should take a walk, and one can also try breathing exercises so that we feel calmer.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "pronoun/POV shifts among I, you, one, we in one sentence"
+   ],
+   "expected_primary_target": "consistent point of view",
+   "avoid_behaviors": [
+    "rewriting the sentence",
+    "choosing the POV for the student"
+   ]
+  },
+  {
+   "id": "TC64",
+   "name": "Multilingual writer — surface errors, strong idea",
+   "level": "grade 11 (ELL)",
+   "assignment": "Argue whether homework should be graded.",
+   "pedagogical_purpose": "Prioritize the highest-leverage move; honor strong meaning over surface errors.",
+   "current_writing_task": "Continue drafting.",
+   "initial_draft": "Homework should not be graded because it is the place where student make the mistake and learn from it; if we grade the practice, student become afraid to try and the learning is stop.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "minor article/agreement errors, but the argument is genuinely strong and clear"
+   ],
+   "expected_primary_target": "consolidate the strong reasoning / advance the argument (do not fixate on surface grammar)",
+   "avoid_behaviors": [
+    "correcting the grammar for the student",
+    "reducing a strong idea to an error hunt",
+    "supplying corrected sentences"
+   ]
+  },
+  {
+   "id": "TC65",
+   "name": "Student pastes AI-generated text and asks 'is this good?'",
+   "level": "college",
+   "assignment": "Write your own argument about urban green space.",
+   "pedagogical_purpose": "Preserve authorship; return the thinking to the student.",
+   "current_writing_task": "Respond to the student.",
+   "initial_draft": "Here's my intro, is this good? 'Urban green spaces represent a multifaceted nexus of ecological, psychological, and socioeconomic benefits that municipalities must holistically prioritize in contemporary urban planning paradigms.'",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "text is not the student's own thinking; authorship at risk"
+   ],
+   "expected_primary_target": "return authorship — get the student articulating their own point in their own words",
+   "avoid_behaviors": [
+    "rewriting the paragraph",
+    "supplying a 'better' version",
+    "evaluating it as if it were the student's developed thinking"
+   ]
+  },
+  {
+   "id": "TC66",
+   "name": "Perfectionist stuck — won't commit anything",
+   "level": "grade 12",
+   "assignment": "Draft an argument about standardized testing.",
+   "pedagogical_purpose": "Unblock action; lower the stakes to get words down.",
+   "current_writing_task": "Respond to the student.",
+   "initial_draft": "I keep deleting everything. Nothing I write is good enough and I don't want to put down the wrong thing, so I have nothing yet.",
+   "responses": [],
+   "initial_profile": [],
+   "expected_issues": [
+    "not a text problem — a productive-action block; needs low-stakes entry"
+   ],
+   "expected_primary_target": "unblock through guided low-stakes action (get a rough claim down)",
+   "avoid_behaviors": [
+    "supplying a thesis to 'get them started'",
+    "lecturing about perfectionism",
+    "writing an example for them to use"
+   ]
+  }
+ ]
+}

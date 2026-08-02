@@ -1,0 +1,787 @@
+[
+  {
+    "n": 1,
+    "profile": "needs_instruction",
+    "domain": "Opening",
+    "text": "Social media is a thing teens use. This essay is about social media and friends.",
+    "first": {
+      "type": "instruct_then_invite",
+      "cultural_resource": "Significance",
+      "interpretation": "Student has named the topic and announced the essay, but the opening does not yet orient the reader or show why the issue matters.",
+      "instruction": "Writers use a move called 'significance' to show a reader why a topic is worth their attention \u2014 not by saying 'this is important' but by making visible what is at stake. In an argument about social media and friendships, stakes might look like: what teens could lose, what changes in how they connect, or what the real tension is. That kind of move gives a reader a reason to keep reading and prepares them for the argument ahead.",
+      "consolidation": "",
+      "timing": "The student has the topic but not the purpose; introducing significance now can reorganize the opening around reader need rather than formula, without yet demanding a full thesis.",
+      "student_facing": "You've made a start by naming the topic \u2014 social media and teen friendships. Now I want to ask you something: why does this topic matter? Not in a general way, but to you or to someone you can picture reading this essay. What's actually at stake when teens use social media to keep up friendships? Try writing one or two sentences that get at that.",
+      "invitation": "You've made a start by naming the topic \u2014 social media and teen friendships. Now I want to ask you something: why does this topic matter? Not in a general way, but to you or to someone you can picture reading this essay. What's actually at stake when teens use social media to keep up friendships? Try writing one or two sentences that get at that.",
+      "domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "second": {
+      "type": "consolidate",
+      "cultural_resource": "Hook / Significance (now in use); Central Claim / Thesis (next relevant resource)",
+      "interpretation": "The student replaced a flat announcement with a concrete scene that enacts the problem and implies its stakes \u2014 a significant reorganization of how the opening functions.",
+      "instruction": "",
+      "consolidation": "The student has moved from naming a topic to using an image to orient and engage the reader simultaneously \u2014 they are beginning to use the opening as a purposeful communicative act, not a formula. The next coordination needed is between this opening and a controlling claim.",
+      "timing": "Revision is real and substantial; consolidating it names the developmental change before introducing the next resource. Premature instruction on thesis form would interrupt; invite the claim through the student's own framing instead.",
+      "student_facing": "You've moved from announcing a topic to creating a moment a reader can actually feel \u2014 that image of 300 friends and the silence between them is doing real work. Now the reader is leaning in, but they don't yet know where you're taking them: does social media harm friendships, or is something more complicated at stake? What is this essay actually arguing \u2014 what would you want a reader to believe by the end?",
+      "invitation": "You've moved from announcing a topic to creating a moment a reader can actually feel \u2014 that image of 300 friends and the silence between them is doing real work. Now the reader is leaning in, but they don't yet know where you're taking them: does social media harm friendships, or is something more complicated at stake? What is this essay actually arguing \u2014 what would you want a reader to believe by the end?",
+      "domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "theory_versions": 2,
+    "ok_type": true,
+    "elapsed_s": 77.5
+  },
+  {
+    "n": 2,
+    "profile": "needs_instruction",
+    "domain": "Thesis",
+    "text": "My essay is about social media and friendship.",
+    "first": {
+      "type": "instruct_then_invite",
+      "cultural_resource": "Claim",
+      "interpretation": "The student has named the essay's subject but not taken any position \u2014 it is a topic announcement, not a claim.",
+      "instruction": "A claim is something a thoughtful reader could disagree with \u2014 that's what makes it worth arguing. Right now your sentence tells the reader what the essay is about, not what it's trying to establish. Writers use a claim to give the essay direction and to tell readers what they should accept by the end.",
+      "consolidation": "",
+      "timing": "The concept of 'claim vs. topic' can directly reorganize the student's current sentence; brief instruction is warranted before the student drafts further.",
+      "student_facing": "You've named a real topic \u2014 social media and friendship \u2014 and that's a starting place. For this essay, you'll need to take a position a reader could actually push back on. In one sentence, try writing what you want a reader to believe or accept by the end: not just what the essay is *about*, but what it's *arguing*.",
+      "invitation": "In one sentence, write what you want a reader to believe by the end of your essay \u2014 not just what it's about, but what it's arguing.",
+      "domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 29.0
+  },
+  {
+    "n": 3,
+    "profile": "needs_instruction",
+    "domain": "Paragraph",
+    "text": "There are many things about social media. It is used a lot. People post things.",
+    "first": {
+      "type": "instruct_then_invite",
+      "cultural_resource": "Central Claim / Thesis \u2014 distinguishing topic from claim",
+      "interpretation": "The paragraph names social media as a topic but makes no argumentative move \u2014 it describes without asserting.",
+      "instruction": "In an argumentative essay, a claim is different from a topic: a topic names what you're writing about, but a claim says something about it that a reader could actually disagree with. Writers use claims to give the reader something to follow and to give each paragraph a job to do. Right now your paragraph names the topic but doesn't yet tell the reader what you think or what you're arguing.",
+      "consolidation": "",
+      "timing": "Without a claim, paragraph purpose cannot be meaningfully developed; this is the prerequisite reorganization. Instruction is brief and directly tied to the student's current text.",
+      "student_facing": "You've made a start by introducing the topic of social media. Right now, though, the paragraph describes social media without taking a position on it. For this assignment, your essay needs to argue a side: does social media improve or harm teen friendships? Can you write one sentence that says what YOU think social media does to teen friendships \u2014 something a reader could actually disagree with?",
+      "invitation": "Can you write one sentence that says what YOU think social media does to teen friendships \u2014 something a reader could actually disagree with?",
+      "domains": [
+        "Central Claim / Thesis",
+        "Paragraph Purpose"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "second": {
+      "type": "consolidate",
+      "cultural_resource": "Paragraph Purpose",
+      "interpretation": "Student shifted from topic-listing to purposeful claim-making \u2014 paragraph purpose is now named and a specific argumentative claim is asserted.",
+      "instruction": "",
+      "consolidation": "The student has begun using 'Paragraph Purpose' intentionally \u2014 naming the job before writing the paragraph \u2014 and has produced an actual claim rather than a topic. That is a meaningful reorganization.",
+      "timing": "A genuine revision has occurred and deserves naming; the forward move is grounding the claim, which the student can attempt without new instruction.",
+      "student_facing": "You've made a striking move: you named the paragraph's job and planted a specific claim about what constant posting does to real conversation. That's a genuine argumentative pivot from the previous draft. Now the claim is asking to be tested \u2014 what would actually show a reader that a teen who documents every moment has less to say when a friend needs them? Try writing one or two sentences that give that claim something to stand on.",
+      "invitation": "Try writing one or two sentences that give your claim something to stand on \u2014 what would show a reader that the teen who documents every moment actually has less to say?",
+      "domains": [
+        "Paragraph Purpose",
+        "Central Claim / Thesis"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "theory_versions": 2,
+    "ok_type": true,
+    "elapsed_s": 72.9
+  },
+  {
+    "n": 4,
+    "profile": "needs_instruction",
+    "domain": "Opening",
+    "text": "Phones exist. Teens have phones. The end of the intro.",
+    "first": {
+      "type": "interpretation_only",
+      "cultural_resource": "",
+      "interpretation": "Student has named the topic but has not yet differentiated a problem, tension, or reason for the reader to care \u2014 the draft is at the level of subject identification, not argument framing.",
+      "instruction": "",
+      "consolidation": "",
+      "timing": "No revision has occurred yet and the draft is minimal; reflecting the current organization back and inviting the student to articulate a problem is the appropriate first move before introducing any canonical resource.",
+      "student_facing": "You've put something on the page \u2014 a starting point. Right now a reader lands here and knows phones exist, but doesn't yet know what question or problem you're going to take them into. Before writing more, can you say in one sentence: what is the real problem or tension about social media and teen friendships that you want the reader to care about?",
+      "invitation": "Before writing more sentences, state in one sentence the real problem or tension about social media and teen friendships that you want the reader to care about.",
+      "domains": [
+        "Opening / Introduction",
+        "Audience Awareness"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": false,
+    "elapsed_s": 31.0
+  },
+  {
+    "n": 5,
+    "profile": "needs_instruction",
+    "domain": "Thesis",
+    "text": "Social media.",
+    "first": {
+      "type": "instruct_then_invite",
+      "cultural_resource": "Claim",
+      "interpretation": "Student has named the topic but produced no assertion or direction.",
+      "instruction": "A claim is different from a topic: it's something a thoughtful reader could actually disagree with \u2014 that's what gives your evidence a job. Right now 'social media' tells us what you're writing about but not what you want us to believe.",
+      "consolidation": "",
+      "timing": "Student cannot move forward without the topic-vs-claim distinction; introducing it now reorganizes the next move without overwhelming.",
+      "student_facing": "You've named the territory \u2014 social media. Now take a position on it: in one sentence, what do you want a reader to actually believe about social media and teen friendships after reading your essay? Try to write something a thoughtful person could genuinely disagree with.",
+      "invitation": "You've named the territory \u2014 social media. Now take a position on it: in one sentence, what do you want a reader to actually believe about social media and teen friendships after reading your essay? Try to write something a thoughtful person could genuinely disagree with.",
+      "domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 26.6
+  },
+  {
+    "n": 6,
+    "profile": "already_understands",
+    "domain": "Opening",
+    "text": "Picture a sixteen-year-old with 800 online 'friends' who eats lunch alone every day. That contradiction is where this essay begins, because it exposes what we really mean when we call an app 'social.'",
+    "first": {
+      "type": "invite_only",
+      "cultural_resource": "Central claim / thesis",
+      "interpretation": "Student has produced a purposeful, tension-based opening that fuses hook and conceptual reframing \u2014 the opening is doing real work without relying on a formula.",
+      "instruction": "",
+      "consolidation": "",
+      "timing": "The student already demonstrates command of the opening move; instruction on hooks or significance is not needed. The productive next step is claim formation, which the student can now do \u2014 inviting it without lecturing is the right move.",
+      "student_facing": "Your opening does something sharp: it names a contradiction (800 friends, eating alone) and uses it to reframe what 'social' even means \u2014 that's real conceptual work. Now the reader is leaning in but doesn't yet know where you're taking them. What is the claim your essay will argue? Try stating, in one sentence, the single idea about social media and teen friendships that everything else will work to establish.",
+      "invitation": "Your opening does something sharp: it names a contradiction (800 friends, eating alone) and uses it to reframe what 'social' even means \u2014 that's real conceptual work. Now the reader is leaning in but doesn't yet know where you're taking them. What is the claim your essay will argue? Try stating, in one sentence, the single idea about social media and teen friendships that everything else will work to establish.",
+      "domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 37.0
+  },
+  {
+    "n": 7,
+    "profile": "already_understands",
+    "domain": "Thesis",
+    "text": "Social media strengthens weak-tie friendships while quietly eroding the close ones, because it rewards breadth of contact over depth of attention.",
+    "first": {
+      "type": "invite_only",
+      "cultural_resource": "Claim plus reasoning (because-structure)",
+      "interpretation": "Student has produced a differentiated, causally structured thesis distinguishing two friendship types and linking both to one mechanism; the claim is already arguable and uses a because-structure purposefully.",
+      "instruction": "",
+      "consolidation": "",
+      "timing": "Student already grasps claim-making and causal reasoning; instruction would be redundant. The productive tension is vagueness in 'quietly eroding,' so inviting elaboration serves better than introducing a new concept.",
+      "student_facing": "Your thesis already draws a sharp distinction \u2014 weak-tie friendships strengthened, close ones quietly eroded \u2014 and gives a reason for it (breadth over depth). That's a strong start. Now, a reader might ask: what exactly do you mean by 'quietly eroding'? Try naming one specific thing that changes in a close friendship when social media pulls attention toward breadth \u2014 that will test whether this claim can carry the essay you're about to write.",
+      "invitation": "What exactly does 'quietly eroding' look like in a close friendship \u2014 can you name one specific change that happens?",
+      "domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 37.0
+  },
+  {
+    "n": 8,
+    "profile": "already_understands",
+    "domain": "Paragraph",
+    "text": "Consider how a group chat behaves at midnight. Messages pile up, in-jokes form, and no one wants to be the first to log off \u2014 the paragraph's point being that constant availability manufactures a closeness that daylight rarely tests.",
+    "first": {
+      "type": "interpretation_only",
+      "cultural_resource": "",
+      "interpretation": "Student has produced a scene-plus-interpretation structure with an embedded candidate claim, but the claim is housed in a meta-comment rather than in the paragraph's governing movement.",
+      "instruction": "",
+      "consolidation": "",
+      "timing": "No prior interaction; the student's organization needs to be reflected back before any canonical resource is introduced. The student shows interpretive intent \u2014 naming it is sufficient this turn.",
+      "student_facing": "Your paragraph opens with a vivid scene \u2014 the midnight group chat \u2014 and then names what it shows: closeness manufactured by constant availability. That's doing real interpretive work. Before you continue drafting, try stating in one plain sentence what job this paragraph is meant to do for your overall argument about social media and teen friendships. What should the reader be convinced of, or set up to think about, by the time they finish reading it?",
+      "invitation": "In one plain sentence, state the job this paragraph is doing for your argument \u2014 not what it describes, but what it should make the reader believe or understand.",
+      "domains": [
+        "Paragraph Purpose",
+        "Central Claim / Thesis"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 38.7
+  },
+  {
+    "n": 9,
+    "profile": "already_understands",
+    "domain": "Opening",
+    "text": "We assume 'more connection' is always better. This essay questions that assumption, starting from a simple observation: the teens who post most often are often the ones who feel most alone.",
+    "first": {
+      "type": "postpone_instruction",
+      "cultural_resource": "Central Claim / Thesis",
+      "interpretation": "Student has constructed a purposeful tension using assumption-challenge and observation \u2014 a rhetorically intentional opening move that orients the reader toward a problem.",
+      "instruction": "",
+      "consolidation": "",
+      "timing": "Introducing thesis-as-concept formally risks over-structuring before we know whether the student already has a claim in mind. The invitation surfaces the claim first; if the student's response shows the concept is needed, instruction can follow next turn.",
+      "student_facing": "You've opened with a tension that's genuinely arresting \u2014 the gap between posting and feeling alone does real work as a door into this argument. Right now your reader can feel the problem, but they don't yet know what you're going to do about it: are you arguing that social media harms teen friendships, or something more specific? Try writing one sentence \u2014 just for yourself, not necessarily for the essay yet \u2014 that names the claim your evidence will actually defend.",
+      "invitation": "Try writing one sentence \u2014 just for yourself, not necessarily for the essay yet \u2014 that names the claim your evidence will actually defend.",
+      "domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": false,
+    "elapsed_s": 37.0
+  },
+  {
+    "n": 10,
+    "profile": "already_understands",
+    "domain": "Thesis",
+    "text": "The problem is not screen time but attention: social media harms teen friendship precisely when it replaces undivided attention with performed presence.",
+    "first": {
+      "type": "instruct_then_invite",
+      "cultural_resource": "Claim-plus-reasoning (because-structure)",
+      "interpretation": "The student has produced a differentiated, scoped, arguable claim that contrasts two distinct relational states \u2014 a sophisticated first move. The 'precisely when' structure shows intentional limiting of scope.",
+      "instruction": "A claim becomes most useful to an essay when its because-structure is visible \u2014 not just what you're arguing, but why the cause produces the effect. Right now 'replaces' is doing a lot of work: it asserts that social media causes a shift from real to performed attention, but doesn't yet say what about social media makes that happen. Naming that mechanism would tell readers exactly what the essay will have to prove.",
+      "consolidation": "",
+      "timing": "The claim is already arguable; the productive tension is the missing causal mechanism. Introducing the because-structure now can reorganize the student's thinking before the body is drafted.",
+      "student_facing": "This is a sharp claim \u2014 it draws a real distinction between 'screen time' and 'attention,' and it gives the essay something specific to argue. Before moving into the body, it's worth pausing on one word: 'replaces.' Right now the claim assumes that social media does replace undivided attention with performed presence. What's the reasoning that makes that replacement happen \u2014 what is it about social media specifically that causes it? If you can name that mechanism, your claim will tell readers exactly what the essay needs to prove.",
+      "invitation": "What is it about social media specifically that causes it to replace undivided attention with performed presence \u2014 can you name that mechanism in a phrase or sentence?",
+      "domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": false,
+    "elapsed_s": 42.8
+  },
+  {
+    "n": 11,
+    "profile": "misuses",
+    "domain": "Opening",
+    "text": "Did you know the average person blinks 20,000 times a day? Anyway, this essay is about whether social media helps teen friendships.",
+    "first": {
+      "type": "interpretation_only",
+      "cultural_resource": "",
+      "interpretation": "Student attempted a hook but used an unrelated fact, then announced the topic without framing a problem or claim; shows awareness that openings need an engaging move but not yet that the move must connect to the essay's real concern.",
+      "instruction": "",
+      "consolidation": "",
+      "timing": "The student's organization does not yet have a problem or stakes to reorganize around; introducing Significance or Thesis now would impose structure before the student has articulated what they are arguing. Reflecting the current state and asking for the felt tension is the right prior move.",
+      "student_facing": "You've made a start by naming the topic \u2014 that's a real first move. Right now, though, the blinking fact and the essay topic are sitting side by side without connecting, so a reader doesn't yet know why teen friendships and social media deserve their attention. Before writing anything new, can you tell me: what's the actual problem or tension around social media and teen friendships that made you want to argue about it?",
+      "invitation": "Before writing anything new, can you tell me: what's the actual problem or tension around social media and teen friendships that made you want to argue about it?",
+      "domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 34.4
+  },
+  {
+    "n": 12,
+    "profile": "misuses",
+    "domain": "Thesis",
+    "text": "Social media is very popular and important and everyone uses it a lot these days.",
+    "first": {
+      "type": "instruct_then_invite",
+      "cultural_resource": "Claim",
+      "interpretation": "The student's sentence names a topic but makes no position or claim, and does not address the essay's required focus on teen friendships.",
+      "instruction": "A claim is a statement a thoughtful person could disagree with \u2014 that's what makes it worth arguing and gives the essay a direction. Right now the sentence tells the reader what social media is (popular), not what it does to teen friendships or whether that's good or bad. Writers use a thesis to give the reader a controlling idea: the one thing the essay is trying to get them to accept.",
+      "consolidation": "",
+      "timing": "The student's draft shows no differentiation between topic and claim; introducing the claim concept now can reorganize the next attempt without replacing the student's thinking.",
+      "student_facing": "You've made a start by naming the subject \u2014 social media \u2014 which gives us something to work with. The assignment asks you to argue a position: does social media improve or harm teen friendships? A thesis is the one idea you want a reader to accept, something a thoughtful person could actually disagree with. Try writing one sentence that tells your reader exactly what you think social media does to teen friendships \u2014 and why someone might push back on it.",
+      "invitation": "Try writing one sentence that tells your reader exactly what you think social media does to teen friendships \u2014 something a thoughtful person could disagree with.",
+      "domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 31.5
+  },
+  {
+    "n": 13,
+    "profile": "misuses",
+    "domain": "Paragraph",
+    "text": "Social media affects friendships. Friendships are important. Everyone has friends. This paragraph is about friendships and social media and how they are connected in many ways.",
+    "first": {
+      "type": "interpretation_only",
+      "cultural_resource": "",
+      "interpretation": "Student has named the paragraph's topic but conflates topic with purpose; no arguable function is yet visible.",
+      "instruction": "",
+      "consolidation": "",
+      "timing": "Introducing topic-vs-purpose as a concept would be premature before knowing whether the student has a latent position; reflecting their organization and inviting one purposeful sentence is the productive next move.",
+      "student_facing": "You've made a start by naming both social media and friendships \u2014 those are the ingredients your paragraph needs. Right now the paragraph tells us what it's about, but not yet what it's trying to do for your argument. In one sentence, can you say what you want this paragraph to show or prove about social media and teen friendships \u2014 something a reader could actually push back on?",
+      "invitation": "You've made a start by naming both social media and friendships \u2014 those are the ingredients your paragraph needs. Right now the paragraph tells us what it's about, but not yet what it's trying to do for your argument. In one sentence, can you say what you want this paragraph to show or prove about social media and teen friendships \u2014 something a reader could actually push back on?",
+      "domains": [
+        "Paragraph Purpose",
+        "Central Claim / Thesis"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 33.2
+  },
+  {
+    "n": 14,
+    "profile": "misuses",
+    "domain": "Opening",
+    "text": "Webster's dictionary defines friendship as 'the state of being friends.' Social media is websites. This essay combines them.",
+    "first": {
+      "type": "instruct_then_invite",
+      "cultural_resource": "Central Claim / Thesis",
+      "interpretation": "The student has named two subjects and announced their combination \u2014 the organization is topic-listing rather than argument-framing.",
+      "instruction": "A thesis (central claim) is the move that turns a topic into an argument. Writers use it because without a position, a reader has no way to know what the essay is trying to establish or why it matters. In your case, the assignment asks you to argue a side \u2014 so the claim isn't 'social media and friendship exist' but something like 'social media does X to friendships' in a way a reader could actually push back on.",
+      "consolidation": "",
+      "timing": "Student's draft shows no arguable claim at all; introducing the functional purpose of a thesis now can reorganize the student's understanding of what the intro must do before surface-level opening moves matter.",
+      "student_facing": "You've got a starting point \u2014 a topic and two concepts side by side. Here's a question to push into: what is it about social media and teen friendships that actually bothers or interests you? Try writing one sentence that says something a reader could genuinely disagree with \u2014 not a definition, but your actual position on whether social media helps or hurts those friendships.",
+      "invitation": "You've got a starting point \u2014 a topic and two concepts side by side. Here's a question to push into: what is it about social media and teen friendships that actually bothers or interests you? Try writing one sentence that says something a reader could genuinely disagree with \u2014 not a definition, but your actual position on whether social media helps or hurts those friendships.",
+      "domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 38.9
+  },
+  {
+    "n": 15,
+    "profile": "misuses",
+    "domain": "Thesis",
+    "text": "In this essay I will discuss and talk about social media and its effects on teenagers today.",
+    "first": {
+      "type": "instruct_then_invite",
+      "cultural_resource": "Claim",
+      "interpretation": "The student has named the topic but the sentence announces rather than argues \u2014 it tells the reader what will be discussed, not what will be established.",
+      "instruction": "A claim is something a thoughtful reader could push back on \u2014 that's what gives your evidence a job. 'Social media affects teens' is a topic; 'Social media weakens teen friendships by replacing face-to-face time' is something someone could dispute. Writers use a claim to give the whole essay a spine and to tell themselves what to prove.",
+      "consolidation": "",
+      "timing": "Student has no claim yet; introducing the claim concept with a brief functional explanation and an immediate invitation to try it is the right moment \u2014 not premature, because the absence of a position is the central obstacle right now.",
+      "student_facing": "You've made a start by naming your topic \u2014 social media and teens. Now the essay needs a claim: something a reader could actually push back on. Try writing one sentence that finishes this thought: 'Social media harms (or improves) teen friendships because...' \u2014 what do you actually believe, and why does it matter?",
+      "invitation": "Try writing one sentence that finishes: 'Social media harms (or improves) teen friendships because...' \u2014 what do you actually believe, and why does it matter?",
+      "domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 33.3
+  },
+  {
+    "n": 16,
+    "profile": "discovered_without_name",
+    "domain": "Opening",
+    "text": "I want to open by describing my own group chat blowing up during a fight between two friends, because I think a reader will get pulled into the tension right away and see why this matters.",
+    "first": {
+      "type": "instruct_then_invite",
+      "cultural_resource": "Significance",
+      "interpretation": "Student has intuitively grasped the Hook function \u2014 choosing a specific, tense scene to pull the reader in \u2014 and is already thinking about reader effect. The engagement half of the opening is planned; the significance half ('why this matters') is named but not yet grounded.",
+      "instruction": "Significance is the move that shows what is at stake \u2014 not just that the topic is important, but what a reader should realize about the real problem. Writers use it so the anecdote doesn't just entertain; it makes the reader feel the weight of the issue before the argument begins. In your case, the group-chat scene could do two things at once: pull the reader in AND make them sense exactly what is fragile or complicated about teen friendships when social media is involved. Right now the 'why this matters' is still a placeholder.",
+      "consolidation": "",
+      "timing": "Student is in planning mode, not yet drafting prose. Introducing Significance now \u2014 before the scene is written \u2014 allows them to shape the anecdote with the significance function already in mind, rather than retrofitting it after. The concept reorganizes intent, not finished text.",
+      "student_facing": "Your instinct to open with the group chat scene is strong \u2014 it pulls a reader into real social tension immediately. Before you write the scene itself, try this: in one or two sentences, describe what you want a reader to feel or understand by the end of that scene, just before your argument begins. What should the chaos of that group chat make them realize about teen friendships and social media?",
+      "invitation": "Before writing the scene, say in one or two sentences what you want a reader to understand or feel by the time the anecdote ends \u2014 what should the group-chat chaos make them realize about social media and teen friendships?",
+      "domains": [
+        "Opening / Introduction",
+        "Audience Awareness"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 42.3
+  },
+  {
+    "n": 17,
+    "profile": "discovered_without_name",
+    "domain": "Thesis",
+    "text": "I keep coming back to one idea in my notes: it's not that social media is good or bad, it's that it changes what counts as paying attention to a friend. I think that's the real thing my essay is about.",
+    "first": {
+      "type": "instruct_then_invite",
+      "cultural_resource": "Claim",
+      "interpretation": "Student has a sharp conceptual insight framed as personal observation, not yet an arguable claim.",
+      "instruction": "A claim (from the Claim resource) is what makes writing arguable \u2014 it's something a thoughtful reader could dispute. The student's 'attention' insight is close, but still framed as an observation about what the essay is about rather than a position the reader is asked to accept. Naming the gap between observation and claim can reorganize the student's draft attempt.",
+      "consolidation": "",
+      "timing": "The student has done real conceptual work but the observation-to-claim gap is the immediate developmental edge; brief instruction on what makes something a claim (not just an observation) is the reorganizing move needed now.",
+      "student_facing": "You've landed on something genuinely interesting: the idea that social media reshapes what 'paying attention' to a friend even means. That's a real position, not just a topic. Right now it lives in your notes as an observation \u2014 to make it work as a thesis, your reader needs to know what you're actually claiming: does this change in attention make friendships better, worse, or something more complicated? Try stating, in one sentence, what you want a reader to accept or see differently by the end of your essay.",
+      "invitation": "You've landed on something genuinely interesting: the idea that social media reshapes what 'paying attention' to a friend even means. That's a real position, not just a topic. Right now it lives in your notes as an observation \u2014 to make it work as a thesis, your reader needs to know what you're actually claiming: does this change in attention make friendships better, worse, or something more complicated? Try stating, in one sentence, what you want a reader to accept or see differently by the end of your essay.",
+      "domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 41.6
+  },
+  {
+    "n": 18,
+    "profile": "discovered_without_name",
+    "domain": "Paragraph",
+    "text": "I put the surprising statistic first and then explained what I think it means for real friendships, so the reader sees the fact and then sees why it matters before I move on.",
+    "first": {
+      "type": "interpretation_only",
+      "cultural_resource": "",
+      "interpretation": "Student shows awareness of sequencing and reader effect but has not yet stated what the paragraph is doing for the argument as a whole.",
+      "instruction": "",
+      "consolidation": "",
+      "timing": "No paragraph text is available and no thesis has been stated; instruction on paragraph purpose would be premature. Reflecting back the student's structural awareness and inviting a purpose statement is the right move to surface what we need next.",
+      "student_facing": "You've described a deliberate move: fact first, then what it means \u2014 that's a real structural choice. Before we look at the paragraph itself, can you tell me in one sentence what job this paragraph is doing for your overall argument about social media and teen friendships?",
+      "invitation": "In one sentence, what job is this paragraph doing for your overall argument \u2014 not what it's about, but what it's trying to establish or show?",
+      "domains": [
+        "Paragraph Purpose",
+        "Central Claim / Thesis"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 31.9
+  },
+  {
+    "n": 19,
+    "profile": "discovered_without_name",
+    "domain": "Opening",
+    "text": "I started with a question I actually can't answer yet \u2014 'can you really know someone you've never been bored with?' \u2014 because I want the reader wondering along with me.",
+    "first": {
+      "type": "interpretation_only",
+      "cultural_resource": "",
+      "interpretation": "Student is deliberately using a question as an engagement move and is aware it signals uncertainty \u2014 an intentional authorial choice, not a default.",
+      "instruction": "",
+      "consolidation": "",
+      "timing": "The student has shown genuine intentionality in their opening move. Introducing a new concept now would redirect rather than extend that. Reflecting their organization back and asking them to articulate the connection between hook and purpose is the more generative move \u2014 it may naturally surface the significance and thesis functions when the student tries to answer.",
+      "student_facing": "That opening question does something interesting \u2014 it makes the reader feel the uncertainty rather than just read about it, and it signals you want to think alongside them, not just persuade them. Given that the assignment asks you to argue a position on social media and teen friendships, there's a productive tension worth sitting with: your question invites shared uncertainty, but your essay will eventually need to take a side. What do you think the reader should understand or feel by the time they finish your introduction \u2014 and how might that boredom question connect to the social media issue you'll be arguing?",
+      "invitation": "What do you want the reader to understand or feel by the end of your introduction, and how might the boredom question connect to the social media argument you'll be making?",
+      "domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 42.0
+  },
+  {
+    "n": 20,
+    "profile": "discovered_without_name",
+    "domain": "Paragraph",
+    "text": "This paragraph is really just setting up the next one \u2014 I admit the good side of social media here so that when I push back in the following paragraph it lands harder.",
+    "first": {
+      "type": "interpretation_only",
+      "cultural_resource": "",
+      "interpretation": "Student has already differentiated paragraph purpose from topic and coordinated this paragraph's function with the next one \u2014 a meaningful organizational move articulated without prompting.",
+      "instruction": "",
+      "consolidation": "",
+      "timing": "No new concept is needed; the student has already grasped the paragraph's strategic function. The gap is content, not concept \u2014 so reflecting the organization back and asking for the specific concession content is the right move.",
+      "student_facing": "You've already named the job this paragraph is doing \u2014 setting up a concession so your pushback lands harder. That's real strategic thinking about how paragraphs work together. Before you draft it, can you say in one sentence what the 'good side' you're conceding actually is, so we can see whether the concession is specific enough to make the pushback feel earned?",
+      "invitation": "In one sentence, what is the specific benefit of social media for teen friendships that you're willing to concede?",
+      "domains": [
+        "Paragraph Purpose"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 33.0
+  },
+  {
+    "n": 21,
+    "profile": "rigid_formula",
+    "domain": "Opening",
+    "text": "Have you ever wondered about social media? Social media has been around since the early 2000s. In this essay I will argue that social media harms teen friendships because of three reasons.",
+    "first": {
+      "type": "instruct_then_invite",
+      "cultural_resource": "Hook",
+      "interpretation": "Student has applied a recognizable three-part template (question, background, thesis) but the parts don't yet work together \u2014 the opening question doesn't prepare the reader for the teen-friendship focus.",
+      "instruction": "A hook works best when it's also a door into your essay's real concern \u2014 not just any dramatic question, but something that makes the reader feel the specific problem you're writing about. Right now your question is about social media in general, but your essay is really about what it does to teen friendships specifically. If your opening gave the reader a glimpse of that \u2014 a moment, a pattern, a tension teens actually face \u2014 they'd arrive at your claim already caring about it.",
+      "consolidation": "",
+      "timing": "The student has a thesis and a template but the hook is disconnected from the essay's purpose; introducing the functional definition of Hook can reorganize the opening without displacing the student's existing organization.",
+      "student_facing": "You've made a clear start \u2014 you have a topic, some context, and a position. Right now your opening question ('Have you ever wondered about social media?') doesn't yet pull a reader into why teen friendships specifically are at stake. What is one real thing that happens to a teen's friendship because of social media \u2014 something a reader might actually recognize or worry about \u2014 that could open this essay instead?",
+      "invitation": "What is one specific thing that happens to a teen's friendship because of social media \u2014 something a reader might recognize or worry about \u2014 that could open this essay instead of the broad question?",
+      "domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 38.6
+  },
+  {
+    "n": 22,
+    "profile": "rigid_formula",
+    "domain": "Thesis",
+    "text": "Social media harms teen friendships because it is distracting, because it is fake, and because it is addictive.",
+    "first": {
+      "type": "instruct_then_invite",
+      "cultural_resource": "Thesis",
+      "interpretation": "Student has produced a contestable position with three parallel reasons \u2014 a real claim, but the reasons are labels not yet linked to a friendship-harm logic.",
+      "instruction": "A thesis is the controlling idea that holds all parts accountable to one purpose. Right now your three reasons sit beside each other equally, but a stronger thesis shows *how* one of them damages friendship \u2014 that causal link is what gives the claim its argumentative force and tells each body paragraph what job to do.",
+      "consolidation": "",
+      "timing": "Student has a claim; brief instruction on the thesis's organizing function can reorganize the list into a directed argument without replacing student's thinking.",
+      "student_facing": "You've staked out a clear position \u2014 social media harms teen friendships \u2014 and that's a real claim a reader could push back on. The three reasons you list (distraction, fakeness, addiction) give it shape, but right now they sit side by side without telling the reader *why* any of them specifically damages friendship. Pick the one reason you find most convincing and ask yourself: what exactly does it do to a friendship that wouldn't happen otherwise?",
+      "invitation": "Pick the one reason you find most convincing and ask yourself: what exactly does it do to a friendship that wouldn't happen otherwise?",
+      "domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 34.5
+  },
+  {
+    "n": 23,
+    "profile": "rigid_formula",
+    "domain": "Paragraph",
+    "text": "Topic sentence: Social media is distracting. Evidence: Teens check phones 100 times a day. Analysis: This shows it is distracting. Concluding sentence: Therefore social media is distracting.",
+    "first": {
+      "type": "instruct_then_invite",
+      "cultural_resource": "Interpretation / Reasoning \u2014 making the 'because' visible",
+      "interpretation": "Student has labeled paragraph parts and supplied a real statistic, but analysis only restates the topic sentence \u2014 no interpretive movement occurs.",
+      "instruction": "Writers use analysis to make the 'because' visible \u2014 to explain what evidence means for the argument, not just what it shows. The statistic about 100 checks a day is about distraction frequency, but your essay is about friendships. The analysis sentence is where you close that gap: it explains why distraction matters for how teens relate to each other.",
+      "consolidation": "",
+      "timing": "The student has evidence and a structure; the missing piece is the interpretive link. Introducing 'make the because visible' as a concept reorganizes the circular analysis sentence without replacing the student's authorship.",
+      "student_facing": "You've got a paragraph that circles around distraction \u2014 and you can feel it going in circles too. Right now the 'analysis' sentence and the topic sentence say the same thing: 'it is distracting.' Here's the real question: what does checking a phone 100 times a day actually *do* to a friendship? Try writing one sentence that completes this thought \u2014 not 'this shows distraction,' but something like 'this means that\u2026' or 'because of this, friendships\u2026'",
+      "invitation": "Your evidence \u2014 100 phone checks a day \u2014 is specific and useful. Now ask yourself: what does that actually do to a friendship? Write one sentence that finishes 'This means that friendships\u2026' \u2014 not 'this shows distraction.'",
+      "domains": [
+        "Paragraph Purpose",
+        "Interpretation / Reasoning"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 38.3
+  },
+  {
+    "n": 24,
+    "profile": "rigid_formula",
+    "domain": "Opening",
+    "text": "Hook. Background about social media history. Thesis: social media is bad for friendships for three reasons that I will list now.",
+    "first": {
+      "type": "instruct_then_invite",
+      "cultural_resource": "Claim",
+      "interpretation": "Student has a structural plan but the thesis announces a list rather than asserting a contestable idea.",
+      "instruction": "A claim is a statement a thoughtful reader could actually push back on \u2014 that's what gives your evidence a job and your essay direction. 'Social media is bad for three reasons' tells a reader what's coming but doesn't yet assert something arguable; it's more a table of contents than a spine. Writers use a controlling claim to make the whole essay accountable to one idea.",
+      "consolidation": "",
+      "timing": "Student is at the planning stage before prose drafting; introducing 'claim' now can reorganize the thesis before bad patterns are written in.",
+      "student_facing": "You've mapped out the shape of your introduction \u2014 hook, background, thesis \u2014 which gives you a real starting point. Your thesis currently tells the reader there are three reasons, but it doesn't yet show *what* about social media harms friendships or why that's a contestable idea worth arguing. Before you draft the actual sentences, can you say in your own words \u2014 not a list, just one direct statement \u2014 what you most want a reader to walk away believing after they've read your whole essay?",
+      "invitation": "Before drafting, state in one direct sentence what you want a reader to believe after finishing your essay \u2014 not a list of reasons, just the core idea.",
+      "domains": [
+        "Central Claim / Thesis",
+        "Opening / Introduction"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 37.2
+  },
+  {
+    "n": 25,
+    "profile": "rigid_formula",
+    "domain": "Thesis",
+    "text": "This essay will prove that social media is harmful using reason one, reason two, and reason three.",
+    "first": {
+      "type": "instruct_then_invite",
+      "cultural_resource": "Claim",
+      "interpretation": "Student has chosen a side and knows argument needs reasons, but is organizing around essay-procedure rather than around an arguable idea.",
+      "instruction": "A claim is different from announcing your essay's plan. A claim is a statement a thoughtful person could actually push back on \u2014 that's what gives your evidence a job and gives the reader a reason to keep reading. Right now 'social media is harmful' is buried inside a plan-announcement; pulling it out and making it specific to teen friendships turns it into a real claim.",
+      "consolidation": "",
+      "timing": "Student has not yet written an arguable claim; introducing the concept of 'claim vs. announcement' can reorganize their present understanding before they draft further.",
+      "student_facing": "You've taken a clear stance \u2014 social media is harmful \u2014 and that's the foundation of an argument. Right now your sentence announces a topic and a plan, but a reader can't yet disagree with it the way they could disagree with a real claim. What is the specific, arguable idea about social media and teen friendships that you want a reader to accept by the end? Try writing that idea in one sentence, without mentioning the essay or its reasons.",
+      "invitation": "Set aside the words 'this essay will prove' and ask yourself: what is the one idea about social media and teen friendships that you want a reader to accept \u2014 something they could reasonably disagree with? Write that idea in one sentence.",
+      "domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 34.6
+  },
+  {
+    "n": 26,
+    "profile": "needs_less",
+    "domain": "Opening",
+    "text": "A year ago my best friend and I stopped talking, and it happened entirely in the spaces between text messages \u2014 the read receipts, the slow replies, the story she posted but didn't send to me.",
+    "first": {
+      "type": "interpretation_only",
+      "cultural_resource": "",
+      "interpretation": "The student has opened with a specific, emotionally precise anecdote that implies a claim about social media and friendship without yet stating it; engagement is present but orientation and purpose are not yet differentiated.",
+      "instruction": "",
+      "consolidation": "",
+      "timing": "No new concept is needed yet; the student's organization is just beginning. Reflecting what the opening does and asking the student to articulate their purpose will allow the next move to emerge from their developing intention rather than from a prescribed structure.",
+      "student_facing": "That opening sentence does real work \u2014 it drops the reader into a specific, felt moment, and the details (read receipts, slow replies, the story not sent) already point toward something meaningful about how digital communication shapes friendship. Before you write the next sentence, ask yourself: what does this moment reveal about the bigger question your essay is taking on? What do you want the reader to understand about social media and teen friendships by the time they finish this introduction?",
+      "invitation": "That opening sentence does real work \u2014 it drops the reader into a specific, felt moment, and the details (read receipts, slow replies, the story not sent) already point toward something meaningful about how digital communication shapes friendship. Before you write the next sentence, ask yourself: what does this moment reveal about the bigger question your essay is taking on? What do you want the reader to understand about social media and teen friendships by the time they finish this introduction?",
+      "domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 37.8
+  },
+  {
+    "n": 27,
+    "profile": "needs_less",
+    "domain": "Thesis",
+    "text": "Social media doesn't destroy friendship; it exposes how fragile some friendships were to begin with.",
+    "first": {
+      "type": "instruct_then_invite",
+      "cultural_resource": "Claim",
+      "interpretation": "The student has written an aphoristic, arguable sentence that reframes the social media question rather than accepting the improve/harm binary \u2014 showing intentional positioning.",
+      "instruction": "A claim is something a thoughtful person could genuinely dispute \u2014 that tension is what gives your evidence a job. Your sentence is already arguable, but to know what evidence your essay needs, it helps to name exactly what a skeptical reader would contest: the word 'fragile,' the idea that social media only reveals rather than causes damage, or something else?",
+      "consolidation": "",
+      "timing": "The student has produced a candidate claim; introducing the cultural concept of a claim's contestability now can reorganize their thinking about what the essay must do \u2014 without replacing their strong move.",
+      "student_facing": "That's a striking claim \u2014 it reframes the whole debate by shifting responsibility from social media to the friendships themselves. Before you build an essay around it, try this: who is the thoughtful reader who might push back, and what exactly would they dispute? Naming that resistance will help you see what your essay needs to establish.",
+      "invitation": "Who is the thoughtful reader who would push back on this claim, and what exactly would they dispute? Naming that resistance will help you see what your essay needs to establish.",
+      "domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": false,
+    "elapsed_s": 49.3
+  },
+  {
+    "n": 28,
+    "profile": "needs_less",
+    "domain": "Paragraph",
+    "text": "When a friend 'likes' your post but never texts back, the gesture says everything: presence without contact, acknowledgment without care. That gap is the whole problem this paragraph names.",
+    "first": {
+      "type": "interpretation_only",
+      "cultural_resource": "",
+      "interpretation": "The student has produced a vivid image and a self-aware label for its purpose, showing early attention to paragraph function \u2014 but the paragraph names its job without yet doing it.",
+      "instruction": "",
+      "consolidation": "",
+      "timing": "The student is already showing metacognitive awareness of paragraph purpose; reflecting that back and asking them to sharpen it is more productive than introducing a new concept right now.",
+      "student_facing": "That opening image \u2014 a 'like' without a text back \u2014 captures something real about the gap between digital acknowledgment and actual care. It reads like the launch of an argument. What is this paragraph going to do for the essay: is it setting up a problem you'll then support with evidence, or is it making a claim you want the whole essay to stand behind? Try saying, in one sentence, the specific job this paragraph does for your argument about social media and teen friendships.",
+      "invitation": "Try saying, in one sentence, the specific job this paragraph does for your argument about social media and teen friendships.",
+      "domains": [
+        "Paragraph Purpose",
+        "Central Claim / Thesis"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 41.2
+  },
+  {
+    "n": 29,
+    "profile": "needs_less",
+    "domain": "Opening",
+    "text": "There is a specific loneliness that only arrives after you close a very active group chat. This essay is about that feeling, and what it reveals about online friendship.",
+    "first": {
+      "type": "interpretation_only",
+      "cultural_resource": "",
+      "interpretation": "The student has opened with a specific, felt experience that functions as an immersive hook, then retreated to meta-announcement in sentence 2 \u2014 the two moves are not yet coordinated.",
+      "instruction": "",
+      "consolidation": "",
+      "timing": "The student's first move is strong and deliberate; naming the tension between the two sentences and inviting extension of their own language is more productive than introducing a new concept. The student needs to discover what the feeling reveals before a significance or thesis resource would reorganize anything.",
+      "student_facing": "That opening sentence does something unusual and effective \u2014 it names a specific feeling most readers will recognize but haven't quite named for themselves. Right now the second sentence tells us what the essay is 'about,' which steps back from that intimacy. What if, instead of announcing the essay, you stayed in the feeling a moment longer \u2014 what does that loneliness actually reveal about online friendship that you want the reader to understand before the argument begins?",
+      "invitation": "That opening sentence does something unusual and effective \u2014 it names a specific feeling most readers will recognize but haven't quite named for themselves. Right now the second sentence tells us what the essay is 'about,' which steps back from that intimacy. What if, instead of announcing the essay, you stayed in the feeling a moment longer \u2014 what does that loneliness actually reveal about online friendship that you want the reader to understand before the argument begins?",
+      "domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 38.0
+  },
+  {
+    "n": 30,
+    "profile": "needs_less",
+    "domain": "Thesis",
+    "text": "The closer a friendship is, the less social media seems to help it \u2014 and that inverse relationship is what this essay sets out to explain.",
+    "first": {
+      "type": "invite_only",
+      "cultural_resource": "Claim",
+      "interpretation": "The student has named a contestable inverse relationship and framed the essay as an explanatory project \u2014 this is an organizing idea with real argumentative potential.",
+      "instruction": "",
+      "consolidation": "",
+      "timing": "The student has already produced a claim-like sentence with a governing pattern; the next move is to generate the reasoning, not to introduce the concept of a claim from scratch.",
+      "student_facing": "Your opening sentence does something interesting: it frames the essay around an inverse relationship \u2014 closeness goes up, social media's help goes down. That's a real position, and a reader could push back on it. Before you write more, try stating in one sentence exactly what you think explains that inverse relationship \u2014 the 'why' behind the pattern you've named.",
+      "invitation": "Try stating in one sentence the 'why' behind the inverse relationship \u2014 what actually causes social media to help less as friendships get closer?",
+      "domains": [
+        "Central Claim / Thesis",
+        "Whole Essay Purpose"
+      ],
+      "one_invitation": true,
+      "instr_has_content": true,
+      "consol_has_content": true
+    },
+    "ok_type": true,
+    "elapsed_s": 34.9
+  }
+]

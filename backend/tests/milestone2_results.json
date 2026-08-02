@@ -1,0 +1,1397 @@
+[
+  {
+    "n": 1,
+    "desc": "Broad topic, no specific purpose",
+    "genre": "expository",
+    "grade": "9",
+    "audience": "general classmates",
+    "intro": "Technology is a big part of our lives. It is everywhere and it keeps changing. Many people use it every day.",
+    "first": {
+      "operative_purpose": "Draft an introduction.",
+      "current_organization": "Topic naming only \u2014 three short sentences assert technology's ubiquity and change without specifying a problem, question, or claim.",
+      "observed_functions": [
+        "none yet visible",
+        "none yet visible"
+      ],
+      "supporting_evidence": [
+        "Three sentences all remain at the level of general topic assertion."
+      ],
+      "complicating_evidence": [
+        "Draft may be intentionally minimal as a starting point, not a complete attempt."
+      ],
+      "alternative_interpretations": [
+        "Student may have a specific purpose not yet committed to writing.",
+        "Broad opening may be a deliberate warm-up strategy the student knows they will narrow.",
+        "Student may be uncertain what the assignment permits or expects."
+      ],
+      "primary_tension": "Topic present but no specific focus, problem, or purpose differentiated.",
+      "relevant_resources": [
+        "topic orientation (minimal)",
+        "problem framing",
+        "question framing",
+        "significance framing",
+        "central claim"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "You've named technology as your subject and noted it's everywhere and changing. Before drafting more, answer for yourself: what specific thing about technology do you most want your reader to think about or understand by the end?",
+        "You've noted technology keeps changing. Who is most affected by that change, and what problem or consequence should your reader care about?"
+      ],
+      "selected_invitation": "You've named technology as your subject and noted that it's everywhere and always changing. Those observations could lead in many directions. Before you write more, try to answer this question for yourself: what specific thing about technology do you most want your reader to think about or understand by the end of your essay?",
+      "changes_since_previous": "Initial turn \u2014 no prior draft to compare.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": false,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 327,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 29.3
+  },
+  {
+    "n": 2,
+    "desc": "Topic + useful context but no significance",
+    "genre": "expository",
+    "grade": "10",
+    "audience": "general reader",
+    "intro": "Our town built a new recycling center last year. It processes about ten tons of waste each week and employs twelve people. It replaced the old landfill program.",
+    "first": {
+      "operative_purpose": "Draft your introduction.",
+      "current_organization": "Topic-plus-context (B): three factual statements name the center and supply basic data, but no problem, question, or significance is established.",
+      "observed_functions": [
+        "topic named from any specific focus or problem",
+        "facts listed but not yet selected for relevance"
+      ],
+      "supporting_evidence": [
+        "three concrete local facts show the student has a real subject"
+      ],
+      "complicating_evidence": [
+        "no problem, tension, or significance visible yet; could be an unfinished draft rather than a stable organizational pattern"
+      ],
+      "alternative_interpretations": [
+        "student may have a clear issue in mind and simply hasn't written it yet",
+        "the three facts may be deliberate grounding before a problem sentence the student plans to add"
+      ],
+      "primary_tension": "context is present but the problem or significance remains undifferentiated",
+      "relevant_resources": [
+        "contextual background",
+        "topic orientation",
+        "problem statement",
+        "statement of significance",
+        "identification of stakes"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "You've given three facts about what the recycling center is and does \u2014 now try writing one sentence that tells a reader what problem or question those facts raise for the community.",
+        "Your opening establishes what the recycling center replaced and what it does now \u2014 why does that change matter to your community? Write one sentence that answers that question."
+      ],
+      "selected_invitation": "You've opened with three concrete facts about the recycling center \u2014 what it does, its scale, and what it replaced. Those details tell the reader what exists, but a reader of a community-issue essay will also want to know: why does this matter, or what problem does it create or solve? Try writing one sentence that answers that question.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 338,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 27.3
+  },
+  {
+    "n": 3,
+    "desc": "Clear problem, weak reader orientation",
+    "genre": "argumentative",
+    "grade": "11",
+    "audience": "school board (naive to specifics)",
+    "intro": "The block schedule is destroying everything. Nobody can focus for that long and the whole thing needs to be scrapped immediately before it gets worse.",
+    "first": {
+      "operative_purpose": "Draft an introduction for a school policy argument.",
+      "current_organization": "Topic-plus-position: a strong claim is stated immediately, but no context, definition, or problem framing is supplied for an uninformed reader.",
+      "observed_functions": [
+        "Has differentiated a specific policy (block schedule) from school policy in general.",
+        "Has differentiated a position from mere topic-naming."
+      ],
+      "supporting_evidence": [
+        "Clear specific policy target (block schedule).",
+        "Genuine position stated without ambiguity."
+      ],
+      "complicating_evidence": [
+        "No context supplied; reader cannot understand the scope or nature of the problem.",
+        "Claim 'destroying everything' is asserted without grounding \u2014 significance is declared, not established."
+      ],
+      "alternative_interpretations": [
+        "Strong tone may be intentional voice/rhetoric, not an oversight.",
+        "Student may have more developed reasoning not yet on the page \u2014 this may be an early placeholder draft."
+      ],
+      "primary_tension": "Reader lacks context: 'block schedule' is insider shorthand; stakes and problem are asserted but not shown.",
+      "relevant_resources": [
+        "Central claim / position statement",
+        "Urgency / stakes assertion",
+        "Problem framing (what the block schedule is and what it does)",
+        "Orienting context for naive reader",
+        "Distinction between topic and specific problem"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Audience Awareness"
+      ],
+      "candidate_invitations": [
+        "You've staked a clear position against the block schedule. Before a reader outside your school can follow that argument, they need to know what the block schedule actually is and what specific harm it causes \u2014 try writing one or two sentences that give that reader just enough to understand what you're objecting to.",
+        "Your opening makes the stakes feel urgent. Who is the reader you most want to convince \u2014 a student, a teacher, a school board member? Naming that reader will help you decide what they need to know before they can take your argument seriously."
+      ],
+      "selected_invitation": "You've taken a clear stance \u2014 the block schedule should go. Right now, a reader who doesn't attend your school might wonder: what exactly is the block schedule, and what specific problem does it create? Before adding more argument, try writing one or two sentences that tell that outside reader just enough to understand what you're objecting to.",
+      "changes_since_previous": "Initial turn \u2014 no prior draft to compare.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 346,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 33.1
+  },
+  {
+    "n": 4,
+    "desc": "Clear claim introduced too abruptly for the reader",
+    "genre": "argumentative",
+    "grade": "11",
+    "audience": "general public",
+    "intro": "Cities must ban all private cars from downtown immediately. This is the only reasonable position and anyone who disagrees has not thought about it.",
+    "first": {
+      "operative_purpose": "Draft an introduction that orients a reader to the argument.",
+      "current_organization": "Claim-first with dismissal of opposition; no context, problem, or significance supplied.",
+      "observed_functions": [
+        "A clear position is present but not yet differentiated from a problem or reason.",
+        "The claim is explicit but not yet distinguished from the context that would make it legible."
+      ],
+      "supporting_evidence": [
+        "Clear, explicit claim is present.",
+        "Position is arguable and specific."
+      ],
+      "complicating_evidence": [
+        "No context, problem, or significance supplied \u2014 reader has no entry point.",
+        "Dismissal of opposition without reasoning may alienate rather than persuade."
+      ],
+      "alternative_interpretations": [
+        "Student may be intentionally provocative and planning to build context in subsequent paragraphs.",
+        "Student may not yet have distinguished the problem from the solution.",
+        "Draft may be deliberately minimal as an initial stake-planting move."
+      ],
+      "primary_tension": "Strong claim is present but the problem motivating it is invisible to the reader.",
+      "relevant_resources": [
+        "explicit claim / position statement",
+        "problem framing",
+        "statement of significance",
+        "context or background",
+        "identification of stakes"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis",
+        "Audience Awareness"
+      ],
+      "candidate_invitations": [
+        "You've committed to a clear position. What specific urban problem makes the current situation bad enough that an immediate, total ban is necessary? Naming that problem gives your reader a reason to take the claim seriously.",
+        "Your claim will land differently depending on who is reading it. Who is your intended reader, and what would they need to know or feel before they could seriously consider a total car ban? Answering that will help you decide what your opening needs to do first."
+      ],
+      "selected_invitation": "You've staked out a bold position \u2014 an immediate, total ban on private cars downtown. Right now, a reader who doesn't already agree might stop here, because they don't yet know what problem makes this ban necessary. Before defending the position, what is the specific urban problem that makes the current situation unacceptable? Naming that problem will give your reader a reason to keep reading.",
+      "changes_since_previous": "Initial turn; no prior draft.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 396,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 31.4
+  },
+  {
+    "n": 5,
+    "desc": "Anecdote with no visible connection to purpose",
+    "genre": "argumentative",
+    "grade": "10",
+    "audience": "peers",
+    "intro": "Last summer I dropped my ice cream cone at the beach and a seagull swooped down and grabbed it. It was hilarious. Anyway, teenagers should have jobs.",
+    "first": {
+      "operative_purpose": "Draft an introduction that orients the reader to the argument.",
+      "current_organization": "Anecdote (beach/seagull) juxtaposed with bare topic claim, no visible bridge between them.",
+      "observed_functions": [
+        "topic named ('teenagers should have jobs') but not differentiated from a specific claim or problem",
+        "anecdote present but not differentiated from the argumentative purpose it might serve"
+      ],
+      "supporting_evidence": [
+        "student used narrative rather than a generic topic sentence, showing some openness to purposeful opening moves"
+      ],
+      "complicating_evidence": [
+        "'Anyway' signals the student may recognize the gap but not yet know how to bridge it",
+        "claim 'teenagers should have jobs' is undifferentiated \u2014 no problem, no significance, no direction"
+      ],
+      "alternative_interpretations": [
+        "anecdote may be a genuine attempt to illustrate something about unexpected situations that jobs prepare you for",
+        "anecdote may be a filler hook the student does not know how to connect",
+        "'Anyway' may reflect drafting honesty rather than confusion about purpose"
+      ],
+      "primary_tension": "anecdote disconnected from essay purpose \u2014 its function is invisible to the reader",
+      "relevant_resources": [
+        "brief narrative / anecdote as opening resource",
+        "problem framing",
+        "significance framing",
+        "connection between anecdote and central claim"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Whole Essay Purpose"
+      ],
+      "candidate_invitations": [
+        "You've opened with a vivid beach moment, then jumped to 'teenagers should have jobs.' Before revising, say in one or two sentences what you were thinking connects those two things \u2014 what does the seagull story have to do with your argument?",
+        "Your draft says 'teenagers should have jobs' \u2014 what specific problem or reason is behind that claim? Try stating it in one sentence so a reader understands not just your position but why it matters."
+      ],
+      "selected_invitation": "You've opened with a vivid moment at the beach, then pivoted quickly to 'teenagers should have jobs.' Right now those two pieces feel unconnected to a reader. Before revising anything, can you say in a sentence or two what the seagull story has to do with why teenagers should have jobs \u2014 what were you thinking that link might be?",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 331,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 30.8
+  },
+  {
+    "n": 6,
+    "desc": "Anecdote whose connection becomes clear later",
+    "genre": "reflective",
+    "grade": "12",
+    "audience": "general reader",
+    "intro": "The first time I tried to bake bread, it came out flat and dense as a brick. I did not understand that yeast is alive and needs time. That failure taught me something about patience that changed how I approach every hard thing I now attempt.",
+    "first": {
+      "operative_purpose": "Draft an introduction to a reflective essay about learning.",
+      "current_organization": "Brief narrative of failure (bread/yeast) pivots to a broad claim about patience; deliberately indirect but lands a candidate thesis in the final sentence.",
+      "observed_functions": [
+        "failure event differentiated from the lesson derived from it",
+        "specific sensory detail (flat, dense, brick) differentiated from abstract claim (patience)",
+        "narrative and claim joined in three sentences; the anecdote is not decorative \u2014 it motivates the lesson"
+      ],
+      "supporting_evidence": [
+        "Narrative is purposefully selected and economical \u2014 three sentences do distinct work",
+        "The pivot from concrete to abstract is intentional, not accidental"
+      ],
+      "complicating_evidence": [
+        "The final claim is still broad enough to organize many different essays; specificity not yet established"
+      ],
+      "alternative_interpretations": [
+        "The broad final sentence is complete as intended and the essay body will supply specificity \u2014 the opening is finished",
+        "The student is still discovering the central claim through writing and the thesis will emerge in subsequent drafting"
+      ],
+      "primary_tension": "The final claim ('changed how I approach every hard thing I now attempt') is broad \u2014 the specific idea the essay will develop is not yet differentiated from a general life lesson.",
+      "relevant_resources": [
+        "brief narrative / scene as opening resource",
+        "candidate thesis statement",
+        "problem or question framing to sharpen the central claim",
+        "significance framing to establish why this insight matters to the reader"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "Your opening moves quickly from a vivid moment of failure to a claim about patience \u2014 that movement does real work. Before you continue, try to name, in one sentence, the specific thing about patience or learning that the rest of your essay will actually try to establish or explore. What is the one idea you want a reader to be left with?",
+        "You connect the bread failure to a lesson about patience in a single leap. As you think ahead to the body of your essay, what specific aspect of how you approach 'hard things' will you actually show \u2014 is there a second moment or a repeated pattern that patience explains?"
+      ],
+      "selected_invitation": "Your opening moves quickly from a vivid moment of failure to a claim about patience \u2014 that movement does real work. Before you continue, try to name, in one sentence, the specific thing about patience or learning that the rest of your essay will actually try to establish or explore. What is the one idea you want a reader to be left with?",
+      "changes_since_previous": "Initial turn \u2014 no prior draft to compare.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 339,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 35.1
+  },
+  {
+    "n": 7,
+    "desc": "Formulaic hook-background-thesis introduction",
+    "genre": "argumentative",
+    "grade": "9",
+    "audience": "teacher",
+    "intro": "Have you ever felt stressed? Homework has existed for a long time in schools around the world. In this essay I will argue that homework should be reduced because it causes stress, wastes time, and hurts families.",
+    "first": {
+      "operative_purpose": "Draft an introduction that prepares the reader to enter the argument.",
+      "current_organization": "Rhetorical question \u2192 broad topic sentence \u2192 thesis preview listing three reasons. Follows a recognizable formula; parts do not yet function together as a coherent reader-orienting movement.",
+      "observed_functions": [
+        "Separates topic (homework) from position (should be reduced).",
+        "Lists three distinct reasons, differentiating them from each other.",
+        "Thesis sentence attempts to integrate claim and reasons into one statement."
+      ],
+      "supporting_evidence": [
+        "Three reasons named signal planned organization.",
+        "Explicit thesis shows awareness of argumentative purpose."
+      ],
+      "complicating_evidence": [
+        "Rhetorical question is disconnected from the argument.",
+        "Broad topic sentence adds no orienting information beyond topic naming."
+      ],
+      "alternative_interpretations": [
+        "Formula use may reflect a taught template the student is working within, not lack of purpose.",
+        "Broad claim may be appropriate if teacher only requires a general stance at this stage."
+      ],
+      "primary_tension": "Rhetorical question ('Have you ever felt stressed?') is not yet connected to the homework argument.",
+      "relevant_resources": [
+        "Rhetorical question as opener.",
+        "Explicit thesis with reason preview.",
+        "Problem framing to replace disconnected hook.",
+        "Claim differentiation to sharpen the thesis."
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "You've named three reasons your essay will argue. Try writing one sentence that makes your claim more specific\u2014reduced for whom, by how much, or under what conditions\u2014so a reader knows exactly what you're committing to.",
+        "Your opening question mentions stress, but the essay is about homework\u2014try rewriting the first sentence so it points directly at the homework problem, helping a reader see why the issue matters before reaching your claim."
+      ],
+      "selected_invitation": "You've named three reasons your essay will argue\u2014stress, time, and families\u2014and a reader can see where you're headed. Right now, though, 'homework should be reduced' leaves open a big question: reduced how much, for whom, or under what conditions? Try writing one sentence that makes your position as specific as possible, so a reader knows exactly what you're arguing before the essay begins.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": false,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 393,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 30.4
+  },
+  {
+    "n": 8,
+    "desc": "Strong conventional argumentative introduction",
+    "genre": "argumentative",
+    "grade": "12",
+    "audience": "informed public",
+    "intro": "Every day, millions of children under thirteen log into platforms designed to hold adult attention for as long as possible. Regulators have largely looked away. Yet the evidence of harm is mounting, and it raises an urgent question about who is responsible when a product built for engagement meets a developing mind. This essay argues that platforms, not parents alone, must bear that responsibility.",
+    "first": {
+      "operative_purpose": "Draft your introduction.",
+      "current_organization": "Problem framing integrated with significance and explicit claim \u2014 moves from concrete situation to regulatory failure to urgency to thesis.",
+      "observed_functions": [
+        "broad topic (social media) from specific problem (children + engagement design)",
+        "question from claim \u2014 question marks the problem, thesis marks the position",
+        "context, significance, and claim coordinated in four sentences",
+        "anecdotal scale ('millions') integrated with structural observation ('regulators looked away')"
+      ],
+      "supporting_evidence": [
+        "Claim is explicit and arguable",
+        "Opening performs problem, significance, and thesis functions without formula"
+      ],
+      "complicating_evidence": [
+        "The opening does not establish why the platform-vs-parent framing is the relevant distinction \u2014 reader may accept the thesis without understanding the argumentative work ahead"
+      ],
+      "alternative_interpretations": [
+        "The opening may be intentionally lean, trusting the body to supply the distinction's rationale \u2014 a deliberate, not deficient, choice",
+        "The writer may be saving the platform/parent distinction for a counterargument structure in the body"
+      ],
+      "primary_tension": "Claim ('platforms, not parents alone') introduces a comparison that the opening hasn't yet given the reader grounds to evaluate \u2014 the stakes of that distinction are not yet visible.",
+      "relevant_resources": [
+        "problem statement",
+        "significance framing",
+        "central claim",
+        "identification of stakes",
+        "distinction between two positions (platform vs. parent responsibility)"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "Your opening efficiently frames the problem and lands the claim. Can you identify, in a sentence or two, what makes the platform-versus-parent distinction the urgent or more productive framing \u2014 what would be missing or wrong if the responsibility stayed with parents alone?",
+        "The claim is clear \u2014 platforms must bear responsibility, not parents alone. Before drafting the body, can you name the one specific harm or failure that makes this argument urgent, so a skeptical reader understands the stakes before the essay develops them?"
+      ],
+      "selected_invitation": "Your opening moves efficiently from a concrete image to a question to a claim \u2014 the reader knows the subject, the problem, and your position before the essay begins. One thing the opening doesn't yet do is tell the reader why platforms, rather than parents, are the right locus of responsibility \u2014 what makes that the more productive or urgent framing. Can you identify, in a sentence or two, the specific reason that distinction matters for the argument you're about to make?",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 476,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 35.9
+  },
+  {
+    "n": 9,
+    "desc": "Strong unconventional argumentative introduction",
+    "genre": "argumentative",
+    "grade": "12",
+    "audience": "literary/engaged reader",
+    "intro": "There is a bench near my apartment with three metal armrests bolted across it. It is not designed for resting; it is designed so that no one can lie down. Once you notice one, you see them everywhere, and the city starts to look like an argument about who is allowed to exist in it.",
+    "first": {
+      "operative_purpose": "Draft your introduction.",
+      "current_organization": "Deliberately indirect opening (J): concrete image \u2192 named pattern \u2192 implied thesis-level observation. No explicit claim yet.",
+      "observed_functions": [
+        "bench as designed object vs. bench as resting place \u2014 function vs. intention",
+        "singular instance vs. city-wide pattern",
+        "concrete detail integrated with conceptual framing in final sentence"
+      ],
+      "supporting_evidence": [
+        "Final sentence performs significance framing with precision",
+        "Image is functionally relevant, not merely decorative"
+      ],
+      "complicating_evidence": [
+        "No explicit argument or direction stated \u2014 reader knows the territory but not the essay's position"
+      ],
+      "alternative_interpretations": [
+        "The final sentence is a compressed thesis and the student knows their claim but has not made it explicit yet",
+        "The student is still discovering the claim through the act of writing the opening"
+      ],
+      "primary_tension": "The opening names a city-level argument but does not yet state the writer's answer to it \u2014 purpose visible, claim not.",
+      "relevant_resources": [
+        "scene/observation as opening resource",
+        "implied problem framing",
+        "explicit central claim",
+        "identification of stakes or significance"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Whole Essay Purpose"
+      ],
+      "candidate_invitations": [
+        "Your opening moves from one bench to a city-wide argument about who belongs. Before drafting more, state in one sentence what position your essay will take \u2014 not just that the city makes an argument, but what your answer to it is.",
+        "You've named the city as making an argument about who is allowed to exist in it. Who do you imagine reading this essay, and what do you want them to think or do differently by the end?"
+      ],
+      "selected_invitation": "Your opening moves from one bench to a city-wide argument about who belongs. Before drafting more, state in one sentence what position your essay will take \u2014 not just that the city makes an argument, but what your answer to it is.",
+      "changes_since_previous": "Initial turn \u2014 no prior theory to compare.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": false,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 230,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 29.4
+  },
+  {
+    "n": 10,
+    "desc": "Research introduction with necessary background",
+    "genre": "research",
+    "grade": "college",
+    "audience": "academic reader new to topic",
+    "intro": "Antibiotics transformed medicine in the twentieth century, turning once-fatal infections into treatable conditions. But bacteria evolve, and decades of heavy use have accelerated the spread of resistant strains. Understanding how resistance emerges is now central to protecting the gains modern medicine has made.",
+    "first": {
+      "operative_purpose": "Draft an introduction for a research essay on antibiotic resistance.",
+      "current_organization": "Background (antibiotics' gains) \u2192 problem (resistance spreading) \u2192 purpose statement (understanding emergence). Problem framing with stated purpose; significance implied but not grounded.",
+      "observed_functions": [
+        "Broad topic (antibiotics) differentiated from specific problem (resistance spreading).",
+        "Historical gain differentiated from current threat.",
+        "Background and problem linked causally ('decades of heavy use have accelerated').",
+        "Purpose statement integrates problem with essay direction."
+      ],
+      "supporting_evidence": [
+        "Three-sentence structure performs topic, problem, and direction.",
+        "Causal language ('accelerated the spread') shows content integration."
+      ],
+      "complicating_evidence": [
+        "'Protecting the gains modern medicine has made' is broad \u2014 stakes not yet specific.",
+        "No arguable claim distinguishable from the purpose statement."
+      ],
+      "alternative_interpretations": [
+        "Final sentence may be deliberately functioning as a thesis in compressed form.",
+        "Broad significance framing may be appropriate for this genre and audience."
+      ],
+      "primary_tension": "Significance asserted broadly ('protecting the gains') but not grounded in specific stakes.",
+      "relevant_resources": [
+        "Historical context, problem statement, statement of purpose.",
+        "Identification of specific stakes or consequences.",
+        "Central claim / thesis."
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "Your opening establishes the problem clearly \u2014 bacteria evolving against the gains of modern medicine. To sharpen what's at stake for your reader, name a specific consequence: what does it mean, concretely, if resistant strains keep spreading?",
+        "You've framed the problem and indicated the essay's direction. Try writing one sentence that states the central idea or position your essay will actually argue \u2014 not just what it will explain."
+      ],
+      "selected_invitation": "Your opening moves efficiently from medicine's gains to a clear problem \u2014 bacterial resistance \u2014 and ends on what the essay needs to explain. To help your reader understand what's actually at stake, try naming the specific consequence of resistance spreading: what happens, or could happen, if resistant strains continue to gain ground?",
+      "changes_since_previous": "Initial turn; no prior draft to compare.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 336,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 30.6
+  },
+  {
+    "n": 11,
+    "desc": "Research introduction overloaded with background",
+    "genre": "research",
+    "grade": "college",
+    "audience": "academic reader",
+    "intro": "Writing began with cuneiform in Mesopotamia around 3200 BCE, followed by Egyptian hieroglyphs, the Phoenician alphabet, Greek and Roman scripts, medieval manuscripts copied by monks, the development of paper in China, its spread along the Silk Road, and eventually block printing, before Gutenberg, who was born around 1400 in Mainz, developed movable type in Europe.",
+    "first": {
+      "operative_purpose": "Draft an introduction to a research essay on the printing press.",
+      "current_organization": "Single long sentence cataloguing historical events chronologically, ending at Gutenberg; no differentiated focus, problem, or claim yet visible.",
+      "observed_functions": [
+        "historical sequence present but no differentiation between broad background and specific essay focus",
+        "none yet; events listed but not unified under a governing purpose"
+      ],
+      "supporting_evidence": [
+        "rich historical knowledge deployed",
+        "sentence ends at Gutenberg suggesting that is the focal point"
+      ],
+      "complicating_evidence": [
+        "no sentence boundary breaks used; reads as a list not a structured opening",
+        "no indication of what aspect of the printing press the essay will argue"
+      ],
+      "alternative_interpretations": [
+        "student knows the argument but has not written it yet",
+        "student is still discovering the essay's purpose through the historical survey",
+        "Gutenberg placement at the end may signal an implicit thesis direction"
+      ],
+      "primary_tension": "extensive background without any visible problem, question, or claim",
+      "relevant_resources": [
+        "historical context",
+        "chronological sequence",
+        "problem statement",
+        "question framing",
+        "central claim",
+        "significance framing"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "You've assembled a sweeping historical sequence ending at Gutenberg \u2014 what is the one specific thing about the printing press your essay is trying to establish or argue?",
+        "Your sentence builds up to Gutenberg \u2014 what problem or question does the printing press raise that your essay is trying to answer?"
+      ],
+      "selected_invitation": "You've traced a long arc from cuneiform all the way to Gutenberg, which shows real historical range. For a research essay, a reader needs to know not just what happened but what question or problem the essay is investigating. What is the one specific thing about the printing press that your essay is trying to establish or argue?",
+      "changes_since_previous": "Initial turn; no prior draft to compare.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 330,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 28.5
+  },
+  {
+    "n": 12,
+    "desc": "Personal essay opening without explicit thesis",
+    "genre": "personal",
+    "grade": "11",
+    "audience": "general reader",
+    "intro": "My grandmother's kitchen always smelled of cardamom and burnt sugar. The linoleum was cracked in the corner where the table leg had worn it, and that was exactly where I sat every afternoon after school.",
+    "first": {
+      "operative_purpose": "Draft an introduction to a personal essay about a place that shaped the writer",
+      "current_organization": "Deliberately indirect opening: two sensory-grounded sentences establish scene and habitual presence; no explicit framing of significance or purpose yet",
+      "observed_functions": [
+        "Specific sensory details (cardamom, burnt sugar, cracked linoleum) differentiated from generic place-naming",
+        "A particular corner/habitual position differentiated from the kitchen as a whole",
+        "Sensory and spatial detail integrated into a single continuous scene"
+      ],
+      "supporting_evidence": [
+        "Precise sensory language suggests intentional craft",
+        "'Exactly where I sat' implies personal significance not yet named"
+      ],
+      "complicating_evidence": [
+        "Only two sentences \u2014 insufficient to determine whether writer has a governing purpose or is still at topic-naming stage via scene"
+      ],
+      "alternative_interpretations": [
+        "Writer knows the essay's purpose and is deliberately withholding it for effect",
+        "Writer is still discovering what the place means and has not yet formed a governing purpose"
+      ],
+      "primary_tension": "Scene is evocative but the reader cannot yet see what the kitchen shaped or why it mattered",
+      "relevant_resources": [
+        "Scene/situation as opening resource",
+        "Sensory diction establishing voice and atmosphere",
+        "Tension or contradiction within the place",
+        "Significance framing to connect scene to essay's eventual purpose"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Word Choice and Voice"
+      ],
+      "candidate_invitations": [
+        "Your opening places us in a specific sensory world. As you think about where the essay goes, what is it about that kitchen or that corner that made it matter? Try to say in a sentence or two what you want a reader to understand by the end.",
+        "The cracked linoleum and 'exactly where I sat' suggest this spot held something particular for you. What happened there \u2014 or what did you think about, notice, or feel \u2014 that you want the essay to explore?"
+      ],
+      "selected_invitation": "Your opening places us immediately in a specific, sensory world \u2014 cardamom, burnt sugar, cracked linoleum, a particular corner. That specificity already does real work. As you think about where the essay goes next, what is it about that kitchen \u2014 or that spot at the table \u2014 that made it matter to you? Try to say, in a sentence or two, what you want a reader to understand or feel by the end of the essay.",
+      "changes_since_previous": "initial \u2014 no prior theory",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": false,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 406,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 35.0
+  },
+  {
+    "n": 13,
+    "desc": "Narrative opening (should not be forced into argument)",
+    "genre": "narrative",
+    "grade": "10",
+    "audience": "general reader",
+    "intro": "The bus pulled away before I reached the corner, and I stood there in the rain watching its taillights blur. I had exactly four dollars and no way to get across the city by six.",
+    "first": {
+      "operative_purpose": "Draft your introduction.",
+      "current_organization": "Deliberately indirect opening: scene without explicit purpose. Two sentences establish concrete situation, physical detail, and immediate stakes (time, money, location) but do not yet reveal what the turning point is.",
+      "observed_functions": [
+        "Physical detail differentiated from abstract statement of difficulty",
+        "Immediate material constraint (four dollars, six o'clock) differentiated from emotional or reflective framing",
+        "Scene and urgency integrated into a single compressed moment"
+      ],
+      "supporting_evidence": [
+        "Precise concrete detail suggests deliberate craft choices",
+        "Two-sentence compression suggests intentional economy"
+      ],
+      "complicating_evidence": [
+        "No signal yet of what the turning point is or why this moment matters beyond itself"
+      ],
+      "alternative_interpretations": [
+        "Student knows the turning point and is deliberately withholding it for narrative effect",
+        "Student has begun with an evocative image but has not yet decided where the narrative goes",
+        "Student is testing an opening without a full plan for the essay"
+      ],
+      "primary_tension": "Scene is present but its relationship to the turning point is not yet visible to the reader.",
+      "relevant_resources": [
+        "Scene / situation as opening resource",
+        "Establishment of voice and perspective",
+        "Narrative tension or conflict framing",
+        "Stakes identification",
+        "Reader orientation toward the essay's central movement"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Audience Awareness"
+      ],
+      "candidate_invitations": [
+        "Your two sentences create a tight, pressured scene. Before writing more, describe in a sentence or two what this moment turns into \u2014 what happens next that makes this a turning point?",
+        "The four dollars and the six o'clock deadline create real pressure. Who needs to know about this moment \u2014 what kind of reader are you imagining, and what do they need to understand before the story moves forward?"
+      ],
+      "selected_invitation": "Your opening drops the reader into a precise, pressured moment \u2014 a missed bus, rain, four dollars, a six o'clock deadline. That specificity is doing real work. Before you write the next line, tell me: what does this moment turn into? What is the turning point this scene is leading toward?",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 289,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 30.7
+  },
+  {
+    "n": 14,
+    "desc": "Reflective opening organized around uncertainty",
+    "genre": "reflective",
+    "grade": "12",
+    "audience": "general reader",
+    "intro": "I used to think honesty was simple: you either told the truth or you lied. I am no longer sure. Somewhere between a comforting silence and a cruel fact, I lost my confidence about what honesty even requires of me.",
+    "first": {
+      "operative_purpose": "Draft your introduction.",
+      "current_organization": "Deliberately indirect opening: states a prior belief, announces its collapse, and closes on an unresolved question. No explicit thesis yet \u2014 uncertainty itself is the framing device.",
+      "observed_functions": [
+        "Prior certainty ('honesty is simple') differentiated from present uncertainty",
+        "'Comforting silence' differentiated from 'cruel fact' \u2014 two competing ethical poles implied",
+        "Belief, its collapse, and the resulting uncertainty integrated into three tight sentences"
+      ],
+      "supporting_evidence": [
+        "Three sentences coordinate cleanly around a single movement from certainty to doubt",
+        "Language is precise and tonally controlled"
+      ],
+      "complicating_evidence": [
+        "No situational anchor yet \u2014 the abstraction may not orient the reader sufficiently",
+        "Cannot confirm intentional control vs. productive accident from one draft"
+      ],
+      "alternative_interpretations": [
+        "Opening may be complete as a deliberately abstract frame, with situation deferred to body",
+        "Student may not yet have identified the specific experience and the abstraction is a placeholder"
+      ],
+      "primary_tension": "Opening establishes uncertainty but no anchoring situation \u2014 reader lacks enough context to follow what comes next",
+      "relevant_resources": [
+        "Tension/contradiction as opening resource",
+        "Voice and personal perspective",
+        "Situation or scene to ground the abstraction",
+        "Problem framing to differentiate the specific ethical difficulty"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "Your opening lands on uncertainty as its endpoint \u2014 before drafting further, name the specific moment or situation that made you doubt your original belief, so you can decide how much the reader needs to know up front.",
+        "You've named two competing pressures \u2014 'comforting silence' and 'cruel fact' \u2014 without yet telling the reader what you were silent about or what the cruel fact was. Can you write one sentence that hints at the specific situation behind those phrases?"
+      ],
+      "selected_invitation": "Your opening sets up a striking tension \u2014 the contrast between a 'comforting silence' and a 'cruel fact' suggests a specific experience is behind this uncertainty. Before you continue drafting, can you name the moment or situation that first made you doubt your original belief about honesty? You don't need to write it out fully yet \u2014 just identify what it was.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 362,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 32.6
+  },
+  {
+    "n": 15,
+    "desc": "Rhetorical question that genuinely organizes the essay",
+    "genre": "argumentative",
+    "grade": "11",
+    "audience": "general reader",
+    "intro": "What do we owe an animal that cannot consent to being watched? Zoos claim to protect species while displaying them for profit, and that contradiction is exactly what this essay tries to work through.",
+    "first": {
+      "operative_purpose": "Draft an introduction for an ethics-of-zoos argument.",
+      "current_organization": "Question framing (F) coordinated with problem framing (E): the opening question is followed immediately by a named contradiction that the essay proposes to 'work through.'",
+      "observed_functions": [
+        "Topic (zoos) differentiated from a specific ethical problem (consent vs. display).",
+        "Zoos' stated purpose (species protection) differentiated from their commercial practice (profit from display).",
+        "Question and contradiction integrated into a single two-sentence movement.",
+        "Framing device (question) and essay purpose ('work through') coordinated."
+      ],
+      "supporting_evidence": [
+        "Question is specific and ethically grounded, not decorative.",
+        "Contradiction named precisely: protection claim vs. profit display."
+      ],
+      "complicating_evidence": [
+        "'Work through' is ambiguous \u2014 could indicate genuine argumentative direction or deferred commitment.",
+        "No indication yet of what the essay will claim or decide."
+      ],
+      "alternative_interpretations": [
+        "Student is deliberately withholding a thesis to create inquiry-driven tension \u2014 a purposeful rhetorical choice.",
+        "Student has not yet formed a clear position and 'work through' masks an unresolved claim."
+      ],
+      "primary_tension": "The essay says it will 'work through' a contradiction \u2014 but does not yet indicate whether it will resolve it into a claim or sustain it as inquiry.",
+      "relevant_resources": [
+        "Question as opening resource",
+        "Problem/tension statement",
+        "Statement of stakes or significance",
+        "Central claim or position"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "Your opening question and named contradiction already orient the reader to an ethical problem \u2014 to help the essay take direction, can you say what you think the essay will ultimately argue or decide about that contradiction?",
+        "The tension between consent and profit points to a real ethical problem \u2014 whose interests does your essay most need to center (the animals, the public, conservationists) to make that problem concrete for a reader?"
+      ],
+      "selected_invitation": "Your opening question and the tension you name \u2014 consent, display, profit \u2014 create a strong entry point. To help a reader understand what's at stake, can you say whose interests are in conflict and what you think the essay needs to decide or argue? That would sharpen the direction the opening is already pointing toward.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 321,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 32.5
+  },
+  {
+    "n": 16,
+    "desc": "Rhetorical question used only decoratively",
+    "genre": "argumentative",
+    "grade": "9",
+    "audience": "peers",
+    "intro": "Do you like being healthy? Everybody knows exercise is good for you. In this essay I will talk about why exercise is important for people of all ages.",
+    "first": {
+      "operative_purpose": "Draft an introduction that prepares the reader for an argument about exercise.",
+      "current_organization": "Topic naming plus announcement: rhetorical question, broad assertion, explicit essay-announcement statement.",
+      "observed_functions": [
+        "topic (exercise) is named but not narrowed to a specific focus or problem",
+        "importance is asserted but not grounded in stakes or significance"
+      ],
+      "supporting_evidence": [
+        "Phrase 'all ages' suggests student may have a scope in mind.",
+        "Essay-announcement shows awareness of reader orientation."
+      ],
+      "complicating_evidence": [
+        "No arguable claim is present; 'exercise is good for you' is near-universal fact.",
+        "Rhetorical question does not connect to the essay's developing purpose."
+      ],
+      "alternative_interpretations": [
+        "Student may have a specific argument not yet articulated, and the draft is a placeholder scaffold.",
+        "Formula-driven opening may reflect prior instruction rather than student's natural organization."
+      ],
+      "primary_tension": "Claim is absent: 'exercise is good for you' is a broad fact, not an arguable position.",
+      "relevant_resources": [
+        "rhetorical question as opening hook",
+        "essay-announcement formula ('In this essay I will...')",
+        "problem or significance framing",
+        "differentiated central claim"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "You've named exercise as your topic and said you'll argue it matters for all ages \u2014 now try to state the one specific thing you want your reader to believe by the end. What is your actual position, not just your subject?",
+        "Your opening question asks whether the reader likes being healthy, but it doesn't yet connect to your argument. What specific problem or situation makes exercise matter enough to write about \u2014 something a reader might not already know or believe?"
+      ],
+      "selected_invitation": "You've named your topic and signaled your direction. Now, instead of telling the reader you'll talk about exercise, try telling them the one specific thing you want them to believe or understand about exercise by the end of your essay. What is your actual claim \u2014 not just the topic, but your position on it?",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 308,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 29.9
+  },
+  {
+    "n": 17,
+    "desc": "Dictionary definition that does not serve purpose",
+    "genre": "expository",
+    "grade": "9",
+    "audience": "general reader",
+    "intro": "Merriam-Webster defines friendship as 'the state of being friends.' Friendship is something that has existed for as long as people have. It is a very important thing to have.",
+    "first": {
+      "operative_purpose": "Draft an introduction that orients the reader and prepares a central claim.",
+      "current_organization": "Dictionary definition + broad existential claim + vague assertion of importance; no specific focus or claim yet visible.",
+      "observed_functions": [
+        "Friendship as topic is named but not differentiated from a specific focus or problem.",
+        "Importance is asserted but not grounded in any particular value."
+      ],
+      "supporting_evidence": [
+        "Three sentences present: definition, context, importance \u2014 shows awareness that an introduction should do multiple things.",
+        "Significance move ('very important') suggests orientation toward the assignment purpose."
+      ],
+      "complicating_evidence": [
+        "Definition is a common filler resource that doesn't advance a claim.",
+        "No specific value of friendship is named, so reader cannot anticipate the essay's direction."
+      ],
+      "alternative_interpretations": [
+        "Student may have a clear claim in mind but not yet written it \u2014 the draft is early and incomplete.",
+        "Formula-following may reflect a taught template rather than an inability to form a claim."
+      ],
+      "primary_tension": "Definition orients the reader to a word, not to a problem or purpose.",
+      "relevant_resources": [
+        "dictionary definition",
+        "broad topic naming",
+        "bare significance assertion",
+        "problem or question framing",
+        "specific stake or value claim",
+        "reader-oriented framing"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "You've asserted that friendship is very important \u2014 what specific value or benefit do you most want to argue for, and can you state it in one sentence?",
+        "The definition tells a reader what the word means, but not what your essay will argue about friendship's value \u2014 what do you want the reader to think or believe by the end that they might not think now?"
+      ],
+      "selected_invitation": "You've opened with a dictionary definition and a statement that friendship is important. Right now, a reader might agree with both and still not know what your essay is actually going to argue or explore. What specific thing about the value of friendship do you most want your reader to understand by the end \u2014 and can you say that in one sentence?",
+      "changes_since_previous": "Initial turn; no prior theory.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 348,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 31.6
+  },
+  {
+    "n": 18,
+    "desc": "Definition necessary for reader understanding",
+    "genre": "analytical",
+    "grade": "college",
+    "audience": "reader new to the term",
+    "intro": "Philosophers use the term 'moral luck' to describe cases where we praise or blame people for outcomes that were partly beyond their control. A driver who looks away for a second is called reckless only if a child happens to step into the road. That dependence on chance is the puzzle this essay examines.",
+    "first": {
+      "operative_purpose": "Draft your introduction.",
+      "current_organization": "Definition \u2192 concrete example \u2192 problem statement. Three sentences, coordinated into a tight problem framing.",
+      "observed_functions": [
+        "moral luck as a term distinguished from everyday luck",
+        "outcome-dependence distinguished from the agent's own act",
+        "definition and example integrated to instantiate the concept",
+        "example and problem statement integrated into a coherent puzzle"
+      ],
+      "supporting_evidence": [
+        "Definition is precise and uses the disciplinary term correctly.",
+        "Example directly instantiates the concept without excess."
+      ],
+      "complicating_evidence": [
+        "No claim yet; 'this essay examines' names a topic, not a position."
+      ],
+      "alternative_interpretations": [
+        "Student may be deliberately delaying the thesis to a second paragraph.",
+        "Assignment may accept an organizing question rather than a claim."
+      ],
+      "primary_tension": "Problem is framed but no direction for resolution yet; reader cannot predict the essay's position.",
+      "relevant_resources": [
+        "definition",
+        "example",
+        "problem statement",
+        "central claim or thesis",
+        "statement of significance or stakes"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "You've framed the puzzle clearly with a definition and example. Now try adding one or two sentences that state the position or central question your essay will pursue.",
+        "Your example shows the puzzle depends on chance outcomes. Before stating a thesis, consider: does moral luck reveal a flaw in how we judge people, or is it unavoidable in any system of moral judgment? Try answering that in one sentence."
+      ],
+      "selected_invitation": "You've opened with a definition that grounds the reader and a concrete example that makes the puzzle vivid. Now the essay needs a direction: what claim or question about moral luck will it pursue? In one or two sentences, try stating the position or central question that the rest of the essay will work to establish.",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 317,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 29.1
+  },
+  {
+    "n": 19,
+    "desc": "Opening with several uncoordinated ideas",
+    "genre": "argumentative",
+    "grade": "10",
+    "audience": "general reader",
+    "intro": "Remote work saves commuting time. Also cities are changing. Some people feel lonely working from home. Office real estate is expensive. Technology makes it possible. There are many things to consider about this topic.",
+    "first": {
+      "operative_purpose": "Draft an introduction for an argument about the effects of remote work.",
+      "current_organization": "A list of loosely associated observations (commuting, cities, loneliness, real estate, technology) with no governing purpose or claim visible; closing sentence acknowledges complexity without directing it.",
+      "observed_functions": [
+        "Multiple distinct topic areas are named (economic, social, urban, technological).",
+        "No differentiation yet between topic and purpose, or between effects and a central argument."
+      ],
+      "supporting_evidence": [
+        "Four distinct factual observations suggest real engagement with the topic.",
+        "Closing sentence suggests student senses complexity but lacks direction."
+      ],
+      "complicating_evidence": [
+        "No claim, problem, or significance is differentiated; could be a brainstorm rather than a draft."
+      ],
+      "alternative_interpretations": [
+        "The list may be a brainstorm the student mistakenly submitted as a draft.",
+        "The student may have a governing idea in mind but not yet know how to put it in writing."
+      ],
+      "primary_tension": "Multiple competing angles with no claim to organize them.",
+      "relevant_resources": [
+        "Topic naming (listing subject-relevant facts).",
+        "Central claim / governing position.",
+        "Problem framing or significance framing to select among the listed observations."
+      ],
+      "relevant_domains": [
+        "Whole Essay Purpose",
+        "Central Claim / Thesis",
+        "Opening / Introduction"
+      ],
+      "candidate_invitations": [
+        "You've listed several real effects of remote work. In one sentence, state what you want your reader to believe about remote work by the end of your essay.",
+        "You've noticed that remote work creates both opportunities (saved commute time) and difficulties (loneliness). Which of those two directions does your argument want to pursue \u2014 or is the tension between them your actual subject?"
+      ],
+      "selected_invitation": "You've gathered several real observations about remote work \u2014 commuting, loneliness, real estate, technology. Right now they sit side by side without a governing purpose. Before drafting further, try this: in one sentence, tell me what you want your reader to think or believe about remote work by the end of your essay.",
+      "changes_since_previous": "Initial turn; no prior theory.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 320,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 30.3
+  },
+  {
+    "n": 20,
+    "desc": "Opening that clearly establishes stakes",
+    "genre": "argumentative",
+    "grade": "12",
+    "audience": "policy-aware reader",
+    "intro": "The aquifer beneath the valley took twelve thousand years to fill and, at current rates, will be effectively empty within thirty. Every choice the region's farmers make now is a choice about whether the next generation inherits farmland or dust.",
+    "first": {
+      "operative_purpose": "Draft the introduction, including a central claim.",
+      "current_organization": "Problem-framing opening: establishes a dramatic time contrast and names the moral stakes, but no claim or direction is yet visible.",
+      "observed_functions": [
+        "Broad environmental topic differentiated into a specific local aquifer situation.",
+        "Present action differentiated from future consequence (farmland vs. dust).",
+        "Geological timescale and human decision-making integrated into a single moral frame."
+      ],
+      "supporting_evidence": [
+        "Two-sentence structure is controlled and purposeful, not accidental.",
+        "Second sentence explicitly names decision-makers (farmers) and stakes."
+      ],
+      "complicating_evidence": [
+        "Opening could belong to a narrative or policy essay \u2014 argumentative direction not yet signaled.",
+        "No claim means we cannot yet assess whether the opening prepares the reader for the essay's actual argument."
+      ],
+      "alternative_interpretations": [
+        "Student may have a clear thesis planned for a next sentence not yet written.",
+        "Student may be writing a deliberately indirect opening that delays the claim purposefully."
+      ],
+      "primary_tension": "Stakes are clear but no claim or argumentative direction is yet present.",
+      "relevant_resources": [
+        "Surprising fact (12,000 years / 30 years contrast)",
+        "Identification of stakes (farmland or dust)",
+        "Central claim / thesis",
+        "Problem statement with proposed direction"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "Your opening frames the stakes sharply through the time contrast. What is the one claim you want to argue about what farmers should do \u2014 or be required to do \u2014 given that situation?",
+        "The phrase 'every choice' implies farmers have options \u2014 what specific choice or practice is your essay going to argue they must change, and why?"
+      ],
+      "selected_invitation": "Your opening immediately establishes the stakes through a stark contrast between twelve thousand years of accumulation and thirty years of depletion \u2014 that tension is doing real work. Now the reader is primed but doesn't yet know what position the essay will take. What is the one claim you want to argue about how farmers should \u2014 or must \u2014 respond to that situation?",
+      "changes_since_previous": "Initial turn \u2014 no prior theory exists.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 368,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 33.1
+  },
+  {
+    "n": 21,
+    "desc": "Opening that merely declares the topic 'important'",
+    "genre": "expository",
+    "grade": "9",
+    "audience": "general reader",
+    "intro": "Voting is a very important part of a democracy. It is important for everyone to vote. This essay will explain why voting is so important for our country.",
+    "first": {
+      "operative_purpose": "Draft an introduction that prepares the reader to understand why voting matters.",
+      "current_organization": "Topic naming with repeated assertion; announces essay purpose in third sentence.",
+      "observed_functions": [
+        "topic (voting) is named",
+        "democracy is invoked as context"
+      ],
+      "supporting_evidence": [
+        "Three sentences present; topic and civic frame established"
+      ],
+      "complicating_evidence": [
+        "All three sentences assert the same idea without differentiation; no problem, question, or stake visible"
+      ],
+      "alternative_interpretations": [
+        "Student may have specific ideas not yet committed to paper; draft may be a placeholder",
+        "Repetition may reflect a learned formula rather than absence of ideas"
+      ],
+      "primary_tension": "Significance is asserted ('very important') but not grounded in any specific problem, consequence, or stake.",
+      "relevant_resources": [
+        "topic orientation",
+        "statement of purpose",
+        "problem statement",
+        "identification of stakes",
+        "significance framing"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "You've said voting is important \u2014 now push one step further: what specifically goes wrong, or gets lost, when people don't vote? Answer that in a sentence or two.",
+        "Your opening announces that the essay will explain why voting matters \u2014 can you describe one real situation or consequence that makes that mattering visible to a reader who isn't already convinced?"
+      ],
+      "selected_invitation": "You've named voting as important to democracy \u2014 that's a clear starting point. Right now the opening tells a reader that voting matters, but not yet what specific problem or situation makes it matter. Before drafting further, try to answer this question in a sentence or two: what actually goes wrong \u2014 or gets lost \u2014 when people don't vote?",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 341,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 26.9
+  },
+  {
+    "n": 22,
+    "desc": "Opening for an audience that already knows the context",
+    "genre": "analytical",
+    "grade": "college",
+    "audience": "specialists who share context",
+    "intro": "The novel's final chapter refuses the reconciliation the earlier chapters seem to promise. Reading the closing scene against the garden imagery of chapter three, this essay argues that the ambiguity is deliberate rather than a failure of resolution.",
+    "first": {
+      "operative_purpose": "Draft an introduction that prepares seminar peers to follow an analytical claim about the novel's ending.",
+      "current_organization": "Two-sentence integrated opening: sentence 1 names a tension in the text; sentence 2 signals a method (reading against chapter 3 imagery) and states a binary claim (deliberate vs. failure).",
+      "observed_functions": [
+        "topic (the ending) from specific problem (refused reconciliation vs. promised reconciliation)",
+        "this essay's claim from a generic observation about the ending",
+        "topic, method, and claim coordinated in two sentences",
+        "specific textual reference (chapter 3 garden imagery) integrated into the claim's logic"
+      ],
+      "supporting_evidence": [
+        "Specific chapter reference shows intentional textual grounding",
+        "Two-sentence economy suggests deliberate concision, not incompleteness"
+      ],
+      "complicating_evidence": [
+        "Claim is currently a negation ('not failure') without a positive interpretive content",
+        "The interpretive problem (why does the refusal matter?) is not yet articulated"
+      ],
+      "alternative_interpretations": [
+        "The negation may be a purposeful rhetorical move that the body will fill in \u2014 not a deficit",
+        "The opening may be complete as an introduction for this genre and the body will carry the interpretive weight"
+      ],
+      "primary_tension": "The claim ('deliberate rather than failure') is a negation; it does not yet say what the ambiguity does or means, leaving the essay's interpretive direction underspecified.",
+      "relevant_resources": [
+        "problem framing (tension between promise and refusal)",
+        "statement of interpretive method and direction",
+        "significance framing \u2014 what is at stake in the ambiguity being deliberate?",
+        "sharper claim differentiation \u2014 what the deliberate ambiguity accomplishes or reveals"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "You've framed the ambiguity as deliberate rather than a failure \u2014 can you name what that deliberate ambiguity does or reveals in the novel? Pushing from 'deliberate' to 'deliberate because it accomplishes X' will give your claim more traction.",
+        "Your opening names a tension between promise and refusal \u2014 before the body, try articulating the specific interpretive problem that tension creates: what does it leave unresolved for the reader, and why does that matter?"
+      ],
+      "selected_invitation": "You've positioned the ending as a deliberate refusal of reconciliation and grounded that in the garden imagery of chapter three \u2014 a clear, purposeful opening move for a seminar audience who knows the text. Before you move into the body, try to articulate: what specific interpretive problem does that ambiguity create or expose? Naming the tension precisely will let you sharpen the claim beyond 'deliberate rather than failure.'",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 429,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 36.9
+  },
+  {
+    "n": 23,
+    "desc": "Opening for a naive audience lacking necessary context",
+    "genre": "expository",
+    "grade": "11",
+    "audience": "readers unfamiliar with the topic",
+    "intro": "After you catch the flash you set the hook and palm the reel, but only if the tippet is light enough or you will snap off on the take. Most people ruin the drift by mending too late.",
+    "first": {
+      "operative_purpose": "Draft an introduction that prepares a newcomer to enter the essay.",
+      "current_organization": "Situation-without-explicit-purpose (D): drops reader into mid-action with dense insider terminology, no orientation, no context, no stated purpose.",
+      "observed_functions": [
+        "Action is vividly present",
+        "No differentiation yet between writer's insider knowledge and reader's likely knowledge",
+        "Two insider actions loosely linked (hook set \u2192 mending), but not integrated toward a reader-oriented purpose"
+      ],
+      "supporting_evidence": [
+        "Dense correct technical language shows genuine expertise",
+        "Two distinct skills mentioned (hook set, mending) suggest essay may cover multiple aspects"
+      ],
+      "complicating_evidence": [
+        "No orienting sentence; newcomer cannot parse 'tippet,' 'mending,' 'drift' without context",
+        "Assignment explicitly targets newcomers"
+      ],
+      "alternative_interpretations": [
+        "Writer may intend deliberate in-media-res opening to create curiosity, planning orientation later",
+        "Writer may not yet have separated what they know from what the reader needs"
+      ],
+      "primary_tension": "Writer assumes knowledge the reader lacks; insider shorthand dominates over reader-ready explanation",
+      "relevant_resources": [
+        "Scene/situation",
+        "Technical vocabulary (tippet, mending, drift, palm the reel)",
+        "Orienting context",
+        "Definition of key terms",
+        "Statement of significance",
+        "Distinction between broad topic and specific focus"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Audience Awareness"
+      ],
+      "candidate_invitations": [
+        "You've dropped a newcomer reader straight into the middle of a catch \u2014 tippet, mending, drift \u2014 with no entry point. Who do you picture reading this, and what's the one thing that reader would need to know first just to follow your opening sentence?",
+        "Your opening captures the feel of a live moment on the water. For a reader who has never fly fished, though, words like 'tippet,' 'mending,' and 'drift' are invisible. Pick one of those terms and try writing a single sentence that explains what it is and why it matters \u2014 without losing the energy you already have."
+      ],
+      "selected_invitation": "You've jumped straight into the action of fly fishing \u2014 the flash, the hook set, the mending \u2014 and that energy is real. But a reader who has never held a fly rod won't yet know what a drift is, what tippet does, or why any of this matters. Before writing more, tell me: who do you picture reading this, and what's the very first thing that reader would need to understand in order to follow even your opening sentence?",
+      "changes_since_previous": "Initial turn \u2014 no prior theory.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 418,
+        "preserved_alternatives": true
+      }
+    },
+    "elapsed_s": 34.4
+  },
+  {
+    "n": 24,
+    "desc": "Revision that meaningfully reorganizes after an invitation",
+    "genre": "argumentative",
+    "grade": "11",
+    "audience": "naive general reader",
+    "intro": "Phones are everywhere today. Almost every teenager has one. Schools have different rules about them.",
+    "first": {
+      "operative_purpose": "Draft an introduction that orients the reader to the phones-in-schools issue.",
+      "current_organization": "Topic naming: three short declarative sentences establish a broad subject without differentiated focus, problem, or significance.",
+      "observed_functions": [
+        "broad topic named",
+        "acknowledgment that rules vary across schools"
+      ],
+      "supporting_evidence": [
+        "three sentences establish recognizable topic territory"
+      ],
+      "complicating_evidence": [
+        "no problem, question, or significance yet; reader does not know why it matters"
+      ],
+      "alternative_interpretations": [
+        "draft is intentionally minimal and student expects to expand",
+        "student is still discovering the focus",
+        "student understands the topic but hasn't differentiated what the essay is about yet"
+      ],
+      "primary_tension": "topic present but no problem or purpose visible",
+      "relevant_resources": [
+        "topic orientation",
+        "problem statement",
+        "identification of stakes",
+        "framing of significance"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Audience Awareness"
+      ],
+      "candidate_invitations": [
+        "You've shown that phones are widespread and school rules differ \u2014 now tell the reader what problem that creates: in a sentence or two, what goes wrong because of phones in schools?",
+        "Your opening tells a reader that phone rules vary \u2014 imagine a reader who shrugs and asks 'so what?' What would you say to explain why this actually matters?"
+      ],
+      "selected_invitation": "You've established that phones are everywhere and schools have different rules \u2014 that's a real starting point. To help a naive reader understand why any of this matters, try answering this question in a sentence or two: what problem do those different school rules create, or what goes wrong because of phones in schools?",
+      "changes_since_previous": "initial",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 321,
+        "preserved_alternatives": true
+      }
+    },
+    "revised_text": "Every morning students walk into class with a device more powerful than the computers that sent people to the moon, and no two schools agree on what to do about it. Some ban phones outright; others let students use them freely. That inconsistency is not just confusing \u2014 it hides a real question that affects how well students learn: when does a phone help and when does it quietly harm?",
+    "second": {
+      "operative_purpose": "Draft an introduction that orients the reader to the phones-in-schools issue.",
+      "current_organization": "Problem framing with significance gesture: opening image, contrast of school policies, and a closing question that names the tension. Topic, context, and a problem are now present; specific stakes and student's position are not yet visible.",
+      "observed_functions": [
+        "broad topic differentiated from specific problem (inconsistent policies hiding a learning question)",
+        "two contrasting school responses distinguished (ban vs. free use)",
+        "vivid image integrated with policy contrast to motivate the central question",
+        "context and problem drawn together in the final sentence"
+      ],
+      "supporting_evidence": [
+        "deliberate image-contrast-question structure shows intentional reader orientation",
+        "problem is now clearly named where it was absent before"
+      ],
+      "complicating_evidence": [
+        "'how well students learn' is broad; reader does not yet know who or what is most at risk",
+        "no argumentative direction visible yet"
+      ],
+      "alternative_interpretations": [
+        "closing question may be the student's thesis in question form, not a setup",
+        "stakes may be deliberately broad to appeal to widest audience",
+        "student may intend to specify position in next paragraph"
+      ],
+      "primary_tension": "stakes gestured at ('how well students learn') but not grounded in a specific group or consequence",
+      "relevant_resources": [
+        "surprising comparison (moon computers)",
+        "problem statement",
+        "question framing",
+        "identification of specific stakes / affected population",
+        "preview of argumentative direction"
+      ],
+      "relevant_domains": [
+        "Opening / Introduction",
+        "Audience Awareness",
+        "Central Claim / Thesis"
+      ],
+      "candidate_invitations": [
+        "You've framed a real question about learning \u2014 now identify whose learning is most affected and in what specific situation, so the reader knows exactly what is at stake.",
+        "Your closing question names the tension well \u2014 now decide whether that question is your thesis or a setup for a claim you'll state next, and explain what the essay will argue."
+      ],
+      "selected_invitation": "You've opened with a vivid image and a real question that a naive reader can feel the weight of. That question \u2014 when does a phone help and when does it harm? \u2014 is doing a lot of work right now. Before you move forward, identify whose learning is most affected and in what specific situation, so your reader knows exactly what is at stake and for whom.",
+      "changes_since_previous": "Major reorganization: moved from topic naming (three bare declaratives) to problem framing with integrated image, policy contrast, and closing question. Student has differentiated topic from problem and begun orienting the reader purposefully.",
+      "checks": {
+        "one_invitation_this_turn": true,
+        "opening_selected": true,
+        "requires_action": true,
+        "no_stage_language": true,
+        "no_formula_imposition": true,
+        "invitation_len_chars": 352,
+        "preserved_alternatives": true
+      }
+    },
+    "theory_versions": 2,
+    "elapsed_s": 61.7
+  }
+]

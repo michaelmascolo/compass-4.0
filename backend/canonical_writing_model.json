@@ -1,0 +1,1720 @@
+{
+  "note": "Canonical Writing Model \u2014 domain-specific pedagogical knowledge, loaded as DATA by the domain-independent Developmental Guide Engine. These are culturally established FUNCTIONS of effective writing and cultural RESOURCES the engine uses to interpret student writing. They are NOT developmental stages, NOT a required instructional sequence, and NOT rigid templates. The engine must decide which domains are currently relevant; it must never force students through the domains in a predetermined order.",
+  "domains": [
+    {
+      "domain_name": "Whole Essay Purpose",
+      "communicative_functions": [
+        "overall purpose",
+        "central communicative goal",
+        "relationship to assignment",
+        "relationship to audience"
+      ],
+      "canonical_writing_resources": [
+        "statement of purpose",
+        "guiding question",
+        "controlling idea",
+        "governing intention"
+      ],
+      "functional_evaluation_questions": [
+        "What is the writer trying to accomplish?",
+        "Is the purpose explicit?",
+        "Is purpose sustained?",
+        "Is purpose internally coherent?"
+      ],
+      "possible_differentiations": [
+        "separating topic from purpose",
+        "distinguishing what is said from what it is for",
+        "distinguishing assignment compliance from communicative intent"
+      ],
+      "possible_integrations": [
+        "aligning every section to one purpose",
+        "coordinating purpose with audience needs"
+      ],
+      "common_productive_tensions": [
+        "a topic is present but no purpose is yet visible",
+        "purpose stated but not sustained across the essay"
+      ],
+      "candidate_developmental_invitations": [
+        "ask the writer to state, in one sentence, what they want the reader to understand or do",
+        "invite the writer to check whether each part serves that purpose"
+      ],
+      "relationships_to_other_domains": [
+        "Central Claim / Thesis",
+        "Audience Awareness",
+        "Organization",
+        "Conclusion"
+      ]
+    },
+    {
+      "domain_name": "Audience Awareness",
+      "communicative_functions": [
+        "anticipate reader knowledge",
+        "orient the naive reader",
+        "establish common ground",
+        "consider reader needs"
+      ],
+      "canonical_writing_resources": [
+        "orienting context",
+        "definitions",
+        "shared assumptions",
+        "framing of stakes"
+      ],
+      "functional_evaluation_questions": [
+        "What assumptions are made?",
+        "What does the reader need?",
+        "Where might confusion occur?"
+      ],
+      "possible_differentiations": [
+        "separating what the writer knows from what the reader knows",
+        "distinguishing insider shorthand from reader-ready explanation"
+      ],
+      "possible_integrations": [
+        "shaping openings and evidence to reader needs",
+        "coordinating tone with audience"
+      ],
+      "common_productive_tensions": [
+        "writer assumes knowledge the reader lacks",
+        "over-explaining what the reader already knows"
+      ],
+      "candidate_developmental_invitations": [
+        "ask the writer to imagine a specific reader and what that reader would need first",
+        "invite the writer to mark where a newcomer might get lost"
+      ],
+      "relationships_to_other_domains": [
+        "Whole Essay Purpose",
+        "Opening / Introduction",
+        "Word Choice and Voice"
+      ]
+    },
+    {
+      "domain_name": "Opening / Introduction",
+      "domain_status": {
+        "description": "Culturally available functions and resources for beginning an essay.",
+        "is_not": [
+          "a rigid template",
+          "a developmental stage",
+          "a required sequence",
+          "a universal hook-background-thesis formula",
+          "a checklist every introduction must satisfy",
+          "a rule that the thesis must appear in a particular location"
+        ],
+        "must_be_interpreted_relative_to": [
+          "the assignment",
+          "the writer's operative purpose",
+          "the teacher's pedagogical purpose",
+          "the intended audience",
+          "the genre",
+          "the central problem, question, claim, or experience",
+          "the organization of the developing whole essay"
+        ]
+      },
+      "governing_communicative_function": "Prepare a reader to enter the essay's developing world of meaning \u2014 help the reader understand enough of the subject, situation, question, problem, experience, or argument to follow what comes next. The exact work required depends on the essay's purpose and genre.",
+      "communicative_functions": [
+        "establish the topic",
+        "orient the reader",
+        "establish relevant context",
+        "define a problem",
+        "pose a question",
+        "establish significance",
+        "prepare or state a central claim",
+        "indicate the direction of the essay"
+      ],
+      "possible_communicative_functions": [
+        "establish the topic",
+        "orient the reader",
+        "establish relevant context",
+        "introduce a situation",
+        "define a problem",
+        "pose a question",
+        "create curiosity",
+        "establish significance",
+        "identify stakes",
+        "introduce an experience",
+        "establish a perspective or voice",
+        "clarify relevant terms",
+        "distinguish the specific focus from the broader topic",
+        "establish common ground with the reader",
+        "complicate an apparently simple issue",
+        "introduce a tension, contradiction, puzzle, or uncertainty",
+        "prepare a central claim",
+        "state a central claim",
+        "indicate the direction of the essay",
+        "establish the relationship between writer and audience",
+        "create expectations appropriate to the genre"
+      ],
+      "engine_note_on_functions": "Do not assume that every opening needs to perform every function.",
+      "reader_needs": [
+        "knowing what the essay is about",
+        "knowing which part of a broad topic matters",
+        "understanding the immediate context",
+        "understanding why the topic matters",
+        "understanding the problem or question",
+        "knowing what is at stake",
+        "understanding unfamiliar terms",
+        "knowing whose perspective is being represented",
+        "understanding why the writer is addressing the issue",
+        "knowing what kind of essay is beginning",
+        "receiving enough orientation to interpret the next paragraph",
+        "being given a reason to continue reading"
+      ],
+      "reader_needs_note": "These are interpretive possibilities, not mandatory requirements.",
+      "canonical_writing_resources": [
+        "topic orientation",
+        "contextual background",
+        "scene or situation",
+        "brief narrative",
+        "example",
+        "observation",
+        "question",
+        "problem statement",
+        "tension or contradiction",
+        "surprising fact",
+        "relevant quotation",
+        "definition",
+        "distinction",
+        "comparison",
+        "historical context",
+        "conceptual framing",
+        "statement of significance",
+        "identification of stakes",
+        "statement of purpose",
+        "central claim",
+        "preview of direction",
+        "establishment of voice"
+      ],
+      "resources_note": "Introduce a resource only when it serves the student's operative purpose and the needs of the reader. No resource is automatically required.",
+      "observable_organizations": [
+        {
+          "code": "A",
+          "name": "Topic naming",
+          "description": "Identifies a general subject but has not yet differentiated a specific focus, problem, question, or purpose.",
+          "example": "Social media is an important part of life today."
+        },
+        {
+          "code": "B",
+          "name": "Topic plus context",
+          "description": "Identifies a subject and supplies background, but the reader may not yet know why the subject matters."
+        },
+        {
+          "code": "C",
+          "name": "Topic plus position",
+          "description": "States an opinion or claim quickly, but the conceptual context or significance may remain unclear."
+        },
+        {
+          "code": "D",
+          "name": "Situation without explicit purpose",
+          "description": "Creates a scene, anecdote, or example, but its relationship to the essay's larger purpose is not yet visible."
+        },
+        {
+          "code": "E",
+          "name": "Problem framing",
+          "description": "Identifies a conflict, tension, difficulty, or unresolved issue that organizes the opening."
+        },
+        {
+          "code": "F",
+          "name": "Question framing",
+          "description": "Organizes the opening around a question or puzzle."
+        },
+        {
+          "code": "G",
+          "name": "Significance framing",
+          "description": "Establishes why a subject, problem, or question matters."
+        },
+        {
+          "code": "H",
+          "name": "Reader-oriented framing",
+          "description": "Anticipates what the reader needs to understand before encountering the central claim."
+        },
+        {
+          "code": "I",
+          "name": "Integrated opening",
+          "description": "Coordinates several functions (topic, context, problem, significance, direction) into a coherent beginning."
+        },
+        {
+          "code": "J",
+          "name": "Deliberately indirect opening",
+          "description": "Begins through narrative, image, scene, or conceptual exploration and delays explicit framing for a purposeful reason. Do not assume indirect organization is deficient."
+        },
+        {
+          "code": "K",
+          "name": "Overloaded opening",
+          "description": "Attempts too many functions or introduces too many ideas before a governing purpose becomes clear."
+        },
+        {
+          "code": "L",
+          "name": "Formula-driven opening",
+          "description": "Visibly follows a learned template, but the elements may not yet function together meaningfully."
+        }
+      ],
+      "observable_organizations_note": "These are possible descriptive organizations, not stages and not exhaustive categories.",
+      "possible_differentiations": [
+        "broad topic from specific focus",
+        "topic from problem",
+        "topic from purpose",
+        "context from significance",
+        "information from framing",
+        "claim from background",
+        "writer knowledge from reader knowledge",
+        "interesting detail from functionally relevant detail",
+        "question from rhetorical decoration",
+        "general importance from specific stakes",
+        "anecdote from the meaning it is meant to establish",
+        "an assignment prompt from the writer's own operative purpose",
+        "personal interest from reader relevance",
+        "a position from the reasons the position matters",
+        "background needed by the reader from background that merely delays the essay",
+        "a conventional opening resource from the communicative function it serves"
+      ],
+      "possible_integrations": [
+        "topic with specific purpose",
+        "context with problem",
+        "problem with significance",
+        "significance with reader needs",
+        "anecdote with central purpose",
+        "question with the direction of the essay",
+        "background with a central claim",
+        "writer intention with assignment demands",
+        "the opening with the anticipated whole essay",
+        "voice with audience",
+        "reader orientation with conceptual precision",
+        "several opening functions into one coherent movement",
+        "an unconventional beginning with a clear eventual direction"
+      ],
+      "possible_coordinations": [
+        "the assignment and the writer's own purpose",
+        "the broad topic and the essay's specific focus",
+        "the opening and the thesis or central claim",
+        "the opening and the first body section",
+        "the writer's knowledge and the reader's likely knowledge",
+        "context and significance",
+        "interest and relevance",
+        "voice and genre",
+        "complexity and clarity",
+        "indirect framing and eventual orientation",
+        "multiple ideas under a governing purpose"
+      ],
+      "common_productive_tensions": [
+        "The topic is present, but the purpose is not yet visible.",
+        "Context is present, but the problem or question remains undifferentiated.",
+        "The problem is visible, but the reader does not yet know why it matters.",
+        "Significance is asserted in broad language but not grounded.",
+        "The writer has a purpose, but the opening does not yet prepare the reader for it.",
+        "The writer assumes knowledge the reader may not possess.",
+        "The writer supplies excessive background before establishing direction.",
+        "The writer states a thesis before the reader has enough context to understand it.",
+        "The writer delays the thesis purposefully, but the connection between opening and essay remains uncertain.",
+        "An anecdote is engaging but disconnected from the essay's purpose.",
+        "A question is posed, but the essay does not appear organized around answering it.",
+        "The opening contains several potentially useful ideas that have not yet been coordinated.",
+        "The opening follows a recognizable formula, but its parts do not function together.",
+        "The opening is clear but does not yet establish stakes.",
+        "The opening is interesting but not orienting.",
+        "The opening is informative but not purposeful.",
+        "The writer's operative purpose differs from the apparent purpose of the assignment."
+      ],
+      "tensions_note": "Identify only ONE primary tension at a time.",
+      "alternative_interpretations": [
+        {
+          "observation": "a missing explicit thesis",
+          "possible_meanings": [
+            "the writer has not yet formed a central claim",
+            "the writer is deliberately delaying the claim",
+            "the genre does not require an early explicit thesis",
+            "the opening is incomplete",
+            "the writer assumes the direction is already obvious",
+            "the teacher's task does not yet call for the thesis"
+          ]
+        },
+        {
+          "observation": "extensive background",
+          "possible_meanings": [
+            "the reader genuinely needs context",
+            "the writer is postponing the central problem",
+            "the writer is still discovering the purpose",
+            "the genre requires historical orientation",
+            "the writer has difficulty selecting relevant information"
+          ]
+        },
+        {
+          "observation": "a broad opening",
+          "possible_meanings": [
+            "the writer has not differentiated the focus",
+            "the broad framing is purposeful",
+            "the essay will progressively narrow",
+            "the student does not yet understand the assignment",
+            "the submitted passage is only part of the opening"
+          ]
+        }
+      ],
+      "alternative_interpretations_note": "Do not collapse uncertainty into a single confident diagnosis.",
+      "common_misunderstandings": [
+        "Every introduction must begin with a hook.",
+        "A hook is any dramatic or surprising sentence, regardless of relevance.",
+        "Every introduction must follow hook -> background -> thesis.",
+        "The thesis must always be the final sentence of the first paragraph.",
+        "The opening should begin as broadly as possible.",
+        "A dictionary definition automatically provides useful orientation.",
+        "A rhetorical question automatically creates interest.",
+        "The writer should hide the purpose to create suspense.",
+        "The introduction is merely a place to summarize the essay.",
+        "Context means including everything the writer knows.",
+        "Significance can be established by saying a topic is 'important'.",
+        "An anecdote is effective simply because it is personal or vivid.",
+        "The opening can be evaluated independently from the rest of the essay."
+      ],
+      "misunderstandings_note": "Be alert to these but do not automatically assume them.",
+      "possible_developmental_movements": [
+        "from naming a topic to identifying a specific focus",
+        "from identifying a focus to framing a problem or question",
+        "from presenting information to orienting a reader",
+        "from asserting importance to establishing specific significance",
+        "from supplying background to selecting relevant context",
+        "from presenting an anecdote to clarifying its function",
+        "from stating a claim to preparing the reader to understand the claim",
+        "from following a template to using resources purposefully",
+        "from several disconnected opening functions to a coordinated movement",
+        "from writer-centered presentation to reader-oriented communication",
+        "from vague purpose to intentional control over what the opening is doing",
+        "from treating the opening as an isolated paragraph to coordinating it with the whole essay"
+      ],
+      "movements_note": "These are possible reorganizations, not a required progression.",
+      "candidate_developmental_invitations": [
+        "state what they want the reader to understand after reading the opening",
+        "identify the specific problem within the broad topic",
+        "explain why the subject matters to the intended reader",
+        "identify what a naive reader needs to know first",
+        "distinguish background that is necessary from background that is merely available",
+        "explain the relationship between an anecdote and the essay's purpose",
+        "identify the question the essay is trying to answer",
+        "name what is at stake",
+        "compare two possible ways to frame the topic",
+        "explain why the introduction begins where it does",
+        "identify what the opening leads the reader to expect",
+        "check whether the opening prepares the reader for the central claim",
+        "revise one part of the opening to make its function clearer",
+        "explain what changed after a revision and why",
+        "identify which sentence currently does the most important work",
+        "decide which of several opening ideas should govern the others",
+        "imagine where a naive reader might become confused",
+        "test whether an unconventional beginning eventually provides sufficient orientation"
+      ],
+      "invitations_note": "Invitations should require the student to think, explain, choose, or revise. Present only one at a time.",
+      "invitation_construction_rules": {
+        "three_parts": [
+          "Brief recognition of an observable feature in the student's participation",
+          "Connection to the current communicative purpose",
+          "One intellectual or writing action for the student to perform"
+        ],
+        "example_form": "You have established that school phone rules vary. To help a reader understand why that matters, identify the specific problem those differences create.",
+        "cautions": [
+          "Do not use the example as a fixed verbal template.",
+          "Do not generate a replacement sentence for the student."
+        ]
+      },
+      "relationships_to_other_domains": [
+        "Whole Essay Purpose",
+        "Audience Awareness",
+        "Central Claim / Thesis",
+        "Organization",
+        "Paragraph Purpose",
+        "Word Choice and Voice",
+        "Revision and Reflective Control"
+      ],
+      "relationship_notes": {
+        "Whole Essay Purpose": "Interpret the opening in relation to what the whole essay is trying to accomplish.",
+        "Audience Awareness": "The opening helps establish what the reader needs in order to enter the essay.",
+        "Central Claim / Thesis": "The opening may state, prepare, complicate, or deliberately delay the central claim.",
+        "Organization": "The opening establishes expectations for the movement of the essay.",
+        "Paragraph Purpose": "An introductory paragraph may perform one or several coordinated functions.",
+        "Word Choice and Voice": "The opening often establishes tone, stance, and the writer-reader relationship.",
+        "Revision and Reflective Control": "The student's explanation of why an opening changed is evidence of intentional control."
+      },
+      "genre_sensitivity": {
+        "note": "Do not apply one introduction model to all genres. Reason from the actual assignment and teacher purpose rather than infer genre solely from surface form.",
+        "argumentative": "May orient the reader to an issue, establish stakes, frame a problem, and prepare or state a claim.",
+        "expository": "May define the topic, establish scope, orient the reader, and indicate the organizing purpose.",
+        "analytical": "May identify an object of analysis, establish a conceptual problem, and prepare an interpretation.",
+        "research": "May establish context, identify a research problem, define scope, explain significance, and introduce a guiding claim or question.",
+        "personal": "May establish a voice, situation, experience, or tension without immediately stating an explicit thesis.",
+        "narrative": "May establish scene, character, conflict, perspective, or narrative expectation.",
+        "reflective": "May establish an experience, question, uncertainty, or transformation to be explored.",
+        "literary_analysis": "May introduce the work, establish an interpretive issue, and orient the reader toward a claim."
+      },
+      "inside_outside_coordination": "Begin by interpreting the organization already present in the student's writing. Distinguish among the student's operative purpose, the assigned purpose, the teacher's pedagogical purpose, the reader's needs, and the cultural resources for openings. A mismatch must not automatically be treated as a student deficit \u2014 it may indicate unclear assignment expectations, a different student purpose, a reasonable alternative organization, insufficient reader orientation, an unfinished draft, tension between genre expectations and writer intention, or a need to clarify the immediate task. The next invitation should extend, differentiate, integrate, or productively challenge the student's present organization, not replace it with a conventional formula.",
+      "prohibitions": [
+        "require a hook",
+        "require a rhetorical question",
+        "require broad-to-narrow organization",
+        "require a thesis in the final sentence",
+        "require all opening functions to appear",
+        "assume every opening is one paragraph",
+        "reject an unconventional beginning merely because it is unconventional",
+        "evaluate the opening without reference to purpose, audience, genre, and the developing whole",
+        "provide a rewritten introduction",
+        "provide a polished model introduction for the student to imitate",
+        "list every weakness",
+        "classify the student into a stage or level",
+        "infer a stable writing ability from one introduction",
+        "treat the canonical domain as a rubric or grading checklist"
+      ],
+      "cultural_resources": [
+        {
+          "name": "Hook",
+          "purpose": "Solves the problem of a reader who has no reason yet to care or keep reading.",
+          "functional_definition": "A hook is not just a dramatic or surprising sentence. It is an opening move that engages the reader while preparing them for the essay's real concern.",
+          "typical_misunderstandings": [
+            "Every introduction must begin with a hook.",
+            "Any shocking or clever sentence is a good hook.",
+            "A hook can be unrelated to the essay as long as it grabs attention."
+          ],
+          "appropriate_uses": [
+            "When the reader needs a reason to enter the topic.",
+            "When engagement and orientation can be combined.",
+            "When the genre rewards drawing the reader in (argument, feature, personal)."
+          ],
+          "inappropriate_uses": [
+            "When a knowledgeable audience needs orientation more than enticement.",
+            "When a dramatic opener would distort or misrepresent the essay.",
+            "When the genre expects a direct, sober opening (some research/technical writing)."
+          ],
+          "developmental_connections": {
+            "purpose": "engages the reader in service of the essay's purpose",
+            "audience": "shaped by what will actually interest this reader",
+            "organization": "leads into context and the eventual claim",
+            "neighboring_concepts": "Context, Significance, Thesis"
+          },
+          "student_friendly_explanation": "A hook is a way of opening so your reader leans in \u2014 not a trick, but a door into what your essay is really about.",
+          "explanation_note": "This is a seed. Adapt the wording to the student's current organization, the assignment, the genre, and what the student has already shown they understand. Do not simply recite it."
+        },
+        {
+          "name": "Significance",
+          "purpose": "Solves the problem of a reader who understands the topic but not why it matters.",
+          "functional_definition": "Significance is the move that shows what is at stake \u2014 why this topic deserves the reader's attention now.",
+          "typical_misunderstandings": [
+            "Saying a topic is 'important' establishes significance.",
+            "Significance is the same as background."
+          ],
+          "appropriate_uses": [
+            "When the reader may see the topic as obvious or trivial.",
+            "When stakes motivate the argument to come."
+          ],
+          "inappropriate_uses": [
+            "When stakes are already obvious to this audience.",
+            "When asserting importance would substitute for grounding it."
+          ],
+          "developmental_connections": {
+            "purpose": "connects the topic to why it matters",
+            "audience": "what this reader would find at stake",
+            "neighboring_concepts": "Problem framing, Thesis"
+          },
+          "student_friendly_explanation": "Significance is where you show your reader why this is worth their time \u2014 not by saying 'this is important' but by making the stakes visible.",
+          "explanation_note": "This is a seed. Adapt the wording to the student's current organization, the assignment, the genre, and what the student has already shown they understand. Do not simply recite it."
+        }
+      ]
+    },
+    {
+      "domain_name": "Central Claim / Thesis",
+      "domain_status": {
+        "description": "Culturally available functions and resources for giving an essay a controlling idea.",
+        "is_not": [
+          "a rigid one-sentence template",
+          "a developmental stage",
+          "a required sequence",
+          "a rule that a thesis must appear in the final sentence of the introduction",
+          "a rule that every genre needs an explicit thesis",
+          "a grading checklist"
+        ],
+        "must_be_interpreted_relative_to": [
+          "the assignment",
+          "the writer's operative purpose",
+          "the teacher's pedagogical purpose",
+          "the intended audience",
+          "the genre",
+          "the evidence available",
+          "the argument the body actually makes",
+          "the organization of the developing whole essay"
+        ]
+      },
+      "governing_communicative_function": "Give the essay a controlling idea that organizes its parts and communicates to the reader what the whole essay is trying to establish, interpret, or explore. What counts as a claim, how explicit it must be, and where it appears depend on the essay's purpose and genre.",
+      "communicative_functions": [
+        "organize the essay",
+        "communicate the controlling idea",
+        "establish direction",
+        "make a position or interpretation arguable",
+        "coordinate parts toward one end"
+      ],
+      "possible_communicative_functions": [
+        "state a position",
+        "offer an interpretation",
+        "answer a question the essay poses",
+        "frame an inquiry or line of exploration",
+        "make a claim arguable rather than merely factual",
+        "establish the scope of what is claimed",
+        "signal the essay's direction and structure",
+        "distinguish the writer's claim from common opinion",
+        "commit to something a reader could dispute",
+        "hold body paragraphs accountable to one idea",
+        "qualify or bound a claim",
+        "synthesize several observations into one governing idea"
+      ],
+      "engine_note_on_functions": "Not every genre requires an explicit, early, single-sentence thesis. A claim may be stated, implied, distributed, delayed, or exploratory.",
+      "reader_needs": [
+        "knowing what the essay is trying to establish",
+        "being able to tell the claim apart from the topic",
+        "understanding what is being asserted, interpreted, or asked",
+        "knowing what would count as support",
+        "being able to predict the essay's direction",
+        "understanding the scope and limits of the claim",
+        "seeing why the claim is worth making (arguable, not obvious)"
+      ],
+      "reader_needs_note": "Interpretive possibilities, not mandatory requirements.",
+      "canonical_writing_resources": [
+        "claim",
+        "position",
+        "interpretation",
+        "organizing statement",
+        "thesis statement",
+        "controlling idea",
+        "governing question",
+        "hypothesis",
+        "qualification or scope",
+        "claim plus reasoning (because-structure)",
+        "enumerated preview",
+        "counter-claim or concession"
+      ],
+      "resources_note": "Introduce a resource only when it serves the writer's operative purpose and the essay's genre. No single thesis form is required.",
+      "observable_organizations": [
+        {
+          "code": "A",
+          "name": "Topic without claim",
+          "description": "Names a subject but asserts nothing arguable.",
+          "example": "This essay is about social media."
+        },
+        {
+          "code": "B",
+          "name": "Opinion without reasoning",
+          "description": "States a like/dislike or 'should' with no grounds.",
+          "example": "Homework is bad."
+        },
+        {
+          "code": "C",
+          "name": "Factual statement as thesis",
+          "description": "An accurate but non-arguable fact stands in for a claim.",
+          "example": "The Amazon is the largest rainforest."
+        },
+        {
+          "code": "D",
+          "name": "Overly broad claim",
+          "description": "A claim so large the essay cannot support it.",
+          "example": "Technology has changed everything about society."
+        },
+        {
+          "code": "E",
+          "name": "Vague claim",
+          "description": "A claim whose key terms are undefined or fuzzy.",
+          "example": "Social media has a big impact on people."
+        },
+        {
+          "code": "F",
+          "name": "Multiple competing claims",
+          "description": "Several candidate claims coexist without one governing them."
+        },
+        {
+          "code": "G",
+          "name": "Clear but unsupported claim",
+          "description": "A sharp, arguable claim with no visible support yet."
+        },
+        {
+          "code": "H",
+          "name": "Implicit claim",
+          "description": "The claim is inferable from the writing but never stated."
+        },
+        {
+          "code": "I",
+          "name": "Delayed claim",
+          "description": "The claim is purposefully withheld until later."
+        },
+        {
+          "code": "J",
+          "name": "Distributed claim",
+          "description": "The claim is spread across several sentences or parts rather than one statement."
+        },
+        {
+          "code": "K",
+          "name": "Exploratory thesis",
+          "description": "The essay frames an inquiry or question it will investigate rather than assert."
+        },
+        {
+          "code": "L",
+          "name": "Interpretive thesis",
+          "description": "Asserts a reading or meaning of an object (text, event, data)."
+        },
+        {
+          "code": "M",
+          "name": "Argumentative thesis",
+          "description": "Takes a disputable position and commits to defending it."
+        },
+        {
+          "code": "N",
+          "name": "Analytical thesis",
+          "description": "Claims how or why something works, or what it reveals."
+        },
+        {
+          "code": "O",
+          "name": "Research question in place of a thesis",
+          "description": "Organized by a question the essay answers."
+        },
+        {
+          "code": "P",
+          "name": "Formulaic three-part thesis",
+          "description": "'X because A, B, and C' template; the parts may not cohere."
+        },
+        {
+          "code": "Q",
+          "name": "Integrated / coordinated claim",
+          "description": "A claim that governs the body and is answerable to it."
+        },
+        {
+          "code": "R",
+          "name": "Claim mismatched to assignment",
+          "description": "A real claim that does not address what was assigned."
+        },
+        {
+          "code": "S",
+          "name": "Claim mismatched to body",
+          "description": "The stated claim and what the essay actually argues diverge."
+        }
+      ],
+      "observable_organizations_note": "Descriptive organizations, not stages and not exhaustive. Personal, narrative, and reflective essays may legitimately have no explicit thesis.",
+      "possible_differentiations": [
+        "topic from claim",
+        "fact from arguable claim",
+        "opinion from reasoned position",
+        "claim from evidence",
+        "claim from the reasons it matters",
+        "broad claim from a claim scoped to what the essay can support",
+        "vague terms from precise terms",
+        "the writer's claim from common opinion",
+        "a question from a claim",
+        "the assigned purpose from the writer's operative claim",
+        "the stated claim from the claim the body actually supports",
+        "a claim from a mere announcement of intent ('I will discuss...')"
+      ],
+      "possible_integrations": [
+        "claim with the essay's purpose",
+        "claim with the body paragraphs that support it",
+        "claim with evidence and reasoning",
+        "claim with a counter-claim or concession",
+        "several observations into one governing claim",
+        "claim with the opening that prepares it",
+        "claim scope with what the essay can actually deliver",
+        "question with the eventual answer or claim"
+      ],
+      "possible_coordinations": [
+        "the assignment and the writer's operative claim",
+        "the claim and its location/explicitness for the genre",
+        "the claim and each paragraph's purpose",
+        "the claim and the evidence available",
+        "the stated claim and the argument the body makes",
+        "claim and counterargument",
+        "breadth of claim and length/scope of essay",
+        "claim and the opening's framing"
+      ],
+      "common_productive_tensions": [
+        "A topic is present but no arguable claim organizes it.",
+        "An opinion is stated but the reasoning that makes it a claim is missing.",
+        "A true statement stands in for a claim, so nothing is at stake.",
+        "The claim is arguable but too broad for the essay to support.",
+        "The claim's key terms are vague, so the reader cannot tell what is asserted.",
+        "Several candidate claims compete and none yet governs.",
+        "A sharp claim is stated but not yet supported.",
+        "A claim is implied throughout but never made explicit where the genre expects it.",
+        "The claim is delayed, and it is unclear whether the delay is purposeful.",
+        "The claim is distributed across sentences and has not been consolidated.",
+        "The essay poses a question but does not yet commit to an answer.",
+        "A three-part thesis lists reasons that do not actually cohere.",
+        "The stated claim does not match what the body argues.",
+        "The claim does not address the assignment.",
+        "The claim is strong but the essay's scope cannot deliver it.",
+        "The writer's operative claim differs from the assigned purpose."
+      ],
+      "tensions_note": "Identify only ONE primary tension at a time.",
+      "alternative_interpretations": [
+        {
+          "observation": "no explicit thesis",
+          "possible_meanings": [
+            "the claim is implicit and clear",
+            "the claim is purposefully delayed",
+            "the genre (personal/narrative/reflective) does not require one",
+            "the writer has not yet formed a claim",
+            "the passage is an unfinished draft",
+            "the essay is exploratory and organized by a question"
+          ]
+        },
+        {
+          "observation": "a broad claim",
+          "possible_meanings": [
+            "the writer has not scoped the claim",
+            "the breadth is a deliberate framing to be narrowed",
+            "the essay will progressively focus",
+            "the writer misread the assignment's scope",
+            "only part of the essay was submitted"
+          ]
+        },
+        {
+          "observation": "a question instead of a statement",
+          "possible_meanings": [
+            "an exploratory, inquiry-driven thesis",
+            "the writer is still discovering the claim",
+            "the genre invites a guiding question",
+            "the writer is avoiding commitment",
+            "a rhetorical question not meant to organize"
+          ]
+        },
+        {
+          "observation": "claim differs from the body",
+          "possible_meanings": [
+            "the thesis was written first and the thinking moved on",
+            "the body drifted",
+            "the writer holds two claims",
+            "the claim needs revision to match the discovered argument"
+          ]
+        }
+      ],
+      "alternative_interpretations_note": "Do not collapse uncertainty into a single confident diagnosis.",
+      "common_misunderstandings": [
+        "Every essay must have one explicit thesis sentence.",
+        "The thesis must be the last sentence of the introduction.",
+        "A thesis must always be a single sentence.",
+        "A thesis must always take the form 'X because A, B, and C.'",
+        "A statement of fact can serve as a thesis.",
+        "Announcing the topic ('This essay will discuss...') is a thesis.",
+        "A strong thesis must be broad enough to cover everything.",
+        "A question can never function as a thesis.",
+        "The thesis is decided once and cannot change during drafting.",
+        "A thesis is judged by its shape rather than by how it organizes the essay.",
+        "Personal and narrative essays must state an explicit thesis."
+      ],
+      "misunderstandings_note": "Be alert to these but do not automatically assume them.",
+      "possible_developmental_movements": [
+        "from naming a topic to asserting an arguable claim",
+        "from an opinion to a reasoned position",
+        "from a factual statement to a claim with something at stake",
+        "from a broad claim to one scoped to the essay",
+        "from vague terms to precise terms",
+        "from several competing claims to one governing claim",
+        "from an implicit claim to an explicit one where the genre calls for it",
+        "from a distributed claim to a consolidated one",
+        "from a question to a committed answer, or to a purposefully sustained inquiry",
+        "from a template thesis to a claim whose parts cohere",
+        "from a claim mismatched to the body to alignment between claim and argument",
+        "from a claim decided in advance to a claim revised in light of the writing"
+      ],
+      "movements_note": "Possible reorganizations, not a required progression.",
+      "candidate_developmental_invitations": [
+        "state, in one sentence, the single idea the whole essay is trying to establish",
+        "identify what in the current sentence a reader could actually disagree with",
+        "distinguish the topic from the claim about the topic",
+        "name what would count as evidence for the claim",
+        "scope the claim to what this essay can actually support",
+        "define the key term so the reader knows what is being asserted",
+        "decide which of the competing claims should govern the others",
+        "explain the reasoning that turns this opinion into a defensible position",
+        "test whether each body paragraph advances the stated claim",
+        "decide whether the essay answers its question or sustains it as inquiry",
+        "check whether the stated claim matches what the body actually argues",
+        "explain what changed about the claim after revision and why",
+        "identify whether the claim addresses the assignment",
+        "consider whether an implicit claim should be made explicit for this reader and genre"
+      ],
+      "invitations_note": "Invitations should require the student to think, explain, choose, or revise. Present only one at a time.",
+      "invitation_construction_rules": {
+        "three_parts": [
+          "Brief recognition of an observable feature in the student's participation",
+          "Connection to the current communicative purpose",
+          "One intellectual or writing action for the student to perform"
+        ],
+        "example_form": "You've told the reader what your essay is about, but not yet what you claim about it. To give the essay something to defend, try stating in one sentence what you want the reader to accept by the end.",
+        "cautions": [
+          "Do not use the example as a fixed verbal template.",
+          "Do not write or rewrite the student's thesis for them."
+        ]
+      },
+      "relationships_to_other_domains": [
+        "Whole Essay Purpose",
+        "Opening / Introduction",
+        "Paragraph Purpose",
+        "Evidence",
+        "Interpretation / Reasoning",
+        "Organization",
+        "Conclusion",
+        "Revision and Reflective Control"
+      ],
+      "relationship_notes": {
+        "Whole Essay Purpose": "The claim is the controlling idea through which the whole purpose is realized.",
+        "Opening / Introduction": "The opening may state, prepare, complicate, or deliberately delay the claim.",
+        "Paragraph Purpose": "Each paragraph should be answerable to the claim.",
+        "Evidence": "A claim defines what would count as support.",
+        "Interpretation / Reasoning": "Reasoning connects evidence to the claim and makes it defensible.",
+        "Organization": "The claim sets expectations for how the essay proceeds.",
+        "Conclusion": "The conclusion may return to, extend, or qualify the claim.",
+        "Revision and Reflective Control": "Explaining why a claim changed is evidence of intentional control."
+      },
+      "genre_sensitivity": {
+        "note": "Do not apply one thesis model to all genres. Reason from the actual assignment and teacher purpose rather than infer genre solely from surface form.",
+        "argumentative": "Usually commits to a disputable position the essay defends; may state it early or build to it.",
+        "expository": "May use an organizing or controlling idea, or a thesis of scope, rather than a contested claim.",
+        "analytical": "Asserts how or why something works, or what an object means; interpretive rather than merely factual.",
+        "research": "May be a guiding claim OR a research question/hypothesis the study investigates.",
+        "personal": "May have no explicit thesis; a controlling insight or tension may organize instead.",
+        "narrative": "Typically organized by event and meaning, not an explicit thesis; do not force one.",
+        "reflective": "May be organized by a question, uncertainty, or evolving understanding rather than a fixed claim.",
+        "literary_analysis": "Advances an interpretive claim about the text, supported by textual evidence."
+      },
+      "inside_outside_coordination": "Begin by interpreting the claim organization already present. Distinguish the student's operative claim, the assigned purpose, the teacher's pedagogical purpose, the reader's needs, and the genre's conventions for claims. A missing or unconventional thesis is not automatically a deficit \u2014 it may reflect a genre that does not require one, a purposeful delay, an exploratory design, an unfinished draft, or a mismatch between the assignment and the writer's intention. The next invitation should help the student differentiate, scope, consolidate, make explicit, or align the claim \u2014 never supply the claim itself.",
+      "prohibitions": [
+        "require an explicit one-sentence thesis in every genre",
+        "require the thesis in the final sentence of the introduction",
+        "require the 'X because A, B, and C' form",
+        "treat a factual statement as automatically acceptable or unacceptable without reference to purpose",
+        "reject a question-driven or exploratory thesis merely because it is not a statement",
+        "force a personal or narrative essay to state an argumentative thesis",
+        "evaluate the claim in isolation from purpose, audience, genre, evidence, and the body",
+        "write or rewrite the student's thesis",
+        "provide a polished model thesis for the student to copy",
+        "list every weakness of the claim",
+        "classify the student into a stage, level, or ability",
+        "infer a stable writing ability from one thesis",
+        "treat the domain as a grading rubric or checklist"
+      ],
+      "cultural_resources": [
+        {
+          "name": "Thesis",
+          "purpose": "Solves the problem of an essay whose parts do not add up to one governing idea.",
+          "functional_definition": "A thesis is not merely an opinion. It is the controlling idea that gives an essay direction and holds its parts accountable to one purpose.",
+          "typical_misunderstandings": [
+            "A thesis must be one sentence at the end of the first paragraph.",
+            "A thesis must follow 'X because A, B, and C.'",
+            "A fact can be a thesis.",
+            "Every genre needs an explicit thesis."
+          ],
+          "appropriate_uses": [
+            "When the essay needs a controlling idea to organize its parts.",
+            "When the reader must know what the essay will establish."
+          ],
+          "inappropriate_uses": [
+            "When the genre organizes by question, narrative, or reflection instead.",
+            "When forcing an early explicit claim would flatten purposeful inquiry."
+          ],
+          "developmental_connections": {
+            "purpose": "the idea through which the whole purpose is realized",
+            "organization": "sets expectations for the essay's movement",
+            "evidence": "defines what counts as support",
+            "neighboring_concepts": "Claim, Opening, Paragraph Purpose"
+          },
+          "student_friendly_explanation": "A thesis is the one idea your whole essay is trying to get a reader to accept, understand, or see differently \u2014 the spine everything else hangs on.",
+          "explanation_note": "This is a seed. Adapt the wording to the student's current organization, the assignment, the genre, and what the student has already shown they understand. Do not simply recite it."
+        },
+        {
+          "name": "Claim",
+          "purpose": "Solves the problem of writing that reports or opines without asserting anything a reader could reasonably dispute.",
+          "functional_definition": "A claim is a statement you take a position on and could defend \u2014 not a fact and not a bare preference.",
+          "typical_misunderstandings": [
+            "An opinion is automatically a claim.",
+            "A true statement is a strong claim."
+          ],
+          "appropriate_uses": [
+            "When the assignment asks you to argue or interpret.",
+            "When you want the reader to accept something contestable."
+          ],
+          "inappropriate_uses": [
+            "When the task is purely to explain or narrate.",
+            "When the 'claim' is really just a topic."
+          ],
+          "developmental_connections": {
+            "purpose": "makes the essay's position arguable",
+            "evidence": "a claim tells you what to support",
+            "neighboring_concepts": "Thesis, Evidence, Interpretation"
+          },
+          "student_friendly_explanation": "A claim is something a thoughtful person could disagree with \u2014 that's what makes it worth arguing and gives your evidence a job.",
+          "explanation_note": "This is a seed. Adapt the wording to the student's current organization, the assignment, the genre, and what the student has already shown they understand. Do not simply recite it."
+        }
+      ]
+    },
+    {
+      "domain_name": "Paragraph Purpose",
+      "domain_status": {
+        "description": "Culturally available functions and resources for the work a paragraph does within a whole essay.",
+        "is_not": [
+          "a rigid one-structure template",
+          "a rule that every paragraph opens with a topic sentence",
+          "a rule that every paragraph must be claim-evidence-analysis",
+          "a rule that a paragraph performs only one function",
+          "a developmental stage",
+          "a grading checklist",
+          "the same thing as the paragraph's topic"
+        ],
+        "must_be_interpreted_relative_to": [
+          "the assignment",
+          "the writer's operative purpose",
+          "the teacher's pedagogical purpose",
+          "the intended audience",
+          "the genre",
+          "the central claim or controlling idea",
+          "the neighboring paragraphs",
+          "the organization of the developing whole essay"
+        ]
+      },
+      "governing_communicative_function": "A paragraph is a locally organized movement of meaning that performs one or more coordinated functions in relation to the developing whole text. Its purpose is the work it does for the reader and the essay, not merely the topic it names.",
+      "communicative_functions": [
+        "do a definable job for the essay",
+        "advance the controlling idea",
+        "organize sentences under one local movement",
+        "connect to neighboring paragraphs",
+        "serve the reader's next need"
+      ],
+      "possible_communicative_functions": [
+        "introduce a point",
+        "develop a claim",
+        "supply context",
+        "present evidence",
+        "interpret evidence",
+        "explain a process",
+        "define a concept",
+        "distinguish ideas",
+        "compare or contrast",
+        "complicate a prior claim",
+        "acknowledge another perspective",
+        "respond to an objection",
+        "develop an example",
+        "narrate an event",
+        "reflect on an experience",
+        "establish consequences",
+        "connect sections",
+        "synthesize prior material",
+        "prepare the next movement"
+      ],
+      "engine_note_on_functions": "This is not a checklist or fixed taxonomy. A paragraph may perform one function or several coordinated functions. Do not require any particular function.",
+      "reader_needs": [
+        "knowing what this paragraph is doing for the argument or essay",
+        "seeing how the paragraph connects to the one before it",
+        "understanding why this paragraph appears here",
+        "being able to follow one local movement without confusion",
+        "knowing which idea governs the sentences",
+        "seeing the paragraph's contribution to the whole"
+      ],
+      "reader_needs_note": "Interpretive possibilities, not mandatory requirements.",
+      "canonical_writing_resources": [
+        "topic sentence",
+        "governing idea",
+        "transition or bridge",
+        "point-development",
+        "example",
+        "evidence",
+        "interpretation or warrant",
+        "definition",
+        "distinction",
+        "comparison",
+        "concession",
+        "rebuttal",
+        "consequence",
+        "synthesis",
+        "forecasting sentence",
+        "inductive build to a point",
+        "narrative sequence",
+        "descriptive detail in service of a point"
+      ],
+      "resources_note": "Introduce a resource only when it serves the paragraph's function, the genre, and the reader. No single paragraph structure is required.",
+      "observable_organizations": [
+        {
+          "code": "A",
+          "name": "Topic without purpose",
+          "description": "Names a subject for the paragraph but does no definable work for the essay.",
+          "example": "There are many things about pollution."
+        },
+        {
+          "code": "B",
+          "name": "Clear purpose, disconnected from whole",
+          "description": "The paragraph does a clear local job but its relation to the thesis/essay is not visible."
+        },
+        {
+          "code": "C",
+          "name": "Competing purposes",
+          "description": "Several distinct jobs coexist in one paragraph without a governing movement."
+        },
+        {
+          "code": "D",
+          "name": "Purpose shift midway",
+          "description": "The paragraph begins doing one job and silently switches to another."
+        },
+        {
+          "code": "E",
+          "name": "Clear function, no explicit topic sentence",
+          "description": "The paragraph clearly does a job though no single sentence announces it (may be inductive/narrative)."
+        },
+        {
+          "code": "F",
+          "name": "Topic sentence that does not govern",
+          "description": "A formulaic opening sentence is present but the rest of the paragraph does not follow from it."
+        },
+        {
+          "code": "G",
+          "name": "Evidence without interpretation",
+          "description": "Facts/quotations are supplied but their meaning for the claim is not made."
+        },
+        {
+          "code": "H",
+          "name": "Interpretation without sufficient evidence",
+          "description": "Claims about meaning are asserted without grounding."
+        },
+        {
+          "code": "I",
+          "name": "Necessary context",
+          "description": "The paragraph orients the reader with background the essay genuinely needs."
+        },
+        {
+          "code": "J",
+          "name": "Overloaded with unnecessary background",
+          "description": "Background exceeds what the reader needs and delays the essay's movement."
+        },
+        {
+          "code": "K",
+          "name": "Develops the central claim",
+          "description": "The paragraph advances or extends the thesis with new work."
+        },
+        {
+          "code": "L",
+          "name": "Repeats the thesis without developing",
+          "description": "Restates the controlling idea but adds no development."
+        },
+        {
+          "code": "M",
+          "name": "Complicates or qualifies the thesis",
+          "description": "Introduces tension, limitation, or nuance to the claim."
+        },
+        {
+          "code": "N",
+          "name": "Acknowledges another perspective",
+          "description": "Represents a view other than the writer's."
+        },
+        {
+          "code": "O",
+          "name": "Responds to an objection",
+          "description": "Answers a counter-position or anticipated challenge."
+        },
+        {
+          "code": "P",
+          "name": "Transitional / bridge",
+          "description": "Chiefly connects sections or movements rather than developing content."
+        },
+        {
+          "code": "Q",
+          "name": "Narrative paragraph",
+          "description": "Organized as an event sequence; should not be forced into claim-evidence-analysis."
+        },
+        {
+          "code": "R",
+          "name": "Reflective paragraph around uncertainty",
+          "description": "Organized by a question or unresolved thinking rather than a settled point."
+        },
+        {
+          "code": "S",
+          "name": "Descriptive serving analysis",
+          "description": "Description whose purpose is to enable a larger analytical point."
+        },
+        {
+          "code": "T",
+          "name": "Dependent on neighbor",
+          "description": "Only coheres when read with the preceding or following paragraph (part of a multi-paragraph movement)."
+        },
+        {
+          "code": "U",
+          "name": "Integrated multi-function movement",
+          "description": "Coordinates several functions (e.g., concede -> rebut -> extend) into one coherent movement."
+        },
+        {
+          "code": "V",
+          "name": "Mismatch with assignment",
+          "description": "A competent paragraph whose apparent weakness is that it does not serve what was assigned."
+        }
+      ],
+      "observable_organizations_note": "Descriptive organizations, not stages and not exhaustive. Multiple readings may fit; look for evidence before deciding.",
+      "possible_differentiations": [
+        "paragraph topic from paragraph purpose",
+        "paragraph purpose from paragraph function",
+        "paragraph content from paragraph structure",
+        "the paragraph's local job from its relation to the whole",
+        "evidence from interpretation of evidence",
+        "necessary context from delaying background",
+        "development of a claim from repetition of a claim",
+        "a governing idea from a decorative opening sentence",
+        "one integrated movement from several competing jobs",
+        "a deliberately inductive build from an ungoverned paragraph"
+      ],
+      "possible_integrations": [
+        "paragraph purpose with the central claim",
+        "evidence with its interpretation",
+        "concession with rebuttal",
+        "context with the point it enables",
+        "description with the analysis it serves",
+        "the paragraph with the preceding paragraph's movement",
+        "the paragraph with the following paragraph it sets up",
+        "several sentences under one governing idea",
+        "several functions into one coherent movement"
+      ],
+      "possible_coordinations": [
+        "the assignment and what the paragraph is doing",
+        "the thesis and each paragraph's job",
+        "the paragraph and its neighbors",
+        "evidence and reasoning within the paragraph",
+        "audience needs and the paragraph's orientation",
+        "the paragraph's function and the essay's overall organization",
+        "local movement and global progression",
+        "genre expectations and paragraph form"
+      ],
+      "common_productive_tensions": [
+        "A topic is named but the paragraph does no definable work.",
+        "The paragraph does a clear job but its link to the thesis is invisible.",
+        "Several purposes compete and none governs the paragraph.",
+        "The paragraph shifts purpose midway without signaling it.",
+        "A function is clearly performed but no sentence states it, and it is unclear whether that is purposeful.",
+        "A topic sentence is present but does not govern the paragraph.",
+        "Evidence is present but its meaning for the claim is not made.",
+        "Interpretation is asserted without enough evidence.",
+        "Context is useful but exceeds what the reader needs.",
+        "The paragraph restates the thesis without developing it.",
+        "The paragraph complicates the claim, but the relation to the main argument is unclear.",
+        "A counter-perspective is raised but not yet answered or positioned.",
+        "A transitional paragraph connects but its own contribution is thin.",
+        "A narrative paragraph is being pushed toward argument it need not make.",
+        "The paragraph only coheres with a neighbor, and that dependence is not yet coordinated.",
+        "The paragraph is competent but does not serve the assignment.",
+        "Multiple functions are present and it is unclear whether they are integrated or overloaded."
+      ],
+      "tensions_note": "Identify only ONE primary tension at a time.",
+      "alternative_interpretations": [
+        {
+          "observation": "no explicit topic sentence",
+          "possible_meanings": [
+            "the paragraph is poorly governed",
+            "it is deliberately inductive",
+            "it is narratively organized",
+            "it depends on the preceding paragraph",
+            "it is part of a larger multi-paragraph movement",
+            "it is incomplete",
+            "it is appropriate for the genre"
+          ]
+        },
+        {
+          "observation": "multiple functions in one paragraph",
+          "possible_meanings": [
+            "meaningfully integrated",
+            "overloaded",
+            "transitional",
+            "performing a complex argumentative movement",
+            "insufficiently differentiated"
+          ]
+        },
+        {
+          "observation": "a paragraph disconnected from the thesis",
+          "possible_meanings": [
+            "it sets up a later paragraph",
+            "it supplies needed context",
+            "it has drifted from the argument",
+            "the essay's thesis has shifted",
+            "only part of the draft was submitted"
+          ]
+        },
+        {
+          "observation": "evidence with little interpretation",
+          "possible_meanings": [
+            "interpretation is coming in the next paragraph",
+            "the writer assumes the meaning is obvious",
+            "the writer has not yet interpreted",
+            "the genre foregrounds evidence first"
+          ]
+        }
+      ],
+      "alternative_interpretations_note": "Do not assume one interpretation without evidence; preserve plausible alternatives.",
+      "common_misunderstandings": [
+        "Every paragraph must begin with a topic sentence.",
+        "The topic sentence must always be the first sentence.",
+        "Every paragraph must follow claim-evidence-analysis.",
+        "A paragraph can perform only one function.",
+        "Paragraph purpose is the same as paragraph topic.",
+        "A paragraph can be evaluated in isolation from its neighbors.",
+        "Longer paragraphs are automatically more developed.",
+        "A narrative or reflective paragraph is deficient if it lacks a claim.",
+        "Restating the thesis counts as developing it.",
+        "A transition sentence at the end is enough to connect paragraphs.",
+        "More background is always more helpful to the reader."
+      ],
+      "misunderstandings_note": "Be alert to these but do not automatically assume them.",
+      "possible_developmental_movements": [
+        "from naming a topic to performing a definable function",
+        "from an isolated paragraph to one coordinated with the whole essay",
+        "from competing purposes to one governing movement",
+        "from a purpose shift to a deliberate, signaled progression",
+        "from evidence alone to evidence plus interpretation",
+        "from asserted interpretation to grounded interpretation",
+        "from repeating the thesis to developing it",
+        "from an ungoverned paragraph to a clearly governed one (topic sentence OR coherent inductive build)",
+        "from raising a counter-view to positioning or answering it",
+        "from a paragraph read in isolation to one coordinated with its neighbors",
+        "from content-focus to function-awareness (what the paragraph is doing)",
+        "from a genre-mismatched form to a form that fits the paragraph's job"
+      ],
+      "movements_note": "Possible reorganizations, not a required progression.",
+      "candidate_developmental_invitations": [
+        "state, in a few words, the one job this paragraph is doing for the essay",
+        "distinguish what this paragraph is about (topic) from what it is trying to do (purpose)",
+        "explain how this paragraph connects to the paragraph before it",
+        "identify which sentence, if any, governs the paragraph",
+        "decide which of the competing jobs should govern the paragraph",
+        "point to where the paragraph shifts purpose and decide whether to split it",
+        "explain what a specific piece of evidence shows about your claim",
+        "identify what evidence would ground the interpretation you are making",
+        "decide how much of this background the reader actually needs",
+        "explain how this paragraph develops the thesis rather than repeating it",
+        "position the perspective you raised: do you concede, answer, or extend it?",
+        "explain what this paragraph sets up in the paragraph that follows",
+        "test whether this paragraph still makes sense if the neighboring paragraph were removed",
+        "explain what changed about the paragraph's job after your revision"
+      ],
+      "invitations_note": "Invitations should require the student to think, explain, choose, or revise. Present only one at a time.",
+      "invitation_construction_rules": {
+        "three_parts": [
+          "Brief recognition of an observable feature in the student's paragraph",
+          "Connection to the current communicative purpose or the whole essay",
+          "One intellectual or writing action for the student to perform"
+        ],
+        "example_form": "This paragraph gives the reader several facts about the recycling center. To help the reader see why they are here, try saying in a phrase what job this paragraph is doing for your argument.",
+        "cautions": [
+          "Do not use the example as a fixed verbal template.",
+          "Do not rewrite the paragraph for the student."
+        ]
+      },
+      "relationships_to_other_domains": [
+        "Whole Essay Purpose",
+        "Central Claim / Thesis",
+        "Organization",
+        "Evidence",
+        "Interpretation / Reasoning",
+        "Transitions",
+        "Opening / Introduction",
+        "Revision and Reflective Control"
+      ],
+      "relationship_notes": {
+        "Whole Essay Purpose": "A paragraph's job is defined by what the whole essay is trying to do.",
+        "Central Claim / Thesis": "Most body paragraphs should be answerable to the controlling idea.",
+        "Organization": "Paragraph purpose is realized through where the paragraph sits in the essay's movement.",
+        "Evidence": "A paragraph that presents evidence coordinates with how that evidence supports the claim.",
+        "Interpretation / Reasoning": "Interpreting evidence is often the work a paragraph must do.",
+        "Transitions": "Connections between paragraphs make a paragraph's relation to its neighbors explicit.",
+        "Opening / Introduction": "An introductory paragraph may perform one or several coordinated opening functions.",
+        "Revision and Reflective Control": "Explaining why a paragraph's job changed is evidence of intentional control."
+      },
+      "genre_sensitivity": {
+        "note": "Do not apply one paragraph model to all genres. Reason from the actual assignment and teacher purpose rather than infer genre solely from surface form.",
+        "argumentative": "Body paragraphs typically develop, support, complicate, or defend the claim; forms vary.",
+        "expository": "Paragraphs may define, explain, exemplify, or sequence information toward the organizing idea.",
+        "analytical": "Paragraphs often move between evidence and interpretation to build an analysis.",
+        "research": "Paragraphs may report, synthesize sources, or situate findings; some are chiefly contextual.",
+        "personal": "Paragraphs may narrate, reflect, or dwell; a stated point is not required.",
+        "narrative": "Paragraphs advance scene, action, or meaning; do not force claim-evidence-analysis.",
+        "reflective": "Paragraphs may be organized around questions or evolving understanding.",
+        "literary_analysis": "Paragraphs typically coordinate textual evidence with interpretive claims."
+      },
+      "inside_outside_coordination": "Begin by interpreting what the paragraph is already doing and how it sits among its neighbors. Distinguish the student's operative purpose, the assigned purpose, the teacher's pedagogical purpose, the reader's needs, the genre, and the paragraph's relation to the whole. A missing topic sentence, multiple functions, or a loose connection is not automatically a deficit \u2014 it may be inductive, narrative, transitional, part of a multi-paragraph movement, or an unfinished draft. The next invitation should help the student clarify, differentiate, or coordinate the paragraph's job \u2014 never supply the paragraph.",
+      "prohibitions": [
+        "require a topic sentence in every paragraph",
+        "require the topic sentence to be the first sentence",
+        "require claim-evidence-analysis in every genre or every paragraph",
+        "assume a paragraph can perform only one function",
+        "treat paragraph purpose as identical to paragraph topic",
+        "evaluate a paragraph in isolation from its neighbors and the whole",
+        "force a narrative or reflective paragraph into an argumentative structure",
+        "write or rewrite the student's paragraph",
+        "provide a polished model paragraph for the student to copy",
+        "list every weakness of the paragraph",
+        "classify the student into a stage, level, or ability",
+        "infer a stable writing ability from one paragraph",
+        "treat the domain as a grading rubric or checklist"
+      ],
+      "cultural_resources": [
+        {
+          "name": "Topic Sentence",
+          "purpose": "Solves the problem of a paragraph whose sentences do not obviously belong together or serve the essay.",
+          "functional_definition": "A topic sentence names the job a paragraph is doing so the reader can follow one local movement. It need not be the first sentence, and some paragraphs (inductive, narrative) govern themselves differently.",
+          "typical_misunderstandings": [
+            "Every paragraph must open with a topic sentence.",
+            "The topic sentence must be the first sentence.",
+            "A topic sentence is the paragraph's topic."
+          ],
+          "appropriate_uses": [
+            "When a paragraph's job would otherwise be unclear.",
+            "When the reader needs a signpost for the local movement."
+          ],
+          "inappropriate_uses": [
+            "When the paragraph is deliberately inductive or narrative.",
+            "When a stated sentence would spoil a built effect.",
+            "When it merely names a topic instead of a purpose."
+          ],
+          "developmental_connections": {
+            "purpose": "makes the paragraph's job explicit",
+            "organization": "helps the reader track progression",
+            "neighboring_concepts": "Paragraph Purpose, Transition, Thesis"
+          },
+          "student_friendly_explanation": "A topic sentence is a quick signpost telling your reader what this paragraph is doing \u2014 it can go anywhere, and some paragraphs earn their point instead of announcing it.",
+          "explanation_note": "This is a seed. Adapt the wording to the student's current organization, the assignment, the genre, and what the student has already shown they understand. Do not simply recite it."
+        },
+        {
+          "name": "Transition",
+          "purpose": "Solves the problem of paragraphs that sit next to each other without a visible relationship.",
+          "functional_definition": "A transition makes the relationship between ideas explicit \u2014 it signals a conceptual move (contrast, cause, extension), not just a verbal connector.",
+          "typical_misunderstandings": [
+            "A transition is just a word like 'however' or 'furthermore.'",
+            "Transitions only go at the start of paragraphs."
+          ],
+          "appropriate_uses": [
+            "When the logical relationship between parts is not obvious.",
+            "When a section shifts and the reader needs to know why."
+          ],
+          "inappropriate_uses": [
+            "When the connection is already clear.",
+            "When a connective word is used to fake a link that isn't there."
+          ],
+          "developmental_connections": {
+            "purpose": "keeps the essay's movement coherent",
+            "organization": "expresses how parts relate",
+            "neighboring_concepts": "Paragraph Purpose, Organization"
+          },
+          "student_friendly_explanation": "A transition is where you tell your reader how one idea relates to the next \u2014 a real bridge in meaning, not just a word like 'however.'",
+          "explanation_note": "This is a seed. Adapt the wording to the student's current organization, the assignment, the genre, and what the student has already shown they understand. Do not simply recite it."
+        }
+      ]
+    },
+    {
+      "domain_name": "Evidence",
+      "communicative_functions": [
+        "support claims",
+        "establish credibility",
+        "illustrate ideas"
+      ],
+      "canonical_writing_resources": [
+        "facts",
+        "quotations",
+        "examples",
+        "data",
+        "observations"
+      ],
+      "functional_evaluation_questions": [
+        "Is evidence relevant?",
+        "Is enough evidence present?",
+        "Is evidence connected to the claim?"
+      ],
+      "possible_differentiations": [
+        "separating evidence from assertion",
+        "distinguishing illustrative from probative evidence"
+      ],
+      "possible_integrations": [
+        "binding evidence to the claim it supports",
+        "coordinating evidence with interpretation"
+      ],
+      "common_productive_tensions": [
+        "claims asserted without support",
+        "evidence present but its relevance is unstated"
+      ],
+      "candidate_developmental_invitations": [
+        "invite the writer to add a concrete instance that a skeptic would accept",
+        "ask how a specific piece of evidence supports the claim"
+      ],
+      "relationships_to_other_domains": [
+        "Central Claim / Thesis",
+        "Interpretation / Reasoning",
+        "Paragraph Purpose"
+      ]
+    },
+    {
+      "domain_name": "Interpretation / Reasoning",
+      "communicative_functions": [
+        "explain evidence",
+        "connect evidence to claims",
+        "construct meaning",
+        "develop argument"
+      ],
+      "canonical_writing_resources": [
+        "explanation",
+        "warrant",
+        "causal link",
+        "analysis"
+      ],
+      "functional_evaluation_questions": [
+        "Does the writer interpret evidence?",
+        "Are causal connections explained?",
+        "Is reasoning visible?"
+      ],
+      "possible_differentiations": [
+        "separating description of evidence from analysis of it",
+        "distinguishing correlation from causation"
+      ],
+      "possible_integrations": [
+        "linking evidence, reasoning, and claim into one movement",
+        "making the warrant explicit"
+      ],
+      "common_productive_tensions": [
+        "evidence is dropped in without explanation",
+        "reasoning is implied but never stated"
+      ],
+      "candidate_developmental_invitations": [
+        "ask the writer to explain what a piece of evidence shows and why",
+        "invite the writer to make the 'because' visible"
+      ],
+      "relationships_to_other_domains": [
+        "Evidence",
+        "Central Claim / Thesis",
+        "Organization"
+      ]
+    },
+    {
+      "domain_name": "Organization",
+      "communicative_functions": [
+        "coordinate ideas",
+        "maintain coherence",
+        "manage progression"
+      ],
+      "canonical_writing_resources": [
+        "ordering principle",
+        "sequence",
+        "structure",
+        "coherence relations"
+      ],
+      "functional_evaluation_questions": [
+        "Why does each section follow the previous one?",
+        "Does the organization support the purpose?",
+        "Are ideas coordinated?"
+      ],
+      "possible_differentiations": [
+        "separating sequence from logical dependency",
+        "distinguishing a list from a progression"
+      ],
+      "possible_integrations": [
+        "subordinating parts to a whole structure",
+        "aligning order with purpose"
+      ],
+      "common_productive_tensions": [
+        "ideas are present but their order is arbitrary",
+        "structure fights the purpose"
+      ],
+      "candidate_developmental_invitations": [
+        "ask why one part comes before another",
+        "invite the writer to test whether reordering changes meaning"
+      ],
+      "relationships_to_other_domains": [
+        "Whole Essay Purpose",
+        "Paragraph Purpose",
+        "Transitions",
+        "Central Claim / Thesis"
+      ]
+    },
+    {
+      "domain_name": "Transitions",
+      "communicative_functions": [
+        "connect ideas",
+        "signal movement",
+        "indicate logical relationships"
+      ],
+      "canonical_writing_resources": [
+        "connective phrases",
+        "logical signposts",
+        "conceptual bridges"
+      ],
+      "functional_evaluation_questions": [
+        "Are relationships explicit?",
+        "Are transitions merely verbal or conceptual?"
+      ],
+      "possible_differentiations": [
+        "separating verbal connectors from conceptual connections",
+        "distinguishing addition from contrast from causation"
+      ],
+      "possible_integrations": [
+        "making relationships between ideas explicit",
+        "coordinating transitions with organization"
+      ],
+      "common_productive_tensions": [
+        "transition words present but no real conceptual link",
+        "ideas jump without signaling the relationship"
+      ],
+      "candidate_developmental_invitations": [
+        "ask what the actual relationship is between two adjacent ideas",
+        "invite the writer to name the connection rather than only label it"
+      ],
+      "relationships_to_other_domains": [
+        "Organization",
+        "Paragraph Purpose",
+        "Interpretation / Reasoning"
+      ]
+    },
+    {
+      "domain_name": "Conclusion",
+      "communicative_functions": [
+        "synthesize",
+        "deepen meaning",
+        "return to purpose",
+        "broaden significance",
+        "leave lasting impression"
+      ],
+      "canonical_writing_resources": [
+        "synthesis",
+        "restatement-with-development",
+        "implications",
+        "call to reflection"
+      ],
+      "functional_evaluation_questions": [
+        "Does the conclusion merely repeat?",
+        "Does it complete the communicative purpose?"
+      ],
+      "possible_differentiations": [
+        "separating summary from synthesis",
+        "distinguishing repetition from development"
+      ],
+      "possible_integrations": [
+        "returning to purpose while extending it",
+        "connecting the ending back to the opening problem"
+      ],
+      "common_productive_tensions": [
+        "conclusion restates without adding meaning",
+        "significance is claimed but not developed"
+      ],
+      "candidate_developmental_invitations": [
+        "ask what the reader should now understand that they did not before",
+        "invite the writer to extend rather than repeat the main idea"
+      ],
+      "relationships_to_other_domains": [
+        "Whole Essay Purpose",
+        "Central Claim / Thesis",
+        "Opening / Introduction"
+      ]
+    },
+    {
+      "domain_name": "Sentence Construction",
+      "communicative_functions": [
+        "communicate clearly",
+        "organize information",
+        "control emphasis",
+        "improve readability"
+      ],
+      "canonical_writing_resources": [
+        "subordination",
+        "coordination",
+        "sentence variety",
+        "emphasis placement"
+      ],
+      "functional_evaluation_questions": [
+        "Are sentences complete?",
+        "Is emphasis appropriate?",
+        "Is syntax supporting meaning?"
+      ],
+      "possible_differentiations": [
+        "separating main from subordinate ideas at the sentence level",
+        "distinguishing emphasis from mere length"
+      ],
+      "possible_integrations": [
+        "using syntax to foreground the most important idea",
+        "coordinating sentence form with paragraph purpose"
+      ],
+      "common_productive_tensions": [
+        "important ideas buried in subordinate positions",
+        "uniform sentences flatten emphasis"
+      ],
+      "candidate_developmental_invitations": [
+        "invite the writer to place the key idea in the emphatic position",
+        "ask which part of a sentence the reader should notice most"
+      ],
+      "relationships_to_other_domains": [
+        "Word Choice and Voice",
+        "Paragraph Purpose",
+        "Interpretation / Reasoning"
+      ]
+    },
+    {
+      "domain_name": "Word Choice and Voice",
+      "communicative_functions": [
+        "precision",
+        "tone",
+        "style",
+        "audience fit"
+      ],
+      "canonical_writing_resources": [
+        "diction",
+        "register",
+        "connotation",
+        "voice"
+      ],
+      "functional_evaluation_questions": [
+        "Are words serving the intended purpose?",
+        "Does tone match audience?"
+      ],
+      "possible_differentiations": [
+        "separating precise from approximate wording",
+        "distinguishing tone appropriate to different readers"
+      ],
+      "possible_integrations": [
+        "aligning diction with purpose and audience",
+        "coordinating voice across the essay"
+      ],
+      "common_productive_tensions": [
+        "vague wording obscures a precise idea",
+        "tone mismatched to the intended reader"
+      ],
+      "candidate_developmental_invitations": [
+        "ask whether a chosen word says exactly what is meant",
+        "invite the writer to consider how the tone lands for the intended reader"
+      ],
+      "relationships_to_other_domains": [
+        "Audience Awareness",
+        "Sentence Construction",
+        "Whole Essay Purpose"
+      ]
+    },
+    {
+      "domain_name": "Revision and Reflective Control",
+      "communicative_functions": [
+        "evaluate writing",
+        "reorganize ideas",
+        "improve communication"
+      ],
+      "canonical_writing_resources": [
+        "self-assessment",
+        "purposeful reordering",
+        "intentional change"
+      ],
+      "functional_evaluation_questions": [
+        "What has changed?",
+        "Why was it changed?",
+        "Is revision purposeful?"
+      ],
+      "possible_differentiations": [
+        "separating editing from re-seeing",
+        "distinguishing cosmetic from substantive revision"
+      ],
+      "possible_integrations": [
+        "connecting revision decisions to purpose and audience",
+        "coordinating changes across domains"
+      ],
+      "common_productive_tensions": [
+        "changes made without a reason tied to purpose",
+        "revision touches surface but not organization"
+      ],
+      "candidate_developmental_invitations": [
+        "ask the writer what they changed and why it serves the purpose",
+        "invite the writer to reflect on whether a revision improved communication"
+      ],
+      "relationships_to_other_domains": [
+        "Whole Essay Purpose",
+        "Organization",
+        "all domains"
+      ]
+    }
+  ]
+}

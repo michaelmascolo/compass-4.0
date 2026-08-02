@@ -1,0 +1,888 @@
+[
+  {
+    "n": 1,
+    "category": "multiple_weaknesses",
+    "turns": 1,
+    "primary": "Forming an arguable controlling claim",
+    "primaries_across_turns": [
+      "Forming an arguable controlling claim"
+    ],
+    "mode": "explicit_instruction",
+    "status": "continue",
+    "postponed_count": 4,
+    "stopping_reason": "",
+    "iv_type": "instruct_then_invite",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've made a start and you're clearly pointing toward an argument \u2014 something about social media being harmful to friendships. Right now your opening sentence ('social media bad for friends') is more of a topic label than a claim a reader could push back on. Can you write one sentence that tells your reader exactly what you're arguing about social media and teen friendships \u2014 something a person could actually disagree with?",
+    "elapsed_s": 49.2
+  },
+  {
+    "n": 2,
+    "category": "multiple_weaknesses",
+    "turns": 1,
+    "primary": "Articulating a contestable controlling claim",
+    "primaries_across_turns": [
+      "Articulating a contestable controlling claim"
+    ],
+    "mode": "explicit_instruction",
+    "status": "continue",
+    "postponed_count": 2,
+    "stopping_reason": "",
+    "iv_type": "instruct_then_invite",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You're working on an argument about car traffic downtown \u2014 that's a real debate worth making a case for. Right now it's hard to tell what position you want your reader to walk away convinced of. In one sentence, what do you want your reader to believe or accept about reducing car traffic downtown?",
+    "elapsed_s": 42.1
+  },
+  {
+    "n": 3,
+    "category": "multiple_weaknesses",
+    "turns": 1,
+    "primary": "Clarify the communicative purpose \u2014 what the student wants the reader to understand",
+    "primaries_across_turns": [
+      "Clarify the communicative purpose \u2014 what the student wants the reader to understand"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 2,
+    "stopping_reason": "",
+    "iv_type": "interpretation_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've made a start by naming your topic \u2014 photosynthesis \u2014 and you've even flagged for yourself that the steps aren't clear yet and the sentences don't connect. That self-awareness is exactly the right place to begin. Before writing more, try this: in one sentence, finish the thought 'I want my reader to understand how photosynthesis works, specifically...' \u2014 what is the one thing about the process you most want them to walk away understanding?",
+    "elapsed_s": 42.3
+  },
+  {
+    "n": 4,
+    "category": "multiple_weaknesses",
+    "turns": 1,
+    "primary": "Establishing a controlling interpretive claim about the poem's effect (the prerequisite for all organization, evidence, and paragraph work)",
+    "primaries_across_turns": [
+      "Establishing a controlling interpretive claim about the poem's effect (the prerequisite for all organization, evidence, and paragraph work)"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 3,
+    "stopping_reason": "",
+    "iv_type": "interpretation_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've identified several real features of the poem \u2014 imagery, short lines, mood, grief \u2014 and that's a genuine starting place. The assignment asks how the text produces its effect, so before organizing anything, it helps to know what effect you think it produces. In one sentence, what do you think this poem actually does to a reader?",
+    "elapsed_s": 45.4
+  },
+  {
+    "n": 5,
+    "category": "multiple_weaknesses",
+    "turns": 1,
+    "primary": "Clarify the communicative purpose/intended meaning before any structural instruction can apply.",
+    "primaries_across_turns": [
+      "Clarify the communicative purpose/intended meaning before any structural instruction can apply."
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 4,
+    "stopping_reason": "",
+    "iv_type": "interpretation_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've made a start \u2014 there's a moment here, a day, even a detail (red shoes). Personal narratives do their work by helping a reader enter a specific experience. What is the one thing you most want your reader to understand or feel by the end of this story? Starting there can help you decide what to put in and what to leave out.",
+    "elapsed_s": 44.8
+  },
+  {
+    "n": 6,
+    "category": "needs_explanation",
+    "turns": 1,
+    "primary": "distinguishing topic from claim \u2014 get the student to state a contestable position",
+    "primaries_across_turns": [
+      "distinguishing topic from claim \u2014 get the student to state a contestable position"
+    ],
+    "mode": "explicit_instruction",
+    "status": "continue",
+    "postponed_count": 3,
+    "stopping_reason": "",
+    "iv_type": "instruct_then_invite",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've started by naming your topic \u2014 social media and friendship \u2014 which gives us something to work with. The assignment asks you to argue a position: does social media improve or harm teen friendships? Try writing one sentence that states what you actually think the answer is \u2014 something a reader could push back on.",
+    "elapsed_s": 38.8
+  },
+  {
+    "n": 7,
+    "category": "needs_explanation",
+    "turns": 1,
+    "primary": "Distinguish topic from arguable claim; produce a position sentence.",
+    "primaries_across_turns": [
+      "Distinguish topic from arguable claim; produce a position sentence."
+    ],
+    "mode": "explicit_instruction",
+    "status": "continue",
+    "postponed_count": 3,
+    "stopping_reason": "",
+    "iv_type": "instruct_then_invite",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've made a start by naming the topic \u2014 traffic downtown. Now the assignment asks you to argue a position, not just discuss a topic. In one sentence, can you say what you actually think the city should do about car traffic downtown, and why you think that?",
+    "elapsed_s": 40.4
+  },
+  {
+    "n": 8,
+    "category": "needs_explanation",
+    "turns": 1,
+    "primary": "establish communicative purpose: what the writer wants the reader to understand about the poem's effect",
+    "primaries_across_turns": [
+      "establish communicative purpose: what the writer wants the reader to understand about the poem's effect"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 3,
+    "stopping_reason": "",
+    "iv_type": "interpretation_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've made a start by identifying that your essay will be about a poem. Before writing more, can you tell me \u2014 in one sentence \u2014 what you want your reader to understand about how this poem produces its effect?",
+    "elapsed_s": 38.9
+  },
+  {
+    "n": 9,
+    "category": "needs_explanation",
+    "turns": 1,
+    "primary": "Shift from meta-announcement to reader orientation \u2014 opening that helps the reader enter the explanation.",
+    "primaries_across_turns": [
+      "Shift from meta-announcement to reader orientation \u2014 opening that helps the reader enter the explanation."
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 2,
+    "stopping_reason": "",
+    "iv_type": "instruct_then_invite",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've chosen a genuinely interesting topic \u2014 the internet is something most readers use constantly without understanding. Right now your opening tells the reader what you plan to do, but it doesn't yet help them step into the explanation itself. Think about your reader: what's the first thing they'd need to understand \u2014 or wonder about \u2014 to actually follow how the internet works? Try writing a sentence or two that starts them there.",
+    "elapsed_s": 46.1
+  },
+  {
+    "n": 10,
+    "category": "needs_questioning",
+    "turns": 1,
+    "primary": "Scope: testing whether the claim is supported by what the essay can actually deliver \u2014 connecting claim function to evidence the student can provide.",
+    "primaries_across_turns": [
+      "Scope: testing whether the claim is supported by what the essay can actually deliver \u2014 connecting claim function to evidence the student can provide."
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 2,
+    "stopping_reason": "",
+    "iv_type": "invite_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've opened with a genuinely arguable claim \u2014 one that distinguishes between two kinds of friendship and makes a case about what social media does to each. Before you build the body, it's worth testing whether the claim is scoped to what you can actually support: what would it mean for an essay to demonstrate that social media 'rewards breadth over depth'? What evidence would make that case, and can you deliver it?",
+    "elapsed_s": 51.7
+  },
+  {
+    "n": 11,
+    "category": "needs_questioning",
+    "turns": 1,
+    "primary": "Central claim: move from observation to a controlling interpretive claim the analysis can establish",
+    "primaries_across_turns": [
+      "Central claim: move from observation to a controlling interpretive claim the analysis can establish"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 2,
+    "stopping_reason": "",
+    "iv_type": "invite_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "That's a strong opening move \u2014 you've identified a specific technique (withholding the name) and connected it to a reader effect (the possibility of substitution). Right now it reads as one sentence doing two jobs at once. What is the essay's central interpretive claim about how the text produces its effect \u2014 the idea your whole analysis will work to establish?",
+    "elapsed_s": 48.5
+  },
+  {
+    "n": 12,
+    "category": "needs_questioning",
+    "turns": 1,
+    "primary": "Articulating the controlling insight \u2014 what the writer wants the reader to understand by the end",
+    "primaries_across_turns": [
+      "Articulating the controlling insight \u2014 what the writer wants the reader to understand by the end"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 3,
+    "stopping_reason": "",
+    "iv_type": "invite_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "This opening line does real work \u2014 it sets up a tension between what forgiveness was supposed to feel like and what it actually demanded. As you move into drafting, what do you want your reader to understand by the end: what the experience of 'that kind of work' revealed to you?",
+    "elapsed_s": 50.3
+  },
+  {
+    "n": 13,
+    "category": "needs_questioning",
+    "turns": 1,
+    "primary": "Establishing the communicative purpose \u2014 what the student wants the reader to understand by the end",
+    "primaries_across_turns": [
+      "Establishing the communicative purpose \u2014 what the student wants the reader to understand by the end"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 2,
+    "stopping_reason": "",
+    "iv_type": "interpretation_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "That opening sentence does real work \u2014 it places us in a specific moment, layers time (the smell outlasting both the habit and the person), and raises a quiet question about who 'she' is and what 'left' means. As you think about what comes next, what is it you most want a reader to understand or feel by the end of this narrative \u2014 what does this experience mean to you?",
+    "elapsed_s": 48.9
+  },
+  {
+    "n": 14,
+    "category": "strong_draft",
+    "turns": 1,
+    "primary": "Thesis/claim: student needs to identify the position the essay will argue",
+    "primaries_across_turns": [
+      "Thesis/claim: student needs to identify the position the essay will argue"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 3,
+    "stopping_reason": "",
+    "iv_type": "invite_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": false,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've opened with a concrete moment \u2014 a like without a reply \u2014 and immediately named what it reveals: presence without real contact. That gap is doing real work as the seed of your argument. Before you write what comes next, what position are you going to take on that gap \u2014 does social media mostly widen it, or is it more complicated than that?",
+    "elapsed_s": 50.8,
+    "note": "harness fix: strong paragraph draft continues with ONE forward invitation (bounded, single-target); whole-session stop not required"
+  },
+  {
+    "n": 15,
+    "category": "strong_draft",
+    "turns": 1,
+    "primary": "Identifying the larger interpretive claim this observation is building toward",
+    "primaries_across_turns": [
+      "Identifying the larger interpretive claim this observation is building toward"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 2,
+    "stopping_reason": "",
+    "iv_type": "invite_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": false,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've opened with a sharp observation: the room's design makes bystanders impossible. That single sentence does real analytical work \u2014 it names a spatial feature and its effect on people in the room. As you develop this piece, what is the larger interpretive claim this observation is building toward \u2014 what does it ultimately reveal about how the space operates?",
+    "elapsed_s": 48.8,
+    "note": "harness fix: strong paragraph draft continues with ONE forward invitation (bounded, single-target); whole-session stop not required"
+  },
+  {
+    "n": 16,
+    "category": "strong_draft",
+    "turns": 1,
+    "primary": "Reader orientation \u2014 what the reader needs to know first to enter the explanation",
+    "primaries_across_turns": [
+      "Reader orientation \u2014 what the reader needs to know first to enter the explanation"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 1,
+    "stopping_reason": "",
+    "iv_type": "invite_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": false,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "That opening sentence does real work \u2014 it sets up a clear metaphor (rehearsal) and gives your reader the core mechanism in one move. As you think about what comes next: what does your reader need to understand *first* so they can follow the explanation that unfolds from here \u2014 the situation your essay is stepping into, or the question it's going to answer?",
+    "elapsed_s": 43.4,
+    "note": "harness fix: strong paragraph draft continues with ONE forward invitation (bounded, single-target); whole-session stop not required"
+  },
+  {
+    "n": 17,
+    "category": "strong_draft",
+    "turns": 1,
+    "primary": "orient the reader: what experience grounds this insight?",
+    "primaries_across_turns": [
+      "orient the reader: what experience grounds this insight?"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 3,
+    "stopping_reason": "",
+    "iv_type": "interpretation_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": false,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "That's a sharp opening line \u2014 it draws the reader into a specific tension right away. For a reflection on what an experience taught you, the reader will eventually need to understand what experience you're describing and what it revealed. What situation or moment does this line grow out of?",
+    "elapsed_s": 48.5,
+    "note": "harness fix: strong paragraph draft continues with ONE forward invitation (bounded, single-target); whole-session stop not required"
+  },
+  {
+    "n": 18,
+    "category": "weak_draft",
+    "turns": 1,
+    "primary": "forming a controlling claim \u2014 distinguishing topic from position",
+    "primaries_across_turns": [
+      "forming a controlling claim \u2014 distinguishing topic from position"
+    ],
+    "mode": "explicit_instruction",
+    "status": "continue",
+    "postponed_count": 4,
+    "stopping_reason": "",
+    "iv_type": "instruct_then_invite",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've named the core tension of your topic \u2014 social media can feel both good and bad for friendships, and you're sitting right in that uncertainty. That's actually a real starting place. Before you write anything more, can you try to finish this sentence in your own words: \"Social media ___ teen friendships because ___\"? Don't worry about it being perfect \u2014 just say what you actually think.",
+    "elapsed_s": 46.1
+  },
+  {
+    "n": 19,
+    "category": "weak_draft",
+    "turns": 1,
+    "primary": "establish communicative purpose (what process, what the reader should understand)",
+    "primaries_across_turns": [
+      "establish communicative purpose (what process, what the reader should understand)"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 3,
+    "stopping_reason": "",
+    "iv_type": "interpretation_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've got a starting point \u2014 something is happening and you know it has parts. Before writing more, can you tell me in one sentence: what specific process or phenomenon are you trying to explain, and what should your reader understand about how it works by the end?",
+    "elapsed_s": 39.4
+  },
+  {
+    "n": 20,
+    "category": "weak_draft",
+    "turns": 1,
+    "primary": "Clarify communicative purpose \u2014 what the student wants the reader to understand from this experience",
+    "primaries_across_turns": [
+      "Clarify communicative purpose \u2014 what the student wants the reader to understand from this experience"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 3,
+    "stopping_reason": "",
+    "iv_type": "interpretation_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've made a start \u2014 there's a memory here, and it clearly meant something to you. Before you write more, I'm curious: what do you most want your reader to understand or feel about this experience by the time they finish reading? That sense of purpose can guide everything that comes next.",
+    "elapsed_s": 41.1
+  },
+  {
+    "n": 21,
+    "category": "requests_independence",
+    "turns": 1,
+    "primary": "return control to student; preserve independent drafting momentum",
+    "primaries_across_turns": [
+      "return control to student; preserve independent drafting momentum"
+    ],
+    "mode": "consolidation",
+    "status": "stop",
+    "postponed_count": 4,
+    "stopping_reason": "student requests independence",
+    "iv_type": "consolidate",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "It sounds like something clicked for you \u2014 that's a good moment to write. Go ahead and work on your draft independently. When you're ready to share what you've written or want a fresh set of eyes on it, bring it back and we can look at it together.",
+    "elapsed_s": 33.1
+  },
+  {
+    "n": 22,
+    "category": "requests_independence",
+    "turns": 1,
+    "primary": "invite first draft of opening",
+    "primaries_across_turns": [
+      "invite first draft of opening"
+    ],
+    "mode": "developmental_question",
+    "status": "stop",
+    "postponed_count": 3,
+    "stopping_reason": "student requests independence",
+    "iv_type": "consolidate",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": false,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "It sounds like you're ready to start writing your reflection. Before you dive in, take a moment to think about the experience you want to write about \u2014 what did it actually teach you? Once you have that in mind, go ahead and write your opening however feels natural to you.",
+    "elapsed_s": 39.9,
+    "note": "re-verified after stopping-rule fix: independence request now honored (stop + consolidate)"
+  },
+  {
+    "n": 23,
+    "category": "unit_sentence",
+    "turns": 1,
+    "primary": "Clarify and sharpen the controlling claim so it governs the essay's direction",
+    "primaries_across_turns": [
+      "Clarify and sharpen the controlling claim so it governs the essay's direction"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 2,
+    "stopping_reason": "",
+    "iv_type": "invite_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've taken a clear position \u2014 that social media harms teen friendships \u2014 which gives your essay a direction to work from. Right now, the middle part of your sentence (about phones and companies) pulls the reader away from that argument. What is the one idea about social media and teen friendships that you most want your reader to accept by the end of your essay?",
+    "elapsed_s": 44.8
+  },
+  {
+    "n": 24,
+    "category": "unit_whole_paper",
+    "turns": 1,
+    "primary": "Articulate the single core communicative purpose (what should the reader believe/do?)",
+    "primaries_across_turns": [
+      "Articulate the single core communicative purpose (what should the reader believe/do?)"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 3,
+    "stopping_reason": "",
+    "iv_type": "invite_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've got a real starting point here \u2014 a topic, a position, and some ideas sketched out. Before working on any individual paragraph, it helps to get clear on the single thing you want your reader to walk away believing or doing. In one sentence, what is the core argument you want to make about whether your city should reduce car traffic downtown?",
+    "elapsed_s": 38.2
+  },
+  {
+    "n": 25,
+    "category": "revision_consolidation",
+    "turns": 2,
+    "primary": "Connect the claim to what the body must do \u2014 what would count as support for THIS claim.",
+    "primaries_across_turns": [
+      "Distinguish topic from arguable claim; produce a controlling idea.",
+      "Connect the claim to what the body must do \u2014 what would count as support for THIS claim."
+    ],
+    "mode": "consolidation",
+    "status": "consolidate_and_return",
+    "postponed_count": 3,
+    "stopping_reason": "Objective achieved \u2014 claim established; consolidate and bridge to next unit.",
+    "iv_type": "consolidate",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've moved from naming a topic to making a real claim \u2014 'trades depth of attention for breadth of contact' gives your reader something to dispute and your essay a direction to pursue. Now, as you think about writing the body, consider: what does that 'trade-off' actually look like in practice? What would a reader need to see to accept that it weakens friendships rather than just changes them?",
+    "elapsed_s": 83.5
+  },
+  {
+    "n": 26,
+    "category": "revision_consolidation",
+    "turns": 2,
+    "primary": "Precision of the key term 'portable' as the claim's analytical anchor",
+    "primaries_across_turns": [
+      "Distinguish topic from controlling interpretive claim",
+      "Precision of the key term 'portable' as the claim's analytical anchor"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 2,
+    "stopping_reason": "",
+    "iv_type": "consolidate",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've made a real move here \u2014 you've named a specific technique ('refusing to name the town'), connected it to an effect ('grief portable'), and said something about what that does for the reader. That's an interpretive claim, not just a topic. Now test it: does 'portable' capture exactly what you mean, or is there a more precise word for what the reader experiences when grief becomes theirs to carry?",
+    "elapsed_s": 94.8
+  },
+  {
+    "n": 27,
+    "category": "revision_consolidation",
+    "turns": 2,
+    "primary": "Invite the student to consider what the reader needs to understand about HOW the conversion happens \u2014 extending the controlling idea toward process mechanism",
+    "primaries_across_turns": [
+      "Establish a controlling idea that tells the reader what the essay will explain about how photosynthesis works",
+      "Invite the student to consider what the reader needs to understand about HOW the conversion happens \u2014 extending the controlling idea toward process mechanism"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 3,
+    "stopping_reason": "",
+    "iv_type": "consolidate",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've moved from naming a topic to actually describing what happens \u2014 that's a real shift. Your sentence now tells the reader the core of how photosynthesis works: inputs go in, sugar comes out. As you think about building the rest of your explanation, what does your reader need to understand about *how* that conversion happens \u2014 not just that it does?",
+    "elapsed_s": 90.1
+  },
+  {
+    "n": 28,
+    "category": "repeated_revision",
+    "turns": 3,
+    "primary": "helping the student identify the two distinct premises and recognize which must be established first",
+    "primaries_across_turns": [
+      "developing an arguable, specific claim from a bare opinion",
+      "helping the student see the two-step logical structure inside their single claim so they understand what their essay must establish in sequence",
+      "helping the student identify the two distinct premises and recognize which must be established first"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 3,
+    "stopping_reason": "",
+    "iv_type": "consolidate",
+    "focus": "writing",
+    "multi_flags": [
+      "\\bfirst[,.].*\\bsecond[,.]"
+    ],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": false,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've sharpened the claim by making its logic audible \u2014 'when no one is ever gone, no one is quite missed' turns an implied idea into something a reader can hear and test. That trailing clause is now doing real argumentative work. Here's what I want you to sit with: your claim contains two moves \u2014 first, that constant contact removes absences, and second, that those absences are what made return meaningful. A reader who accepts the first but doubts the second would stop your argument cold. Which of those two moves do you think needs the most support in your essay body?",
+    "elapsed_s": 148.6,
+    "note": "target progressed across turns (opinion->claim->two-step logic->premises); invite_only forward is progressive scaffolding, not recursion"
+  },
+  {
+    "n": 29,
+    "category": "repeated_revision",
+    "turns": 3,
+    "primary": "Grounding the stated insight in a specific experiential moment \u2014 the core reflective move (experience \u2192 insight)",
+    "primaries_across_turns": [
+      "Reader orientation \u2014 what does the reader need to know to follow this essay?",
+      "Reader orientation \u2014 what does the reader need to know first to follow this essay?",
+      "Grounding the stated insight in a specific experiential moment \u2014 the core reflective move (experience \u2192 insight)"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 3,
+    "stopping_reason": "",
+    "iv_type": "consolidate",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": false,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've moved from naming a change to actually articulating what the change *was* \u2014 that home meant people, not a place. That's the reflective insight itself. Now: what moment during the leaving (or returning) let you see that? What did you notice, hear, or feel that made this visible to you?",
+    "elapsed_s": 150.2,
+    "note": "re-verified after fix: repeated revision now consolidates (experience->insight target absorbed)"
+  },
+  {
+    "n": 30,
+    "category": "brainstorm",
+    "turns": 1,
+    "primary": "surfacing a personal stance or genuine question to anchor the argument",
+    "primaries_across_turns": [
+      "surfacing a personal stance or genuine question to anchor the argument"
+    ],
+    "mode": "developmental_question",
+    "status": "continue",
+    "postponed_count": 3,
+    "stopping_reason": "",
+    "iv_type": "interpretation_only",
+    "focus": "content",
+    "multi_flags": [],
+    "checks": {
+      "one_target": true,
+      "mode_ok": true,
+      "status_ok": true,
+      "postponed_ok": true,
+      "stop_ok": true,
+      "no_recursion_ok": true,
+      "consolidation_ok": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "That's a completely normal place to be at the start. Before worrying about structure, let's figure out what you actually think: when you consider whether social media helps or hurts teen friendships, do you find yourself leaning one way, or does it feel genuinely complicated? Just say whatever comes to mind \u2014 we're exploring, not committing yet.",
+    "elapsed_s": 39.5
+  }
+]

@@ -1,0 +1,940 @@
+[
+  {
+    "n": 1,
+    "category": "clear",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Social media harms close friendships by prioritizing shallow frequent contact ov",
+    "assumed_knowledge": "Reader understands social media broadly; reasonable inferenc",
+    "precision_risk": "'Rewards' could be read as platform design or social behavio",
+    "elaboration_needed": "The claim is asserted but not yet grounded; the reader needs",
+    "next_reader_need": "Evidence or reasoning that makes the shallow/deep contrast c",
+    "primary_target": "Argumentability of the claim \u2014 help student see wh",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Social media harms close friendships by prioritizing shallow frequent contact over deep focused attention.",
+        "next_reader_need": "Evidence or reasoning that makes the shallow/deep contrast concrete and testable."
+      }
+    ],
+    "student_facing": "Your thesis takes a clear position and already names the trade-off at the heart of your argument \u2014 shallow contact versus deep attention. To help your reader follow where the essay is going, try stating, in one sentence, what a reader who disagreed would have to believe is false. What exactly are you asking them to accept or reconsider?",
+    "elapsed_s": 52.5
+  },
+  {
+    "n": 2,
+    "category": "clear",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Reader understands the core claim: vaccines work by pre-exposing the immune syst",
+    "assumed_knowledge": "Reader is assumed to know what an immune system is and rough",
+    "precision_risk": "'The real thing quickly' \u2014 reader may not grasp that speed i",
+    "elaboration_needed": "The mechanism after 'recognize' is unstated \u2014 what does reco",
+    "next_reader_need": "Either concrete grounding of what the 'rehearsal' involves, ",
+    "primary_target": "Audience awareness \u2014 who is the reader and what do",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Reader understands the core claim: vaccines work by pre-exposing the immune system to something harmless so it can respond faster later.",
+        "next_reader_need": "Either concrete grounding of what the 'rehearsal' involves, or context establishing what the explanation will cover."
+      }
+    ],
+    "student_facing": "You've opened with a clear, well-chosen analogy \u2014 'rehearsal' gives a reader an immediate handle on something invisible and complex. Right now the sentence does that work alone. Who is your reader, and what do they already know about the immune system? That question will help you decide what a reader needs before or after this sentence to actually follow the explanation that's coming.",
+    "elapsed_s": 55.4
+  },
+  {
+    "n": 3,
+    "category": "clear",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "A vivid moment of physical and emotional isolation; someone missed a bus in the ",
+    "assumed_knowledge": "Reader can infer emotional weight of the image but has no co",
+    "precision_risk": "Low within the sentence; risk is at the narrative level \u2014 wi",
+    "elaboration_needed": "The reader cannot yet understand why this moment is meaningf",
+    "next_reader_need": "Some signal \u2014 contextual, emotional, or narrative \u2014 of what ",
+    "primary_target": "Whole-narrative communicative purpose \u2014 the studen",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "A vivid moment of physical and emotional isolation; someone missed a bus in the rain and feels unanchored.",
+        "next_reader_need": "Some signal \u2014 contextual, emotional, or narrative \u2014 of what this experience will become or why it matters."
+      }
+    ],
+    "student_facing": "That opening line drops us right into a moment \u2014 the bus gone, the rain, and a feeling of being unmoored. Before you write the next sentence, what is it you want your reader to understand or feel by the end of this narrative? Knowing your destination will help you decide what to build from here.",
+    "elapsed_s": 57.3
+  },
+  {
+    "n": 4,
+    "category": "hidden_assumption",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Reader knows the topic is the green light in a novel and that it relates to 'Ame",
+    "assumed_knowledge": "Reader is assumed to already know the symbolic reading \u2014 'as",
+    "precision_risk": "High: 'obviously symbolizes' and 'proves the novel's whole p",
+    "elaboration_needed": "What specific effect the green light produces and how \u2014 the ",
+    "next_reader_need": "A specific, contestable interpretive claim the reader can or",
+    "primary_target": "Distinguish topic from interpretive claim \u2014 make t",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Reader knows the topic is the green light in a novel and that it relates to 'America,' but cannot tell what the writer is actually claiming.",
+        "next_reader_need": "A specific, contestable interpretive claim the reader can orient to."
+      }
+    ],
+    "student_facing": "You've made a start by connecting the green light to something larger in the novel. Right now, though, your sentence tells the reader that something is true ('as everyone knows,' 'obviously') without yet saying what you're claiming \u2014 what specific idea about the green light or America is this essay going to get a reader to see? Try stating your interpretation in a way that a thoughtful reader could actually push back on.",
+    "elapsed_s": 52.5
+  },
+  {
+    "n": 5,
+    "category": "hidden_assumption",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Reader knows the writer thinks quitting social media is nearly impossible for te",
+    "assumed_knowledge": "Reader assumed to know 'network effect' \u2014 likely an unsuppor",
+    "precision_risk": "Reader may interpret this as a claim about social media addi",
+    "elaboration_needed": "The connection between quitting-difficulty and friendship qu",
+    "next_reader_need": "A clear position on whether social media improves or harms t",
+    "primary_target": "Establish a controlling claim that addresses the a",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Reader knows the writer thinks quitting social media is nearly impossible for teens due to the network effect.",
+        "next_reader_need": "A clear position on whether social media improves or harms teen friendships."
+      }
+    ],
+    "student_facing": "You've opened with a bold observation about teens and social media \u2014 that gives you something to build on. For this assignment, you'll need to stake out a position: does social media improve or harm teen friendships? Your current sentence makes a claim about quitting being impossible, but your reader will want to know what you think that means for teen friendships specifically. Can you write one sentence that tells your reader exactly what you're arguing about social media's effect on teen friendships?",
+    "elapsed_s": 48.0
+  },
+  {
+    "n": 6,
+    "category": "hidden_assumption",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Reader knows the topic is compounding and early investing, but has received no e",
+    "assumed_knowledge": "Writer assumes reader already understands how compounding wo",
+    "precision_risk": "'Since compounding works the way it does' is a placeholder \u2014",
+    "elaboration_needed": "The process itself must be explained before the conclusion i",
+    "next_reader_need": "An explanation of how compounding works.",
+    "primary_target": "Explanation of the process precedes the conclusion",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Reader knows the topic is compounding and early investing, but has received no explanation of how compounding works.",
+        "next_reader_need": "An explanation of how compounding works."
+      }
+    ],
+    "student_facing": "You've picked a genuinely interesting phenomenon to explain \u2014 compounding \u2014 and you've landed on a conclusion right away. But your reader doesn't yet know how compounding works; that's what the assignment asks you to explain. Before that conclusion can land, what would your reader need to understand about the process itself? Try writing a sentence or two that starts to explain how compounding actually works, as if your reader has never heard of it.",
+    "elapsed_s": 50.6
+  },
+  {
+    "n": 7,
+    "category": "missing_background",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Reader lands mid-sentence of a process they have not been introduced to; cannot ",
+    "assumed_knowledge": "Krebs cycle, electron transport chain, ATP, mitochondria \u2014 a",
+    "precision_risk": "'Most of the ATP finally gets produced' \u2014 'finally' implies ",
+    "elaboration_needed": "An opening that names and frames the process before the sequ",
+    "next_reader_need": "What process is being explained, and what is the starting po",
+    "primary_target": "Reader orientation \u2014 the draft begins mid-process;",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Reader lands mid-sentence of a process they have not been introduced to; cannot orient themselves.",
+        "next_reader_need": "What process is being explained, and what is the starting point of that process."
+      }
+    ],
+    "student_facing": "You've placed your reader right in the middle of the process \u2014 'then feeds' suggests something came before, and 'finally gets produced' implies a journey. Before this sentence, what would a reader who knows nothing about cellular energy need to understand in order to follow what you're describing here?",
+    "elapsed_s": 49.1
+  },
+  {
+    "n": 8,
+    "category": "missing_background",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Reader knows: a volta shifts something; after it, the sonnet's argument turns ag",
+    "assumed_knowledge": "Reader is assumed to know what a volta and couplet are \u2014 rea",
+    "precision_risk": "'Turns against itself' is evocative but ambiguous: irony? re",
+    "elaboration_needed": "The interpretive meaning of the self-contradiction \u2014 the 'wh",
+    "next_reader_need": "What the self-contradiction reveals \u2014 the analytical payoff ",
+    "primary_target": "Extend the claim from structural observation to in",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Reader knows: a volta shifts something; after it, the sonnet's argument turns against itself in the final couplet. Reader does not know: which sonnet, what the argument was, what it turns against, or what that self-contradiction means.",
+        "next_reader_need": "What the self-contradiction reveals \u2014 the analytical payoff the structural claim promises."
+      }
+    ],
+    "student_facing": "You've opened with a strong analytical claim \u2014 the volta as a turning point that creates self-contradiction. Right now a reader who hasn't read the sonnet yet knows what happens structurally, but not what the argument turns *against* or what the contradiction reveals. What interpretation does this turning produce \u2014 what does the sonnet end up saying through that self-contradiction?",
+    "elapsed_s": 56.7
+  },
+  {
+    "n": 9,
+    "category": "missing_background",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Reader knows only that Dunbar's number relates to teens and social media connect",
+    "assumed_knowledge": "Reader may not know what Dunbar's number is \u2014 unsupported as",
+    "precision_risk": "Reader could read this as a body claim, an introduction, or ",
+    "elaboration_needed": "The essay's overall position needs to be stated before this ",
+    "next_reader_need": "A governing claim that tells the reader what the whole essay",
+    "primary_target": "Establish a controlling claim (thesis) so the essa",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Reader knows only that Dunbar's number relates to teens and social media connections; no context, no position, no direction.",
+        "next_reader_need": "A governing claim that tells the reader what the whole essay is trying to establish."
+      }
+    ],
+    "student_facing": "You've opened with a specific, contestable idea \u2014 Dunbar's number as a limit on teen social media connections. Right now, a reader arriving cold would ask: what is this essay trying to establish overall, and why does this limit matter for the argument? Before drafting more, can you state in one sentence the position your whole essay is trying to get a reader to accept about social media and teen friendships?",
+    "elapsed_s": 51.4
+  },
+  {
+    "n": 10,
+    "category": "inferential_gap",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Teens check phones a lot and therefore don't value friends \u2014 but reader doesn't ",
+    "assumed_knowledge": "Reader assumed to accept that phone-checking causes devaluin",
+    "precision_risk": "A reader could interpret 'no longer value close friends' as ",
+    "elaboration_needed": "The controlling claim the essay intends to argue is absent.",
+    "next_reader_need": "A clear, arguable position about what social media does to t",
+    "primary_target": "Developing a controlling arguable claim (thesis fu",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Teens check phones a lot and therefore don't value friends \u2014 but reader doesn't know what the essay will argue or why this follows.",
+        "next_reader_need": "A clear, arguable position about what social media does to teen friendships."
+      }
+    ],
+    "student_facing": "You've started with an observation about teens and phones, and you're connecting it to something about friendships \u2014 that's the beginning of an argument. Right now, though, a reader could ask: does constantly checking a phone *necessarily* mean someone doesn't value their friends? What's the position you're actually asking your reader to accept about how social media affects teen friendships specifically?",
+    "elapsed_s": 48.6
+  },
+  {
+    "n": 11,
+    "category": "inferential_gap",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Water heating causes an ecosystem to change. That is all the reader knows.",
+    "assumed_knowledge": "Reader is assumed to connect 'water heats up' to an ecologic",
+    "precision_risk": "Could be thermal pollution, climate warming, seasonal turnov",
+    "elaboration_needed": "Reader cannot understand the intended meaning without knowin",
+    "next_reader_need": "Name and locate the process so the reader knows what they ar",
+    "primary_target": "Reader orientation \u2014 the opening must tell the rea",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Water heating causes an ecosystem to change. That is all the reader knows.",
+        "next_reader_need": "Name and locate the process so the reader knows what they are about to learn."
+      }
+    ],
+    "student_facing": "You've started with an interesting cause-and-effect idea \u2014 water heating up, and a whole ecosystem shifting. Right now a reader who knows nothing yet would ask: what process are you explaining, and where does it happen? What would your reader need to understand first to follow what comes next?",
+    "elapsed_s": 51.9
+  },
+  {
+    "n": 12,
+    "category": "inferential_gap",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "The author uses short sentences; the story is about grief \u2014 but the reader has n",
+    "assumed_knowledge": "Reader is assumed to see the connection between brevity and ",
+    "precision_risk": "'Fundamentally about grief' could mean many things; reader c",
+    "elaboration_needed": "The warrant: what short sentences do to a reader and why tha",
+    "next_reader_need": "An explanation of how short sentences produce or signal grie",
+    "primary_target": "Making the reasoning visible \u2014 the 'because' linki",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "The author uses short sentences; the story is about grief \u2014 but the reader has no idea why one implies the other",
+        "next_reader_need": "An explanation of how short sentences produce or signal grief"
+      }
+    ],
+    "student_facing": "You've made an interesting leap \u2014 from a style choice (short sentences) to a claim about the story's meaning (grief). That leap is where your analysis lives. What is it about short sentences that makes you connect them to grief? Try writing out that 'because' \u2014 the reasoning that links what the author does to what it produces.",
+    "elapsed_s": 49.2
+  },
+  {
+    "n": 13,
+    "category": "abrupt_shift",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Reader knows only that social media relates to face-to-face time, that the print",
+    "assumed_knowledge": "Reader is assumed to understand social media context \u2014 reaso",
+    "precision_risk": "'Friendships suffer' could mean many things; reader cannot p",
+    "elaboration_needed": "A claim that tells the reader what the essay will establish.",
+    "next_reader_need": "A clear, arguable claim about social media and teen friendsh",
+    "primary_target": "Establishing a controlling claim \u2014 distinguishing ",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Reader knows only that social media relates to face-to-face time, that the printing press existed in the 1400s, and that 'friendships suffer' \u2014 no position is established.",
+        "next_reader_need": "A clear, arguable claim about social media and teen friendships."
+      }
+    ],
+    "student_facing": "You've made a start by naming the topic \u2014 social media and friendships. Right now, though, a reader picking this up would wonder: what is the one thing you want them to walk away believing? Try writing one sentence that states your actual position \u2014 not just the topic, but the claim you're going to argue.",
+    "elapsed_s": 51.4
+  },
+  {
+    "n": 14,
+    "category": "abrupt_shift",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Reader can see two bread-making steps but is confused by the Everest sentence an",
+    "assumed_knowledge": "Reader is assumed to know what yeast, fermentation, and baki",
+    "precision_risk": "Reader may think the Everest sentence is intentional and try",
+    "elaboration_needed": "How and why each step works (not yet present).",
+    "next_reader_need": "A clear statement of what process is being explained and why",
+    "primary_target": "Communicative purpose \u2014 the student needs to ident",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Reader can see two bread-making steps but is confused by the Everest sentence and has no sense of the explanation's goal.",
+        "next_reader_need": "A clear statement of what process is being explained and why."
+      }
+    ],
+    "student_facing": "You've got two steps in bread-making here \u2014 fermentation and baking \u2014 but one sentence about Mount Everest has wandered in. What is the one thing you want your reader to understand about how this process works? Naming that central explanation might help you see which sentences belong and which don't.",
+    "elapsed_s": 46.0
+  },
+  {
+    "n": 15,
+    "category": "abrupt_shift",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Reader understands there is a recital, nervousness before it, and a changed feel",
+    "assumed_knowledge": "None problematic \u2014 except reader has no context for the tige",
+    "precision_risk": "'Felt different about failure' is too vague \u2014 reader cannot ",
+    "elaboration_needed": "The experience itself is entirely absent; reader cannot foll",
+    "next_reader_need": "A coherent second sentence and some grounding in what actual",
+    "primary_target": "Identify and resolve the incoherent sentence so th",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Reader understands there is a recital, nervousness before it, and a changed feeling about failure after \u2014 but is completely lost at sentence 2.",
+        "next_reader_need": "A coherent second sentence and some grounding in what actually occurred."
+      }
+    ],
+    "student_facing": "You've made a start \u2014 there's a recital, some nervousness, and a shift in how you felt about failure. Right now a reader lands on 'Tigers are endangered' and has no path from your recital to that sentence. What were you actually trying to say in that middle sentence \u2014 what does it connect to in this experience?",
+    "elapsed_s": 49.4
+  },
+  {
+    "n": 16,
+    "category": "excessive_elaboration",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Reader understands phones are devices and that social media 'affects friendship'",
+    "assumed_knowledge": "Writer assumes no specific background, but also provides non",
+    "precision_risk": "'Affects friendship' is ambiguous \u2014 reader cannot tell wheth",
+    "elaboration_needed": "Any context about why social media and teen friendship is wo",
+    "next_reader_need": "A clear sense of the topic's relevance and the writer's posi",
+    "primary_target": "Reader orientation in the opening \u2014 what does the ",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Reader understands phones are devices and that social media 'affects friendship' \u2014 nothing more.",
+        "next_reader_need": "A clear sense of the topic's relevance and the writer's position."
+      }
+    ],
+    "student_facing": "You've landed on the idea that social media affects friendship \u2014 that's the real destination your opening is heading toward. Right now, the sentences before it take a long detour through phones, devices, and hands before arriving there. What does your reader actually need to know about the topic before they can understand the position you're going to argue?",
+    "elapsed_s": 52.7
+  },
+  {
+    "n": 17,
+    "category": "excessive_elaboration",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Someone walked to a door and went through it. Nothing else is communicated.",
+    "assumed_knowledge": "None assumed \u2014 but no meaning is communicated either.",
+    "precision_risk": "Repetition of 'door' and 'open' leaves the reader with no an",
+    "elaboration_needed": "Any detail that distinguishes this moment as meaningful.",
+    "next_reader_need": "Any signal of what makes this moment worth narrating.",
+    "primary_target": "Emphasis and differentiation: identify the one ide",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Someone walked to a door and went through it. Nothing else is communicated.",
+        "next_reader_need": "Any signal of what makes this moment worth narrating."
+      }
+    ],
+    "student_facing": "You've started a scene \u2014 there's a door, and someone moves through it. Right now the sentences each say almost the same thing, so the reader can't tell what's important about this moment. Pick the one thing you most want your reader to notice or feel about walking through that door, and write it in a single sentence.",
+    "elapsed_s": 47.7
+  },
+  {
+    "n": 18,
+    "category": "insufficient_elaboration",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Imagery in a poem is significant. That is all the reader knows.",
+    "assumed_knowledge": "Reader assumed to accept 'significance' without being shown ",
+    "precision_risk": "'Significant' and 'matters a lot' are interchangeable; no pr",
+    "elaboration_needed": "The interpretive claim itself is missing \u2014 reader cannot und",
+    "next_reader_need": "A statement of what the imagery specifically produces or mea",
+    "primary_target": "Distinguishing topic from claim \u2014 student needs to",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Imagery in a poem is significant. That is all the reader knows.",
+        "next_reader_need": "A statement of what the imagery specifically produces or means in this poem."
+      }
+    ],
+    "student_facing": "You've made a start by pointing toward imagery in the poem. Right now, though, a reader only knows that imagery matters \u2014 not what it actually does or produces in the poem. Before writing more, can you try stating, in one sentence, the specific effect the imagery creates for a reader of this poem?",
+    "elapsed_s": 48.8
+  },
+  {
+    "n": 19,
+    "category": "insufficient_elaboration",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "A trip occurred and the writer found it meaningful \u2014 nothing else is known.",
+    "assumed_knowledge": "Reader is assumed to share the writer's sense of what was me",
+    "precision_risk": "'Meaningful' and 'meaning' are so general a reader cannot co",
+    "elaboration_needed": "Any concrete detail about the experience itself.",
+    "next_reader_need": "A specific moment or event from the experience.",
+    "primary_target": "Specificity of experience \u2014 moving from assertion ",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "A trip occurred and the writer found it meaningful \u2014 nothing else is known.",
+        "next_reader_need": "A specific moment or event from the experience."
+      }
+    ],
+    "student_facing": "You've made a start \u2014 the trip clearly mattered to you. Right now, though, a reader only knows it was \"meaningful\" without knowing what actually happened or what meaning you took from it. What was the specific moment or experience during the trip that you want your reader to understand?",
+    "elapsed_s": 49.3
+  },
+  {
+    "n": 20,
+    "category": "insufficient_elaboration",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Reader knows only that some unnamed process is 'complex' and has 'parts' \u2014 no us",
+    "assumed_knowledge": "Writer assumes reader already knows the subject \u2014 unsupporte",
+    "precision_risk": "'It all works together somehow' signals the writer may not y",
+    "elaboration_needed": "None possible until subject is identified.",
+    "next_reader_need": "The name of the process and the key idea the explanation wil",
+    "primary_target": "Naming the process and stating what the reader sho",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Reader knows only that some unnamed process is 'complex' and has 'parts' \u2014 no usable information.",
+        "next_reader_need": "The name of the process and the key idea the explanation will build toward."
+      }
+    ],
+    "student_facing": "You've made a start \u2014 there's a process in mind here. Before going further, can you tell me in one sentence what process or phenomenon you're explaining, and what you most want your reader to understand about how it works?",
+    "elapsed_s": 44.1
+  },
+  {
+    "n": 21,
+    "category": "ambiguous",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Social media creates a feeling of connection, and that is somehow problematic \u2014 ",
+    "assumed_knowledge": "Reader can infer a tension between connection and harm \u2014 rea",
+    "precision_risk": "The sentence could mean: (a) perceived connection masks real",
+    "elaboration_needed": "The 'problem' is unnamed; a reader cannot follow an argument",
+    "next_reader_need": "A stated, arguable position about what social media does to ",
+    "primary_target": "Differentiate topic from arguable claim \u2014 help stu",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Social media creates a feeling of connection, and that is somehow problematic \u2014 but the reader cannot yet tell what argument is being made or who it concerns.",
+        "next_reader_need": "A stated, arguable position about what social media does to teen friendships and why that matters."
+      }
+    ],
+    "student_facing": "You've written something thought-provoking \u2014 the sentence seems to set up a tension between connection and harm. Before moving forward: who are you trying to persuade, and what's the single idea you want them to walk away convinced of? Try stating that idea in one sentence.",
+    "elapsed_s": 55.5
+  },
+  {
+    "n": 22,
+    "category": "ambiguous",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "The narrator describes a funeral coldly, and the student thinks this reveals tru",
+    "assumed_knowledge": "The reader is assumed to know which text and which passage \u2014",
+    "precision_risk": "'Cold description' and 'really felt' are both vague; a reade",
+    "elaboration_needed": "A specific quotation or detail is needed before the claim ca",
+    "next_reader_need": "A concrete textual detail to anchor the interpretive claim.",
+    "primary_target": "Grounding the claim in a specific textual detail s",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "The narrator describes a funeral coldly, and the student thinks this reveals true feeling \u2014 but the reader has no text to examine.",
+        "next_reader_need": "A concrete textual detail to anchor the interpretive claim."
+      }
+    ],
+    "student_facing": "You've identified something interesting \u2014 the narrator's manner of describing the funeral carries feeling. Right now your sentence tells us what the description shows, but the reader doesn't yet have the description itself to look at. What specific word, phrase, or detail from the text gives you that sense of coldness \u2014 and what does it make you think the narrator is actually feeling?",
+    "elapsed_s": 53.1
+  },
+  {
+    "n": 23,
+    "category": "ambiguous",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Something consequential happened involving the narrator, a brother, an unnamed w",
+    "assumed_knowledge": "Reader is assumed to know the people and situation \u2014 an unsu",
+    "precision_risk": "Low precision risk within the sentence itself; high disorien",
+    "elaboration_needed": "All context: who, what situation, why it mattered.",
+    "next_reader_need": "Grounding \u2014 who are these people and what situation is this?",
+    "primary_target": "Clarify communicative purpose / intended meaning b",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Something consequential happened involving the narrator, a brother, an unnamed woman, and money \u2014 but reader has no people, context, or stakes.",
+        "next_reader_need": "Grounding \u2014 who are these people and what situation is this?"
+      }
+    ],
+    "student_facing": "You've opened right in the middle of a charged moment \u2014 a reader can feel the weight of it. Right now, though, that reader is missing some crucial footing: who is 'her,' what was the truth, and why this moment mattered enough to write about. Before moving forward, could you tell me in a sentence or two what you want a reader to understand about this experience by the time they finish reading?",
+    "elapsed_s": 50.7
+  },
+  {
+    "n": 24,
+    "category": "ambiguous",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "A reader knows only that something divides, copies something, and sends somethin",
+    "assumed_knowledge": "Writer assumes reader already knows the subject (cell, DNA, ",
+    "precision_risk": "'It copies it' could mean the cell copies itself, or the cel",
+    "elaboration_needed": "Not yet \u2014 participant naming must come first.",
+    "next_reader_need": "Named participants so the sequence can be understood.",
+    "primary_target": "Naming participants: replacing ambiguous pronouns ",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "A reader knows only that something divides, copies something, and sends something to another something \u2014 no nouns are identifiable.",
+        "next_reader_need": "Named participants so the sequence can be understood."
+      }
+    ],
+    "student_facing": "You've made a start \u2014 there's a process happening here. Right now, a reader meeting this sentence cold wouldn't know what 'it' refers to, or what 'the other one' is. Who are the main actors in this process, and what exactly is being copied and sent? Try rewriting the sentence naming those things specifically.",
+    "elapsed_s": 46.3
+  },
+  {
+    "n": 25,
+    "category": "precise",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "Social media has different effects on different kinds of friendships; the organi",
+    "assumed_knowledge": "Reader is assumed to recognize the breadth/depth distinction",
+    "precision_risk": "'Weakening intimate friendships' could be read as social med",
+    "elaboration_needed": "What 'optimizes for breadth' means in practice.",
+    "next_reader_need": "A working definition of the key distinction (intimate vs. ac",
+    "primary_target": "precision of key terms so the reader can follow th",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Social media has different effects on different kinds of friendships; the organizing distinction is breadth vs. depth.",
+        "next_reader_need": "A working definition of the key distinction (intimate vs. acquaintance) so the argument is followable."
+      }
+    ],
+    "student_facing": "You've opened with a real claim that draws a clear distinction \u2014 breadth versus depth \u2014 and a reader can immediately tell what position this essay will defend. One question worth sitting with: what does 'intimate friendships' mean here, and how is it different from 'acquaintanceships'? Your reader will need to understand what you mean by those terms before they can follow the argument those terms are doing all the work of.",
+    "elapsed_s": 54.0
+  },
+  {
+    "n": 26,
+    "category": "precise",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "A structural device withholds a narrator's name until the last line; this create",
+    "assumed_knowledge": "Reader is assumed to know the story \u2014 an unsupported assumpt",
+    "precision_risk": "'That uncertainty is the point' is suggestive but open: the ",
+    "elaboration_needed": "What the uncertainty 'being the point' means \u2014 the thesis st",
+    "next_reader_need": "What the uncertainty makes the reader DO or UNDERSTAND that ",
+    "primary_target": "Extend the thesis to name what the uncertainty acc",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "A structural device withholds a narrator's name until the last line; this creates reader uncertainty about whether to trust the narrator; the writer claims this is intentional and meaningful.",
+        "next_reader_need": "What the uncertainty makes the reader DO or UNDERSTAND that they otherwise wouldn't \u2014 the interpretive significance of the effect."
+      }
+    ],
+    "student_facing": "Your sentence does real analytical work \u2014 it links the story's structural choice (withholding the name) to a claim about its effect on the reader (uncertainty) and then asserts that effect is the point. That's a strong interpretive move. Now: what does that uncertainty actually do to the reader's experience of the narrator? What does it make the reader see, feel, or question that they otherwise wouldn't?",
+    "elapsed_s": 57.7
+  },
+  {
+    "n": 27,
+    "category": "strong_guidance",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "The internet involves labeled message-packets; a router is like a sorting office",
+    "assumed_knowledge": "Reader knows what a postal sorting office does \u2014 reasonable ",
+    "precision_risk": "'Simply the sorting office' may undersell complexity or over",
+    "elaboration_needed": "What the router/sorting-office does with packets \u2014 the funct",
+    "next_reader_need": "An explanation of what the router actually does \u2014 the action",
+    "primary_target": "Reader's next need: what work is the opening setti",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "The internet involves labeled message-packets; a router is like a sorting office. Topic is established.",
+        "next_reader_need": "An explanation of what the router actually does \u2014 the action/function, not just the label."
+      }
+    ],
+    "student_facing": "Your analogy lands well \u2014 a reader who knows nothing about networking can immediately picture the sorting office. Right now the opening sets up the image but leaves the reader poised: what does a sorting office actually *do* that explains a router's job? What work would you say this opening is setting the reader up to understand, and what would that reader need to know next?",
+    "elapsed_s": 54.1
+  },
+  {
+    "n": 28,
+    "category": "strong_guidance",
+    "turns": 1,
+    "applies": true,
+    "reader_understanding": "The essay opposes a common assumption about contact and friendship; a distinctio",
+    "assumed_knowledge": "Reader knows social media is relevant; 'contact' is intuitiv",
+    "precision_risk": "'Attention' could mean emotional presence, time spent, direc",
+    "elaboration_needed": "What the essay will argue (direction/claim) so the reader kn",
+    "next_reader_need": "Either a grounding of the contact/attention distinction or a",
+    "primary_target": "Reader orientation toward the essay's direction \u2014 ",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "The essay opposes a common assumption about contact and friendship; a distinction between 'contact' and 'attention' will be important.",
+        "next_reader_need": "Either a grounding of the contact/attention distinction or a signal of the essay's actual claim."
+      }
+    ],
+    "student_facing": "You've opened with a real distinction \u2014 contact versus attention \u2014 that promises something specific. Right now, a reader who knows nothing about your essay lands on that distinction and might wonder: what does 'attention' actually mean here, and why does it change what we should think about social media and teen friendships? What do you want your reader to understand about your argument's direction before they move into the body of your essay?",
+    "elapsed_s": 61.3
+  },
+  {
+    "n": 29,
+    "category": "evolving",
+    "turns": 2,
+    "applies": true,
+    "reader_understanding": "Photosynthesis happens in chloroplasts inside leaves; it takes in water and CO2 ",
+    "assumed_knowledge": "Reader assumed to know 'carbon dioxide' and 'oxygen' as term",
+    "precision_risk": "'Combine' could be read as mechanical mixing; 'byproduct' im",
+    "elaboration_needed": "The mechanism by which sunlight drives the synthesis is enti",
+    "next_reader_need": "An explanation of how the transformation actually occurs \u2014 t",
+    "primary_target": "Explaining the mechanism \u2014 how the process actuall",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Plants make food through something called photosynthesis \u2014 nothing more.",
+        "next_reader_need": "An indication of what the explanation will show about the process."
+      },
+      {
+        "reader_understanding": "Photosynthesis happens in chloroplasts inside leaves; it takes in water and CO2 and produces sugar and oxygen.",
+        "next_reader_need": "An explanation of how the transformation actually occurs \u2014 the energetic/chemical mechanism."
+      }
+    ],
+    "student_facing": "You've moved from naming photosynthesis to showing what actually happens inside the leaf \u2014 that's a real step toward explaining the process. Your sentence now gives a reader the key ingredients and what the plant produces. Here's the next question to sit with: a reader following this sentence knows *what* goes in and *what* comes out, but does she yet understand *how* the chloroplast actually turns sunlight, water, and carbon dioxide into sugar? What would you say to help her see that transformation?",
+    "elapsed_s": 103.9
+  },
+  {
+    "n": 30,
+    "category": "evolving",
+    "turns": 2,
+    "applies": true,
+    "reader_understanding": "Social media trains teens toward shallow over deep friendships via a specific at",
+    "assumed_knowledge": "Reader assumed to accept that attention depth correlates wit",
+    "precision_risk": "'Trains teens' implies a universal effect; reader may ask wh",
+    "elaboration_needed": "The body must provide evidence of the causal mechanism the c",
+    "next_reader_need": "Evidence or reasoning that shows the claimed mechanism actua",
+    "primary_target": "Orient the student toward what this claim now requ",
+    "focus": "writing",
+    "content_flags": [],
+    "grammar_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "focus_ok": true,
+      "expect_ok": true,
+      "evolve_ok": true
+    },
+    "ok": true,
+    "snaps": [
+      {
+        "reader_understanding": "Social media is bad for friendship \u2014 that is all the reader knows.",
+        "next_reader_need": "A more specific, arguable claim so the reader knows what the essay will establish."
+      },
+      {
+        "reader_understanding": "Social media trains teens toward shallow over deep friendships via a specific attentional mechanism \u2014 an arguable, contestable position.",
+        "next_reader_need": "Evidence or reasoning that shows the claimed mechanism actually operates as described."
+      }
+    ],
+    "student_facing": "You've sharpened the claim considerably \u2014 the 'quick reactions vs. sustained attention' mechanism gives a reader something real to push back on, and you've scoped it to teens. Now that your claim has a specific causal logic built in, consider: what job does that claim set up for the rest of the essay? What would a reader need to see to actually accept it?",
+    "elapsed_s": 109.0
+  }
+]

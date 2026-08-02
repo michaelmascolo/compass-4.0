@@ -1,0 +1,806 @@
+[
+  {
+    "n": 1,
+    "category": "multi_framework",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Central Claim / Thesis (via Whole Essay ",
+    "supporting": [
+      "Reader Construction \u2014 reader cannot follow without a claim",
+      "Communicative Purpose \u2014 persuasive purpose requires an arguable position"
+    ],
+    "calibration_check": "Proportional: draft is at the very beginning; one targeted claim-artic",
+    "consistency_check": "Any essay at this stage with no identifiable claim would rec",
+    "primary_target": "articulating a controlling claim (thesis fun",
+    "iv_type": "invite_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've identified something important about your own draft \u2014 you can see it needs a clearer point and that the sentences don't yet connect. Before you revise, try this: in one sentence, what do you actually want your reader to believe about social media and teen friendships when they finish reading? Write that sentence and share it here.",
+    "elapsed_s": 52.5
+  },
+  {
+    "n": 2,
+    "category": "multi_framework",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Whole Essay Purpose (communicative purpo",
+    "supporting": [
+      "Reader Construction \u2014 confirms reader has no anchor yet"
+    ],
+    "calibration_check": "Proportional: fragment-level draft warrants one foundational purpose q",
+    "consistency_check": "Any first draft at this level of development would receive t",
+    "primary_target": "Establish the governing communicative purpos",
+    "iv_type": "interpretation_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've named the topic \u2014 photosynthesis \u2014 and you seem to know it involves sun and water. Before writing more, can you try to state in one sentence what you want your reader to understand by the end: what does photosynthesis actually accomplish, and why does it matter?",
+    "elapsed_s": 52.7
+  },
+  {
+    "n": 3,
+    "category": "multi_framework",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Communicative Purpose (M6)",
+    "supporting": [
+      "Reader Construction (M12)",
+      "Whole Essay Purpose domain"
+    ],
+    "calibration_check": "Proportional \u2014 draft is pre-interpretive; the only productive move is ",
+    "consistency_check": "Any draft consisting only of feature-listing without a claim",
+    "primary_target": "Establishing a communicative purpose / centr",
+    "iv_type": "invite_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "It looks like you've sketched out a list of things your essay will cover \u2014 imagery, short lines, mood, and so on. Before organizing those into paragraphs, it helps to step back and ask: what do you want your reader to understand about how this poem works or what it does? Try to say that in one sentence, as if you were telling a friend the point of your whole analysis.",
+    "elapsed_s": 49.2
+  },
+  {
+    "n": 4,
+    "category": "multi_framework",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Central Claim / Thesis (controls all oth",
+    "supporting": [
+      "Whole Essay Purpose \u2014 purpose is persuasion, which requires an arguable claim",
+      "Reader Construction \u2014 reader cannot follow without a stated position"
+    ],
+    "calibration_check": "Single target (claim) is proportional; anything else is premature give",
+    "consistency_check": "Any draft this undeveloped would receive the same priority: ",
+    "primary_target": "Articulating an arguable controlling claim",
+    "iv_type": "instruct_then_invite",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've got a topic here \u2014 car traffic downtown \u2014 and a nudge toward reducing cars. Right now, though, a reader can't tell what you actually want them to accept. In one sentence, what is the single thing you want your reader to be convinced of by the end?",
+    "elapsed_s": 57.6
+  },
+  {
+    "n": 5,
+    "category": "multi_framework",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Whole Essay Purpose (M6 communicative pu",
+    "supporting": [
+      "reader_construction"
+    ],
+    "calibration_check": "Proportional \u2014 student has no draft; asking for purpose is the minimum",
+    "consistency_check": "Any student with only placeholder text would receive the sam",
+    "primary_target": "articulating communicative purpose \u2014 what sh",
+    "iv_type": "interpretation_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've put something on the page \u2014 a trip happened, and something about it clearly stayed with you. Before going further, can you tell me, in one sentence: what do you want a reader to understand or feel by the end of this piece?",
+    "elapsed_s": 51.4
+  },
+  {
+    "n": 6,
+    "category": "conflicting_priority",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Central Claim / Thesis",
+    "supporting": [
+      "Reader Construction \u2014 reader cannot yet follow the essay's direction"
+    ],
+    "calibration_check": "Single-sentence first draft; highest-leverage move is claim clarity. P",
+    "consistency_check": "Any first draft with a bundled, unclear claim would receive ",
+    "primary_target": "Clarify and isolate the controlling claim so",
+    "iv_type": "instruct_then_invite",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've taken a clear position \u2014 that social media harms friendships \u2014 and that's the core of what an argumentative essay needs. Right now your thesis is doing two jobs at once: it's stating your claim AND mentioning evidence, which can pull your reader in different directions. What is the single, specific idea about social media and teen friendships that you want your reader to accept by the end of your essay?",
+    "elapsed_s": 59.5
+  },
+  {
+    "n": 7,
+    "category": "conflicting_priority",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Central Claim / Thesis \u2014 controlling int",
+    "supporting": [
+      "Whole Essay Purpose",
+      "Reader Construction",
+      "Paragraph Function"
+    ],
+    "calibration_check": "Single target (claim vs. impression) is proportionate; draft is early ",
+    "consistency_check": "Any similar impression-list draft would receive the same pri",
+    "primary_target": "Distinguishing a controlling interpretive cl",
+    "iv_type": "invite_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've made three observations about this poem \u2014 imagery, structure, and biography \u2014 and landed on 'sad and well-made.' That gives you material to work with. Right now, though, a reader couldn't tell what you're trying to get them to understand about the poem that they don't already know. Can you state, in one sentence, the single idea about how this poem produces its effect that you want a reader to accept \u2014 something they could actually push back on?",
+    "elapsed_s": 58.2
+  },
+  {
+    "n": 8,
+    "category": "conflicting_priority",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Whole Essay Purpose / communicative purp",
+    "supporting": [
+      "Reader Construction (M12) \u2014 confirms reader cannot orient without a specific subject",
+      "Central Claim/Thesis domain \u2014 prerequisite: a specific process must be chosen before a controlling idea can form"
+    ],
+    "calibration_check": "Intervention is minimal and appropriate \u2014 student has one vague senten",
+    "consistency_check": "Any student with a topic-list sentence at this stage would r",
+    "primary_target": "Identify the specific process/phenomenon to ",
+    "iv_type": "interpretation_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've chosen a rich topic \u2014 the immune system and vaccines. Right now your sentence covers a lot of ground at once, which makes it hard to tell what you most want your reader to understand. Can you finish this sentence in your own words: 'In this piece, I want my reader to understand exactly how _____ works'?",
+    "elapsed_s": 52.9
+  },
+  {
+    "n": 9,
+    "category": "conflicting_priority",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Central Claim / Thesis \u2014 controlling ide",
+    "supporting": [
+      "Whole Essay Purpose \u2014 persuasive purpose needs an arguable position",
+      "Reader Construction \u2014 reader cannot locate one contestable claim"
+    ],
+    "calibration_check": "Proportional: draft is one undifferentiated sentence; the single most ",
+    "consistency_check": "Any first draft collapsing topic and position at this stage ",
+    "primary_target": "Distinguish the controlling claim from the t",
+    "iv_type": "instruct_then_invite",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've laid out several reasons and landed on a position \u2014 that's a real start. Right now, though, a reader can see the topic (car traffic downtown) but can't yet tell what single idea you most want them to accept. What is the one claim \u2014 something a thoughtful person could actually push back on \u2014 that you want this whole essay to stand behind?",
+    "elapsed_s": 51.2
+  },
+  {
+    "n": 10,
+    "category": "similar_pair",
+    "pair_key": "topic_announce",
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Central Claim / Thesis (via Whole Essay ",
+    "supporting": [
+      "Reader Construction (reader has no position to engage with)",
+      "Communicative Purpose (persuasive purpose requires an arguable claim)"
+    ],
+    "calibration_check": "Single-sentence topic announcement warrants exactly one targeted instr",
+    "consistency_check": "Any first draft at this stage would receive the same priorit",
+    "primary_target": "Distinguish topic from claim; invite a contr",
+    "iv_type": "instruct_then_invite",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've identified your topic \u2014 social media and friendship \u2014 which is a strong starting point. For an argument essay, though, a reader needs to know not just what you're writing about, but what you want them to accept or believe about it. Can you write one sentence that states your position: does social media improve teen friendships, harm them, or something more specific?",
+    "elapsed_s": 53.0
+  },
+  {
+    "n": 11,
+    "category": "similar_pair",
+    "pair_key": "topic_announce",
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Central Claim / Thesis",
+    "supporting": [
+      "Whole Essay Purpose",
+      "Reader Construction"
+    ],
+    "calibration_check": "Proportional \u2014 single most essential move for a first, topic-only sent",
+    "consistency_check": "Any equivalent topic-only opening would receive the same pri",
+    "primary_target": "Forming an arguable claim / thesis",
+    "iv_type": "instruct_then_invite",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've made a start by naming your subject \u2014 cars and downtown. Now, the assignment asks you to argue a position, not just describe a topic. In one sentence, what do you want your reader to believe or decide about car traffic downtown after reading your essay?",
+    "elapsed_s": 45.5
+  },
+  {
+    "n": 12,
+    "category": "similar_pair",
+    "pair_key": "topic_announce2",
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Communicative purpose (M6) \u2014 no specific",
+    "supporting": [
+      "Reader construction (M12) \u2014 reader has no process to follow yet",
+      "Whole Essay Purpose domain"
+    ],
+    "calibration_check": "Proportional: only one sentence exists; the single most important move",
+    "consistency_check": "Any equivalent one-sentence topic statement would receive th",
+    "primary_target": "Identifying a specific, focused explanatory ",
+    "iv_type": "interpretation_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've chosen a genuinely broad subject \u2014 the internet touches almost everything. Before writing more, try to complete this sentence in your own words: 'After reading my essay, a reader will understand exactly how _______ works.' What specific part or moment of the internet's operation do you most want to explain?",
+    "elapsed_s": 46.8
+  },
+  {
+    "n": 13,
+    "category": "similar_pair",
+    "pair_key": "topic_announce2",
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Central Claim / Thesis (via Whole Essay ",
+    "supporting": [
+      "Reader Construction \u2014 confirms reader receives no interpretive direction yet"
+    ],
+    "calibration_check": "Single, minimal intervention on the prerequisite function; proportiona",
+    "consistency_check": "Any draft at this stage with only a topic announcement would",
+    "primary_target": "articulating a controlling interpretive clai",
+    "iv_type": "instruct_then_invite",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've made a start by naming your subject \u2014 the poem. Before going further, try to say in one sentence what you want your reader to understand or see differently about how this poem produces its effect. What is the one idea your essay is trying to establish?",
+    "elapsed_s": 48.6
+  },
+  {
+    "n": 14,
+    "category": "similar_pair",
+    "pair_key": "three_reason",
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Central Claim / Thesis \u2014 arguable connec",
+    "supporting": [
+      "Reader Construction \u2014 reader cannot yet see WHY these harms damage friendship",
+      "Whole Essay Purpose \u2014 thesis must organize and direct a persuasive essay"
+    ],
+    "calibration_check": "Single-sentence draft warrants one focused question, not multiple conc",
+    "consistency_check": "Any persuasive thesis with generic reason-labels would recei",
+    "primary_target": "Strengthen the argumentative connection betw",
+    "iv_type": "developmental_question",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've staked out a clear position \u2014 that social media harms friendships \u2014 and you've given three reasons. Here's a question to push that further: a reader who disagrees might say 'distracting,' 'fake,' and 'addictive' could apply to lots of things, so why do those qualities specifically harm *friendships*? What is it about friendship that makes those harms matter? See if you can revise the sentence so the connection between social media and friendship damage is harder to dispute.",
+    "elapsed_s": 56.2
+  },
+  {
+    "n": 15,
+    "category": "similar_pair",
+    "pair_key": "three_reason",
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Central Claim / Thesis \u2014 topic vs. conte",
+    "supporting": [
+      "Whole Essay Purpose (claim must serve the persuasive goal)",
+      "Reader Construction (reader cannot yet engage with an arguable position)"
+    ],
+    "calibration_check": "Single sentence draft \u2014 right to focus narrowly on claim function; no ",
+    "consistency_check": "Any first persuasive draft at this stage would receive the s",
+    "primary_target": "Distinguishing topic from contestable claim ",
+    "iv_type": "instruct_then_invite",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've staked out a clear position \u2014 the city should reduce traffic. Right now your three reasons (pollution, noise, crowding) are listed side by side, but a reader can't yet tell what you're actually claiming: are you saying traffic reduction will *fix* these problems, or that these problems *justify* a policy change? Try stating, in one sentence, the single idea you most want your reader to accept by the end of your essay.",
+    "elapsed_s": 54.0
+  },
+  {
+    "n": 16,
+    "category": "similar_pair",
+    "pair_key": "empty_restate",
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Central Claim / Thesis \u2014 student has nam",
+    "supporting": [
+      "Paragraph Purpose (no controlling idea), Reader Construction (reader cannot yet understand the intended meaning)"
+    ],
+    "calibration_check": "Single targeted instruction on claim vs. topic is proportional; draft ",
+    "consistency_check": "Yes \u2014 any equivalent draft of synonymous topic-naming withou",
+    "primary_target": "Articulating a claim: moving from naming a t",
+    "iv_type": "instruct_then_invite",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've made a start by pointing at imagery as something worth noticing. Right now, though, your reader can't yet tell what the imagery actually does \u2014 what effect it produces, or what you think it means. In one sentence, can you name the specific effect the imagery creates for you?",
+    "elapsed_s": 56.8
+  },
+  {
+    "n": 17,
+    "category": "similar_pair",
+    "pair_key": "empty_restate",
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Reader Construction (M12) \u2014 reader has n",
+    "supporting": [
+      "Whole Essay Purpose (no purpose yet visible)",
+      "Paragraph Function (no development in opening paragraph)"
+    ],
+    "calibration_check": "Light, single question is proportional \u2014 the draft is three sentences;",
+    "consistency_check": "Any three-sentence draft with only abstract assertions would",
+    "primary_target": "Grounding the claim of meaning in a specific",
+    "iv_type": "invite_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've started by telling us the trip was meaningful \u2014 that's a real beginning. Right now, a reader knows you felt something, but they can't yet see or feel what you felt. What's one specific moment from the trip that you remember most vividly \u2014 something that happened, that you noticed, or that surprised you?",
+    "elapsed_s": 54.8
+  },
+  {
+    "n": 18,
+    "category": "strong",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "communicative purpose (M6) \u2014 what is the",
+    "supporting": [
+      "reader_construction (M12) \u2014 reader can't yet follow direction",
+      "paragraph_function (M7) \u2014 purpose of opening depends on essay's direction"
+    ],
+    "calibration_check": "A single invitational question is proportional; the draft is one sente",
+    "consistency_check": "Any first draft of one opening sentence with an unclear gove",
+    "primary_target": "Clarifying the communicative purpose/directi",
+    "iv_type": "interpretation_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "That opening image lands with real precision \u2014 the gap between a like and a text is doing a lot of work already. Before you move forward, what do you want your reader to understand by the end of the essay? Knowing that will help you decide whether this opening is pointing in the right direction.",
+    "elapsed_s": 59.3
+  },
+  {
+    "n": 19,
+    "category": "strong",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Reader construction (next_reader_need: s",
+    "supporting": [
+      "Opening/Introduction (significance framing)",
+      "Whole Essay Purpose (governing claim not yet visible)"
+    ],
+    "calibration_check": "One sentence draft; light forward invitation is proportional \u2014 do not ",
+    "consistency_check": "Any strong opening observation at this stage would receive t",
+    "primary_target": "Reader orientation to significance \u2014 what do",
+    "iv_type": "invite_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've opened with a sharp observation about how the room's design removes the possibility of being a bystander \u2014 that's a precise, purposeful claim. As you build toward the rest of the essay, what do you want a reader who has never been in this room to understand about *why* that forced intimacy matters \u2014 what it produces or does to the people inside it?",
+    "elapsed_s": 63.6
+  },
+  {
+    "n": 20,
+    "category": "strong",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Reader construction (M12) \u2014 reader's nex",
+    "supporting": [
+      "Opening/Introduction (canonical) \u2014 opening function is established; next step is direction/elaboration",
+      "Communicative purpose (M6) \u2014 explanation requires unpacking the mechanism the opening names"
+    ],
+    "calibration_check": "One sentence, first draft \u2014 light forward invitation is proportional; ",
+    "consistency_check": "Yes \u2014 any single strong opening sentence in an explanatory e",
+    "primary_target": "Reader's next need: what to elaborate on to ",
+    "iv_type": "invite_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "That single sentence does real explanatory work \u2014 the 'rehearsal' metaphor lands, and 'already knows the face' gives the reader a vivid image of immune memory. As you build outward from this opening, what does your reader need to understand next: what the 'harmless piece' actually is, how the immune system responds to it, or why that preparation matters when the real threat arrives?",
+    "elapsed_s": 64.4
+  },
+  {
+    "n": 21,
+    "category": "strong",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Communicative purpose / opening orientat",
+    "supporting": [
+      "Reader construction (M12) \u2014 confirms the experience is the missing prerequisite",
+      "Central claim/thesis domain \u2014 the sentence has thesis-like quality but needs grounding first"
+    ],
+    "calibration_check": "One sentence is too little text for heavy instruction; a light orienti",
+    "consistency_check": "Any student with one evocative sentence and an unstated expe",
+    "primary_target": "Connect the insight to the experience it gro",
+    "iv_type": "interpretation_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've opened with a striking insight \u2014 the contrast between avoiding mistakes and recovering from them already carries real tension. As you think about the reflection you're building, what experience is this sentence growing out of, and what did it teach you about yourself?",
+    "elapsed_s": 54.2
+  },
+  {
+    "n": 22,
+    "category": "weak",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Central Claim / Thesis",
+    "supporting": [
+      "Whole Essay Purpose",
+      "Reader Construction"
+    ],
+    "calibration_check": "Intervention is proportional \u2014 one foundational question, nothing more",
+    "consistency_check": "Any draft at this stage would receive the same priority.",
+    "primary_target": "articulating a controlling claim",
+    "iv_type": "invite_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've got a real topic here \u2014 social media, phones, and what they do to friendships. Before writing more, can you say in one sentence what you actually think: does social media make teen friendships better or worse, and why do you believe that?",
+    "elapsed_s": 44.2
+  },
+  {
+    "n": 23,
+    "category": "weak",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Whole Essay Purpose / communicative purp",
+    "supporting": [
+      "Central Claim / Thesis (controlling explanatory idea)",
+      "Reader Construction (reader has nothing yet)"
+    ],
+    "calibration_check": "Minimal intervention appropriate \u2014 asking for one sentence is proporti",
+    "consistency_check": "Any draft at this stage of development would receive the sam",
+    "primary_target": "Establish topic and controlling explanatory ",
+    "iv_type": "interpretation_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've identified something worth explaining \u2014 a process made of parts that do something. Before writing more, try this: in one sentence, tell me what the process or phenomenon actually is (its name or a brief description), and what you want your reader to understand about how it works. Just one sentence is enough to start.",
+    "elapsed_s": 51.0
+  },
+  {
+    "n": 24,
+    "category": "weak",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Communicative purpose (M6) / Whole Essay",
+    "supporting": [
+      "Reader construction (M12) \u2014 confirms reader cannot locate any purpose"
+    ],
+    "calibration_check": "Minimal intervention appropriate; student is at the very start \u2014 one o",
+    "consistency_check": "Any student with only fragment notes at this stage would rec",
+    "primary_target": "Establish communicative purpose \u2014 what the s",
+    "iv_type": "interpretation_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "It looks like you're circling around something \u2014 a poem, a mood, maybe a feeling the text creates. Before diving into the draft itself, can you tell me in one sentence what you want a reader to understand about how this poem works on them?",
+    "elapsed_s": 43.7
+  },
+  {
+    "n": 25,
+    "category": "weak",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "Whole Essay Purpose (communicative purpo",
+    "supporting": [
+      "Reader Construction \u2014 reader has nothing yet; purpose is prerequisite to everything"
+    ],
+    "calibration_check": "Light touch appropriate; the draft is a placeholder, not a developed a",
+    "consistency_check": "Any equivalent skeletal draft would receive the same single ",
+    "primary_target": "articulating the communicative purpose \u2014 wha",
+    "iv_type": "interpretation_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've made a start \u2014 there's clearly an experience and a reaction in mind. Before you write more, take a moment: what do you most want your reader to understand by the end? Try putting that in one sentence.",
+    "elapsed_s": 53.0
+  },
+  {
+    "n": 26,
+    "category": "repeated_revision",
+    "pair_key": null,
+    "turns": 3,
+    "applies": true,
+    "primary_framework": "Evidence (what counts as support for thi",
+    "supporting": [
+      "Central Claim / Thesis (M13 consolidation)",
+      "Reader Construction (M12 \u2014 reader now needs support)"
+    ],
+    "calibration_check": "Light forward invitation is proportional \u2014 claim is strong, no over-te",
+    "consistency_check": "Any equivalent differentiated claim with no evidence would r",
+    "primary_target": "Connecting the claim to what would count as ",
+    "iv_type": "consolidate",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've sharpened the claim considerably \u2014 'rewards shallow contact over focused attention' gives a reader something specific to push back on. Now the claim is doing real argumentative work. One question to carry into drafting: what would count as evidence that social media actually does this \u2014 what would a skeptical reader need to see to be convinced?",
+    "elapsed_s": 172.8
+  },
+  {
+    "n": 27,
+    "category": "repeated_revision",
+    "pair_key": null,
+    "turns": 3,
+    "applies": true,
+    "primary_framework": "Revision Development / narrative groundi",
+    "supporting": [
+      "Reader Construction (reader needs a grounding moment)",
+      "Central Claim / Thesis (claim is now strong; next is what supports it)"
+    ],
+    "calibration_check": "Draft has made a major leap; consolidation is warranted and the single",
+    "consistency_check": "Any draft that arrives at a clear reflective insight would r",
+    "primary_target": "Ground the insight in a concrete moment or d",
+    "iv_type": "consolidate",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "That's a real sentence \u2014 you've moved from naming a topic to stating something a reader could actually sit with and think about. The insight is now visible: home is people, not place, and leaving revealed it. As you build the essay from here, what moment or detail from the experience most clearly showed you that the people expecting you back were what home actually meant?",
+    "elapsed_s": 174.4
+  },
+  {
+    "n": 28,
+    "category": "repeated_revision",
+    "pair_key": null,
+    "turns": 3,
+    "applies": true,
+    "primary_framework": "Communicative Purpose M6 \u2014 explanation r",
+    "supporting": [
+      "Reader Construction M12 (reader needs step-by-step unfolding)",
+      "Central Claim / Thesis (controlling idea now present; elaboration is next dependency)"
+    ],
+    "calibration_check": "Proportional \u2014 student made real progress; one forward invitation towa",
+    "consistency_check": "Any single-sentence draft with mechanism stated but not elab",
+    "primary_target": "Elaborate and sequence the mechanism step by",
+    "iv_type": "consolidate",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "You've moved from stating an effect to naming the mechanism \u2014 'each period's gains earn their own gains' captures the recursive logic at the heart of compounding. That's the core of your explanation. Now, how could you unfold that process step by step so a reader who has never encountered compounding can follow it from the very beginning?",
+    "elapsed_s": 173.4
+  },
+  {
+    "n": 29,
+    "category": "cross_transfer",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "conclusion_function (M10)",
+    "supporting": [
+      "reader_construction (M12)",
+      "communicative_purpose (M6)"
+    ],
+    "calibration_check": "Proportional \u2014 only the conclusion is underdeveloped; one focused invi",
+    "consistency_check": "Any persuasive essay with a restatement-only conclusion woul",
+    "primary_target": "Conclusion: move from restatement to synthes",
+    "iv_type": "invite_only",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "Your conclusion currently closes the argument by restating what you've already said \u2014 which is a natural first move. Now push one step further: after making the case that social media harms closeness, what should your reader *understand or feel* that they didn't before they started reading? Try drafting one or two sentences that answer that question, and see where it takes your conclusion.",
+    "elapsed_s": 51.4
+  },
+  {
+    "n": 30,
+    "category": "cross_transfer",
+    "pair_key": null,
+    "turns": 1,
+    "applies": true,
+    "primary_framework": "conclusion_function (M10)",
+    "supporting": [
+      "communicative_purpose (M6)",
+      "reader_construction (M12)"
+    ],
+    "calibration_check": "Intervention is proportional \u2014 one clear structural problem; a single ",
+    "consistency_check": "Any explanatory draft with a conclusion that introduces unre",
+    "primary_target": "conclusion's communicative function \u2014 comple",
+    "iv_type": "developmental_question",
+    "focus": "writing",
+    "multi_flags": [],
+    "checks": {
+      "applies_ok": true,
+      "one_target": true,
+      "one_ask": true,
+      "focus_ok": true
+    },
+    "ok": true,
+    "student_facing": "Your draft explains how vaccines work through a rehearsal analogy \u2014 that's a clear explanatory purpose. Your conclusion, though, introduces vaccine history, which pulls the reader away from the explanation they just finished rather than completing it. What do you want your reader to walk away understanding about how vaccines work \u2014 and how could your ending deliver exactly that?",
+    "elapsed_s": 54.8
+  }
+]

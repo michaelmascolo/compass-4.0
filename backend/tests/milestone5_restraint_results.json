@@ -1,0 +1,47 @@
+[
+  {
+    "n": 10,
+    "profile": "already_understands",
+    "type": "invite_only",
+    "instruction_len": 0,
+    "student_facing": "Your thesis draws a sharp distinction \u2014 'undivided attention' vs. 'performed presence' \u2014 that gives this essay real argumentative bite. Before you build the body, test that distinction: what would a specific moment of 'performed presence' look like, and how does it harm the friendship rather than just change it? Naming that will show whether the claim can carry the essay.",
+    "ok_restraint": true,
+    "elapsed_s": 37.1
+  },
+  {
+    "n": 27,
+    "profile": "needs_less",
+    "type": "invite_only",
+    "instruction_len": 0,
+    "student_facing": "That's a genuinely arguable claim \u2014 it shifts the question from what social media does to what it reveals about friendships. Before you build the essay around it, try this: in one sentence, say what a reader would need to see or believe in order to accept this claim. What would actually count as evidence for it?",
+    "ok_restraint": true,
+    "elapsed_s": 35.4
+  },
+  {
+    "n": 6,
+    "profile": "already_understands",
+    "type": "invite_only",
+    "instruction_len": 0,
+    "student_facing": "Your opening does real work: the contradiction between 800 'friends' and eating alone lands, and 'what we really mean by social' signals the essay's deeper concern. Before you move forward, what is the single claim you want the whole essay to argue \u2014 does social media harm teen friendships, improve them, or something more specific than either? Stating that claim, even roughly, will help you decide what this introduction needs to prepare the reader for.",
+    "ok_restraint": true,
+    "elapsed_s": 37.9
+  },
+  {
+    "n": 7,
+    "profile": "already_understands",
+    "type": "invite_only",
+    "instruction_len": 0,
+    "student_facing": "Your thesis already does something sharp: it splits social media's effect by relationship type and names a mechanism (breadth over depth). That distinction is doing real argumentative work. Now push it one step further \u2014 what does 'quietly eroding' actually look like, or what does 'depth of attention' mean in practice, so a skeptical reader knows exactly what you're claiming and what would count as evidence against it?",
+    "ok_restraint": true,
+    "elapsed_s": 39.2
+  },
+  {
+    "n": 30,
+    "profile": "needs_less",
+    "type": "invite_only",
+    "instruction_len": 0,
+    "student_facing": "Your thesis does something interesting: it frames social media's effect as a function of friendship closeness, which is a genuinely arguable and specific idea. Before you draft the body, it's worth pressing on that key relationship \u2014 what does social media actually fail to do for close friendships that it might do for more casual ones? Naming that mechanism will sharpen what your essay is trying to establish and give your evidence a clearer job.",
+    "ok_restraint": true,
+    "elapsed_s": 35.4
+  }
+]
