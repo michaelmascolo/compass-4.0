@@ -18,18 +18,20 @@ body {
 }
 
 /* ---- Visible Interpretation (MVP): three nested levels of Compass's reasoning ----
-   L1 Function label  → the small boxed THESIS / ELABORATION identifier (::before)
-   L2 Whole unit      → subtle neutral shading across the entire function span (no box)
-   L3 Local focus     → a lightweight thin rounded outline + slightly darker tint on the
-                        specific passage under discussion (NOT underline; never looks edited)
-   Shading/outline carry no hue meaning (grayscale-safe: light shade vs darker shade+outline;
-   the LABEL identifies which function). Uses background + outline (no border/padding) so the
-   transparent overlay stays character-aligned with the textarea. */
+   L1 Function label  → the small boxed THESIS / ELABORATION identifier (::before);
+                        the label is the ONLY boxed element, floated above the first word
+                        so it never shifts or fragments the student's text.
+   L2 Whole unit      → subtle neutral shading across the ENTIRE function span (no box,
+                        continuous inline — the paragraph is never split into sections).
+   L3 Local focus     → a DOTTED UNDERLINE (+ a slightly stronger tint) on the one passage
+                        Compass is currently discussing. Never a box; nothing else is underlined.
+   Shading carries no hue meaning (grayscale-safe: light shade vs slightly darker shade + dotted
+   underline; the LABEL identifies which function). Uses background + border-bottom (no outline,
+   no padding) so the transparent overlay stays character-aligned with the textarea. */
 .vi-thesis-region,
 .vi-elab-region {
     position: relative;
-    background: rgba(120, 113, 108, 0.12); /* L2: subtle neutral shading */
-    border-radius: 2px;
+    background: rgba(120, 113, 108, 0.12); /* L2: subtle shading over the whole unit */
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
 }
@@ -53,12 +55,10 @@ body {
 }
 .vi-thesis-region::before { content: "THESIS"; }
 .vi-elab-region::before { content: "ELABORATION"; }
-/* L3: the specific passage Compass is discussing now — one lightweight marker. */
+/* L3: the specific passage Compass is discussing now — a dotted underline, never a box. */
 .vi-focus-marker {
-    background: rgba(120, 113, 108, 0.26); /* slightly darker tint */
-    outline: 1px solid #57534e; /* thin rounded outline */
-    outline-offset: 1px;
-    border-radius: 3px;
+    background: rgba(120, 113, 108, 0.20); /* slightly stronger tint within the shaded unit */
+    border-bottom: 2px dotted #57534e;     /* the dotted underline = current instructional focus */
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
 }

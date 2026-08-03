@@ -164,13 +164,14 @@ const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, esta
 };
 
 // Visible Interpretation overlay (MVP, grayscale-safe). Renders the draft as transparent
-// text behind the editable textarea with a STABLE visual grammar:
-//   • solid outline + THESIS label      = the Thesis region
-//   • dashed outline + ELABORATION label = the Elaboration region
-//   • underline                          = the local passage in current instructional focus
-//   • no marking                          = text outside the current interpretation
-// Each region renders as ONE element (so its label appears once); the focus portion is an
-// inner underlined span within its region. No background color carries meaning.
+// text behind the editable textarea with a STABLE visual grammar layered ON TOP of the
+// student's paragraph, which always stays one continuous piece of writing:
+//   • boxed label + subtle shading (THESIS)      = the whole Thesis unit
+//   • boxed label + subtle shading (ELABORATION) = the whole Elaboration unit
+//   • dotted underline                            = the local passage in current instructional focus
+//   • no marking                                  = text outside the current interpretation
+// Each region renders as ONE inline element (so its label appears once and text never breaks
+// into sections); the focus portion is an inner dotted-underlined span within its region.
 function renderInterpretationSegments(text, regions, portionRanges) {
   if (!text) return text;
   const n = text.length;
@@ -261,7 +262,7 @@ export default function PublicPreview({ mode = "ot" }) {
   const focusRegionText = activeCoaching?.focus_region || "";
   const focusPortionText = activeCoaching?.focus_portion || "";
   const thesisRanges = useMemo(() => findThesisRanges(draft, activeThesis), [draft, activeThesis]);
-  // MVP: mark only Thesis (solid box) and Elaboration (dashed box); underline = local focus portion.
+  // MVP: mark Thesis + Elaboration units (boxed label + shading); dotted underline = local focus.
   const focusName = activeCoaching?.focus_of_work || "";
   const functionSpans = activeCoaching?.function_spans || {};
   const elabText =
