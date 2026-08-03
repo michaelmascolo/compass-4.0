@@ -256,14 +256,21 @@ export default function PublicPreview({ mode = "ot" }) {
   const thesisRanges = useMemo(() => findThesisRanges(draft, activeThesis), [draft, activeThesis]);
   const regionRanges = useMemo(() => findThesisRanges(draft, focusRegionText), [draft, focusRegionText]);
   const portionRanges = useMemo(() => findThesisRanges(draft, focusPortionText), [draft, focusPortionText]);
+  // MVP: only Thesis and Elaboration are highlighted for now.
+  const focusName = activeCoaching?.focus_of_work || "";
+  const isThesisOrElaboration = focusName === "Thesis" || focusName === "Elaboration";
   // Visible Interpretation layers (low → high priority): thesis tint, function region, focus portion.
   const interpretationLayers = useMemo(
     () => [
       { kind: "thesis", ranges: thesisRanges },
-      { kind: "region", ranges: regionRanges },
-      { kind: "portion", ranges: portionRanges },
+      ...(isThesisOrElaboration
+        ? [
+            { kind: "region", ranges: regionRanges },
+            { kind: "portion", ranges: portionRanges },
+          ]
+        : []),
     ],
-    [thesisRanges, regionRanges, portionRanges]
+    [thesisRanges, regionRanges, portionRanges, isThesisOrElaboration]
   );
   const started = !!session;
   const reviseCount = studentTurns.filter((t) => t.kind === "revise").length;
@@ -765,25 +772,33 @@ export default function PublicPreview({ mode = "ot" }) {
                       established={activeCoaching.established_structures || []}
                     />
                   )}
-                  {(focusRegionText || activeThesis) && (
+                  {focusName === "Elaboration" && (
                     <div
-                      data-testid="preview-interpretation-legend"
-                      className="mb-3 rounded-md border border-stone-200 bg-stone-50/70 px-3 py-2 text-[11px] leading-relaxed text-stone-600"
+                      data-testid="preview-interpretation-mvp"
+                      className="mb-3 rounded-md border border-stone-200 bg-stone-50/70 px-4 py-3"
                     >
-                      <div className="font-mono-panel uppercase tracking-[0.12em] text-[10px] text-stone-400 mb-1">
-                        What Compass is reading
+                      <div className="flex flex-col items-center text-center leading-none">
+                        <span className="font-mono-panel uppercase tracking-[0.16em] text-[11px] text-stone-700">
+                          Thesis
+                        </span>
+                        <span aria-hidden="true" className="text-stone-400 text-[13px] mt-1">│</span>
+                        <span aria-hidden="true" className="text-stone-400 text-[13px] -mt-1">▼</span>
+                        <span className="font-mono-panel uppercase tracking-[0.16em] text-[11px] text-[#8C3A2A] mt-1">
+                          Elaboration
+                        </span>
                       </div>
-                      <span className="inline-flex items-center gap-1.5 mr-4">
-                        <span className="inline-block w-6 h-3 rounded-[2px] bg-amber-100/60 [border-bottom:1px_dashed_#b45309]" />
-                        the whole {(activeCoaching.focus_of_work || "function").toLowerCase()} it is evaluating
-                      </span>
-                      <span className="inline-flex items-center gap-1.5">
-                        <span className="inline-block w-6 h-3 rounded-[2px] bg-amber-200/80 [border-bottom:2px_solid_#8C3A2A]" />
-                        the part in focus right now
-                      </span>
-                      <div className="mt-1.5 text-stone-500">
-                        Marked on your writing above. Think Compass is reading it wrong? Use{" "}
-                        <span className="font-semibold text-stone-700">Reply</span> to say so (e.g. "I already elaborated") and it will reconsider.
+                      <p className="mt-2 text-center text-[13px] italic text-stone-700 font-serif-display leading-snug">
+                        How does this elaboration help the reader understand the thesis more completely?
+                      </p>
+                      <div className="mt-3 pt-2 border-t border-stone-200 text-[10px] text-stone-500 flex flex-wrap gap-x-4 gap-y-1 justify-center">
+                        <span className="inline-flex items-center gap-1.5">
+                          <span className="inline-block w-5 h-3 rounded-[2px] bg-amber-100/60 [border-bottom:1px_dashed_#b45309]" />
+                          whole elaboration
+                        </span>
+                        <span className="inline-flex items-center gap-1.5">
+                          <span className="inline-block w-5 h-3 rounded-[2px] bg-amber-200/80 [border-bottom:2px_solid_#8C3A2A]" />
+                          part in focus
+                        </span>
                       </div>
                     </div>
                   )}
