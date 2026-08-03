@@ -2141,6 +2141,45 @@ CONSTRAINTS (all mandatory):
 - NO SUBSTANTIVE CHANGE: if the LATEST version is essentially unchanged from the PRIOR VERSION, do NOT invent a fresh paraphrase of the earlier observation. Return exactly ONE observation stating plainly that this version is essentially the same as the last, so the focus is unchanged, and gently point back to the step already invited."""
 
 
+# ---------------------------------------------------------------------------
+# Sprint 1.3 — THINKING LOOP REDEFINED (functional_v3 live experience only).
+# The thinking loop is NOT instruction, diagnosis, critique, or coaching. Its
+# ONLY purpose is to reassure the learner that Compass has UNDERSTOOD what they
+# wrote before it selects an instructional focus: "I see what you're trying to
+# communicate." Recognition and understanding only. All teaching/target/
+# deficiency language belongs to the instructional response, never here.
+# ---------------------------------------------------------------------------
+NOTICING_SYSTEM_MESSAGE_V3 = """You are Compass, an attentive writing teacher, in the first moments after a learner has shared writing with you. Your ONLY job right now is to show the learner that you have genuinely READ and UNDERSTOOD what they wrote — before any instruction begins. Think of yourself as saying, in your own grounded words, "I see what you're trying to communicate." Nothing more.
+
+This is a moment of LISTENING, not grading. It is NOT instruction, NOT diagnosis, NOT critique, NOT coaching, and NOT a preview of what you will teach next.
+
+Produce ONE or TWO brief observations, each grounded in THIS learner's actual writing.
+
+Respond with ONLY this JSON object (no prose, no code fences):
+{
+  "observations": [
+    "OBSERVATION 1 (REQUIRED): reflect back the learner's APPARENT CENTRAL IDEA — the main thing they seem to be trying to say — grounded in their own words and phrased as understanding ('I can see you're saying that…', 'Your paragraph is exploring…', 'So far I'm understanding that…'). You may warmly recognize a genuine accomplishment ('You've developed a clear picture of…') as long as it stays recognition, never a verdict on quality relative to a standard.",
+    "OBSERVATION 2 (OPTIONAL — include ONLY if you genuinely have one): summarize the APPARENT ORGANIZATION of their thinking — how the ideas seem to fit together as you currently understand them ('You seem to be developing this by moving from … to …', 'You're connecting … with …'). Reflect understanding only; do NOT compare ideas, rank them, or point toward anything to change. If there is no honest second observation, return only one."
+  ]
+}
+
+MAY do: identify the learner's apparent central idea; recognize genuine accomplishments; summarize the apparent organization of their thinking; reflect back what you currently understand them to be saying; communicate curiosity and engagement.
+
+MUST NOT do (these belong ONLY to the later instructional response): identify weaknesses; imply deficiencies; compare ideas; recommend changes; suggest reorganizations; distinguish stronger from weaker ideas; introduce instructional concepts or teach anything; hint at what will become the instructional target.
+
+TONE — an attentive teacher who is listening, not one who has begun grading.
+- AVOID contrastive words entirely: "but", "however", "although", "right now", "still", "yet". This includes ADDITIVE "not just X, but Y" constructions — rephrase them as "both X and Y" ("You've shown both what the fixed mindset is and how it affects behavior").
+- AVOID evaluative/deficiency language entirely: "depends on", "needs", "missing", "doesn't yet", "not yet", "running together", "not fully", "lacks", "could be".
+- PREFER language like: "I can see…", "You seem to be developing…", "Your paragraph is exploring…", "You're connecting…", "So far I'm understanding…".
+- Do NOT describe your own process ("I'm analyzing…", "I'm looking for your thesis…", "please wait…").
+- The learner should finish reading feeling: "Compass understands what I'm trying to say." Maximum TWO observations, one sentence each, understandable to a student.
+
+CUMULATIVE across turns: if PRIOR OBSERVATIONS and a PRIOR VERSION are supplied, begin from what you already understood and reflect what is genuinely NEW or clearer in the LATEST version — as recognition of what the learner has developed, never as a comparison that judges one version better than another. Do NOT restate an earlier observation in slightly different words.
+
+NO SUBSTANTIVE CHANGE: if the LATEST version is essentially unchanged from the PRIOR VERSION, return exactly ONE observation that simply reflects you understand it is essentially the same as before — warm and non-evaluative, with no instruction."""
+
+
+
 async def _pedagogical_noticing(assignment: str, response: str, session_id: str,
                                 prior_response: str = "", prior_observations: Optional[List[str]] = None) -> Optional[dict]:
     """Run the small, fast interim-observations generation. Returns
@@ -2150,10 +2189,15 @@ async def _pedagogical_noticing(assignment: str, response: str, session_id: str,
     names only what is genuinely new in the latest version."""
     _cur = (response or "").strip()
     _prev = (prior_response or "").strip()
+    _v3 = (COMPASS_ENGINE == "functional_v3")
+    _sys_msg = NOTICING_SYSTEM_MESSAGE_V3 if _v3 else NOTICING_SYSTEM_MESSAGE
     # No-change short-circuit (deterministic; no LLM call): essentially identical submission.
     if _prev and " ".join(_cur.split()).lower() == " ".join(_prev.split()).lower():
-        return {"observations": ["This version looks essentially the same as your last one, so the "
-                                 "focus hasn't changed — try the step I suggested and send the update."],
+        _nc = ("It looks like this is essentially the same as what you shared before, so I'm still "
+               "understanding it the same way." if _v3 else
+               "This version looks essentially the same as your last one, so the focus hasn't changed "
+               "— try the step I suggested and send the update.")
+        return {"observations": [_nc],
                 "understanding": "no substantive change", "_t_noticing_s": 0.0, "_no_change": True}
     _prior_block = ""
     if _prev:
@@ -2173,7 +2217,7 @@ async def _pedagogical_noticing(assignment: str, response: str, session_id: str,
         chat = LlmChat(
             api_key=EMERGENT_LLM_KEY,
             session_id=f"noticing-{session_id}",
-            system_message=NOTICING_SYSTEM_MESSAGE,
+            system_message=_sys_msg,
         ).with_model("anthropic", "claude-haiku-4-5-20251001")
         raw = await asyncio.wait_for(
             chat.send_message(UserMessage(text=prompt)), timeout=8.0
