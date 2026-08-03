@@ -91,6 +91,9 @@ def _log_functional_v3_trace(session: "Session", req: "InteractRequest", result:
             "coaching_path": result.get("coaching_path") or "",
             # COMPASS 3.0 function-centered decision summary
             "functional_decision": decision.get("functional_decision") or {},
+            # Sprint 4.0-1: hidden Developmental Cognition Object (developer calibration only)
+            "developmental_cognition": decision.get("developmental_cognition")
+                or (decision.get("functional_decision") or {}).get("developmental_cognition") or {},
             "selected_function": (decision.get("functional_decision") or {}).get("selected_function"),
             "focus_status": (decision.get("functional_decision") or {}).get("focus_status"),
             "continuity_decision": (decision.get("functional_decision") or {}).get("continuity_decision"),

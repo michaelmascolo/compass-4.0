@@ -1771,6 +1771,15 @@ _FUNCTION_SEL_SYS = (
     "valid ways. Never imply a single correct next move. why_focus_shifted / new_constraint must name a "
     "RELATIONSHIP needing attention (e.g. 'how this idea contributes to the thesis'), never a content "
     "direction (never 'the reader's next question is…', never 'the paragraph now needs [idea]').\n"
+    "DEVELOPMENTAL COGNITION (INTERNAL, HIDDEN — calibration only). Also emit developmental_cognition: "
+    "your best CURRENT developmental read of THIS learner — how their ideas are organized (conceptual), "
+    "how the writing organizes ideas for a reader (communicative), their coordinative capacity in Kurt "
+    "Fischer dynamic-skill terms (single representations / representational mappings / representational "
+    "systems / single abstractions / abstract mappings / abstract systems), the current instructional "
+    "horizon, the next reachable developmental move, and what is probably beyond the horizon, each with "
+    "a confidence (high/medium/low). This object is DEVELOPER-FACING ONLY: it is never shown to the "
+    "learner and MUST NOT change your coaching decision, selected_function, or invitation. Estimate "
+    "honestly; use \"\" / low confidence when unsure. Do not let it influence any other field.\n"
     "\n"
     "PROVISIONAL JUDGMENT: separate OBSERVED features (words actually on the page) from HYPOTHESIZED "
     "interpretation; do not infer fixed traits or mindset as fact. Give confidence high|medium|low (no "
@@ -1901,6 +1910,31 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         'turn", "reread": "what you found on rereading the ENTIRE disputed function (\\"\\" if no '
         'challenge)", "outcome": "revised|explained|narrowed|none", "explanation": "one sentence of '
         'why (\\"\\" if none)"},\n'
+        '  "developmental_cognition": {'
+        '"orientation_target_interpretation": "Compass\'s CURRENT interpretation of the student\'s '
+        'orientation target — what this writer appears to be trying to communicate/accomplish in this '
+        'paragraph", '
+        '"orientation_target_confirmed": "the student\'s CONFIRMED or REVISED orientation target if they '
+        'have signalled/confirmed it (e.g. via revision or challenge), else \\"\\" (still inferred, not '
+        'confirmed)", '
+        '"conceptual_organization": "estimate of how well the student\'s IDEAS themselves are organized '
+        '(their conceptual structure), independent of wording", '
+        '"communicative_organization": "estimate of how well the writing organizes those ideas FOR A '
+        'READER (communicative structure / reader path)", '
+        '"coordinative_capacity": "estimate of the student\'s current coordinative capacity, using Kurt '
+        'Fischer dynamic-skill terminology where possible (e.g. single representations, representational '
+        'mappings, representational systems, single abstractions, abstract mappings, abstract systems) — '
+        'i.e. how many ideas/relations the writer can currently coordinate at once", '
+        '"instructional_horizon": "the current instructional horizon — the band of developmental work '
+        'presently within reach for this writer", '
+        '"reachable_next_move": "the developmental move that is REACHABLE next, within the horizon", '
+        '"beyond_horizon": "what is probably BEYOND the current instructional horizon (not yet reachable '
+        'this turn)", '
+        '"confidence": {"orientation_target_interpretation": "high|medium|low", '
+        '"orientation_target_confirmed": "high|medium|low", "conceptual_organization": "high|medium|low", '
+        '"communicative_organization": "high|medium|low", "coordinative_capacity": "high|medium|low", '
+        '"instructional_horizon": "high|medium|low", "reachable_next_move": "high|medium|low", '
+        '"beyond_horizon": "high|medium|low"}},\n'
         '  "confidence": "high|medium|low"\n'
         "}"
     )
@@ -2153,6 +2187,7 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
             "selected_function": selected_fn,
         },
         "_functional_decision": fd,
+        "_developmental_cognition": fd.get("developmental_cognition") or {},
         "_prompt_bytes": len(prompt) + len(_FUNCTION_SEL_SYS),
         "_completion_bytes": len(raw or ""),
     }
@@ -2485,6 +2520,7 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
             "current_thesis": sel.get("current_thesis") or "",
             "thesis_is_verbatim": bool(sel.get("thesis_is_verbatim")),
             "functional_decision": functional_decision,
+            "developmental_cognition": sel.get("_developmental_cognition") or {},
             "function_spans": sel.get("_visible_interpretation") or {},
             "focus_region": sel.get("_focus_region") or "",
             "focus_portion": sel.get("_focus_portion") or "",
