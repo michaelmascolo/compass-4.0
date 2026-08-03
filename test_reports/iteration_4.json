@@ -1,0 +1,25 @@
+{
+  "summary": "Frontend-only verification of Compass 3.0 UI changes on ?preview=writing. All three behaviors verified: (1) assignment banner pinned at top on writing AND revision screens (sticky top=~68 after scroll, i.e. below header/behind sticky area = 0 relative to viewport top of main scroll); (2) writing canvas [data-testid=preview-document] auto-grows — measured clientHeight=460 == scrollHeight=460 (overflowY=hidden) with a ~130-word draft, no inner scrollbar; (3) no 'Canonical v2' / 'Legacy v2' badge in header (data-testid=preview-reasoning-mode-badge is absent, header only shows Compass logo + EXIT). Old writing-assignment-display block is confirmed removed.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped)", "frontend": "100% (7/7 checks passed)"},
+  "seed_data_creation": "None. Used ephemeral session via ?preview=writing with assignment about fixed mindset and a ~130-word draft.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "PublicPreview.jsx auto-grow (fitDoc, ~line 345) works correctly. Banner is rendered inside <main> as sticky top-0 (~line 692). Engine badge removed from header (~line 675). Verified end-to-end including 60-120s LLM turn — revision screen appeared within timeout and banner persisted.",
+  "measurements": {
+    "preview_document_clientHeight": 460,
+    "preview_document_scrollHeight": 460,
+    "preview_document_overflowY": "hidden",
+    "draft_length_chars": 809,
+    "banner_top_after_scroll_px": 68
+  }
+}

@@ -668,6 +668,10 @@ export default function PublicPreview({ mode = "ot" }) {
   const containerW = wide ? "max-w-5xl" : "max-w-2xl";
   const experienceActive = !!(session || otPhase || writingStarted || hasStudentTurn);
   const onEntryScreen = showStudentEntry || showAssignment;
+  // The question the learner is answering — kept pinned to the top of the screen the whole
+  // time they are writing / organizing / revising (never on welcome, assignment-entry, reflection).
+  const questionText = assignment || session?.assignment || "";
+  const showQuestionBanner = !!questionText && !showWelcome && !onEntryScreen && !inReflection;
   return (
     <div className="min-h-screen paper-grain flex flex-col items-center">
       {!showWelcome && (
@@ -689,6 +693,22 @@ export default function PublicPreview({ mode = "ot" }) {
       )}
 
       <main className={`w-full ${containerW} flex-1 flex flex-col px-6 pb-12`}>
+        {showQuestionBanner && (
+          <div
+            data-testid="assignment-banner"
+            className="sticky top-0 z-20 -mx-6 px-6 py-3 bg-[#faf9f6]/95 backdrop-blur-sm border-b border-stone-200"
+          >
+            <p className="font-mono-panel text-[10px] uppercase tracking-[0.18em] text-stone-400 mb-1">
+              Assignment
+            </p>
+            <p
+              data-testid="assignment-banner-text"
+              className="text-[14px] leading-snug text-stone-700 font-serif-display whitespace-pre-wrap max-h-28 overflow-y-auto custom-scroll"
+            >
+              {questionText}
+            </p>
+          </div>
+        )}
         {onEntryScreen && <WelcomeIntro />}
         {showWelcome ? (
           <WelcomeScreen onBegin={() => setEntered(true)} />
@@ -714,7 +734,6 @@ export default function PublicPreview({ mode = "ot" }) {
           />
         ) : showWriting ? (
           <WritingScreen
-            assignment={assignment}
             ot={otData || session?.ot}
             response={response}
             setResponse={setResponse}
@@ -1095,7 +1114,7 @@ function AssignmentScreen({ assignment, setAssignment, onContinue, onBack }) {
 // authentic assignment with one genuine first-draft paragraph. The assignment
 // is shown read-only; no live AI/grammar/autocomplete assistance appears; the
 // exact response is preserved. Submit hands off to the existing thinking state.
-function WritingScreen({ assignment, ot, response, setResponse, onSubmit, onBack, submitting }) {
+function WritingScreen({ ot, response, setResponse, onSubmit, onBack, submitting }) {
   const meaningful = response.trim().length >= 15;
   const hasOt = !!ot;
   return (
@@ -1115,20 +1134,6 @@ function WritingScreen({ assignment, ot, response, setResponse, onSubmit, onBack
         Respond to your assignment in one thoughtful paragraph. Write a genuine first draft. Do not
         try to make it perfect before Compass sees it.
       </p>
-
-      {!hasOt && (
-        <>
-          <p className="mt-7 font-mono-panel text-[11px] uppercase tracking-[0.14em] text-stone-500 mb-1.5">
-            Your assignment
-          </p>
-          <div
-            data-testid="writing-assignment-display"
-            className="bg-[#faf9f6] border border-stone-200 rounded-sm p-4 text-[15px] leading-relaxed text-stone-800 whitespace-pre-wrap font-serif-display"
-          >
-            {assignment}
-          </div>
-        </>
-      )}
 
       <label
         htmlFor="writing-input"
