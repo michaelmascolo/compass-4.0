@@ -340,6 +340,20 @@ export default function PublicPreview({ mode = "ot" }) {
     );
     return regs;
   }, [thesisRanges, elabRanges]);
+  // Auto-grow the writing canvas so the WHOLE draft is always visible (no inner scroll / cut-off).
+  // The overlay is absolute inset-0, so growing the textarea grows the container and keeps them aligned.
+  const fitDoc = useCallback(() => {
+    const el = docRef.current;
+    if (!el) return;
+    el.style.overflowY = "hidden";
+    el.style.height = "auto";
+    el.style.height = `${el.scrollHeight}px`;
+  }, []);
+  useEffect(() => {
+    fitDoc();
+    window.addEventListener("resize", fitDoc);
+    return () => window.removeEventListener("resize", fitDoc);
+  }, [fitDoc, draft, writingStarted, otPhase, session]);
   const started = !!session;
   const reviseCount = studentTurns.filter((t) => t.kind === "revise").length;
   // Chapter 6 — the "first encounter" is the learner's first draft and Compass's
