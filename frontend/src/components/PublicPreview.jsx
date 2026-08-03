@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { startPreview, getSession, interact, getNoticing, otStart, feedbackEvent } from "@/lib/api";
 import { metacognitionSequence } from "@/lib/writerMetacognition";
-import { findThesisRanges } from "@/lib/thesisMatch";
+import { findThesisRanges, snapRangesToSentences, subtractRanges } from "@/lib/thesisMatch";
 import ExperienceReflection from "@/components/ExperienceReflection";
 import TeacherReflection from "@/components/TeacherReflection";
 import OrganizingThought from "@/components/OrganizingThought";
@@ -261,13 +261,21 @@ export default function PublicPreview({ mode = "ot" }) {
   const activeThesis = activeCoaching?.current_thesis || "";
   const focusRegionText = activeCoaching?.focus_region || "";
   const focusPortionText = activeCoaching?.focus_portion || "";
-  const thesisRanges = useMemo(() => findThesisRanges(draft, activeThesis), [draft, activeThesis]);
-  // MVP: mark Thesis + Elaboration units (boxed label + shading); dotted underline = local focus.
+  const thesisRanges = useMemo(
+    () => snapRangesToSentences(draft, findThesisRanges(draft, activeThesis)),
+    [draft, activeThesis]
+  );
+  // MVP: mark Thesis (blue) + Elaboration (purple) units, each shaded to full sentence
+  // boundaries; dotted underline = the local focus passage inside the active unit.
   const focusName = activeCoaching?.focus_of_work || "";
   const functionSpans = activeCoaching?.function_spans || {};
   const elabText =
     functionSpans["Elaboration"] || (focusName === "Elaboration" ? focusRegionText : "");
-  const elabRanges = useMemo(() => findThesisRanges(draft, elabText), [draft, elabText]);
+  // Elaboration snapped to sentence boundaries, then clipped so it never overlaps the Thesis span.
+  const elabRanges = useMemo(
+    () => subtractRanges(snapRangesToSentences(draft, findThesisRanges(draft, elabText)), thesisRanges),
+    [draft, elabText, thesisRanges]
+  );
   const portionRanges = useMemo(
     () => (focusPortionText ? findThesisRanges(draft, focusPortionText) : []),
     [draft, focusPortionText]

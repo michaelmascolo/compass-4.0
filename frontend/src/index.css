@@ -18,23 +18,24 @@ body {
 }
 
 /* ---- Visible Interpretation (MVP): three nested levels of Compass's reasoning ----
-   L1 Function label  → the small boxed THESIS / ELABORATION identifier (::before);
-                        the label is the ONLY boxed element, floated above the first word
-                        so it never shifts or fragments the student's text.
-   L2 Whole unit      → subtle neutral shading across the ENTIRE function span (no box,
-                        continuous inline — the paragraph is never split into sections).
+   L1 Function label  → a small boxed label above the first word of each unit; the box outline
+                        + label colour identify the function (blue THESIS, purple ELABORATION).
+                        The label is the ONLY boxed element and never shifts the student's text.
+   L2 Whole unit      → a light colour-coded shade over the ENTIRE unit (blue thesis, purple
+                        elaboration), snapped to full sentence boundaries so it never splits a
+                        sentence and never separates the paragraph into sections.
    L3 Local focus     → a DOTTED UNDERLINE (+ a slightly stronger tint) on the one passage
                         Compass is currently discussing. Never a box; nothing else is underlined.
-   Shading carries no hue meaning (grayscale-safe: light shade vs slightly darker shade + dotted
-   underline; the LABEL identifies which function). Uses background + border-bottom (no outline,
-   no padding) so the transparent overlay stays character-aligned with the textarea. */
+   Uses background + border-bottom (no outline, no padding) so the transparent overlay stays
+   character-aligned with the editable textarea beneath it. */
 .vi-thesis-region,
 .vi-elab-region {
     position: relative;
-    background: rgba(120, 113, 108, 0.12); /* L2: subtle shading over the whole unit */
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
 }
+.vi-thesis-region { background: rgba(37, 99, 235, 0.11); }   /* L2: light blue thesis shade */
+.vi-elab-region   { background: rgba(147, 51, 234, 0.11); }  /* L2: light purple elaboration shade */
 .vi-thesis-region::before,
 .vi-elab-region::before {
     position: absolute;
@@ -45,20 +46,19 @@ body {
     line-height: 1;
     letter-spacing: 0.14em;
     font-weight: 600;
-    color: #44403c;
     background: #faf9f6;
     padding: 1px 3px;
-    border: 1px solid #44403c;
+    border: 1px solid;
     border-radius: 2px;
     white-space: nowrap;
     pointer-events: none;
 }
-.vi-thesis-region::before { content: "THESIS"; }
-.vi-elab-region::before { content: "ELABORATION"; }
+.vi-thesis-region::before { content: "THESIS"; color: #1d4ed8; border-color: #1d4ed8; }       /* blue */
+.vi-elab-region::before   { content: "ELABORATION"; color: #7e22ce; border-color: #7e22ce; }  /* purple */
 /* L3: the specific passage Compass is discussing now — a dotted underline, never a box. */
 .vi-focus-marker {
-    background: rgba(120, 113, 108, 0.20); /* slightly stronger tint within the shaded unit */
-    border-bottom: 2px dotted #57534e;     /* the dotted underline = current instructional focus */
+    background: rgba(147, 51, 234, 0.14); /* slightly stronger tint within the shaded unit */
+    border-bottom: 2px dotted #6b21a8;    /* the dotted underline = current instructional focus */
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
 }

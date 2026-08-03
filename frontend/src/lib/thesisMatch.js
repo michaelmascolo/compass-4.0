@@ -63,3 +63,48 @@ export function findThesisRanges(draft, thesis) {
   }
   return mergeRanges(ranges);
 }
+
+// Expand each [start,end] outward to FULL sentence boundaries so a shaded communicative
+// unit never splits a sentence (Visible Interpretation rule 4). Sentence terminators are
+// . ! ? plus any trailing closing quotes/brackets; leading/trailing whitespace is trimmed.
+export function snapRangesToSentences(draft, ranges) {
+  if (!draft || !ranges || !ranges.length) return ranges || [];
+  const n = draft.length;
+  const isTerm = (ch) => ch === "." || ch === "!" || ch === "?";
+  const closers = "\"'”’)]";
+  const out = ranges.map(([s0, e0]) => {
+    const s = Math.max(0, Math.min(s0, n));
+    const e = Math.max(0, Math.min(e0, n));
+    // expand start LEFT to just after the previous sentence terminator
+    let i = s - 1;
+    while (i >= 0 && !isTerm(draft[i])) i--;
+    let start = i + 1;
+    // expand end RIGHT through the terminator that ends this sentence (+ closing marks)
+    let j = Math.max(e - 1, start);
+    while (j < n && !isTerm(draft[j])) j++;
+    while (j < n && (isTerm(draft[j]) || closers.includes(draft[j]))) j++;
+    let end = Math.min(n, j);
+    // trim surrounding whitespace so shading hugs the text
+    while (start < end && /\s/.test(draft[start])) start++;
+    while (end > start && /\s/.test(draft[end - 1])) end--;
+    return [start, end];
+  });
+  return mergeRanges(out);
+}
+
+// Remove any part of `ranges` that overlaps a `blockers` range (e.g. keep the
+// Elaboration span from overlapping the Thesis span). Returns clipped [start,end]s.
+export function subtractRanges(ranges, blockers) {
+  if (!ranges || !ranges.length || !blockers || !blockers.length) return ranges || [];
+  let out = [...ranges];
+  for (const [bs, be] of blockers) {
+    const next = [];
+    for (const [s, e] of out) {
+      if (e <= bs || s >= be) { next.push([s, e]); continue; } // no overlap
+      if (s < bs) next.push([s, bs]);   // keep the part before the blocker
+      if (e > be) next.push([be, e]);   // keep the part after the blocker
+    }
+    out = next;
+  }
+  return out.filter(([s, e]) => e > s);
+}
