@@ -1777,9 +1777,12 @@ _FUNCTION_SEL_SYS = (
     "Fischer dynamic-skill terms (single representations / representational mappings / representational "
     "systems / single abstractions / abstract mappings / abstract systems), the current instructional "
     "horizon, the next reachable developmental move, and what is probably beyond the horizon, each with "
-    "a confidence (high/medium/low). This object is DEVELOPER-FACING ONLY: it is never shown to the "
+    "a confidence (high/medium/low) AND an evidence list — 1-4 short observations grounded in what the "
+    "student ACTUALLY wrote (specific moves, quoted or closely paraphrased) that justify each estimate, "
+    "so the reasoning (not only the conclusion) can be calibrated. This object is DEVELOPER-FACING "
+    "ONLY: it is never shown to the "
     "learner and MUST NOT change your coaching decision, selected_function, or invitation. Estimate "
-    "honestly; use \"\" / low confidence when unsure. Do not let it influence any other field.\n"
+    "honestly; use \"\" / low confidence / [] evidence when unsure. Do not let it influence any other field.\n"
     "\n"
     "PROVISIONAL JUDGMENT: separate OBSERVED features (words actually on the page) from HYPOTHESIZED "
     "interpretation; do not infer fixed traits or mindset as fact. Give confidence high|medium|low (no "
@@ -1934,7 +1937,15 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         '"orientation_target_confirmed": "high|medium|low", "conceptual_organization": "high|medium|low", '
         '"communicative_organization": "high|medium|low", "coordinative_capacity": "high|medium|low", '
         '"instructional_horizon": "high|medium|low", "reachable_next_move": "high|medium|low", '
-        '"beyond_horizon": "high|medium|low"}},\n'
+        '"beyond_horizon": "high|medium|low"}, '
+        '"evidence": {"orientation_target_interpretation": ["1-4 SHORT evidence observations grounded in '
+        'what the student ACTUALLY wrote (quote or closely paraphrase the specific moves) that justify '
+        'this estimate"], "orientation_target_confirmed": ["evidence from the student\'s revision/'
+        'challenge, or [] if unconfirmed"], "conceptual_organization": ["evidence bullets"], '
+        '"communicative_organization": ["evidence bullets"], "coordinative_capacity": ["evidence '
+        'bullets — cite which relations the writer did / did not coordinate"], "instructional_horizon": '
+        '["evidence bullets"], "reachable_next_move": ["evidence bullets"], "beyond_horizon": ["evidence '
+        'bullets"]}},\n'
         '  "confidence": "high|medium|low"\n'
         "}"
     )

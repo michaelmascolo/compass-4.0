@@ -11,6 +11,7 @@ import {
 import { startPreview, getSession, interact, getNoticing, otStart, feedbackEvent } from "@/lib/api";
 import { metacognitionSequence } from "@/lib/writerMetacognition";
 import { findThesisRanges, snapRangesToSentences, subtractRanges, locateUnit } from "@/lib/thesisMatch";
+import DevCognitionPanel from "@/components/DevCognitionPanel";
 import ExperienceReflection from "@/components/ExperienceReflection";
 import TeacherReflection from "@/components/TeacherReflection";
 import OrganizingThought from "@/components/OrganizingThought";
@@ -50,6 +51,9 @@ const FUNCTION_QUESTIONS = {
 // diagram with ?diagram in the URL (no permanent visualization until use shows one is needed).
 const SHOW_COMMUNICATIVE_DIAGRAM =
   typeof window !== "undefined" && new URLSearchParams(window.location.search).has("diagram");
+// DEV-ONLY (Sprint 4.0-2): expose the hidden Developmental Cognition Object via ?dco in the URL.
+const SHOW_DCO =
+  typeof window !== "undefined" && new URLSearchParams(window.location.search).has("dco");
 
 const OrientationMarker = ({ state }) => {
   if (state === "established")
@@ -238,6 +242,7 @@ function renderInterpretationSegments(text, regions, portionRanges, focusClass =
 
 export default function PublicPreview({ mode = "ot" }) {
   const [session, setSession] = useState(null);
+  const [dcoOpen, setDcoOpen] = useState(false); // dev-only Developmental Cognition panel (?dco)
   const [assignment, setAssignment] = useState("");   // Ch4 — the educator's authentic assignment (authoritative task)
   const [response, setResponse] = useState("");        // Ch4 — the one-paragraph response written on the Writing Screen
   const [draft, setDraft] = useState("");
@@ -701,6 +706,41 @@ export default function PublicPreview({ mode = "ot" }) {
   const showQuestionBanner = !!questionText && !showWelcome && !onEntryScreen && !inReflection;
   return (
     <div className="min-h-screen paper-grain flex flex-col items-center">
+      {SHOW_DCO && session?.id && (
+        <>
+          <button
+            data-testid="view-developmental-cognition-button"
+            onClick={() => setDcoOpen((v) => !v)}
+            title="Developer only — inspect Compass's hidden Developmental Cognition Object"
+            style={{
+              position: "fixed",
+              left: 16,
+              bottom: 16,
+              zIndex: 60,
+              padding: "8px 12px",
+              fontFamily: "ui-monospace, 'IBM Plex Mono', monospace",
+              fontSize: 11,
+              fontWeight: 600,
+              letterSpacing: "0.04em",
+              color: "#e7e5e4",
+              background: "#1c1917",
+              border: "1px solid #57534e",
+              borderRadius: 8,
+              boxShadow: "0 6px 18px rgba(0,0,0,0.35)",
+              cursor: "pointer",
+            }}
+          >
+            {dcoOpen ? "Hide" : "View"} Developmental Cognition
+          </button>
+          {dcoOpen && (
+            <DevCognitionPanel
+              sessionId={session.id}
+              turnKey={activeCoaching?.id}
+              onClose={() => setDcoOpen(false)}
+            />
+          )}
+        </>
+      )}
       {!showWelcome && (
         <header className={`w-full ${containerW} flex items-center justify-between px-6 py-5`}>
           <div className="flex items-center gap-2 font-serif-display text-lg text-stone-800">

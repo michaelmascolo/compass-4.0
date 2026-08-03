@@ -89,6 +89,13 @@ export const getTeacherReflection = async (id) => {
   return data;
 };
 
+// DEV-ONLY (Sprint 4.0-1 calibration): the functional_v3 reasoning trace, including the hidden
+// Developmental Cognition Object per turn. Not linked from normal UI.
+export const getFunctionalTrace = async (id) => {
+  const { data } = await axios.get(`${API}/dev/functional-v3-trace/${id}`);
+  return data;
+};
+
 export const getNoticing = async (id) => {
   const { data } = await axios.post(`${API}/sessions/${id}/noticing`);
   return data;
