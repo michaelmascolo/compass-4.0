@@ -17,36 +17,36 @@ body {
     font-family: "IBM Plex Mono", monospace;
 }
 
-/* ---- Visible Interpretation (MVP): three nested levels of Compass's reasoning ----
-   L1 Function label  → a small boxed label above the first word of each unit; the box outline
-                        + label colour identify the function (blue THESIS, orange ELABORATION;
-                        blue vs orange is a colour-blind-safe pair, also separable in luminance).
-   L2 Whole unit      → a light colour-coded shade + a thin BOX (inset box-shadow, so it adds no
-                        layout width and the overlay stays char-aligned) around the ENTIRE unit,
-                        snapped to full sentence boundaries so it never splits a sentence and the
-                        paragraph is never separated into sections.
-   L3 Local focus     → a DOTTED UNDERLINE coloured to match the unit it sits in (blue in thesis,
-                        orange in elaboration) on the one passage Compass is discussing. No extra
-                        tint — the unit's shade stays uniform; whitespace is never underlined.
+/* ---- Visible Interpretation: three nested levels of Compass's reasoning ----
+   L1 Function label  → a small boxed label above the first word of each unit; the label TEXT comes
+                        from data-label so it names the actual structure (THESIS / ELABORATION /
+                        EVIDENCE / CONCLUSION / OPENING). Box outline + colour identify the role.
+   L2 Whole unit      → a light colour-coded shade + a thin BOX (inset box-shadow, no layout width)
+                        around the ENTIRE unit, snapped to full sentence boundaries. THESIS is blue
+                        (the organizing center); the CURRENT WORKING UNIT is orange — whichever
+                        structure Compass is focused on — so the worked-on unit is ALWAYS shaded as
+                        Compass iterates. Blue vs orange is a colour-blind-safe, luminance-separable pair.
+   L3 Local focus     → a DOTTED UNDERLINE coloured to match its unit (blue thesis / orange working
+                        unit) on the one passage under discussion. No extra tint (uniform shade);
+                        whitespace is never underlined.
    Uses background + box-shadow + border-bottom (no border/outline/padding that would add layout
    width) so the transparent overlay stays character-aligned with the editable textarea beneath. */
-.vi-thesis-region,
-.vi-elab-region {
+.vi-region {
     position: relative;
     border-radius: 2px;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
 }
-.vi-thesis-region {
+.vi-region-thesis {
     background: rgba(37, 99, 235, 0.11);            /* L2: light blue thesis shade */
     box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.60);  /* L2: thin blue box (no layout shift) */
 }
-.vi-elab-region {
-    background: rgba(234, 88, 12, 0.15);            /* L2: light ORANGE elaboration shade (colour-blind-safe vs blue) */
+.vi-region-active {
+    background: rgba(234, 88, 12, 0.15);            /* L2: light ORANGE working-unit shade (colour-blind-safe vs blue) */
     box-shadow: inset 0 0 0 1px rgba(234, 88, 12, 0.60);  /* L2: thin orange box (no layout shift) */
 }
-.vi-thesis-region::before,
-.vi-elab-region::before {
+.vi-region::before {
+    content: attr(data-label);
     position: absolute;
     top: -1.15em;
     left: -1px;
@@ -63,8 +63,8 @@ body {
     pointer-events: none;
     z-index: 1;
 }
-.vi-thesis-region::before { content: "THESIS"; color: #1d4ed8; border-color: #1d4ed8; }       /* blue */
-.vi-elab-region::before   { content: "ELABORATION"; color: #c2410c; border-color: #c2410c; }  /* orange */
+.vi-region-thesis::before { color: #1d4ed8; border-color: #1d4ed8; }  /* blue */
+.vi-region-active::before { color: #c2410c; border-color: #c2410c; }  /* orange */
 /* L3: the specific passage Compass is discussing now — a DOTTED UNDERLINE only, coloured to
    match its unit. No background tint here, so the unit's shading stays perfectly uniform. */
 .vi-focus-marker {
@@ -73,7 +73,7 @@ body {
     box-decoration-break: clone;
 }
 .vi-focus-thesis { border-bottom-color: #1d4ed8; }  /* blue focus underline */
-.vi-focus-elab   { border-bottom-color: #c2410c; }  /* orange focus underline */
+.vi-focus-active { border-bottom-color: #c2410c; }  /* orange focus underline */
 
 
 /* paper grain */

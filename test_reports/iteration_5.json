@@ -1,0 +1,22 @@
+{
+  "summary": "Verified multi-turn Visible Interpretation shading on the '?preview=writing' student flow. Submitted an assignment, a first draft, and three consecutive revisions (4 total AI turns). On every turn the working-unit region [data-testid=vi-active-region] was present with a non-zero bounding box and dynamic uppercase label 'ELABORATION'. The shaded region tracked the growing draft (heights 237px -> 309px -> 381px -> 381px across turns), confirming the whitespace-tolerant + first/last-sentence-anchor locator (locateSpanLoose / locateUnit) keeps matching as the unit lengthens. The bug reported by the user ('Compass stops shading the unit it is working on across iterations') is NOT reproducible with the current fix.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "PublicPreview.jsx is ~1332 lines — consider splitting the Visible Interpretation overlay (regions, ranges, portion logic) into its own component/hook for maintainability.",
+    "vi-thesis-region only appears when focus is Thesis OR the thesis snippet is located; in this run Compass stayed on ELABORATION for all 4 turns so vi-thesis-region was consistently null. This is spec-correct (thesis is handled separately) but worth documenting so downstream tests don't flag its absence as a regression."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a (skipped)", "frontend": "100% (4/4 turns shaded)"},
+  "seed_data_creation": "None; used ephemeral session started from ?preview=writing.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Multi-turn shading persistence confirmed across 4 turns (draft + 3 revisions). Per-turn state: Turn1 active=ELABORATION w=543 h=237; Turn2 w=543 h=309; Turn3 w=544 h=381; Turn4 w=544 h=381. Send button becomes enabled only when draft.trim() && dirty && !busy — always wait until innerText != 'Reading…' before clicking. AI turn takes ~28-38s per revision on this environment. Textarea data-testid='preview-document' is the source of truth for draft; overlay lives in sibling data-testid='preview-document-highlight'.",
+  "rca of the issue": "Reported bug (working unit un-shades across iterations) was RCA'd to a brittle exact-substring locator that broke once the paragraph grew / was re-wrapped by the engine. Fix in /app/frontend/src/lib/thesisMatch.js introduces locateSpanLoose (whitespace-tolerant compare) with a first+last-sentence anchor fallback and token fallback; interpretationRegions in PublicPreview.jsx now emits a single contiguous vi-region-active per turn. Verified working across 3 consecutive revisions."
+}

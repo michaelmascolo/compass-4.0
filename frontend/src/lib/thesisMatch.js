@@ -23,6 +23,53 @@ function mergeRanges(ranges) {
   return out;
 }
 
+// Whitespace-tolerant locator: find `text` inside `draft` ignoring differences in runs of
+// whitespace (a stored verbatim span may use different spaces/newlines than the evolving draft).
+// Returns [start, end] in ORIGINAL draft indices, or null. Robust for LONG multi-sentence spans
+// where exact substring matching fails as the draft is revised.
+export function locateSpanLoose(draft, text) {
+  if (!draft || !text) return null;
+  const strip = text.trim().replace(/^["'“”‘’]+|["'“”‘’]+$/g, "").trim();
+  if (!strip) return null;
+  const map = []; // map[i] = original index of normalized char i
+  let ndraft = "";
+  let prevWs = false;
+  for (let i = 0; i < draft.length; i++) {
+    const ch = draft[i];
+    if (/\s/.test(ch)) {
+      if (!prevWs) { ndraft += " "; map.push(i); prevWs = true; }
+    } else { ndraft += ch.toLowerCase(); map.push(i); prevWs = false; }
+  }
+  const ntext = strip.replace(/\s+/g, " ").toLowerCase();
+  const idx = ndraft.indexOf(ntext);
+  if (idx < 0) return null;
+  const start = map[idx];
+  const endMap = map[Math.min(idx + ntext.length - 1, map.length - 1)];
+  return [start, endMap + 1];
+}
+
+// Locate a whole communicative UNIT (thesis / elaboration / evidence / …) in the draft, robust to
+// length and revision drift: (1) loose full match; (2) anchor via first + last sentence of the
+// text so a long unit is still bounded even if the middle changed; (3) token-overlap fallback.
+// Returns [start, end] or null.
+export function locateUnit(draft, text) {
+  if (!draft || !text) return null;
+  const full = locateSpanLoose(draft, text);
+  if (full) return full;
+  const sentences = (text.match(/[^.!?]+[.!?]*/g) || []).map((s) => s.trim()).filter((s) => s.length > 3);
+  if (sentences.length) {
+    const first = locateSpanLoose(draft, sentences[0]);
+    const last = locateSpanLoose(draft, sentences[sentences.length - 1]);
+    const anchors = [first, last].filter(Boolean);
+    if (anchors.length) {
+      return [Math.min(...anchors.map((r) => r[0])), Math.max(...anchors.map((r) => r[1]))];
+    }
+  }
+  const fb = findThesisRanges(draft, text);
+  if (fb.length) return [Math.min(...fb.map((r) => r[0])), Math.max(...fb.map((r) => r[1]))];
+  return null;
+}
+
 export function findThesisRanges(draft, thesis) {
   if (!draft || !thesis) return [];
 

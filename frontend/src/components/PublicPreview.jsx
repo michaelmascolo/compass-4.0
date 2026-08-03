@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { startPreview, getSession, interact, getNoticing, otStart, feedbackEvent } from "@/lib/api";
 import { metacognitionSequence } from "@/lib/writerMetacognition";
-import { findThesisRanges, snapRangesToSentences, subtractRanges } from "@/lib/thesisMatch";
+import { findThesisRanges, snapRangesToSentences, subtractRanges, locateUnit } from "@/lib/thesisMatch";
 import ExperienceReflection from "@/components/ExperienceReflection";
 import TeacherReflection from "@/components/TeacherReflection";
 import OrganizingThought from "@/components/OrganizingThought";
@@ -221,7 +221,12 @@ function renderInterpretationSegments(text, regions, portionRanges, focusClass =
   sorted.forEach((r, idx) => {
     if (r.start > cursor) out.push(renderWithUnderline(cursor, r.start, `pre-${idx}`));
     out.push(
-      <mark key={`region-${idx}`} data-testid={r.testid} className={`${r.className} text-transparent`}>
+      <mark
+        key={`region-${idx}`}
+        data-testid={r.testid}
+        data-label={r.label}
+        className={`${r.className} text-transparent`}
+      >
         {renderWithUnderline(r.start, r.end, `reg-${idx}`)}
       </mark>
     );
@@ -275,44 +280,52 @@ export default function PublicPreview({ mode = "ot" }) {
   const activeThesis = activeCoaching?.current_thesis || "";
   const focusRegionText = activeCoaching?.focus_region || "";
   const focusPortionText = activeCoaching?.focus_portion || "";
-  const thesisRanges = useMemo(
-    () => snapRangesToSentences(draft, findThesisRanges(draft, activeThesis)),
-    [draft, activeThesis]
-  );
-  // MVP: mark Thesis (blue) + Elaboration (purple) units, each shaded to full sentence
-  // boundaries; dotted underline = the local focus passage inside the active unit.
+  const thesisRanges = useMemo(() => {
+    const r = locateUnit(draft, activeThesis);
+    return r ? snapRangesToSentences(draft, [r]) : [];
+  }, [draft, activeThesis]);
+  // Shade the THESIS (blue, the organizing center) + the CURRENT WORKING UNIT (orange, labelled by
+  // its actual structure). The working unit is whatever function Compass is focused on this turn —
+  // Elaboration, Evidence, Conclusion, Opening — so it is ALWAYS shaded as Compass iterates.
   const focusName = activeCoaching?.focus_of_work || "";
   const functionSpans = useMemo(() => activeCoaching?.function_spans || {}, [activeCoaching]);
-  // Elaboration signals: the verbatim elaboration span + (when Elaboration is the focus) the
-  // whole current elaboration region. We union them into ONE contiguous span so the ENTIRE
-  // elaboration is shaded and labeled — never a fragment.
-  const elabSignals = useMemo(() => {
+  const FOCUS_LABELS = {
+    Opening: "OPENING",
+    Thesis: "THESIS",
+    Elaboration: "ELABORATION",
+    "Evidence / Example": "EVIDENCE",
+    Conclusion: "CONCLUSION",
+  };
+  const focusLabel = FOCUS_LABELS[focusName] || (focusName || "").toUpperCase();
+  const isThesisFocus = focusName === "Thesis" || !focusName;
+  // Working-unit signals: the verbatim span of the focused function + its focus region. Union into
+  // ONE contiguous span so the ENTIRE working unit is shaded/labelled — never a fragment.
+  const activeUnitSignals = useMemo(() => {
     const arr = [];
-    if (functionSpans["Elaboration"]) arr.push(functionSpans["Elaboration"]);
-    if (focusName === "Elaboration" && focusRegionText) arr.push(focusRegionText);
+    if (isThesisFocus) return arr; // thesis handled separately (blue)
+    if (functionSpans[focusName]) arr.push(functionSpans[focusName]);
+    if (focusRegionText) arr.push(focusRegionText);
     return arr;
-  }, [functionSpans, focusName, focusRegionText]);
-  const elabRanges = useMemo(() => {
-    let matches = [];
-    elabSignals.forEach((t) => {
-      matches = matches.concat(findThesisRanges(draft, t));
-    });
-    matches = matches.filter(([s, e]) => e > s);
-    if (!matches.length) return [];
-    const start = Math.min(...matches.map((r) => r[0]));
-    const end = Math.max(...matches.map((r) => r[1]));
-    // ONE contiguous span (earliest→latest elaboration sentence), snapped to full sentences,
-    // then clipped so it never overlaps the Thesis span (spec: elaboration begins after thesis).
+  }, [functionSpans, focusName, focusRegionText, isThesisFocus]);
+  const activeUnitRanges = useMemo(() => {
+    const spans = activeUnitSignals.map((t) => locateUnit(draft, t)).filter(Boolean);
+    if (!spans.length) return [];
+    const start = Math.min(...spans.map((r) => r[0]));
+    const end = Math.max(...spans.map((r) => r[1]));
+    // ONE contiguous span (earliest→latest matched sentence), snapped to full sentences,
+    // then clipped so it never overlaps the Thesis span.
     const span = snapRangesToSentences(draft, [[start, end]]);
     return subtractRanges(span, thesisRanges);
-  }, [draft, elabSignals, thesisRanges]);
-  // Focus portion: the one passage under discussion (spec L3). When the engine leaves
-  // focus_portion empty it means the WHOLE focus region is the focus — fall back to it.
+  }, [draft, activeUnitSignals, thesisRanges]);
+  // Focus portion: the one passage under discussion (L3). When the engine leaves focus_portion
+  // empty it means the WHOLE focus region is the focus — fall back to it.
   const portionText = focusPortionText || focusRegionText;
-  const activeUnitRanges = focusName === "Thesis" ? thesisRanges : elabRanges;
+  const hostRanges = isThesisFocus ? thesisRanges : activeUnitRanges;
   const portionRanges = useMemo(() => {
     if (!portionText) return [];
-    const raw = findThesisRanges(draft, portionText).map(([s, e]) => {
+    const loose = locateUnit(draft, portionText);
+    const found = loose ? [loose] : findThesisRanges(draft, portionText);
+    const raw = found.map(([s, e]) => {
       let a = s;
       let b = e;
       while (a < b && /\s/.test(draft[a])) a++;
@@ -322,24 +335,38 @@ export default function PublicPreview({ mode = "ot" }) {
     // keep the underline inside the active communicative unit only
     return raw
       .map(([s, e]) => {
-        const host = (activeUnitRanges || []).find((r) => s < r[1] && e > r[0]);
+        const host = (hostRanges || []).find((r) => s < r[1] && e > r[0]);
         return host ? [Math.max(s, host[0]), Math.min(e, host[1])] : null;
       })
       .filter((r) => r && r[1] > r[0]);
-  }, [draft, portionText, activeUnitRanges]);
-  // Which unit is the focus inside → colour the dotted underline to match (blue thesis / purple elab).
-  const focusClass = focusName === "Thesis" ? "vi-focus-thesis" : "vi-focus-elab";
-  // Regions (single element each so the label renders once). Thesis and Elaboration only.
+  }, [draft, portionText, hostRanges]);
+  // Underline colour matches its unit: blue inside the thesis, orange inside the working unit.
+  const focusClass = isThesisFocus ? "vi-focus-thesis" : "vi-focus-active";
+  // Regions (single element each so the label renders once): Thesis (blue) + working unit (orange).
   const interpretationRegions = useMemo(() => {
     const regs = [];
     thesisRanges.forEach(([s, e]) =>
-      regs.push({ start: s, end: e, className: "vi-thesis-region", testid: "vi-thesis-region" })
+      regs.push({
+        start: s,
+        end: e,
+        className: "vi-region vi-region-thesis",
+        label: "THESIS",
+        testid: "vi-thesis-region",
+      })
     );
-    elabRanges.forEach(([s, e]) =>
-      regs.push({ start: s, end: e, className: "vi-elab-region", testid: "vi-elab-region" })
-    );
+    if (!isThesisFocus) {
+      activeUnitRanges.forEach(([s, e]) =>
+        regs.push({
+          start: s,
+          end: e,
+          className: "vi-region vi-region-active",
+          label: focusLabel || "WORKING",
+          testid: "vi-active-region",
+        })
+      );
+    }
     return regs;
-  }, [thesisRanges, elabRanges]);
+  }, [thesisRanges, activeUnitRanges, isThesisFocus, focusLabel]);
   // Auto-grow the writing canvas so the WHOLE draft is always visible (no inner scroll / cut-off).
   // The overlay is absolute inset-0, so growing the textarea grows the container and keeps them aligned.
   const fitDoc = useCallback(() => {
