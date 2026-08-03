@@ -7,7 +7,7 @@ import logging
 import uuid
 from pathlib import Path
 from datetime import datetime, timezone
-from typing import List, Optional
+from typing import List, Optional, Dict
 
 from fastapi import FastAPI, APIRouter, HTTPException, Query, Response
 from dotenv import load_dotenv
@@ -614,6 +614,9 @@ class Turn(BaseModel):
     current_thesis: str = ""  # learner's current thesis (organizing center) for the "Your Thesis" panel
     thesis_is_verbatim: bool = False  # True = exact learner quote (label "YOUR THESIS"); False = Compass paraphrase
     established_structures: List[str] = Field(default_factory=list)  # canonical primaries already developmentally sufficient
+    function_spans: Dict[str, str] = Field(default_factory=dict)  # Visible Interpretation: {structure: verbatim learner text}
+    focus_region: str = ""  # verbatim text of the ENTIRE communicative function currently in focus
+    focus_portion: str = ""  # smaller verbatim span within focus_region worked on this turn
     created_at: str = Field(default_factory=now_iso)
 
 
@@ -3699,6 +3702,14 @@ async def _finalize_structure_v5(session_id: str, ai_turn_id: str, req: Interact
                 t.thesis_is_verbatim = bool((result.get("decision", {}) or {}).get("thesis_is_verbatim"))
                 t.established_structures = _canonical_established(
                     (result.get("decision", {}) or {}).get("established_structures") or [], _focus)
+            # Visible Interpretation (functional_v3): expose the highlighted spans regardless of focus
+            _dec = result.get("decision", {}) or {}
+            if COMPASS_ENGINE == "functional_v3":
+                t.function_spans = {k: v for k, v in (_dec.get("function_spans") or {}).items() if v}
+                t.focus_region = _dec.get("focus_region") or ""
+                t.focus_portion = _dec.get("focus_portion") or ""
+                if not t.current_thesis:
+                    t.current_thesis = _dec.get("current_thesis") or ""
             break
     session2.updated_at = now_iso()
     await db.sessions.update_one(

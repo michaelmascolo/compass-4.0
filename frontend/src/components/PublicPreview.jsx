@@ -156,27 +156,56 @@ const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, esta
   );
 };
 
-// Render the draft with the recognized thesis sentence(s) wrapped in a subtle
-// highlight. Used as a transparent-text overlay behind the editable textarea so the
-// tint sits under the learner's own words without altering them.
-function renderThesisSegments(text, ranges) {
-  if (!ranges || ranges.length === 0) return text;
-  const out = [];
-  let cursor = 0;
-  ranges.forEach(([s, e], i) => {
-    if (s > cursor) out.push(text.slice(cursor, s));
-    out.push(
-      <mark
-        key={`thesis-${i}`}
-        data-testid="thesis-highlight"
-        className="bg-[#f3e2c0] text-transparent rounded-[2px] box-decoration-clone"
-      >
-        {text.slice(s, e)}
-      </mark>
-    );
-    cursor = e;
+// Visible Interpretation overlay. Renders the draft as transparent text behind the
+// editable textarea, with accessible (non-color-only) markers layered by priority:
+//   • region  — the ENTIRE communicative function Compass is currently evaluating
+//                (subtle shading + dashed underline)
+//   • portion — the specific part in instructional focus, inside the region
+//                (stronger shading + solid underline)
+//   • thesis  — the recognized thesis, when it is not itself the region (light tint)
+// The learner can always see exactly which writing Compass is reading.
+const LAYER_CLASS = {
+  thesis: "bg-[#f3e2c0]/70 text-transparent rounded-[2px] box-decoration-clone",
+  region:
+    "bg-amber-100/50 text-transparent rounded-[2px] box-decoration-clone [border-bottom:1px_dashed_#b45309]",
+  portion:
+    "bg-amber-200/70 text-transparent rounded-[2px] box-decoration-clone [border-bottom:2px_solid_#8C3A2A]",
+};
+
+function renderInterpretationSegments(text, layers) {
+  if (!text) return text;
+  const n = text.length;
+  const cls = new Array(n).fill(null);
+  // layers are given low → high priority
+  layers.forEach((layer, pri) => {
+    (layer.ranges || []).forEach(([s, e]) => {
+      for (let i = Math.max(0, s); i < Math.min(n, e); i++) {
+        if (cls[i] === null || pri >= cls[i].pri) cls[i] = { kind: layer.kind, pri };
+      }
+    });
   });
-  if (cursor < text.length) out.push(text.slice(cursor));
+  const out = [];
+  let i = 0;
+  while (i < n) {
+    const cur = cls[i];
+    let j = i + 1;
+    while (j < n && ((cls[j] && cur && cls[j].kind === cur.kind) || (!cls[j] && !cur))) j++;
+    const chunk = text.slice(i, j);
+    if (cur) {
+      out.push(
+        <mark
+          key={`vi-${i}`}
+          data-testid={`vi-${cur.kind}-highlight`}
+          className={LAYER_CLASS[cur.kind]}
+        >
+          {chunk}
+        </mark>
+      );
+    } else {
+      out.push(chunk);
+    }
+    i = j;
+  }
   return out;
 }
 
@@ -222,7 +251,20 @@ export default function PublicPreview({ mode = "ot" }) {
   const docRef = useRef(null);
   const highlightRef = useRef(null);
   const activeThesis = activeCoaching?.current_thesis || "";
+  const focusRegionText = activeCoaching?.focus_region || "";
+  const focusPortionText = activeCoaching?.focus_portion || "";
   const thesisRanges = useMemo(() => findThesisRanges(draft, activeThesis), [draft, activeThesis]);
+  const regionRanges = useMemo(() => findThesisRanges(draft, focusRegionText), [draft, focusRegionText]);
+  const portionRanges = useMemo(() => findThesisRanges(draft, focusPortionText), [draft, focusPortionText]);
+  // Visible Interpretation layers (low → high priority): thesis tint, function region, focus portion.
+  const interpretationLayers = useMemo(
+    () => [
+      { kind: "thesis", ranges: thesisRanges },
+      { kind: "region", ranges: regionRanges },
+      { kind: "portion", ranges: portionRanges },
+    ],
+    [thesisRanges, regionRanges, portionRanges]
+  );
   const started = !!session;
   const reviseCount = studentTurns.filter((t) => t.kind === "revise").length;
   // Chapter 6 — the "first encounter" is the learner's first draft and Compass's
@@ -638,7 +680,7 @@ export default function PublicPreview({ mode = "ot" }) {
                 data-testid="preview-document-highlight"
                 className="absolute inset-0 overflow-hidden pointer-events-none px-7 sm:px-10 py-8 text-[17px] leading-9 font-serif-display whitespace-pre-wrap break-words text-transparent"
               >
-                {renderThesisSegments(draft, thesisRanges)}
+                {renderInterpretationSegments(draft, interpretationLayers)}
                 {"\n"}
               </div>
               <textarea
@@ -722,6 +764,28 @@ export default function PublicPreview({ mode = "ot" }) {
                       thesisVerbatim={activeCoaching.thesis_is_verbatim}
                       established={activeCoaching.established_structures || []}
                     />
+                  )}
+                  {(focusRegionText || activeThesis) && (
+                    <div
+                      data-testid="preview-interpretation-legend"
+                      className="mb-3 rounded-md border border-stone-200 bg-stone-50/70 px-3 py-2 text-[11px] leading-relaxed text-stone-600"
+                    >
+                      <div className="font-mono-panel uppercase tracking-[0.12em] text-[10px] text-stone-400 mb-1">
+                        What Compass is reading
+                      </div>
+                      <span className="inline-flex items-center gap-1.5 mr-4">
+                        <span className="inline-block w-6 h-3 rounded-[2px] bg-amber-100/60 [border-bottom:1px_dashed_#b45309]" />
+                        the whole {(activeCoaching.focus_of_work || "function").toLowerCase()} it is evaluating
+                      </span>
+                      <span className="inline-flex items-center gap-1.5">
+                        <span className="inline-block w-6 h-3 rounded-[2px] bg-amber-200/80 [border-bottom:2px_solid_#8C3A2A]" />
+                        the part in focus right now
+                      </span>
+                      <div className="mt-1.5 text-stone-500">
+                        Marked on your writing above. Think Compass is reading it wrong? Use{" "}
+                        <span className="font-semibold text-stone-700">Reply</span> to say so (e.g. "I already elaborated") and it will reconsider.
+                      </div>
+                    </div>
                   )}
                   <p
                     data-testid="preview-coaching-invitation"

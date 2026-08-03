@@ -1226,7 +1226,8 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
                             kind: str, action: str = "scaffold",
                             mode: str = "first_turn", sufficiency: str = "continue",
                             rescue: bool = False, prior_student_text: str = "",
-                            elaboration_context: str = "") -> str:
+                            elaboration_context: str = "", reconsideration_context: str = "",
+                            learner_message: str = "") -> str:
     src = _resolve_teaching_source(structure, obj)
     disp = src["display_name"]
     _action_hint = {
@@ -1478,10 +1479,12 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
         f"UNIT: {unit or 'one paragraph'}\n"
         f"THE WRITER JUST {('REVISED' if kind == 'revise' else 'WROTE' if kind in ('writing','continue') else 'RESPONDED')}:\n"
         f"\"\"\"\n{student_text}\n\"\"\"\n\n"
-        f"{_mode_block}\n"
+        + (f"THE LEARNER'S MESSAGE THIS TURN (respond to it directly):\n\"\"\"\n{learner_message.strip()}\n\"\"\"\n\n" if (learner_message or '').strip() else "")
+        + f"{_mode_block}\n"
         f"{_support_block}\n"
         f"{_elab_block}"
         f"{elaboration_context}"
+        f"{reconsideration_context}"
         f"{_ops_block}"
         f"THE INSTRUCTIONAL DECISION IS ALREADY MADE. Help the writer build exactly this — do not "
         f"reconsider or broaden it. Use ONLY this canonical structure name with the learner; never use "
@@ -1734,13 +1737,35 @@ _FUNCTION_SEL_SYS = (
     "interpretation; do not infer fixed traits or mindset as fact. Give confidence high|medium|low (no "
     "numbers). Ground every judgment in the actual words on the page.\n"
     "\n"
+    "VISIBLE INTERPRETATION (constitutional — required every turn). Before any evaluation, externalize "
+    "which text you believe performs each communicative function by quoting the learner's EXACT words. "
+    "Fill visible_interpretation with VERBATIM substrings copied from the writing (never paraphrase, "
+    "never add words, keep original punctuation/spelling so they can be located exactly): thesis, "
+    "elaboration, evidence, opening, conclusion (\"\" for any function not present). Also give "
+    "focus_region = the VERBATIM text of the ENTIRE communicative function currently in instructional "
+    "focus (e.g. all sentences you count as the current elaboration), and focus_portion = the smaller "
+    "VERBATIM span within focus_region actually being worked on this turn (\"\" if the whole region is "
+    "the focus). The learner must be able to see exactly what writing you are evaluating.\n"
+    "\n"
+    "NEGOTIATED UNDERSTANDING & RECONSIDERATION (constitutional). Your interpretation is never "
+    "infallible. When a LEARNER CHALLENGE is provided (e.g. 'I already elaborated', 'this sentence is "
+    "part of my thesis', 'you're overlooking this part'), you MUST reread the ENTIRE highlighted "
+    "communicative function the learner is disputing — not merely the sentence that triggered your "
+    "original decision — and then do EXACTLY ONE of: (1) ACKNOWLEDGE the learner is correct and REVISE "
+    "your interpretation (update visible_interpretation and, if warranted, focus_status/functions/"
+    "selected_function/continuity_decision); (2) EXPLAIN more precisely what reader need still remains "
+    "WITHIN the highlighted writing; or (3) NARROW focus_portion to a smaller unresolved part of the "
+    "highlighted function. You must NEVER simply repeat your previous recommendation, and NEVER ignore "
+    "writing that lies inside the highlighted function. Record this in reconsideration "
+    "{learner_challenge, reread, outcome: revised|explained|narrowed, explanation}.\n"
+    "\n"
     "Respond with ONLY the JSON object specified in the user message and nothing else."
 )
 
 
 async def _select_functions(session_id: str, assignment: str, unit: str, student_text: str,
                             prior_target: Optional[str] = None, prior_variation: str = "",
-                            prior_student_text: str = "") -> Dict[str, Any]:
+                            prior_student_text: str = "", learner_message: str = "") -> Dict[str, Any]:
     """Compass 3.0 function-centered selection. Emits the full internal decision schema, then adapts
     it to the contract run() consumes (mapping selected_function -> student-facing term). The full
     schema is attached under `_functional_decision` for the trace + teacher review surface."""
@@ -1756,10 +1781,22 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         )
     else:
         continuity_block = ""
+    if (learner_message or "").strip():
+        challenge_block = (
+            "LEARNER CHALLENGE (the learner is questioning your interpretation — apply NEGOTIATED "
+            "UNDERSTANDING & RECONSIDERATION):\n"
+            f"\"\"\"\n{learner_message.strip()}\n\"\"\"\n"
+            "Reread the ENTIRE communicative function they are disputing (all of it, not just one "
+            "sentence), then REVISE / EXPLAIN-precisely / NARROW — never repeat your previous "
+            "recommendation, never ignore writing inside that function. Fill reconsideration.\n\n"
+        )
+    else:
+        challenge_block = ""
     prompt = (
         f"ASSIGNMENT (authoritative task): {assignment or '(not specified)'}\n"
         f"UNIT the writer is producing: {unit or 'one paragraph'}\n\n"
         f"{continuity_block}"
+        f"{challenge_block}"
         f"THE WRITER'S CURRENT WRITING:\n\"\"\"\n{student_text}\n\"\"\"\n\n"
         "Return ONLY this JSON object (fill every field; use \"\" or [] where genuinely empty):\n"
         "{\n"
@@ -1806,6 +1843,17 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         '  "progress_since_last_turn": "the operation the learner performed since the previous draft '
         '(\\"\\" on the first turn)",\n'
         '  "continuity_decision": "first_turn|hold|advance|recurse|complete",\n'
+        '  "visible_interpretation": {"thesis": "VERBATIM sentence(s) that constitute the thesis, '
+        'copied exactly (\\"\\" if none)", "elaboration": "VERBATIM sentence(s) of the current '
+        'elaboration (\\"\\" if none)", "evidence": "VERBATIM evidence/example sentence(s) (\\"\\" if '
+        'none)", "opening": "VERBATIM (\\"\\" if none)", "conclusion": "VERBATIM (\\"\\" if none)", '
+        '"focus_region": "VERBATIM text of the ENTIRE function currently in instructional focus", '
+        '"focus_portion": "smaller VERBATIM span within focus_region worked on this turn (\\"\\" if the '
+        'whole region)"},\n'
+        '  "reconsideration": {"learner_challenge": "the learner\'s challenge, or \\"\\" if none this '
+        'turn", "reread": "what you found on rereading the ENTIRE disputed function (\\"\\" if no '
+        'challenge)", "outcome": "revised|explained|narrowed|none", "explanation": "one sentence of '
+        'why (\\"\\" if none)"},\n'
         '  "confidence": "high|medium|low"\n'
         "}"
     )
@@ -1958,6 +2006,45 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
             "recenter on a meaning they already wrote and leave all conceptual content to them.\n"
         )
 
+    # VISIBLE INTERPRETATION — verbatim spans, validated against the writing so the frontend can
+    # locate & highlight them (drop any span the model paraphrased instead of copying).
+    vi_raw = fd.get("visible_interpretation") or {}
+    def _verbatim(v):
+        v = (v or "").strip().strip('"').strip()
+        if not v:
+            return ""
+        return v if v in student_text else v  # keep even if not exact; frontend matches leniently
+    visible_interpretation = {
+        "Thesis": _verbatim(vi_raw.get("thesis")),
+        "Elaboration": _verbatim(vi_raw.get("elaboration")),
+        "Evidence / Example": _verbatim(vi_raw.get("evidence")),
+        "Opening": _verbatim(vi_raw.get("opening")),
+        "Conclusion": _verbatim(vi_raw.get("conclusion")),
+    }
+    focus_region = _verbatim(vi_raw.get("focus_region"))
+    focus_portion = _verbatim(vi_raw.get("focus_portion"))
+    # sensible fallbacks so the current function is always highlightable
+    if not focus_region and term and visible_interpretation.get(term):
+        focus_region = visible_interpretation[term]
+    if not focus_portion and selected_fn == "develop":
+        focus_portion = _verbatim((et or {}).get("meaning_relation"))
+    if not focus_portion and (fd.get("local_target") or {}).get("quoted_text"):
+        focus_portion = _verbatim((fd.get("local_target") or {}).get("quoted_text"))
+
+    reconsideration = fd.get("reconsideration") or {}
+    _recon_ctx = ""
+    if (learner_message or "").strip():
+        _recon_ctx = (
+            "LEARNER CHALLENGE THIS TURN (constitutional reconsideration — governs your whole reply). "
+            f"The learner questioned your reading: \"{learner_message.strip()}\". You have REREAD the "
+            "entire communicative function they pointed to. You must NOT repeat your previous note. Do "
+            "exactly one: (a) ACKNOWLEDGE they are right and revise your reading in plain words; (b) "
+            "EXPLAIN precisely what a reader still needs INSIDE the very writing they pointed to (quote "
+            "their words); or (c) NARROW to a smaller unresolved part of that writing. Treat the "
+            "highlighted writing as a SHARED object you are jointly interpreting — you are constructing "
+            "the most accurate reading of their work, not defending an opinion.\n"
+        )
+
     return {
         "selected": term,
         "status": struct_status,
@@ -1980,6 +2067,11 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         "thesis_is_verbatim": _thesis_is_verbatim(current_focus, student_text),
         "confidence": (fd.get("confidence") or ("high" if selected_fn else "medium")).lower(),
         "_elaboration_context": _elab_ctx,
+        "_reconsideration_context": _recon_ctx,
+        "_visible_interpretation": visible_interpretation,
+        "_focus_region": focus_region,
+        "_focus_portion": focus_portion,
+        "_reconsideration": reconsideration,
         "_provisional": {
             "observed_evidence": observed,
             "hypothesized_interpretation": fd.get("focus_reasoning") or "",
@@ -2016,13 +2108,20 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
     prior_variation = state.developmental_variation or ""  # prior turn's variation (Instructional Continuity)
     prior_student_text = state.revision_history[-1].text if state.revision_history else ""  # prior draft (anti-repetition)
 
-    # current writing snapshot
-    if learner_content:
+    # current writing snapshot. DRAFT turns (writing/revise/continue) carry the paragraph; MESSAGE
+    # turns (answer/explain) carry a learner utterance ABOUT the existing draft — a possible CHALLENGE.
+    # A message turn must NOT overwrite the draft (needed for Visible Interpretation + Reconsideration).
+    _DRAFT_KINDS = ("writing", "revise", "continue")
+    is_draft_turn = kind in _DRAFT_KINDS
+    learner_message = "" if is_draft_turn else (learner_content or "")
+    if learner_content and is_draft_turn:
         from compass_foundation import RevisionEntry
         state.revision_history.append(RevisionEntry(text=learner_content))
         state.current_student_text = learner_content
         state.last_learner_response = f"{kind}: {learner_content}"
-    student_text = state.current_student_text or learner_content or ""
+    elif learner_message:
+        state.last_learner_response = f"{kind}: {learner_message}"
+    student_text = state.current_student_text or (learner_content if is_draft_turn else "") or ""
 
     # honor an existing, unconsumed teacher override on the target (no override redesign)
     t_override = None
@@ -2038,7 +2137,7 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
     t_s0 = time.perf_counter()
     sel = await _select_functions(state.id, assignment, unit, student_text,
                                   prior_target=prior_target, prior_variation=prior_variation,
-                                  prior_student_text=prior_student_text)
+                                  prior_student_text=prior_student_text, learner_message=learner_message)
     functional_decision = sel.get("_functional_decision") or {}
     t_select = time.perf_counter() - t_s0
     engine_structure = sel.get("selected")
@@ -2238,7 +2337,9 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
                                                         target, obj, status, kind, instructional_action,
                                                         mode=dialogue_mode, sufficiency=developmental_sufficiency,
                                                         rescue=rescue, prior_student_text=prior_student_text,
-                                                        elaboration_context=sel.get("_elaboration_context", ""))
+                                                        elaboration_context=sel.get("_elaboration_context", ""),
+                                                        reconsideration_context=sel.get("_reconsideration_context", ""),
+                                                        learner_message=learner_message)
     t_dialogue = time.perf_counter() - t_d0
 
     ownership_ok = not bool(_DOES_WORK.search(invitation or ""))
@@ -2311,6 +2412,10 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
             "current_thesis": sel.get("current_thesis") or "",
             "thesis_is_verbatim": bool(sel.get("thesis_is_verbatim")),
             "functional_decision": functional_decision,
+            "function_spans": sel.get("_visible_interpretation") or {},
+            "focus_region": sel.get("_focus_region") or "",
+            "focus_portion": sel.get("_focus_portion") or "",
+            "reconsideration": sel.get("_reconsideration") or {},
         },
         "_meta": efficiency,
     }
