@@ -34,6 +34,16 @@ const WANT_CANONICAL = !new URLSearchParams(window.location.search).has("legacy"
 // All state is derived ONLY from authoritative backend fields (focus_of_work / established_structures).
 const CANONICAL_STRUCTURES = ["Opening", "Thesis", "Elaboration", "Evidence / Example", "Conclusion"];
 
+// Sprint 1.4 — each structural element displays the communicative FUNCTION it serves,
+// so learners see that structures exist because they perform communicative work.
+const FUNCTION_QUESTIONS = {
+  "Opening": "What does the reader need before they can understand my focus?",
+  "Thesis": "What central understanding do I want my reader to construct?",
+  "Elaboration": "What does my reader still need to understand about this focus?",
+  "Evidence / Example": "What would convince my reader that this understanding is warranted?",
+  "Conclusion": "What integrated understanding should my reader leave with?",
+};
+
 const OrientationMarker = ({ state }) => {
   if (state === "established")
     return <span aria-label="Established" className="text-emerald-700 font-bold w-3 inline-block text-center">✓</span>;
@@ -67,6 +77,19 @@ const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, esta
       </div>
     );
   };
+  const RowWithFunction = ({ name, indented }) => (
+    <div>
+      <Row name={name} indented={indented} />
+      {FUNCTION_QUESTIONS[name] && (
+        <div
+          data-testid={`writing-structure-function-${name.replace(/[^a-z]+/gi, "-").toLowerCase()}`}
+          className={`text-[10px] italic text-stone-400 leading-snug ${indented ? "ml-10" : "ml-5"}`}
+        >
+          {FUNCTION_QUESTIONS[name]}
+        </div>
+      )}
+    </div>
+  );
   return (
     <div data-testid="canonical-orientation" className="mb-4 space-y-3">
       <div
@@ -82,8 +105,14 @@ const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, esta
         >
           {focus}
         </div>
+        {FUNCTION_QUESTIONS[focus] && (
+          <div data-testid="preview-focus-function" className="mt-1">
+            <span className="text-[10px] uppercase tracking-wider text-stone-400 font-mono-panel">Function</span>
+            <div className="text-[12px] italic text-stone-600 leading-snug">{FUNCTION_QUESTIONS[focus]}</div>
+          </div>
+        )}
         {description && (
-          <div className="text-[12px] text-stone-600 mt-0.5 leading-snug">{description}</div>
+          <div className="text-[12px] text-stone-600 mt-1 leading-snug">{description}</div>
         )}
       </div>
       {thesis && (
@@ -106,12 +135,12 @@ const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, esta
         <div className="text-[10px] uppercase tracking-[0.18em] text-stone-400 font-mono-panel mb-1">
           Writing Structure
         </div>
-        <Row name="Opening" />
-        <Row name="Thesis" />
+        <RowWithFunction name="Opening" />
+        <RowWithFunction name="Thesis" />
         <div aria-hidden="true" className="ml-[3px] text-stone-400 text-[14px] leading-none" title="Thesis and Elaboration develop each other">⇅</div>
-        <Row name="Elaboration" />
-        <Row name="Evidence / Example" indented />
-        <Row name="Conclusion" />
+        <RowWithFunction name="Elaboration" />
+        <RowWithFunction name="Evidence / Example" indented />
+        <RowWithFunction name="Conclusion" />
         <div className="mt-2 pt-1.5 border-t border-stone-100 text-[10px] text-stone-400 flex flex-wrap gap-x-3 gap-y-0.5">
           <span><span className="text-emerald-700 font-bold">✓</span> Established</span>
           <span><span className="text-[#8C3A2A] font-bold">●</span> Current</span>
