@@ -189,7 +189,7 @@ function renderInterpretationSegments(text, regions, portionRanges) {
       const chunk = text.slice(i, j);
       if (u) {
         parts.push(
-          <span key={`${keyPrefix}-u-${i}`} data-testid="vi-focus-underline" className="vi-focus-underline">
+          <span key={`${keyPrefix}-u-${i}`} data-testid="vi-focus-marker" className="vi-focus-marker">
             {chunk}
           </span>
         );
