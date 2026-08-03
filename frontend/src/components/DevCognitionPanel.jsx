@@ -13,7 +13,8 @@ const FIELDS = [
   ["conceptual_organization", "Conceptual organization"],
   ["communicative_organization", "Communicative organization"],
   ["coordinative_capacity", "Coordinative capacity (Fischer)"],
-  ["instructional_horizon", "Instructional horizon"],
+  ["developmental_constraint", "Developmental constraint (what limits progress)"],
+  ["instructional_horizon", "Instructional horizon (derived from the constraint)"],
   ["reachable_next_move", "Reachable next move"],
   ["beyond_horizon", "Beyond the horizon"],
 ];

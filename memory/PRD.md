@@ -1218,3 +1218,11 @@ Owner architectural clarification. Sprint 3 accepted & frozen; this does NOT reo
 
 ## Compass 4.0 Sprint 2 addon — Copy JSON + turn history (2026-06, DONE)
 - DevCognitionPanel: added Copy JSON button (data-testid dev-cognition-copy; copies selected turn's DCO as pretty JSON, clipboard + execCommand fallback, transient 'Copied ✓') and a turn-history navigator (dev-cognition-prev / dev-cognition-next + turn X/N label) to step through every turn's diagnosis in the session. Auto-jumps to the newest turn on arrival, preserves position while browsing history. Reuses the verified getFunctionalTrace endpoint. Compiles clean. (Additive dev-only UI; multi-turn history/copy not yet e2e-tested by testing_agent.)
+
+## Compass 4.0 — DCO developmental-model strengthening (2026-06, DONE) [DCO ONLY; no coaching/UI/prompt/decision change]
+- (1) Reframed every developmental_cognition field to describe THE LEARNER, not the text (system directive + per-field schema hints: 'The learner currently…/appears able to…/is coordinating…/is not yet consistently able to…').
+- (2) Added developmental_constraint field IMMEDIATELY BEFORE instructional_horizon — answers 'what is currently limiting further developmental progress?' as a limitation in the learner's present COORDINATIVE ORGANIZATION (never an essay flaw).
+- (3) instructional_horizon now explicitly DERIVES from developmental_constraint (highest move reachable IF instruction addresses the constraint).
+- (4) Evidence for diagnosis extended: confidence{} and evidence{} now include developmental_constraint; evidence emphasised for coordinative_capacity + developmental_constraint (textual moves that produced the judgment).
+- Frontend DevCognitionPanel FIELDS updated to show Developmental constraint before Instructional horizon (labelled 'derived from the constraint'); per-field estimate/confidence/evidence + raw JSON + turn history + Copy JSON all still apply.
+- Verified live: DCO field order correct (developmental_constraint before instructional_horizon), all fields learner-framed, horizon derived from constraint, Fischer terms present, constraint has confidence + text-grounded evidence. Backend syntax OK/restarted; frontend compiles clean. DCO still influences no coaching behavior.

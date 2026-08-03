@@ -1772,14 +1772,21 @@ _FUNCTION_SEL_SYS = (
     "RELATIONSHIP needing attention (e.g. 'how this idea contributes to the thesis'), never a content "
     "direction (never 'the reader's next question is…', never 'the paragraph now needs [idea]').\n"
     "DEVELOPMENTAL COGNITION (INTERNAL, HIDDEN — calibration only). Also emit developmental_cognition: "
-    "your best CURRENT developmental read of THIS learner — how their ideas are organized (conceptual), "
-    "how the writing organizes ideas for a reader (communicative), their coordinative capacity in Kurt "
-    "Fischer dynamic-skill terms (single representations / representational mappings / representational "
-    "systems / single abstractions / abstract mappings / abstract systems), the current instructional "
-    "horizon, the next reachable developmental move, and what is probably beyond the horizon, each with "
-    "a confidence (high/medium/low) AND an evidence list — 1-4 short observations grounded in what the "
-    "student ACTUALLY wrote (specific moves, quoted or closely paraphrased) that justify each estimate, "
-    "so the reasoning (not only the conclusion) can be calibrated. This object is DEVELOPER-FACING "
+    "your best CURRENT developmental read of THIS LEARNER. Every field must describe THE LEARNER, not "
+    "the text — say 'The learner currently…', 'The learner appears able to…', 'The learner is "
+    "coordinating…', 'The learner is not yet consistently able to…' (Compass teaches learners, not "
+    "texts). Cover: how the learner organizes their ideas (conceptual), how the learner organizes ideas "
+    "for a reader (communicative), the learner's coordinative capacity in Kurt Fischer dynamic-skill "
+    "terms (single representations / representational mappings / representational systems / single "
+    "abstractions / abstract mappings / abstract systems); THEN the DEVELOPMENTAL CONSTRAINT — the one "
+    "limitation in the learner's present coordinative organization that is currently limiting further "
+    "progress (never a flaw in the essay); THEN the INSTRUCTIONAL HORIZON, which you must DERIVE FROM "
+    "the developmental constraint (the highest developmental move realistically reachable IF instruction "
+    "addresses that constraint); then the next reachable move and what is probably beyond the horizon. "
+    "Each estimate carries a confidence (high/medium/low) AND an evidence list — 1-4 short observations "
+    "grounded in what the learner ACTUALLY wrote (specific moves, quoted or closely paraphrased) that "
+    "justify the judgment (especially for coordinative_capacity and developmental_constraint), so the "
+    "REASONING (not only the conclusion) can be calibrated. This object is DEVELOPER-FACING "
     "ONLY: it is never shown to the "
     "learner and MUST NOT change your coaching decision, selected_function, or invitation. Estimate "
     "honestly; use \"\" / low confidence / [] evidence when unsure. Do not let it influence any other field.\n"
@@ -1914,36 +1921,48 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         'challenge)", "outcome": "revised|explained|narrowed|none", "explanation": "one sentence of '
         'why (\\"\\" if none)"},\n'
         '  "developmental_cognition": {'
-        '"orientation_target_interpretation": "Compass\'s CURRENT interpretation of the student\'s '
-        'orientation target — what this writer appears to be trying to communicate/accomplish in this '
-        'paragraph", '
-        '"orientation_target_confirmed": "the student\'s CONFIRMED or REVISED orientation target if they '
-        'have signalled/confirmed it (e.g. via revision or challenge), else \\"\\" (still inferred, not '
-        'confirmed)", '
-        '"conceptual_organization": "estimate of how well the student\'s IDEAS themselves are organized '
-        '(their conceptual structure), independent of wording", '
-        '"communicative_organization": "estimate of how well the writing organizes those ideas FOR A '
-        'READER (communicative structure / reader path)", '
-        '"coordinative_capacity": "estimate of the student\'s current coordinative capacity, using Kurt '
-        'Fischer dynamic-skill terminology where possible (e.g. single representations, representational '
-        'mappings, representational systems, single abstractions, abstract mappings, abstract systems) — '
-        'i.e. how many ideas/relations the writer can currently coordinate at once", '
-        '"instructional_horizon": "the current instructional horizon — the band of developmental work '
-        'presently within reach for this writer", '
-        '"reachable_next_move": "the developmental move that is REACHABLE next, within the horizon", '
-        '"beyond_horizon": "what is probably BEYOND the current instructional horizon (not yet reachable '
-        'this turn)", '
+        '"orientation_target_interpretation": "Compass\'s CURRENT interpretation of THE LEARNER\'s '
+        'orientation target — what this learner appears to be trying to communicate/accomplish. Describe '
+        'the LEARNER, not the text (\'The learner appears to be trying to…\', not \'The paragraph…\')", '
+        '"orientation_target_confirmed": "the orientation target THE LEARNER has CONFIRMED or REVISED if '
+        'they have signalled it (e.g. via revision or challenge), else \\"\\" (still inferred, not '
+        'confirmed). Phrase about the learner (\'The learner has confirmed…\')", '
+        '"conceptual_organization": "how well THE LEARNER currently organizes their IDEAS (their '
+        'conceptual structure), independent of wording. Phrase about the learner (\'The learner '
+        'currently organizes…\', \'The learner is not yet consistently able to…\')", '
+        '"communicative_organization": "how well THE LEARNER currently organizes those ideas FOR A '
+        'READER (communicative structure). Phrase about the learner (\'The learner currently structures… '
+        'for a reader\'), not about the essay", '
+        '"coordinative_capacity": "THE LEARNER\'s current coordinative capacity, using Kurt Fischer '
+        'dynamic-skill terminology where possible (single representations, representational mappings, '
+        'representational systems, single abstractions, abstract mappings, abstract systems) — i.e. how '
+        'many ideas/relations the learner can currently coordinate at once. Phrase about the learner '
+        '(\'The learner is coordinating…\', \'The learner is not yet consistently able to coordinate…\')", '
+        '"developmental_constraint": "answer ONE question: what is currently LIMITING this learner\'s '
+        'further developmental progress? Express it as a limitation in THE LEARNER\'s present '
+        'COORDINATIVE ORGANIZATION, never as a flaw in the essay. E.g. \'The learner can coordinate '
+        'local explanatory relationships but cannot yet consistently coordinate those relationships with '
+        'the paragraph\'s central organizing idea.\'", '
+        '"instructional_horizon": "DERIVE THIS FROM developmental_constraint: the HIGHEST developmental '
+        'move that is realistically reachable for THE LEARNER IF instruction addresses the current '
+        'developmental constraint. Phrase about the learner", '
+        '"reachable_next_move": "the developmental move THE LEARNER can reach next, within the horizon", '
+        '"beyond_horizon": "what is probably BEYOND this learner\'s current instructional horizon (not '
+        'yet reachable this turn)", '
         '"confidence": {"orientation_target_interpretation": "high|medium|low", '
         '"orientation_target_confirmed": "high|medium|low", "conceptual_organization": "high|medium|low", '
         '"communicative_organization": "high|medium|low", "coordinative_capacity": "high|medium|low", '
+        '"developmental_constraint": "high|medium|low", '
         '"instructional_horizon": "high|medium|low", "reachable_next_move": "high|medium|low", '
         '"beyond_horizon": "high|medium|low"}, '
-        '"evidence": {"orientation_target_interpretation": ["1-4 SHORT evidence observations grounded in '
-        'what the student ACTUALLY wrote (quote or closely paraphrase the specific moves) that justify '
-        'this estimate"], "orientation_target_confirmed": ["evidence from the student\'s revision/'
+        '"evidence": {"orientation_target_interpretation": ["1-4 SHORT observations grounded in what the '
+        'learner ACTUALLY wrote (quote or closely paraphrase the specific moves) that justify this '
+        'judgment"], "orientation_target_confirmed": ["evidence from the learner\'s revision/'
         'challenge, or [] if unconfirmed"], "conceptual_organization": ["evidence bullets"], '
         '"communicative_organization": ["evidence bullets"], "coordinative_capacity": ["evidence '
-        'bullets — cite which relations the writer did / did not coordinate"], "instructional_horizon": '
+        'bullets — cite which relations the learner did / did not coordinate"], '
+        '"developmental_constraint": ["evidence bullets — the textual moves that reveal this '
+        'limitation in the learner\'s coordinative organization"], "instructional_horizon": '
         '["evidence bullets"], "reachable_next_move": ["evidence bullets"], "beyond_horizon": ["evidence '
         'bullets"]}},\n'
         '  "confidence": "high|medium|low"\n'
