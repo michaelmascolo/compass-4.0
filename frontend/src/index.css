@@ -25,8 +25,8 @@ body {
                         snapped to full sentence boundaries so it never splits a sentence and the
                         paragraph is never separated into sections.
    L3 Local focus     → a DOTTED UNDERLINE coloured to match the unit it sits in (blue in thesis,
-                        purple in elaboration) + a slightly stronger tint, on the one passage
-                        Compass is discussing. Never a box; whitespace is never underlined.
+                        purple in elaboration) on the one passage Compass is discussing. No extra
+                        tint — the unit's shade stays uniform; whitespace is never underlined.
    Uses background + box-shadow + border-bottom (no border/outline/padding that would add layout
    width) so the transparent overlay stays character-aligned with the editable textarea beneath. */
 .vi-thesis-region,
@@ -64,15 +64,15 @@ body {
 }
 .vi-thesis-region::before { content: "THESIS"; color: #1d4ed8; border-color: #1d4ed8; }       /* blue */
 .vi-elab-region::before   { content: "ELABORATION"; color: #7e22ce; border-color: #7e22ce; }  /* purple */
-/* L3: the specific passage Compass is discussing now — a dotted underline, never a box.
-   Colour is set by the unit modifier so the focus always reads as "inside this unit". */
+/* L3: the specific passage Compass is discussing now — a DOTTED UNDERLINE only, coloured to
+   match its unit. No background tint here, so the unit's shading stays perfectly uniform. */
 .vi-focus-marker {
     border-bottom: 2px dotted #6b21a8;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
 }
-.vi-focus-thesis { background: rgba(37, 99, 235, 0.20);  border-bottom-color: #1d4ed8; }  /* blue focus */
-.vi-focus-elab   { background: rgba(147, 51, 234, 0.20); border-bottom-color: #6b21a8; }  /* purple focus */
+.vi-focus-thesis { border-bottom-color: #1d4ed8; }  /* blue focus underline */
+.vi-focus-elab   { border-bottom-color: #6b21a8; }  /* purple focus underline */
 
 
 /* paper grain */
