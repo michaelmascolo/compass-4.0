@@ -675,15 +675,6 @@ export default function PublicPreview({ mode = "ot" }) {
           <div className="flex items-center gap-2 font-serif-display text-lg text-stone-800">
             <Compass className="h-5 w-5 text-[#8C3A2A]" />
             Compass
-            <span
-              data-testid="preview-reasoning-mode-badge"
-              title="Active instructional reasoning mode (developer indicator)"
-              className="ml-1 text-[9px] font-mono-panel uppercase tracking-[0.14em] text-stone-400 border border-stone-200 rounded-sm px-1.5 py-0.5"
-            >
-              {(session?.reasoning_mode === "canonical_v2" || (!session && WANT_CANONICAL))
-                ? "Canonical v2"
-                : "Legacy v2"}
-            </span>
           </div>
           {isStudent && experienceActive && !inReflection && (
             <button
