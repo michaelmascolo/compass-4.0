@@ -37,10 +37,10 @@ const CANONICAL_STRUCTURES = ["Opening", "Thesis", "Elaboration", "Evidence / Ex
 // Sprint 1.4 — each structural element displays the communicative FUNCTION it serves,
 // so learners see that structures exist because they perform communicative work.
 const FUNCTION_QUESTIONS = {
-  "Opening": "What does the reader need before they can understand my focus?",
-  "Thesis": "What central understanding do I want my reader to construct?",
-  "Elaboration": "What does my reader still need to understand about this focus?",
-  "Evidence / Example": "What would convince my reader that this understanding is warranted?",
+  "Opening": "What does the reader need before they can understand my thesis?",
+  "Thesis": "What thesis do I want my reader to construct?",
+  "Elaboration": "What about this thesis does my reader still need to understand?",
+  "Evidence / Example": "What would convince my reader that this thesis is warranted?",
   "Conclusion": "What integrated understanding should my reader leave with?",
 };
 
@@ -58,38 +58,39 @@ const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, esta
   const Row = ({ name, indented }) => {
     const s = stateOf(name);
     const slug = name.replace(/[^a-z]+/gi, "-").toLowerCase();
+    const fn = FUNCTION_QUESTIONS[name];
     return (
       <div
         data-testid={`writing-structure-row-${slug}`}
         aria-current={s === "current" ? "step" : undefined}
-        className={`flex items-center gap-2 py-0.5 ${indented ? "ml-4" : ""} ${
-          s === "current" ? "font-bold text-stone-900" : s === "established" ? "text-stone-600" : "text-stone-400"
-        }`}
+        className={`flex items-baseline gap-2 py-1 ${indented ? "ml-4" : ""}`}
       >
-        {indented && <span aria-hidden="true" className="text-stone-300 select-none">└──</span>}
+        {indented && <span aria-hidden="true" className="text-stone-300 select-none self-center">└──</span>}
         <OrientationMarker state={s} />
-        <span className="text-[13px]">{name}</span>
+        <span
+          className={`text-[12px] shrink-0 ${
+            s === "current" ? "font-bold text-stone-900" : s === "established" ? "text-stone-600" : "text-stone-400"
+          }`}
+        >
+          {name}
+        </span>
+        <span aria-hidden="true" className="text-stone-400 shrink-0 select-none">→</span>
+        <span
+          data-testid={`writing-structure-function-${slug}`}
+          className={`text-[12px] leading-snug ${
+            s === "current" ? "text-stone-900" : s === "established" ? "text-stone-600" : "text-stone-500"
+          }`}
+        >
+          {fn}
+        </span>
         {s === "current" && (
-          <span className="text-[9px] uppercase tracking-wider text-[#8C3A2A] border border-[#e0c4bd] rounded-sm px-1 py-px">
+          <span className="ml-1 text-[9px] uppercase tracking-wider text-[#8C3A2A] border border-[#e0c4bd] rounded-sm px-1 py-px shrink-0 self-center">
             focus
           </span>
         )}
       </div>
     );
   };
-  const RowWithFunction = ({ name, indented }) => (
-    <div>
-      <Row name={name} indented={indented} />
-      {FUNCTION_QUESTIONS[name] && (
-        <div
-          data-testid={`writing-structure-function-${name.replace(/[^a-z]+/gi, "-").toLowerCase()}`}
-          className={`text-[10px] italic text-stone-400 leading-snug ${indented ? "ml-10" : "ml-5"}`}
-        >
-          {FUNCTION_QUESTIONS[name]}
-        </div>
-      )}
-    </div>
-  );
   return (
     <div data-testid="canonical-orientation" className="mb-4 space-y-3">
       <div
@@ -101,18 +102,22 @@ const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, esta
         </div>
         <div
           data-testid="preview-focus-of-work-structure"
-          className="text-[15px] font-serif-display text-[#8C3A2A] font-bold mt-0.5 uppercase tracking-wide"
+          className="mt-0.5 flex items-baseline gap-2 flex-wrap"
         >
-          {focus}
+          <span className="text-[15px] font-serif-display text-[#8C3A2A] font-bold uppercase tracking-wide shrink-0">
+            {focus}
+          </span>
+          {FUNCTION_QUESTIONS[focus] && (
+            <>
+              <span aria-hidden="true" className="text-stone-400 shrink-0 select-none">→</span>
+              <span data-testid="preview-focus-function" className="text-[13px] text-stone-800 leading-snug">
+                {FUNCTION_QUESTIONS[focus]}
+              </span>
+            </>
+          )}
         </div>
-        {FUNCTION_QUESTIONS[focus] && (
-          <div data-testid="preview-focus-function" className="mt-1">
-            <span className="text-[10px] uppercase tracking-wider text-stone-400 font-mono-panel">Function</span>
-            <div className="text-[12px] italic text-stone-600 leading-snug">{FUNCTION_QUESTIONS[focus]}</div>
-          </div>
-        )}
         {description && (
-          <div className="text-[12px] text-stone-600 mt-1 leading-snug">{description}</div>
+          <div className="text-[12px] text-stone-500 mt-1 leading-snug">{description}</div>
         )}
       </div>
       {thesis && (
@@ -135,12 +140,12 @@ const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, esta
         <div className="text-[10px] uppercase tracking-[0.18em] text-stone-400 font-mono-panel mb-1">
           Writing Structure
         </div>
-        <RowWithFunction name="Opening" />
-        <RowWithFunction name="Thesis" />
+        <Row name="Opening" />
+        <Row name="Thesis" />
         <div aria-hidden="true" className="ml-[3px] text-stone-400 text-[14px] leading-none" title="Thesis and Elaboration develop each other">⇅</div>
-        <RowWithFunction name="Elaboration" />
-        <RowWithFunction name="Evidence / Example" indented />
-        <RowWithFunction name="Conclusion" />
+        <Row name="Elaboration" />
+        <Row name="Evidence / Example" indented />
+        <Row name="Conclusion" />
         <div className="mt-2 pt-1.5 border-t border-stone-100 text-[10px] text-stone-400 flex flex-wrap gap-x-3 gap-y-0.5">
           <span><span className="text-emerald-700 font-bold">✓</span> Established</span>
           <span><span className="text-[#8C3A2A] font-bold">●</span> Current</span>
@@ -990,7 +995,7 @@ function WritingScreen({ assignment, ot, response, setResponse, onSubmit, onBack
         className="w-full bg-white border border-stone-300 rounded-sm p-5 text-[16px] leading-8 text-stone-900 placeholder:text-stone-400 outline-none focus:ring-1 focus:ring-stone-900 focus:border-stone-900 transition-colors resize-y min-h-[220px]"
       />
       <p className="mt-2 text-[13px] text-stone-500">
-        Stop when you have expressed your main idea. Compass will work with what you have written.
+        Stop when you have expressed your thesis. Compass will work with what you have written.
       </p>
 
       <div className="mt-7 flex items-center gap-5">
@@ -1092,7 +1097,7 @@ function ThinkingWith() {
   return <MetacognitionCue testid="preview-thinking-with" toFocus={true} />;
 }
 
-// The interim observations. Grounded observation 1 (emerging central idea) →
+// The interim observations. Grounded observation 1 (emerging thesis) →
 // (pause) → grounded observation 2 (the structural relationship/distinction),
 // if present. Same voice and surface as the coaching that follows, so the
 // encounter reads as one continuous, developing line of instruction.
