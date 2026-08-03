@@ -1227,6 +1227,7 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
                             mode: str = "first_turn", sufficiency: str = "continue",
                             rescue: bool = False, prior_student_text: str = "",
                             elaboration_context: str = "", reconsideration_context: str = "",
+                            emerging_constraints_context: str = "",
                             learner_message: str = "") -> str:
     src = _resolve_teaching_source(structure, obj)
     disp = src["display_name"]
@@ -1259,13 +1260,20 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
         "meaning\"); NEVER generic acknowledgments like \"you improved this\", \"you moved closer\", "
         "\"you added more detail\", \"you added another sentence\", or \"you have some good ideas\"; "
         "(4) explain what is now DEVELOPMENTALLY SUFFICIENT, if anything (what the structure can now "
-        "support); (5) STATE PLAINLY whether you are HOLDING the learner on the current structure or "
-        "ADVANCING to the next structure, and WHY; (6) give ONE manageable next developmental "
+        "support); (5) NARRATE THE TRANSITION AS A CHANGE TO THE WHOLE COMMUNICATION, never as an "
+        "isolated fix: state whether you are HOLDING the learner on the current structure or moving to "
+        "another, and explain WHY the next task has EMERGED FROM the learner's own revision — name the "
+        "communicative relationship their revision made STRONGER, then the NEW challenge that therefore "
+        "becomes the next step (e.g. \"Because you've now made clear how X connects to Y, that connection "
+        "is strong enough that a reader's next question becomes Z — so the next step is …\"); the learner "
+        "must understand not just WHAT the next task is but WHY it became the next task; (6) give ONE "
+        "manageable next developmental "
         "invitation, then STOP. Use developmental language throughout (\"not yet\", \"still "
         "developing\", \"the next step is\") — never deficit language (\"lacks\", \"fails to\", \"you "
         "still haven't\"). If the requirement is now met, say so explicitly, name what they "
         "accomplished, and recommend moving forward.\n"
         f"{_prev_draft_block}"
+        f"{emerging_constraints_context}"
         f"WHAT COUNTS AS ENOUGH (the requirement to compare against): {src['sufficiency']}\n"
         f"INTERNAL sufficiency read (informs you; do not quote): {sufficiency}\n"
     ) if is_cont else (
@@ -1733,6 +1741,22 @@ _FUNCTION_SEL_SYS = (
     "'complete' ONLY when the whole-paragraph criteria (a)-(d) all hold. On the first turn set "
     "'first_turn'.\n"
     "\n"
+    "DEVELOPMENT THROUGH EMERGING COMMUNICATIVE CONSTRAINTS — CONSTITUTIONAL RULE (Turn 2+, after any "
+    "revision). Treat every revision as a change to the COMMUNICATIVE SYSTEM of the draft, never as the "
+    "isolated correction of a single problem. Every communicative move changes the relationships among "
+    "ideas, functions, and structures: a revision may resolve one communicative problem while "
+    "SIMULTANEOUSLY creating new communicative constraints elsewhere in the text. After a revision you "
+    "MUST reread the draft as an INTEGRATED WHOLE and determine (a) which communicative relationships "
+    "have become STRONGER because of the revision; (b) which relationship(s) now REQUIRE attention as a "
+    "consequence; (c) what NEW constraint has emerged because of the writer's move; and (d) WHY the "
+    "instructional focus has therefore shifted (or, when you hold, why the same constraint still "
+    "governs). The next target is NOT merely 'the next detectable weakness' — it is the constraint that "
+    "the learner's OWN successful revision has brought into being. This governs continuity_decision: an "
+    "'advance'/'recurse' must be explicable as an emergent CONSEQUENCE of the revision, not as a fresh "
+    "error list. Record all four judgments in emerging_constraints (leave its fields \"\" on the first "
+    "turn or when nothing changed). The objective is to help the writer understand that changing one "
+    "part of a communication reshapes the organization and coherence of the WHOLE.\n"
+    "\n"
     "PROVISIONAL JUDGMENT: separate OBSERVED features (words actually on the page) from HYPOTHESIZED "
     "interpretation; do not infer fixed traits or mindset as fact. Give confidence high|medium|low (no "
     "numbers). Ground every judgment in the actual words on the page.\n"
@@ -1843,6 +1867,14 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         '  "progress_since_last_turn": "the operation the learner performed since the previous draft '
         '(\\"\\" on the first turn)",\n'
         '  "continuity_decision": "first_turn|hold|advance|recurse|complete",\n'
+        '  "emerging_constraints": {"revision_performed": "the intellectual/communicative operation the '
+        'learner performed in THIS revision (\\"\\" on the first turn or if no revision)", '
+        '"relations_strengthened": "which communicative relationship(s) among the draft\'s ideas/functions '
+        'became STRONGER because of this revision (\\"\\" if first turn / none)", "new_constraint": "the '
+        'NEW communicative relationship or constraint that has EMERGED as a consequence of the revision '
+        'and now most needs attention (\\"\\" if none)", "why_focus_shifted": "why the instructional focus '
+        'has become the next task as a CONSEQUENCE of the revision — or, if holding, why the same '
+        'constraint still governs (\\"\\" on the first turn)"},\n'
         '  "visible_interpretation": {"thesis": "VERBATIM sentence(s) that constitute the thesis, '
         'copied exactly (\\"\\" if none)", "elaboration": "VERBATIM sentence(s) of the current '
         'elaboration (\\"\\" if none)", "evidence": "VERBATIM evidence/example sentence(s) (\\"\\" if '
@@ -2045,6 +2077,27 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
             "the most accurate reading of their work, not defending an opinion.\n"
         )
 
+    # EMERGING COMMUNICATIVE CONSTRAINTS (hidden reasoning -> continuation dialogue): only on a
+    # revision turn (a previous draft exists). Lets the coach NARRATE the next task as an emergent
+    # consequence of the learner's own move rather than as an isolated correction. Never quoted verbatim.
+    ec = fd.get("emerging_constraints") or {}
+    _emerging_ctx = ""
+    if prior_student_text and isinstance(ec, dict) and any(
+            (ec.get(k) or "").strip() for k in ("relations_strengthened", "new_constraint", "why_focus_shifted")):
+        _emerging_ctx = (
+            "EMERGING COMMUNICATIVE CONSTRAINTS (INTERNAL — shapes HOW you narrate the transition; do "
+            "NOT quote verbatim). Read this revision as a change to the WHOLE communicative system, not "
+            "an isolated fix. "
+            f"What the learner's revision did: {ec.get('revision_performed','') or '(a substantive revision)'}. "
+            f"Relationship(s) now STRONGER because of it: {ec.get('relations_strengthened','')}. "
+            f"The NEW constraint that has emerged and now most needs attention: {ec.get('new_constraint','')}. "
+            f"WHY the focus has shifted (or holds): {ec.get('why_focus_shifted','')}. "
+            "In your reply, explain the next task as an EMERGENT CONSEQUENCE of the learner's own move — "
+            "first name what their revision made stronger, THEN the new communicative challenge that "
+            "follows from it — so the learner understands not just WHAT comes next but WHY it became the "
+            "next task. Never present it as a standalone correction.\n"
+        )
+
     return {
         "selected": term,
         "status": struct_status,
@@ -2068,6 +2121,7 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         "confidence": (fd.get("confidence") or ("high" if selected_fn else "medium")).lower(),
         "_elaboration_context": _elab_ctx,
         "_reconsideration_context": _recon_ctx,
+        "_emerging_constraints_context": _emerging_ctx,
         "_visible_interpretation": visible_interpretation,
         "_focus_region": focus_region,
         "_focus_portion": focus_portion,
@@ -2339,6 +2393,7 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
                                                         rescue=rescue, prior_student_text=prior_student_text,
                                                         elaboration_context=sel.get("_elaboration_context", ""),
                                                         reconsideration_context=sel.get("_reconsideration_context", ""),
+                                                        emerging_constraints_context=sel.get("_emerging_constraints_context", ""),
                                                         learner_message=learner_message)
     t_dialogue = time.perf_counter() - t_d0
 
