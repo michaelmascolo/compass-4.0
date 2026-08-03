@@ -172,14 +172,16 @@ const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, esta
 //   • no marking                                  = text outside the current interpretation
 // Each region renders as ONE inline element (so its label appears once and text never breaks
 // into sections); the focus portion is an inner dotted-underlined span within its region.
-function renderInterpretationSegments(text, regions, portionRanges) {
+function renderInterpretationSegments(text, regions, portionRanges, focusClass = "vi-focus-elab") {
   if (!text) return text;
   const n = text.length;
   const inPortion = new Array(n).fill(false);
   (portionRanges || []).forEach(([s, e]) => {
     for (let i = Math.max(0, s); i < Math.min(n, e); i++) inPortion[i] = true;
   });
-  // render a slice of text, wrapping any focus-portion runs in an underline span
+  const isWs = (ch) => /\s/.test(ch);
+  // render a slice of text; dotted-underline the focus-portion runs but NEVER underline
+  // whitespace (so the underline never shows over blank space or at a line wrap).
   const renderWithUnderline = (start, end, keyPrefix) => {
     const parts = [];
     let i = start;
@@ -187,15 +189,27 @@ function renderInterpretationSegments(text, regions, portionRanges) {
       const u = inPortion[i];
       let j = i + 1;
       while (j < end && inPortion[j] === u) j++;
-      const chunk = text.slice(i, j);
       if (u) {
-        parts.push(
-          <span key={`${keyPrefix}-u-${i}`} data-testid="vi-focus-marker" className="vi-focus-marker">
-            {chunk}
-          </span>
-        );
+        // split the focus run so whitespace sub-runs stay unmarked
+        let k = i;
+        while (k < j) {
+          const ws = isWs(text[k]);
+          let m = k + 1;
+          while (m < j && isWs(text[m]) === ws) m++;
+          const chunk = text.slice(k, m);
+          if (ws) {
+            parts.push(chunk);
+          } else {
+            parts.push(
+              <span key={`${keyPrefix}-u-${k}`} data-testid="vi-focus-marker" className={`vi-focus-marker ${focusClass}`}>
+                {chunk}
+              </span>
+            );
+          }
+          k = m;
+        }
       } else {
-        parts.push(chunk);
+        parts.push(text.slice(i, j));
       }
       i = j;
     }
@@ -268,18 +282,53 @@ export default function PublicPreview({ mode = "ot" }) {
   // MVP: mark Thesis (blue) + Elaboration (purple) units, each shaded to full sentence
   // boundaries; dotted underline = the local focus passage inside the active unit.
   const focusName = activeCoaching?.focus_of_work || "";
-  const functionSpans = activeCoaching?.function_spans || {};
-  const elabText =
-    functionSpans["Elaboration"] || (focusName === "Elaboration" ? focusRegionText : "");
-  // Elaboration snapped to sentence boundaries, then clipped so it never overlaps the Thesis span.
-  const elabRanges = useMemo(
-    () => subtractRanges(snapRangesToSentences(draft, findThesisRanges(draft, elabText)), thesisRanges),
-    [draft, elabText, thesisRanges]
-  );
-  const portionRanges = useMemo(
-    () => (focusPortionText ? findThesisRanges(draft, focusPortionText) : []),
-    [draft, focusPortionText]
-  );
+  const functionSpans = useMemo(() => activeCoaching?.function_spans || {}, [activeCoaching]);
+  // Elaboration signals: the verbatim elaboration span + (when Elaboration is the focus) the
+  // whole current elaboration region. We union them into ONE contiguous span so the ENTIRE
+  // elaboration is shaded and labeled — never a fragment.
+  const elabSignals = useMemo(() => {
+    const arr = [];
+    if (functionSpans["Elaboration"]) arr.push(functionSpans["Elaboration"]);
+    if (focusName === "Elaboration" && focusRegionText) arr.push(focusRegionText);
+    return arr;
+  }, [functionSpans, focusName, focusRegionText]);
+  const elabRanges = useMemo(() => {
+    let matches = [];
+    elabSignals.forEach((t) => {
+      matches = matches.concat(findThesisRanges(draft, t));
+    });
+    matches = matches.filter(([s, e]) => e > s);
+    if (!matches.length) return [];
+    const start = Math.min(...matches.map((r) => r[0]));
+    const end = Math.max(...matches.map((r) => r[1]));
+    // ONE contiguous span (earliest→latest elaboration sentence), snapped to full sentences,
+    // then clipped so it never overlaps the Thesis span (spec: elaboration begins after thesis).
+    const span = snapRangesToSentences(draft, [[start, end]]);
+    return subtractRanges(span, thesisRanges);
+  }, [draft, elabSignals, thesisRanges]);
+  // Focus portion: the one passage under discussion (spec L3). When the engine leaves
+  // focus_portion empty it means the WHOLE focus region is the focus — fall back to it.
+  const portionText = focusPortionText || focusRegionText;
+  const activeUnitRanges = focusName === "Thesis" ? thesisRanges : elabRanges;
+  const portionRanges = useMemo(() => {
+    if (!portionText) return [];
+    const raw = findThesisRanges(draft, portionText).map(([s, e]) => {
+      let a = s;
+      let b = e;
+      while (a < b && /\s/.test(draft[a])) a++;
+      while (b > a && /\s/.test(draft[b - 1])) b--;
+      return [a, b];
+    });
+    // keep the underline inside the active communicative unit only
+    return raw
+      .map(([s, e]) => {
+        const host = (activeUnitRanges || []).find((r) => s < r[1] && e > r[0]);
+        return host ? [Math.max(s, host[0]), Math.min(e, host[1])] : null;
+      })
+      .filter((r) => r && r[1] > r[0]);
+  }, [draft, portionText, activeUnitRanges]);
+  // Which unit is the focus inside → colour the dotted underline to match (blue thesis / purple elab).
+  const focusClass = focusName === "Thesis" ? "vi-focus-thesis" : "vi-focus-elab";
   // Regions (single element each so the label renders once). Thesis and Elaboration only.
   const interpretationRegions = useMemo(() => {
     const regs = [];
@@ -706,7 +755,7 @@ export default function PublicPreview({ mode = "ot" }) {
                 data-testid="preview-document-highlight"
                 className="absolute inset-0 overflow-hidden pointer-events-none px-7 sm:px-10 py-8 text-[17px] leading-9 font-serif-display whitespace-pre-wrap break-words text-transparent"
               >
-                {renderInterpretationSegments(draft, interpretationRegions, portionRanges)}
+                {renderInterpretationSegments(draft, interpretationRegions, portionRanges, focusClass)}
                 {"\n"}
               </div>
               <textarea
