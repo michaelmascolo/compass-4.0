@@ -17,6 +17,55 @@ body {
     font-family: "IBM Plex Mono", monospace;
 }
 
+/* ---- Visible Interpretation (MVP): grayscale-safe communicative marking ----
+   Solid box + label = Thesis region; Dashed box + label = Elaboration region;
+   Underline = the local passage in current instructional focus. Uses `outline`
+   (not border) so the transparent overlay stays character-aligned with the
+   textarea. Distinctions are shape/label based, never color-dependent. */
+.vi-thesis-region,
+.vi-elab-region {
+    position: relative;
+    border-radius: 2px;
+    outline-offset: 2px;
+    padding: 0 1px;
+}
+.vi-thesis-region {
+    outline: 1.5px solid #44403c; /* solid = Thesis */
+}
+.vi-elab-region {
+    outline: 1.5px dashed #44403c; /* dashed = Elaboration */
+}
+.vi-thesis-region::before,
+.vi-elab-region::before {
+    position: absolute;
+    top: -1.15em;
+    left: -1px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 8px;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    color: #44403c;
+    background: #faf9f6;
+    padding: 1px 3px;
+    border: 1px solid #44403c;
+    border-radius: 2px;
+    white-space: nowrap;
+    pointer-events: none;
+}
+.vi-thesis-region::before { content: "THESIS"; }
+.vi-elab-region::before { content: "ELABORATION"; }
+/* Underline = the specific passage under discussion now. Decoration color is set
+   independently so it shows even though the overlay text itself is transparent. */
+.vi-focus-underline {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-color: #1c1917;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+
 /* paper grain */
 .paper-grain {
     background-color: #faf9f6;

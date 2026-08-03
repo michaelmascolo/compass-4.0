@@ -163,56 +163,56 @@ const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, esta
   );
 };
 
-// Visible Interpretation overlay. Renders the draft as transparent text behind the
-// editable textarea, with accessible (non-color-only) markers layered by priority:
-//   • region  — the ENTIRE communicative function Compass is currently evaluating
-//                (subtle shading + dashed underline)
-//   • portion — the specific part in instructional focus, inside the region
-//                (stronger shading + solid underline)
-//   • thesis  — the recognized thesis, when it is not itself the region (light tint)
-// The learner can always see exactly which writing Compass is reading.
-const LAYER_CLASS = {
-  thesis: "bg-[#f3e2c0]/70 text-transparent rounded-[2px] box-decoration-clone",
-  region:
-    "bg-amber-100/50 text-transparent rounded-[2px] box-decoration-clone [border-bottom:1px_dashed_#b45309]",
-  portion:
-    "bg-amber-200/70 text-transparent rounded-[2px] box-decoration-clone [border-bottom:2px_solid_#8C3A2A]",
-};
-
-function renderInterpretationSegments(text, layers) {
+// Visible Interpretation overlay (MVP, grayscale-safe). Renders the draft as transparent
+// text behind the editable textarea with a STABLE visual grammar:
+//   • solid outline + THESIS label      = the Thesis region
+//   • dashed outline + ELABORATION label = the Elaboration region
+//   • underline                          = the local passage in current instructional focus
+//   • no marking                          = text outside the current interpretation
+// Each region renders as ONE element (so its label appears once); the focus portion is an
+// inner underlined span within its region. No background color carries meaning.
+function renderInterpretationSegments(text, regions, portionRanges) {
   if (!text) return text;
   const n = text.length;
-  const cls = new Array(n).fill(null);
-  // layers are given low → high priority
-  layers.forEach((layer, pri) => {
-    (layer.ranges || []).forEach(([s, e]) => {
-      for (let i = Math.max(0, s); i < Math.min(n, e); i++) {
-        if (cls[i] === null || pri >= cls[i].pri) cls[i] = { kind: layer.kind, pri };
-      }
-    });
+  const inPortion = new Array(n).fill(false);
+  (portionRanges || []).forEach(([s, e]) => {
+    for (let i = Math.max(0, s); i < Math.min(n, e); i++) inPortion[i] = true;
   });
-  const out = [];
-  let i = 0;
-  while (i < n) {
-    const cur = cls[i];
-    let j = i + 1;
-    while (j < n && ((cls[j] && cur && cls[j].kind === cur.kind) || (!cls[j] && !cur))) j++;
-    const chunk = text.slice(i, j);
-    if (cur) {
-      out.push(
-        <mark
-          key={`vi-${i}`}
-          data-testid={`vi-${cur.kind}-highlight`}
-          className={LAYER_CLASS[cur.kind]}
-        >
-          {chunk}
-        </mark>
-      );
-    } else {
-      out.push(chunk);
+  // render a slice of text, wrapping any focus-portion runs in an underline span
+  const renderWithUnderline = (start, end, keyPrefix) => {
+    const parts = [];
+    let i = start;
+    while (i < end) {
+      const u = inPortion[i];
+      let j = i + 1;
+      while (j < end && inPortion[j] === u) j++;
+      const chunk = text.slice(i, j);
+      if (u) {
+        parts.push(
+          <span key={`${keyPrefix}-u-${i}`} data-testid="vi-focus-underline" className="vi-focus-underline">
+            {chunk}
+          </span>
+        );
+      } else {
+        parts.push(chunk);
+      }
+      i = j;
     }
-    i = j;
-  }
+    return parts;
+  };
+  const sorted = [...(regions || [])].filter((r) => r.end > r.start).sort((a, b) => a.start - b.start);
+  const out = [];
+  let cursor = 0;
+  sorted.forEach((r, idx) => {
+    if (r.start > cursor) out.push(renderWithUnderline(cursor, r.start, `pre-${idx}`));
+    out.push(
+      <mark key={`region-${idx}`} data-testid={r.testid} className={`${r.className} text-transparent`}>
+        {renderWithUnderline(r.start, r.end, `reg-${idx}`)}
+      </mark>
+    );
+    cursor = r.end;
+  });
+  if (cursor < n) out.push(renderWithUnderline(cursor, n, "tail"));
   return out;
 }
 
@@ -261,24 +261,27 @@ export default function PublicPreview({ mode = "ot" }) {
   const focusRegionText = activeCoaching?.focus_region || "";
   const focusPortionText = activeCoaching?.focus_portion || "";
   const thesisRanges = useMemo(() => findThesisRanges(draft, activeThesis), [draft, activeThesis]);
-  const regionRanges = useMemo(() => findThesisRanges(draft, focusRegionText), [draft, focusRegionText]);
-  const portionRanges = useMemo(() => findThesisRanges(draft, focusPortionText), [draft, focusPortionText]);
-  // MVP: only Thesis and Elaboration are highlighted for now.
+  // MVP: mark only Thesis (solid box) and Elaboration (dashed box); underline = local focus portion.
   const focusName = activeCoaching?.focus_of_work || "";
-  const isThesisOrElaboration = focusName === "Thesis" || focusName === "Elaboration";
-  // Visible Interpretation layers (low → high priority): thesis tint, function region, focus portion.
-  const interpretationLayers = useMemo(
-    () => [
-      { kind: "thesis", ranges: thesisRanges },
-      ...(isThesisOrElaboration
-        ? [
-            { kind: "region", ranges: regionRanges },
-            { kind: "portion", ranges: portionRanges },
-          ]
-        : []),
-    ],
-    [thesisRanges, regionRanges, portionRanges, isThesisOrElaboration]
+  const functionSpans = activeCoaching?.function_spans || {};
+  const elabText =
+    functionSpans["Elaboration"] || (focusName === "Elaboration" ? focusRegionText : "");
+  const elabRanges = useMemo(() => findThesisRanges(draft, elabText), [draft, elabText]);
+  const portionRanges = useMemo(
+    () => (focusPortionText ? findThesisRanges(draft, focusPortionText) : []),
+    [draft, focusPortionText]
   );
+  // Regions (single element each so the label renders once). Thesis and Elaboration only.
+  const interpretationRegions = useMemo(() => {
+    const regs = [];
+    thesisRanges.forEach(([s, e]) =>
+      regs.push({ start: s, end: e, className: "vi-thesis-region", testid: "vi-thesis-region" })
+    );
+    elabRanges.forEach(([s, e]) =>
+      regs.push({ start: s, end: e, className: "vi-elab-region", testid: "vi-elab-region" })
+    );
+    return regs;
+  }, [thesisRanges, elabRanges]);
   const started = !!session;
   const reviseCount = studentTurns.filter((t) => t.kind === "revise").length;
   // Chapter 6 — the "first encounter" is the learner's first draft and Compass's
@@ -694,7 +697,7 @@ export default function PublicPreview({ mode = "ot" }) {
                 data-testid="preview-document-highlight"
                 className="absolute inset-0 overflow-hidden pointer-events-none px-7 sm:px-10 py-8 text-[17px] leading-9 font-serif-display whitespace-pre-wrap break-words text-transparent"
               >
-                {renderInterpretationSegments(draft, interpretationLayers)}
+                {renderInterpretationSegments(draft, interpretationRegions, portionRanges)}
                 {"\n"}
               </div>
               <textarea
