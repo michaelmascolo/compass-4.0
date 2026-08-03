@@ -1215,3 +1215,6 @@ Owner architectural clarification. Sprint 3 accepted & frozen; this does NOT reo
 - Coaching behavior, coaching prompts, and student UI UNCHANGED; DCO still influences nothing. Teacher Review remains only a harness for generating authentic writing.
 - Verified: backend curl (evidence + confidence + Fischer terms populated) and testing_agent iteration_6.json (frontend 100%): all 7 fields render with estimate/confidence/evidence, raw JSON complete, gating correct.
 - ACCESS: open the student flow with &dco, e.g. {FRONTEND}/?preview=writing&dco -> enter assignment -> writing screen shows the button -> after each interaction press the panel's ↻ to load the latest developmental diagnosis.
+
+## Compass 4.0 Sprint 2 addon — Copy JSON + turn history (2026-06, DONE)
+- DevCognitionPanel: added Copy JSON button (data-testid dev-cognition-copy; copies selected turn's DCO as pretty JSON, clipboard + execCommand fallback, transient 'Copied ✓') and a turn-history navigator (dev-cognition-prev / dev-cognition-next + turn X/N label) to step through every turn's diagnosis in the session. Auto-jumps to the newest turn on arrival, preserves position while browsing history. Reuses the verified getFunctionalTrace endpoint. Compiles clean. (Additive dev-only UI; multi-turn history/copy not yet e2e-tested by testing_agent.)
