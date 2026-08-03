@@ -44,6 +44,13 @@ const FUNCTION_QUESTIONS = {
   "Conclusion": "What integrated understanding should my reader leave with?",
 };
 
+// The learner-facing communicative DIAGRAM (Thesis ▼ Elaboration + question) is frozen and hidden
+// per product decision — the highlighting + instructional dialogue carry the pedagogy. The backend
+// spans, highlighting, and relation/question architecture are all kept. Devs can re-enable the
+// diagram with ?diagram in the URL (no permanent visualization until use shows one is needed).
+const SHOW_COMMUNICATIVE_DIAGRAM =
+  typeof window !== "undefined" && new URLSearchParams(window.location.search).has("diagram");
+
 const OrientationMarker = ({ state }) => {
   if (state === "established")
     return <span aria-label="Established" className="text-emerald-700 font-bold w-3 inline-block text-center">✓</span>;
@@ -772,7 +779,7 @@ export default function PublicPreview({ mode = "ot" }) {
                       established={activeCoaching.established_structures || []}
                     />
                   )}
-                  {focusName === "Elaboration" && (
+                  {SHOW_COMMUNICATIVE_DIAGRAM && focusName === "Elaboration" && (
                     <div
                       data-testid="preview-interpretation-mvp"
                       className="mb-3 rounded-md border border-stone-200 bg-stone-50/70 px-4 py-3"
