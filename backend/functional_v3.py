@@ -1778,24 +1778,41 @@ _FUNCTION_SEL_SYS = (
     "texts). Cover: how the learner organizes their ideas (conceptual), how the learner organizes ideas "
     "for a reader (communicative), the learner's coordinative capacity in Kurt Fischer dynamic-skill "
     "terms (single representations / representational mappings / representational systems / single "
-    "abstractions / abstract mappings / abstract systems); THEN the DEVELOPMENTAL CONSTRAINT — the one "
+    "abstractions / abstract mappings / abstract systems) AND THE QUALITY of that coordination "
+    "(emerging / incomplete / loosely connected / inconsistent / under-differentiated / implicit vs "
+    "differentiated / explicit / coordinated / stable) — the PRESENCE of a developmental form does NOT "
+    "establish mastery of it; distinguish the TIER of the content (representational vs abstract) from "
+    "the STRUCTURE of coordination, and do not call it 'representational mappings' when the coordinated "
+    "content is abstract; THEN the DEVELOPMENTAL CONSTRAINT — the one "
     "limitation in the learner's present coordinative organization that is currently limiting further "
-    "progress (never a flaw in the essay); THEN the DEVELOPMENTAL POSSIBILITIES — the RANGE of "
+    "progress (never a flaw in the essay; the constraint MAY be the INSTABILITY, incompleteness, or "
+    "under-differentiation of an emerging organization itself, not only the absence of a higher form); "
+    "THEN the DEVELOPMENTAL POSSIBILITIES — the RANGE of "
     "communicative organizations THE LEARNER could realistically CONSTRUCT NEXT given their present "
     "coordinative capacity (several plausible possibilities, never one prescribed move, plus which forms "
-    "are NOT yet supported by the evidence); THEN the INSTRUCTIONAL HORIZON, which you must DERIVE FROM "
-    "the developmental possibilities (the UPPER BOUNDARY of that range — the most developmentally "
+    "are NOT yet supported by the evidence — and when the current organization is emerging/unstable, the "
+    "range must FAVOR possibilities that STABILIZE and DIFFERENTIATE that same form before any that "
+    "coordinate it into more complex structures); THEN the INSTRUCTIONAL HORIZON, which you must DERIVE "
+    "FROM the developmental possibilities AND the QUALITY/stability of the form present (the UPPER "
+    "BOUNDARY of that range — the most developmentally "
     "ambitious organization the learner is likely to construct successfully WITH SUPPORT this "
-    "interaction); then the reachable next move (ONE high-leverage move selected from WITHIN the "
+    "interaction; an EMERGING mapping caps the horizon at stabilizing/differentiating THAT mapping, not "
+    "at coordinated mappings or abstract systems); then the reachable next move (ONE high-leverage move "
+    "selected from WITHIN the "
     "possibilities) and what is probably beyond the horizon. The developmental logic is: coordinative "
     "capacity -> developmental constraint -> developmental possibilities -> instructional horizon -> "
     "reachable next move. CONSTITUTIONAL RULE: instruction is limited to communicative organizations "
     "that are realistically constructible given the learner's current coordinative organization. Compass "
     "does not teach toward the ideal essay; Compass teaches toward the highest communicative "
-    "organization the learner is currently capable of constructing with support. "
+    "organization the learner is currently capable of constructing with support. CONSTITUTIONAL RULE: "
+    "calibrate to the QUALITY of coordination, not merely its presence; stabilize and differentiate "
+    "emerging organizations before expecting more complex coordination. "
     "Each estimate carries a confidence (high/medium/low) AND an evidence list — 1-4 short observations "
     "grounded in what the learner ACTUALLY wrote (specific moves, quoted or closely paraphrased) that "
-    "justify the judgment (especially for coordinative_capacity and developmental_constraint), so the "
+    "justify the judgment (especially for coordinative_capacity and developmental_constraint; evidence "
+    "must DISTINGUISH abstract words used vs abstractions actually differentiated, relations asserted vs "
+    "relations explicitly coordinated, organizations produced once vs produced consistently and stably), "
+    "so the "
     "REASONING (not only the conclusion) can be calibrated. This object is DEVELOPER-FACING "
     "ONLY: it is never shown to the "
     "learner and MUST NOT change your coaching decision, selected_function, or invitation. Estimate "
@@ -1943,33 +1960,45 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         '"communicative_organization": "how well THE LEARNER currently organizes those ideas FOR A '
         'READER (communicative structure). Phrase about the learner (\'The learner currently structures… '
         'for a reader\'), not about the essay", '
-        '"coordinative_capacity": "THE LEARNER\'s current coordinative capacity, using Kurt Fischer '
-        'dynamic-skill terminology where possible (single representations, representational mappings, '
-        'representational systems, single abstractions, abstract mappings, abstract systems) — i.e. how '
-        'many ideas/relations the learner can currently coordinate at once. Phrase about the learner '
-        '(\'The learner is coordinating…\', \'The learner is not yet consistently able to coordinate…\')", '
+        '"coordinative_capacity": "THE LEARNER\'s current coordinative capacity — state BOTH (a) the '
+        'developmental FORM present, using Kurt Fischer dynamic-skill terminology where supported '
+        '(single representations, representational mappings, representational systems, single '
+        'abstractions, abstract mappings, abstract systems) — i.e. how many ideas/relations the learner '
+        'can coordinate at once; AND (b) the QUALITY of that coordination (emerging / incomplete / '
+        'loosely connected / inconsistent / under-differentiated / implicit vs differentiated / explicit '
+        '/ coordinated / stable). PRESENCE of a form does NOT establish mastery. Distinguish the TIER of '
+        'the content from the STRUCTURE of coordination — do NOT say \'representational mappings\' when '
+        'the coordinated content is abstract. E.g. \'Emerging abstract mappings: the learner relates '
+        'interests to positions causally, but the abstractions and their relation remain compressed and '
+        'inconsistently unfolded.\' Phrase about the learner", '
         '"developmental_constraint": "answer ONE question: what is currently LIMITING this learner\'s '
         'further developmental progress? Express it as a limitation in THE LEARNER\'s present '
-        'COORDINATIVE ORGANIZATION, never as a flaw in the essay. E.g. \'The learner can coordinate '
-        'local explanatory relationships but cannot yet consistently coordinate those relationships with '
-        'the paragraph\'s central organizing idea.\'", '
+        'COORDINATIVE ORGANIZATION, never as a flaw in the essay. The constraint MAY be the INSTABILITY, '
+        'incompleteness, or under-differentiation of an EMERGING organization itself — not only the '
+        'absence of a higher form. E.g. \'The learner\'s constraint is the instability of an emerging '
+        'abstract mapping: they can state that interests motivate positions but cannot yet consistently '
+        'differentiate the two abstractions or make their causal relation explicit.\'", '
         '"developmental_possibilities": ["answer ONE question: what forms of communicative organization '
         'could THIS LEARNER realistically CONSTRUCT NEXT, given their present coordinative capacity and '
         'the available evidence? Give SEVERAL plausible possibilities — a RANGE, learner-centric, never '
         'one prescribed move, never what would make the essay ideal, never a single instructional '
-        'recommendation. Each is a short phrase, e.g. \'clarify one abstraction\', \'construct one '
-        'explicit mapping between two abstractions\', \'ground an abstraction in concrete or '
-        'representational content\', \'extend one existing mapping\', \'link one elaboration directly to '
-        'the thesis\', \'organize a short sequence of loosely connected mappings around a stable '
-        'thesis\'. THEN ALSO include entries prefixed \'not yet: \' for forms NOT yet supported by the '
-        'evidence, e.g. \'not yet: coordinate multiple mappings into an abstract system\', \'not yet: '
-        'manage several elaboration threads simultaneously\', \'not yet: construct a systems-level '
-        'thesis\', \'not yet: integrate multiple levels of abstraction at once\'. Together these define '
-        'the learner\'s current SPACE of possible development."], '
-        '"instructional_horizon": "DERIVE THIS FROM developmental_possibilities: the UPPER BOUNDARY of '
-        'that range — the most developmentally ambitious communicative organization THE LEARNER is '
-        'likely to construct SUCCESSFULLY with appropriate support during THIS interaction (never the '
-        'ideal essay, never beyond the possibilities). Phrase about the learner", '
+        'recommendation. WHEN the current organization is EMERGING / incomplete / unstable, PRIORITIZE '
+        'possibilities that STABILIZE and DIFFERENTIATE that same organization, e.g. \'clarify each '
+        'abstraction in a mapping\', \'make the relation between the abstractions explicit\', \'ground '
+        'the mapping in one concrete or representational example\', \'reconstruct the same mapping '
+        'consistently in another form\', \'connect one stable mapping directly to the thesis\'. THEN '
+        'include entries prefixed \'not yet: \' for MORE COMPLEX forms not yet supported by the evidence, '
+        'e.g. \'not yet: coordinate several mappings into one system\', \'not yet: maintain several '
+        'elaboration threads\', \'not yet: construct a systems-level thesis\', \'not yet: integrate '
+        'multiple abstraction levels simultaneously\'. Together these define the learner\'s current SPACE '
+        'of possible development."], '
+        '"instructional_horizon": "DERIVE THIS FROM developmental_possibilities AND the QUALITY/stability '
+        'of the form present: the UPPER BOUNDARY of that range — the most developmentally ambitious '
+        'communicative organization THE LEARNER is likely to construct SUCCESSFULLY with appropriate '
+        'support during THIS interaction (never the ideal essay, never beyond the possibilities). An '
+        'EMERGING abstract mapping does NOT justify a horizon at coordinated mappings or abstract '
+        'systems — its horizon is the stabilization, differentiation, and explicit construction of THAT '
+        'mapping. Phrase about the learner", '
         '"reachable_next_move": "select ONE high-leverage move from WITHIN developmental_possibilities — '
         'the developmental move THE LEARNER can reach next, at or below the instructional horizon", '
         '"beyond_horizon": "what is probably BEYOND this learner\'s current instructional horizon (not '
@@ -1986,7 +2015,9 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         'judgment"], "orientation_target_confirmed": ["evidence from the learner\'s revision/'
         'challenge, or [] if unconfirmed"], "conceptual_organization": ["evidence bullets"], '
         '"communicative_organization": ["evidence bullets"], "coordinative_capacity": ["evidence '
-        'bullets — cite which relations the learner did / did not coordinate"], '
+        'bullets — DISTINGUISH abstract words used vs abstractions actually differentiated, relations '
+        'asserted vs relations explicitly coordinated, and organizations produced once vs produced '
+        'consistently/stably"], '
         '"developmental_constraint": ["evidence bullets — the textual moves that reveal this '
         'limitation in the learner\'s coordinative organization"], "developmental_possibilities": '
         '["evidence bullets — which coordinative moves the learner has ALREADY demonstrated that make '
