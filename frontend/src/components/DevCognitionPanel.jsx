@@ -13,17 +13,24 @@ const FIELDS = [
   ["orientation_target_interpretation", "Orientation target — Compass's interpretation"],
   ["orientation_target_confirmed", "Orientation target — confirmed / revised by student"],
   ["task_orientation_relation", "Task ↔ orientation relation"],
-  ["current_relational_structure", "Current relational structure (relations present)"],
+  ["content_relations_and_dependencies", "Content relations & dependencies (task meaning-relations)"],
+  ["structural_relations_and_dependencies", "Structural relations & dependencies (organization required)"],
+  ["current_relational_structure", "Current relational structure (organization present)"],
   ["conceptual_organization", "Conceptual organization"],
   ["communicative_organization", "Communicative organization"],
   ["coordinative_capacity", "Coordinative capacity (form + quality, Fischer)"],
   ["developmental_constraint", "Developmental constraint (what limits progress)"],
   ["developmental_possibilities", "Developmental possibilities (range constructible next)"],
-  ["required_relations", "Required relations (must become clear for the task)"],
-  ["provisional_whole_communication", "Provisional whole communication (constructible whole)"],
-  ["instructional_center", "Instructional center (relation organizing local work)"],
+  ["task_required_content_relations", "Task-required content relations (for the reader)"],
+  ["task_required_structural_relations", "Task-required structural relations (coherent whole)"],
+  ["whole_communication_requirements", "Whole-communication requirements (minimum organization)"],
+  ["provisional_whole_communication", "Provisional whole communication (constructible by THIS learner)"],
+  ["integrated_instructional_problem_space", "Integrated instructional problem space (the synthesis)"],
   ["instructional_horizon", "Instructional horizon (upper boundary of the possibilities)"],
+  ["instructional_center", "Instructional center (next necessary coordination)"],
+  ["local_instruction_constraints", "Local instruction constraints (local-in-whole limits)"],
   ["reachable_next_move", "Reachable next move"],
+  ["current_instructional_sufficiency", "Current instructional sufficiency (enough for the whole)"],
   ["deferred_or_excluded_complexity", "Deferred / excluded complexity"],
   ["beyond_horizon", "Beyond the horizon"],
 ];
@@ -168,9 +175,11 @@ export default function DevCognitionPanel({ sessionId, turnKey, onClose }) {
         )}
 
         {dco && !showRaw && FIELDS.map(([key, label]) => {
-          const val = dco[key];
-          const c = conf[key];
-          const ev = Array.isArray(evidence[key]) ? evidence[key] : [];
+          const raw = dco[key];
+          const val = raw && typeof raw === "object" && !Array.isArray(raw) && "value" in raw ? raw.value : raw;
+          const c = conf[key] || (raw && typeof raw === "object" ? raw.confidence : undefined);
+          const evSrc = evidence[key] || (raw && typeof raw === "object" ? raw.evidence : undefined);
+          const ev = Array.isArray(evSrc) ? evSrc : [];
           const valIsList = Array.isArray(val);
           const hasVal = valIsList ? val.length > 0 : Boolean(val);
           return (
