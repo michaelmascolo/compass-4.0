@@ -8,15 +8,23 @@ import { getFunctionalTrace } from "@/lib/api";
 // feature. Reads GET /api/dev/functional-v3-trace/{sessionId}.
 
 const FIELDS = [
+  ["communicative_task", "Communicative task (what the assignment requires)"],
+  ["apparent_orientation_target", "Apparent orientation target (what the writing is constructing)"],
   ["orientation_target_interpretation", "Orientation target — Compass's interpretation"],
   ["orientation_target_confirmed", "Orientation target — confirmed / revised by student"],
+  ["task_orientation_relation", "Task ↔ orientation relation"],
+  ["current_relational_structure", "Current relational structure (relations present)"],
   ["conceptual_organization", "Conceptual organization"],
   ["communicative_organization", "Communicative organization"],
-  ["coordinative_capacity", "Coordinative capacity (Fischer)"],
+  ["coordinative_capacity", "Coordinative capacity (form + quality, Fischer)"],
   ["developmental_constraint", "Developmental constraint (what limits progress)"],
   ["developmental_possibilities", "Developmental possibilities (range constructible next)"],
+  ["required_relations", "Required relations (must become clear for the task)"],
+  ["provisional_whole_communication", "Provisional whole communication (constructible whole)"],
+  ["instructional_center", "Instructional center (relation organizing local work)"],
   ["instructional_horizon", "Instructional horizon (upper boundary of the possibilities)"],
   ["reachable_next_move", "Reachable next move"],
+  ["deferred_or_excluded_complexity", "Deferred / excluded complexity"],
   ["beyond_horizon", "Beyond the horizon"],
 ];
 

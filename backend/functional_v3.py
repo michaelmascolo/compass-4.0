@@ -1775,7 +1775,16 @@ _FUNCTION_SEL_SYS = (
     "your best CURRENT developmental read of THIS LEARNER. Every field must describe THE LEARNER, not "
     "the text — say 'The learner currently…', 'The learner appears able to…', 'The learner is "
     "coordinating…', 'The learner is not yet consistently able to…' (Compass teaches learners, not "
-    "texts). Cover: how the learner organizes their ideas (conceptual), how the learner organizes ideas "
+    "texts). TASK–LEARNER–WHOLE MODEL (constitutional): reason within THREE mutually constraining "
+    "representations — (1) the COMMUNICATIVE TASK (what the assignment requires the communication to "
+    "accomplish, derived from the ASSIGNMENT not the paragraph), (2) the LEARNER's current developmental "
+    "organization, and (3) the PROVISIONAL organization of the WHOLE communication the learner could "
+    "realistically construct. Each constrains the others; instruction must be selected WITHIN their "
+    "COLLECTIVE constraints. The task does not independently dictate instruction; the learner model does "
+    "not independently dictate instruction; the provisional whole does not independently dictate "
+    "instruction. Do NOT reconstruct a coherent intended thesis from merely related material and then "
+    "treat it as if it fully answers the assignment. Cover: how the learner organizes their ideas "
+    "(conceptual), how the learner organizes ideas "
     "for a reader (communicative), the learner's coordinative capacity in Kurt Fischer dynamic-skill "
     "terms (single representations / representational mappings / representational systems / single "
     "abstractions / abstract mappings / abstract systems) AND THE QUALITY of that coordination "
@@ -1799,9 +1808,13 @@ _FUNCTION_SEL_SYS = (
     "interaction; an EMERGING mapping caps the horizon at stabilizing/differentiating THAT mapping, not "
     "at coordinated mappings or abstract systems); then the reachable next move (ONE high-leverage move "
     "selected from WITHIN the "
-    "possibilities) and what is probably beyond the horizon. The developmental logic is: coordinative "
-    "capacity -> developmental constraint -> developmental possibilities -> instructional horizon -> "
-    "reachable next move. CONSTITUTIONAL RULE: instruction is limited to communicative organizations "
+    "possibilities) and what is probably beyond the horizon. The HIDDEN REASONING ORDER (each field "
+    "mutually constrains the others) is: assignment -> communicative_task -> apparent_orientation_target "
+    "-> task_orientation_relation -> current_relational_structure -> coordinative_capacity -> "
+    "developmental_constraint -> developmental_possibilities -> required_relations -> "
+    "provisional_whole_communication -> instructional_center -> instructional_horizon -> "
+    "reachable_next_move -> deferred_or_excluded_complexity. CONSTITUTIONAL RULE: instruction is limited "
+    "to communicative organizations "
     "that are realistically constructible given the learner's current coordinative organization. Compass "
     "does not teach toward the ideal essay; Compass teaches toward the highest communicative "
     "organization the learner is currently capable of constructing with support. CONSTITUTIONAL RULE: "
@@ -1948,6 +1961,22 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         'challenge)", "outcome": "revised|explained|narrowed|none", "explanation": "one sentence of '
         'why (\\"\\" if none)"},\n'
         '  "developmental_cognition": {'
+        '"communicative_task": "what the ASSIGNMENT requires the learner\'s communication to accomplish — '
+        'derived from the ACTUAL ASSIGNMENT, not from the student\'s paragraph. E.g. for \'What does it '
+        'mean to separate interests from positions?\' -> \'The paragraph must explain the distinction '
+        'between interests and positions and explain what the act of separating them consists of.\' '
+        'State the communicative demand, not a rubric", '
+        '"apparent_orientation_target": "what understanding THE LEARNER\'S CURRENT WRITING appears to be '
+        'trying to construct — distinct from the assignment. Do NOT assume this adequately answers the '
+        'assignment; do NOT reconstruct a coherent intended thesis from related material and then treat '
+        'it as if it fully answers the task. Phrase about the learner (\'The learner\'s writing appears '
+        'to be constructing…\')", '
+        '"task_orientation_relation": "explicitly COMPARE the assignment\'s communicative demand '
+        '(communicative_task) with the learner\'s apparent_orientation_target. Classify the relation as '
+        'one of: directly responsive | partially responsive | related but incomplete | tangential | '
+        'contradictory | unclear — then EXPLAIN the basis. E.g. \'related but partially responsive: it '
+        'explains why focusing on interests may be useful, but does not yet clearly explain what '
+        'interests and positions are or what separating them means.\'", '
         '"orientation_target_interpretation": "Compass\'s CURRENT interpretation of THE LEARNER\'s '
         'orientation target — what this learner appears to be trying to communicate/accomplish. Describe '
         'the LEARNER, not the text (\'The learner appears to be trying to…\', not \'The paragraph…\')", '
@@ -1960,6 +1989,11 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         '"communicative_organization": "how well THE LEARNER currently organizes those ideas FOR A '
         'READER (communicative structure). Phrase about the learner (\'The learner currently structures… '
         'for a reader\'), not about the essay", '
+        '"current_relational_structure": ["the RELATIONS actually PRESENT in the learner\'s current '
+        'writing — describe RELATIONS, not topics or sentences. Each entry is one relation, e.g. '
+        '\'separating interests from positions is difficult\', \'failure to separate them can damage '
+        'relationships\', \'interests motivate positions\', \'focusing on interests can improve '
+        'negotiation\'. This is the current structure of the communication AS WRITTEN"], '
         '"coordinative_capacity": "THE LEARNER\'s current coordinative capacity — state BOTH (a) the '
         'developmental FORM present, using Kurt Fischer dynamic-skill terminology where supported '
         '(single representations, representational mappings, representational systems, single '
@@ -1992,6 +2026,25 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         'elaboration threads\', \'not yet: construct a systems-level thesis\', \'not yet: integrate '
         'multiple abstraction levels simultaneously\'. Together these define the learner\'s current SPACE '
         'of possible development."], '
+        '"required_relations": ["the RELATIONS that must become CLEAR for the ASSIGNMENT to be fulfilled '
+        '(NOT prescribed sentences — the relations the communication must make available to the reader). '
+        'E.g. \'an interest is different from a position\', \'an interest is an underlying need/concern/'
+        'value/motive\', \'a position is the stated demand or proposed solution\', \'interests motivate '
+        'or underlie positions\', \'separating them means looking beneath the stated position to the '
+        'underlying interest\'. Derive from communicative_task, not from what the learner already wrote"], '
+        '"provisional_whole_communication": "Compass\'s CURRENT HYPOTHESIS about the overall '
+        'communicative organization the learner could realistically construct — constrained SIMULTANEOUSLY '
+        'by the assignment, the learner\'s coordinative capacity, developmental_possibilities, the '
+        'relations already present, and the relations still required. Describe the KIND of whole that is '
+        'realistically constructible; do NOT prescribe one exact paragraph structure or write the answer. '
+        'E.g. \'The learner may be able to construct a paragraph organized around one stable abstract '
+        'mapping (interests underlie positions), clarifying each term, explaining the relation, and '
+        'grounding it in one concrete example; a systems-level integration of several conflict-management '
+        'principles is beyond the current horizon.\'", '
+        '"instructional_center": "the ONE relation that currently organizes and LIMITS the next local '
+        'instructional work. Local clarification / elaboration / examples / reorganization should only be '
+        'selected if it contributes to this center. E.g. \'Interests motivate positions, and separating '
+        'them means distinguishing the underlying concern from the stated demand.\'", '
         '"instructional_horizon": "DERIVE THIS FROM developmental_possibilities AND the QUALITY/stability '
         'of the form present: the UPPER BOUNDARY of that range — the most developmentally ambitious '
         'communicative organization THE LEARNER is likely to construct SUCCESSFULLY with appropriate '
@@ -2003,14 +2056,37 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         'the developmental move THE LEARNER can reach next, at or below the instructional horizon", '
         '"beyond_horizon": "what is probably BEYOND this learner\'s current instructional horizon (not '
         'yet reachable this turn)", '
-        '"confidence": {"orientation_target_interpretation": "high|medium|low", '
+        '"deferred_or_excluded_complexity": ["related ideas that should NOT be developed during the '
+        'present interaction because they exceed the learner\'s instructional horizon, compete with the '
+        'communicative_task, distract from the instructional_center, or introduce more complexity than '
+        'the learner can coordinate. E.g. \'multiple theories of negotiation\', \'several parallel '
+        'benefits developed simultaneously\', \'fairness, relationship preservation, and identity '
+        'concerns all at once\', \'systems-level integration of multiple conflict-management '
+        'principles\'"], '
+        '"confidence": {"communicative_task": "high|medium|low", '
+        '"apparent_orientation_target": "high|medium|low", "task_orientation_relation": "high|medium|low", '
+        '"current_relational_structure": "high|medium|low", "required_relations": "high|medium|low", '
+        '"provisional_whole_communication": "high|medium|low", "instructional_center": "high|medium|low", '
+        '"deferred_or_excluded_complexity": "high|medium|low", '
+        '"orientation_target_interpretation": "high|medium|low", '
         '"orientation_target_confirmed": "high|medium|low", "conceptual_organization": "high|medium|low", '
         '"communicative_organization": "high|medium|low", "coordinative_capacity": "high|medium|low", '
         '"developmental_constraint": "high|medium|low", '
         '"developmental_possibilities": "high|medium|low", '
         '"instructional_horizon": "high|medium|low", "reachable_next_move": "high|medium|low", '
         '"beyond_horizon": "high|medium|low"}, '
-        '"evidence": {"orientation_target_interpretation": ["1-4 SHORT observations grounded in what the '
+        '"evidence": {"communicative_task": ["cite the ASSIGNMENT wording that establishes the '
+        'communicative demand"], "apparent_orientation_target": ["cite the learner\'s EXACT wording that '
+        'reveals what their writing is trying to construct"], "task_orientation_relation": ["cite BOTH '
+        'the assignment demand and the learner\'s wording; name which required relations are present vs '
+        'absent that justify the classification"], "current_relational_structure": ["cite the learner\'s '
+        'exact wording for each relation actually present"], "required_relations": ["cite the assignment '
+        'wording each required relation derives from"], "provisional_whole_communication": ["cite the '
+        'developmental evidence (relations present + coordinative capacity) supporting the '
+        'constructibility judgment"], "instructional_center": ["cite the present + required relations '
+        'that make this the organizing center"], "deferred_or_excluded_complexity": ["cite why each item '
+        'exceeds the horizon / competes with the task / exceeds coordination"], '
+        '"orientation_target_interpretation": ["1-4 SHORT observations grounded in what the '
         'learner ACTUALLY wrote (quote or closely paraphrase the specific moves) that justify this '
         'judgment"], "orientation_target_confirmed": ["evidence from the learner\'s revision/'
         'challenge, or [] if unconfirmed"], "conceptual_organization": ["evidence bullets"], '
