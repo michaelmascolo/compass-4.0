@@ -14,7 +14,8 @@ const FIELDS = [
   ["communicative_organization", "Communicative organization"],
   ["coordinative_capacity", "Coordinative capacity (Fischer)"],
   ["developmental_constraint", "Developmental constraint (what limits progress)"],
-  ["instructional_horizon", "Instructional horizon (derived from the constraint)"],
+  ["developmental_possibilities", "Developmental possibilities (range constructible next)"],
+  ["instructional_horizon", "Instructional horizon (upper boundary of the possibilities)"],
   ["reachable_next_move", "Reachable next move"],
   ["beyond_horizon", "Beyond the horizon"],
 ];
@@ -162,6 +163,8 @@ export default function DevCognitionPanel({ sessionId, turnKey, onClose }) {
           const val = dco[key];
           const c = conf[key];
           const ev = Array.isArray(evidence[key]) ? evidence[key] : [];
+          const valIsList = Array.isArray(val);
+          const hasVal = valIsList ? val.length > 0 : Boolean(val);
           return (
             <div key={key} data-testid={`dco-${key}`}
               style={{ marginBottom: 12, paddingBottom: 10, borderBottom: "1px solid #292524" }}>
@@ -171,7 +174,20 @@ export default function DevCognitionPanel({ sessionId, turnKey, onClose }) {
                 </span>
                 {c && <span style={{ color: confColor(c), fontWeight: 700, textTransform: "uppercase", fontSize: 9 }}>{c}</span>}
               </div>
-              <div style={{ color: val ? "#f5f5f4" : "#78716c", marginTop: 3, fontSize: 12 }}>{val || "—"}</div>
+              {valIsList ? (
+                hasVal ? (
+                  <ul style={{ margin: "4px 0 0", paddingLeft: 16, color: "#f5f5f4", fontSize: 12 }}>
+                    {val.map((v, i) => (
+                      <li key={i} style={{ marginBottom: 2,
+                        color: String(v).trim().toLowerCase().startsWith("not yet") ? "#a8a29e" : "#f5f5f4" }}>{v}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div style={{ color: "#78716c", marginTop: 3, fontSize: 12 }}>—</div>
+                )
+              ) : (
+                <div style={{ color: hasVal ? "#f5f5f4" : "#78716c", marginTop: 3, fontSize: 12 }}>{val || "—"}</div>
+              )}
               {ev.length > 0 && (
                 <ul style={{ margin: "5px 0 0", paddingLeft: 16, color: "#a8a29e" }}>
                   {ev.map((e, i) => <li key={i} style={{ marginBottom: 2 }}>{e}</li>)}

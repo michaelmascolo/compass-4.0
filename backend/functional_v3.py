@@ -1780,9 +1780,19 @@ _FUNCTION_SEL_SYS = (
     "terms (single representations / representational mappings / representational systems / single "
     "abstractions / abstract mappings / abstract systems); THEN the DEVELOPMENTAL CONSTRAINT — the one "
     "limitation in the learner's present coordinative organization that is currently limiting further "
-    "progress (never a flaw in the essay); THEN the INSTRUCTIONAL HORIZON, which you must DERIVE FROM "
-    "the developmental constraint (the highest developmental move realistically reachable IF instruction "
-    "addresses that constraint); then the next reachable move and what is probably beyond the horizon. "
+    "progress (never a flaw in the essay); THEN the DEVELOPMENTAL POSSIBILITIES — the RANGE of "
+    "communicative organizations THE LEARNER could realistically CONSTRUCT NEXT given their present "
+    "coordinative capacity (several plausible possibilities, never one prescribed move, plus which forms "
+    "are NOT yet supported by the evidence); THEN the INSTRUCTIONAL HORIZON, which you must DERIVE FROM "
+    "the developmental possibilities (the UPPER BOUNDARY of that range — the most developmentally "
+    "ambitious organization the learner is likely to construct successfully WITH SUPPORT this "
+    "interaction); then the reachable next move (ONE high-leverage move selected from WITHIN the "
+    "possibilities) and what is probably beyond the horizon. The developmental logic is: coordinative "
+    "capacity -> developmental constraint -> developmental possibilities -> instructional horizon -> "
+    "reachable next move. CONSTITUTIONAL RULE: instruction is limited to communicative organizations "
+    "that are realistically constructible given the learner's current coordinative organization. Compass "
+    "does not teach toward the ideal essay; Compass teaches toward the highest communicative "
+    "organization the learner is currently capable of constructing with support. "
     "Each estimate carries a confidence (high/medium/low) AND an evidence list — 1-4 short observations "
     "grounded in what the learner ACTUALLY wrote (specific moves, quoted or closely paraphrased) that "
     "justify the judgment (especially for coordinative_capacity and developmental_constraint), so the "
@@ -1943,16 +1953,32 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         'COORDINATIVE ORGANIZATION, never as a flaw in the essay. E.g. \'The learner can coordinate '
         'local explanatory relationships but cannot yet consistently coordinate those relationships with '
         'the paragraph\'s central organizing idea.\'", '
-        '"instructional_horizon": "DERIVE THIS FROM developmental_constraint: the HIGHEST developmental '
-        'move that is realistically reachable for THE LEARNER IF instruction addresses the current '
-        'developmental constraint. Phrase about the learner", '
-        '"reachable_next_move": "the developmental move THE LEARNER can reach next, within the horizon", '
+        '"developmental_possibilities": ["answer ONE question: what forms of communicative organization '
+        'could THIS LEARNER realistically CONSTRUCT NEXT, given their present coordinative capacity and '
+        'the available evidence? Give SEVERAL plausible possibilities — a RANGE, learner-centric, never '
+        'one prescribed move, never what would make the essay ideal, never a single instructional '
+        'recommendation. Each is a short phrase, e.g. \'clarify one abstraction\', \'construct one '
+        'explicit mapping between two abstractions\', \'ground an abstraction in concrete or '
+        'representational content\', \'extend one existing mapping\', \'link one elaboration directly to '
+        'the thesis\', \'organize a short sequence of loosely connected mappings around a stable '
+        'thesis\'. THEN ALSO include entries prefixed \'not yet: \' for forms NOT yet supported by the '
+        'evidence, e.g. \'not yet: coordinate multiple mappings into an abstract system\', \'not yet: '
+        'manage several elaboration threads simultaneously\', \'not yet: construct a systems-level '
+        'thesis\', \'not yet: integrate multiple levels of abstraction at once\'. Together these define '
+        'the learner\'s current SPACE of possible development."], '
+        '"instructional_horizon": "DERIVE THIS FROM developmental_possibilities: the UPPER BOUNDARY of '
+        'that range — the most developmentally ambitious communicative organization THE LEARNER is '
+        'likely to construct SUCCESSFULLY with appropriate support during THIS interaction (never the '
+        'ideal essay, never beyond the possibilities). Phrase about the learner", '
+        '"reachable_next_move": "select ONE high-leverage move from WITHIN developmental_possibilities — '
+        'the developmental move THE LEARNER can reach next, at or below the instructional horizon", '
         '"beyond_horizon": "what is probably BEYOND this learner\'s current instructional horizon (not '
         'yet reachable this turn)", '
         '"confidence": {"orientation_target_interpretation": "high|medium|low", '
         '"orientation_target_confirmed": "high|medium|low", "conceptual_organization": "high|medium|low", '
         '"communicative_organization": "high|medium|low", "coordinative_capacity": "high|medium|low", '
         '"developmental_constraint": "high|medium|low", '
+        '"developmental_possibilities": "high|medium|low", '
         '"instructional_horizon": "high|medium|low", "reachable_next_move": "high|medium|low", '
         '"beyond_horizon": "high|medium|low"}, '
         '"evidence": {"orientation_target_interpretation": ["1-4 SHORT observations grounded in what the '
@@ -1962,7 +1988,10 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         '"communicative_organization": ["evidence bullets"], "coordinative_capacity": ["evidence '
         'bullets — cite which relations the learner did / did not coordinate"], '
         '"developmental_constraint": ["evidence bullets — the textual moves that reveal this '
-        'limitation in the learner\'s coordinative organization"], "instructional_horizon": '
+        'limitation in the learner\'s coordinative organization"], "developmental_possibilities": '
+        '["evidence bullets — which coordinative moves the learner has ALREADY demonstrated that make '
+        'each listed possibility realistic, and which are absent (justifying the \'not yet\' entries)"], '
+        '"instructional_horizon": '
         '["evidence bullets"], "reachable_next_move": ["evidence bullets"], "beyond_horizon": ["evidence '
         'bullets"]}},\n'
         '  "confidence": "high|medium|low"\n'
