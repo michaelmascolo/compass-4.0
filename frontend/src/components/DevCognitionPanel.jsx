@@ -221,7 +221,10 @@ export default function DevCognitionPanel({ sessionId, turnKey, onClose }) {
                     <span style={{ color: vcol, fontWeight: 700, textTransform: "uppercase", fontSize: 9 }}>{x.value || "—"}{x.confidence ? ` · ${x.confidence}` : ""}</span>
                   </div>
                   {row("Learner-accessible target", x.learner_accessible_target)}
+                  {row("Episode target status", x.episode_target_status)}
+                  {row("Episode target revision reason", x.episode_target_revision_reason)}
                   {row("Accessible target achieved", x.accessible_target_achieved)}
+                  {row("Next developmental opportunity", x.next_developmental_opportunity)}
                   {row("Developmental advance", x.developmental_advance)}
                   {row("Organization stability", x.organization_stability)}
                   {row("Self-contained coherence", x.self_contained_coherence)}

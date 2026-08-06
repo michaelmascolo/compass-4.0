@@ -101,7 +101,7 @@ SUFFIELDS = ["value", "task_answered", "learner_accessible_target", "accessible_
              "reason", "confidence"]
 
 
-def wait_for_turn(sid, expected_count, timeout_polls=90):
+def wait_for_turn(sid, expected_count, timeout_polls=170):
     for _ in range(timeout_polls):
         time.sleep(4)
         tr = requests.get(f"{API}/dev/functional-v3-trace/{sid}", timeout=30)

@@ -1854,9 +1854,23 @@ _FUNCTION_SEL_SYS = (
     "learner_relative_sufficiency: judge stopping through the INTERACTION of (task, this learner's "
     "developmental organization, coherence of the constructed whole, value/cost of further "
     "instruction). Define a LEARNER-ACCESSIBLE TARGET (the highest organization realistically "
-    "constructible by THIS learner this episode, NOT the expert version) and do NOT silently RAISE it "
-    "once the learner reaches it (a richer possible explanation is not automatically a new "
-    "requirement). JOINT SUFFICIENCY RULE — mark sufficient ONLY when all four hold: (A) the assigned "
+    "constructible by THIS learner this episode, NOT the expert version). The learner-accessible "
+    "target is an INSTRUCTIONAL COMMITMENT — an EPISODE-TARGET — not merely another inferred field. "
+    "Once established it is PINNED for the current instructional episode and MUST remain IDENTICAL "
+    "across turns. It may be refined ONLY for clearer wording of the SAME target, or revised ONLY if "
+    "you determine the ORIGINAL DIAGNOSIS was mistaken (then set episode_target_status="
+    "revised_wrong_diagnosis and name why in episode_target_revision_reason). It MUST NEVER become "
+    "more demanding because the learner successfully reached it — a richer possible organization is "
+    "NOT a new requirement. When the learner performs the pinned target's operation, set "
+    "accessible_target_achieved=yes IMMEDIATELY (never down-grade to 'partial' merely because richer "
+    "organization is still possible) and PRESERVE the original episode target verbatim. Any "
+    "higher-value organization that now becomes visible belongs to next_developmental_opportunity — "
+    "what learning could pursue in a FUTURE episode — and must NOT replace or redefine the current "
+    "episode target. This separates WHAT WE WERE TRYING TO ACCOMPLISH (the pinned target) from WHERE "
+    "LEARNING MIGHT GO NEXT (the next opportunity). The current episode ENDS when the pinned target "
+    "is achieved; the next opportunity belongs to the next episode. If a PINNED EPISODE TARGET is "
+    "supplied to you in the prompt, reuse it verbatim as learner_accessible_target (set "
+    "episode_target_status=kept) unless a genuine wrong-diagnosis revision applies. JOINT SUFFICIENCY RULE — mark sufficient ONLY when all four hold: (A) the assigned "
     "question is answered adequately; (B) the principal accessible developmental target is achieved; "
     "(C) the whole is self-contained and good enough for the task; (D) further conceptual instruction "
     "is unlikely to produce enough meaningful developmental gain to justify the cost in "
@@ -1951,9 +1965,77 @@ _FUNCTION_SEL_SYS = (
 )
 
 
+_DCO_TAIL_SYS = (
+    "You are the calibration module of a developmental writing tutor. Output ONLY a strict JSON object "
+    "containing the requested developmental_cognition TAIL fields. Be TERSE: every value is at most ONE "
+    "short clause; enum fields are a SINGLE token. No prose, no markdown — JSON only."
+)
+
+
+async def _recover_dco_tail(session_id: str, assignment: str, unit: str, draft: str,
+                            partial_dco: Dict[str, Any], pinned_episode_target: str = "") -> Dict[str, Any]:
+    """Focused recovery for the intermittently truncated developmental_cognition TAIL. Runs a small,
+    dedicated LLM call (small output cannot truncate) that returns ONLY the calibration tail objects,
+    reasoning FROM the already-computed early-DCO fields. Mirrors the split used for Sentence Craft."""
+    ctx = {k: partial_dco.get(k) for k in (
+        "communicative_task", "instructional_center", "current_relational_structure",
+        "coordinative_capacity", "developmental_constraint", "developmental_possibilities",
+        "provisional_whole_communication", "whole_communication_requirements",
+        "current_instructional_sufficiency", "instructional_horizon", "learner_orientation")
+        if partial_dco.get(k) is not None}
+    pin_line = (f"PINNED EPISODE TARGET (reuse VERBATIM as learner_accessible_target with "
+                f"episode_target_status=kept; NEVER raise it): \"{pinned_episode_target.strip()}\"\n"
+                if (pinned_episode_target or "").strip() else "")
+    prompt = (
+        f"ASSIGNMENT: {assignment or '(not specified)'}\nUNIT: {unit or 'one paragraph'}\n"
+        f"{pin_line}"
+        f"THE LEARNER'S CURRENT DRAFT:\n\"\"\"\n{draft}\n\"\"\"\n\n"
+        f"ALREADY-COMPUTED developmental context (reason FROM this; do not repeat it):\n"
+        f"{json.dumps(ctx, ensure_ascii=False)[:6000]}\n\n"
+        "Return ONLY this JSON (fill EVERY field; TERSE — one short clause per value, enum = single token):\n"
+        "{\n"
+        '  "task_relative_adequacy": {"value": "inadequate|approaching_adequacy|adequate|uncertain", '
+        '"task_expectations": ["proportionate minimums"], "expectations_met": ["..."], '
+        '"expectations_not_yet_met": ["..."], "self_contained_coherence": "one line", "material_gap": '
+        '"a SPECIFIC reader-comprehension gap that prevents adequacy, else \\"\\"", '
+        '"transition_recommendation": "stay_conceptual|transition_to_sentence_craft|uncertain", '
+        '"reason": "one clause", "confidence": "high|medium|low"},\n'
+        '  "learner_relative_sufficiency": {"value": "not_yet_sufficient|approaching_sufficiency|'
+        'sufficient|uncertain", "task_answered": "one clause", "learner_accessible_target": "the PINNED '
+        'episode target (verbatim if supplied above)", "accessible_target_achieved": "yes|no|partial|'
+        'uncertain — yes IMMEDIATELY once the learner performs the pinned operation", '
+        '"episode_target_status": "set_this_turn|kept|refined_wording|revised_wrong_diagnosis", '
+        '"episode_target_revision_reason": "empty unless revised_wrong_diagnosis", '
+        '"next_developmental_opportunity": "highest-value organization for a FUTURE episode; empty until '
+        'the target is achieved/near", "developmental_advance": "none|emerging|meaningful|substantial|'
+        'uncertain", "organization_stability": "unstable|emerging|sufficiently_stable|stable|uncertain", '
+        '"self_contained_coherence": "no|partial|good_enough|strong|uncertain", "further_growth_potential": '
+        '"one clause", "likely_value_of_further_instruction": "high|moderate|low|negligible|uncertain", '
+        '"likely_cost_of_further_instruction": "low|moderate|high|uncertain", "effectance_risk": '
+        '"low|emerging|high|uncertain", "transition_recommendation": "stay_conceptual|sentence_craft|'
+        'uncertain", "reason": "one clause", "confidence": "high|medium|low"},\n'
+        '  "timely_success_status": {"value": "not_yet_available|within_reach|achieved|missed_opportunity", '
+        '"what_changed": "one clause or \\"\\"", "how_it_improved": "one clause or \\"\\"", '
+        '"now_meets_task": "true|false", "reason": "one clause"},\n'
+        '  "sentence_craft_readiness": {"value": "not_ready|nearly_ready|ready|uncertain", "reason": '
+        '"one clause", "developmental_work_remaining": "concise or \\"\\""},\n'
+        '  "completion_readiness": {"value": "not_ready|nearly_ready|ready|uncertain", "reason": "one clause"}\n'
+        "}\n"
+    )
+    chat = LlmChat(api_key=_KEY, session_id=f"dco-tail-{session_id}",
+                   system_message=_DCO_TAIL_SYS).with_model(*SEL_MODEL).with_params(max_tokens=8000)
+    try:
+        raw = await chat.send_message(UserMessage(text=prompt))
+        tail = _extract_json(raw)
+    except (json.JSONDecodeError, ValueError):
+        return {}
+    return tail if isinstance(tail, dict) else {}
+
+
 async def _select_functions(session_id: str, assignment: str, unit: str, student_text: str,
                             prior_target: Optional[str] = None, prior_variation: str = "",
-                            prior_student_text: str = "", learner_message: str = "") -> Dict[str, Any]:
+                            prior_student_text: str = "", learner_message: str = "",
+                            pinned_episode_target: str = "") -> Dict[str, Any]:
     """Compass 3.0 function-centered selection. Emits the full internal decision schema, then adapts
     it to the contract run() consumes (mapping selected_function -> student-facing term). The full
     schema is attached under `_functional_decision` for the trace + teacher review surface."""
@@ -1980,11 +2062,28 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         )
     else:
         challenge_block = ""
+    if (pinned_episode_target or "").strip():
+        pin_block = (
+            "PINNED EPISODE TARGET (an instructional commitment already made to THIS learner this "
+            "episode):\n"
+            f"\"\"\"\n{pinned_episode_target.strip()}\n\"\"\"\n"
+            "Inside developmental_cognition.learner_relative_sufficiency you MUST reuse this EXACT "
+            "target as learner_accessible_target (verbatim, or refined ONLY for clearer wording of the "
+            "SAME target) and set episode_target_status=kept. Do NOT make it more demanding because "
+            "the learner reached it. Set episode_target_status=revised_wrong_diagnosis and supply a "
+            "different target ONLY if the ORIGINAL diagnosis was mistaken (never because the learner "
+            "succeeded). Once the learner performs this target's operation, set "
+            "accessible_target_achieved=yes and put any richer organization ONLY under "
+            "next_developmental_opportunity.\n\n"
+        )
+    else:
+        pin_block = ""
     prompt = (
         f"ASSIGNMENT (authoritative task): {assignment or '(not specified)'}\n"
         f"UNIT the writer is producing: {unit or 'one paragraph'}\n\n"
         f"{continuity_block}"
         f"{challenge_block}"
+        f"{pin_block}"
         f"THE WRITER'S CURRENT WRITING:\n\"\"\"\n{student_text}\n\"\"\"\n\n"
         "Return ONLY this JSON object (fill every field; use \"\" or [] where genuinely empty):\n"
         "{\n"
@@ -2245,7 +2344,20 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         'THIS learner in this task/episode (from their initial response, revisions, current relational '
         'organization, horizon, constructible whole, and coordination quality) — NOT the expert version; '
         'e.g. stabilize one explicit abstract mapping, differentiate one central distinction, connect one '
-        'reason clearly to a position", "accessible_target_achieved": "yes|no|partial|uncertain", '
+        'reason clearly to a position — ONCE SET this is a PINNED episode commitment: keep it '
+        'IDENTICAL across turns, never raise it because the learner reached it", '
+        '"accessible_target_achieved": "yes|no|partial|uncertain — mark yes IMMEDIATELY once the '
+        'learner performs the pinned target operation; do NOT keep it partial merely because richer '
+        'organization is still possible", '
+        '"episode_target_status": "set_this_turn|kept|refined_wording|revised_wrong_diagnosis — '
+        'set_this_turn only when first defined; kept on every later turn (identical target); '
+        'refined_wording only for clearer phrasing of the SAME target; revised_wrong_diagnosis ONLY '
+        'if the original diagnosis was mistaken (NEVER because the learner succeeded)", '
+        '"episode_target_revision_reason": "empty unless revised_wrong_diagnosis; then ONE clause on '
+        'why the original diagnosis was wrong", '
+        '"next_developmental_opportunity": "the highest-value developmental organization to pursue in '
+        'a FUTURE episode once this target is achieved; do NOT fold it into learner_accessible_target; '
+        'empty until the pinned target is achieved or nearly so", '
         '"developmental_advance": "none|emerging|meaningful|substantial|uncertain — change RELATIVE TO '
         'the learner\'s STARTING organization (what can they do now that was absent initially? what '
         'relation became more explicit/stable/differentiated/coordinated? did they perform the operation '
@@ -2334,7 +2446,7 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         "}"
     )
     chat = LlmChat(api_key=_KEY, session_id=f"fn-sel-{session_id}",
-                   system_message=_FUNCTION_SEL_SYS).with_model(*SEL_MODEL).with_params(max_tokens=32000)
+                   system_message=_FUNCTION_SEL_SYS).with_model(*SEL_MODEL).with_params(max_tokens=64000)
     raw = await chat.send_message(UserMessage(text=prompt))
     try:
         fd = _extract_json(raw)
@@ -2356,6 +2468,24 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
                                "rather than acting on unreliable output.",
             "functions": {}, "functional_organization": {},
         }
+
+    # DCO TAIL-DROP GUARD: the long developmental_cognition object is intermittently truncated by the
+    # model, dropping the trailing calibration fields (learner_relative_sufficiency onward) even though
+    # the JSON up to that point parses cleanly, and even at max output. When the critical calibration
+    # tail is missing, recover it with a SMALL dedicated call (split like Sentence Craft) that cannot
+    # truncate, then MERGE the recovered tail into the existing developmental_cognition.
+    def _dco_tail_ok(_d):
+        _dc = (_d or {}).get("developmental_cognition")
+        return isinstance(_dc, dict) and isinstance(_dc.get("learner_relative_sufficiency"), dict)
+    if fd and not _parse_fallback and not _dco_tail_ok(fd):
+        _partial = fd.get("developmental_cognition") if isinstance(fd.get("developmental_cognition"), dict) else {}
+        try:
+            _tail = await _recover_dco_tail(session_id, assignment, unit, student_text,
+                                            _partial, pinned_episode_target)
+        except Exception:  # noqa: BLE001
+            _tail = {}
+        if isinstance(_tail, dict) and isinstance(_tail.get("learner_relative_sufficiency"), dict):
+            fd["developmental_cognition"] = {**_partial, **_tail, "_tail_recovered": True}
 
     # Defensive: the model, seeing many inline {value,...} objects in the DCO schema, occasionally
     # wraps a TOP-LEVEL scalar selection field as an object too. The structure engine reads several of
@@ -2677,9 +2807,40 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
     t_s0 = time.perf_counter()
     sel = await _select_functions(state.id, assignment, unit, student_text,
                                   prior_target=prior_target, prior_variation=prior_variation,
-                                  prior_student_text=prior_student_text, learner_message=learner_message)
+                                  prior_student_text=prior_student_text, learner_message=learner_message,
+                                  pinned_episode_target=state.episode_accessible_target or "")
     functional_decision = sel.get("_functional_decision") or {}
     t_select = time.perf_counter() - t_s0
+
+    # COMPASS 4.5 — EPISODE-TARGET PINNING (server-side; not dependent on LLM compliance).
+    # learner_accessible_target is the instructional commitment for this episode: set it once, then
+    # hold it IDENTICAL across turns. It may change only on a genuine wrong-diagnosis re-assessment.
+    _dco0 = sel.get("_developmental_cognition") or {}
+    _lrs0 = _dco0.get("learner_relative_sufficiency") if isinstance(_dco0.get("learner_relative_sufficiency"), dict) else None
+    if _lrs0 is not None:
+        _produced = (_lrs0.get("learner_accessible_target") or "").strip()
+        _epstat = (_lrs0.get("episode_target_status") or "").strip().lower()
+        _pinned = (state.episode_accessible_target or "").strip()
+        if not _pinned:
+            if _produced:
+                state.episode_accessible_target = _produced
+                if not (_lrs0.get("episode_target_status") or "").strip():
+                    _lrs0["episode_target_status"] = "set_this_turn"
+        elif _epstat == "revised_wrong_diagnosis" and _produced:
+            state.episode_accessible_target = _produced  # accept a genuine re-diagnosis only
+        elif _produced != _pinned:
+            # the model drifted (usually raised the bar after success) — enforce the pinned target
+            _lrs0["_target_before_pin_enforcement"] = _produced
+            _lrs0["learner_accessible_target"] = _pinned
+            _lrs0["episode_target_status"] = "kept"
+        # Once the learner PERFORMS the pinned operation, the target is achieved — never leave it at
+        # 'partial'/'no' merely because richer organization remains possible. Use the model's own
+        # timely-success signal (accessible changes just brought the response to task adequacy).
+        _timely = ((_dco0.get("timely_success_status") or {}).get("value") or "").strip().lower()
+        _ach = (_lrs0.get("accessible_target_achieved") or "").strip().lower()
+        if _timely == "achieved" and _ach in ("partial", "no", "uncertain", ""):
+            _lrs0["_achieved_before_coercion"] = _lrs0.get("accessible_target_achieved")
+            _lrs0["accessible_target_achieved"] = "yes"
     engine_structure = sel.get("selected")
     established = sel.get("established") or []
     not_applicable = sel.get("not_applicable") or []

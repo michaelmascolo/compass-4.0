@@ -176,6 +176,10 @@ class InstructionalState(BaseModel):
     # --- Decision Engine V2 (RP5 consolidated) authoritative-output fields (additive) ---
     developmental_variation: str = ""                    # which common developmental form the writer is at
     instructional_intent: str = ""                       # what this coaching cycle intends the writer to build
+    # Compass 4.5 — the learner-accessible target is an INSTRUCTIONAL COMMITMENT for the current
+    # episode; once set it is PINNED and held identical across turns (may only change on a genuine
+    # wrong-diagnosis re-assessment, never because the learner reached it). Additive/defaulted.
+    episode_accessible_target: str = ""
     # --- Internal Instructional Decision analysis (never shown to the student; drives Teacher Review) ---
     instructional_analysis: Dict[str, Any] = Field(default_factory=dict)
     # count of consecutive continuation turns on the CURRENT target (0 on a fresh/first turn);
