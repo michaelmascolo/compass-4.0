@@ -200,6 +200,44 @@ export default function DevCognitionPanel({ sessionId, turnKey, onClose }) {
           </pre>
         )}
 
+        {dco && !showRaw && dco.learner_relative_sufficiency && typeof dco.learner_relative_sufficiency === "object" && (
+          <div data-testid="dco-learner_relative_sufficiency"
+            style={{ marginBottom: 12, padding: "9px 11px", background: "#0c0a09",
+              border: "1px solid #3f3f46", borderLeft: "3px solid #a3e635", borderRadius: 6 }}>
+            {(() => {
+              const x = dco.learner_relative_sufficiency;
+              const vcol = x.value === "sufficient" ? "#4ade80" : x.value === "approaching_sufficiency" ? "#fbbf24"
+                : x.value === "not_yet_sufficient" ? "#f87171" : "#a8a29e";
+              const row = (label, val) => val ? (
+                <div style={{ marginBottom: 4 }}>
+                  <div style={{ color: "#a8a29e", textTransform: "uppercase", fontSize: 8.5, letterSpacing: "0.08em" }}>{label}</div>
+                  <div style={{ color: "#f5f5f4", fontSize: 12 }}>{val}</div>
+                </div>
+              ) : null;
+              return (
+                <>
+                  <div style={{ display: "flex", justifyContent: "space-between", gap: 8, marginBottom: 5 }}>
+                    <span style={{ color: "#a3e635", fontWeight: 700, textTransform: "uppercase", fontSize: 9, letterSpacing: "0.1em" }}>Learner-relative sufficiency</span>
+                    <span style={{ color: vcol, fontWeight: 700, textTransform: "uppercase", fontSize: 9 }}>{x.value || "—"}{x.confidence ? ` · ${x.confidence}` : ""}</span>
+                  </div>
+                  {row("Learner-accessible target", x.learner_accessible_target)}
+                  {row("Accessible target achieved", x.accessible_target_achieved)}
+                  {row("Developmental advance", x.developmental_advance)}
+                  {row("Organization stability", x.organization_stability)}
+                  {row("Self-contained coherence", x.self_contained_coherence)}
+                  {row("Task answered", x.task_answered)}
+                  {row("Further growth potential", x.further_growth_potential)}
+                  {row("Value of further instruction", x.likely_value_of_further_instruction)}
+                  {row("Cost of further instruction", x.likely_cost_of_further_instruction)}
+                  {row("Effectance risk", x.effectance_risk)}
+                  {row("Transition recommendation", x.transition_recommendation)}
+                  {row("Reason", x.reason)}
+                </>
+              );
+            })()}
+          </div>
+        )}
+
         {dco && !showRaw && dco.task_relative_adequacy && typeof dco.task_relative_adequacy === "object" && (
           <div data-testid="dco-task_relative_adequacy"
             style={{ marginBottom: 12, padding: "9px 11px", background: "#0c0a09",

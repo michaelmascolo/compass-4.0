@@ -1851,7 +1851,29 @@ _FUNCTION_SEL_SYS = (
     "bring the work to task-relative adequacy, not endless movement toward an ideal; when the learner's "
     "own guided actions produce an adequate response, mark that success clearly and move forward. "
     "Diminishing returns is SECONDARY — use it only when adequacy is uncertain. Then produce "
-    "sentence_craft_readiness: "
+    "learner_relative_sufficiency: judge stopping through the INTERACTION of (task, this learner's "
+    "developmental organization, coherence of the constructed whole, value/cost of further "
+    "instruction). Define a LEARNER-ACCESSIBLE TARGET (the highest organization realistically "
+    "constructible by THIS learner this episode, NOT the expert version) and do NOT silently RAISE it "
+    "once the learner reaches it (a richer possible explanation is not automatically a new "
+    "requirement). JOINT SUFFICIENCY RULE — mark sufficient ONLY when all four hold: (A) the assigned "
+    "question is answered adequately; (B) the principal accessible developmental target is achieved; "
+    "(C) the whole is self-contained and good enough for the task; (D) further conceptual instruction "
+    "is unlikely to produce enough meaningful developmental gain to justify the cost in "
+    "frustration/repetition/dependency/loss of effectance. No single condition governs alone: task "
+    "adequacy without developmental progress is insufficient; developmental progress without a "
+    "coherent task response is insufficient; external product weakness does NOT defeat sufficiency when "
+    "the accessible target is achieved and the whole is good enough. REQUIRED TRANSITION TEST before "
+    "any further conceptual prompt, answer all five: (1) what specific developmental operation remains? "
+    "(2) was it part of the learner-accessible target? (3) is it required for the response to be good "
+    "enough for the task? (4) is the learner likely to achieve meaningful growth from this prompt? (5) "
+    "does that growth outweigh the cost of another conceptual round? If you cannot answer all five "
+    "affirmatively, recommend transition to Sentence Craft and do NOT search for another conceptual "
+    "extension. CRITICAL BREVITY: inside task_relative_adequacy and learner_relative_sufficiency EVERY "
+    "field value must be at most ONE short clause (<= 16 words); enum fields are a SINGLE token only "
+    "(e.g. 'sufficient', not 'sufficient. The learner...'); NEVER write sentences or paragraphs or "
+    "justifications inside these two objects (put brief support in their evidence arrays only). This "
+    "brevity is REQUIRED so later fields are not dropped. Then produce sentence_craft_readiness: "
     "Developmental Construction and Sentence Craft are DISTINCT modes — Developmental Construction helps "
     "the learner construct coherent meanings/organizations; Sentence Craft (a LATER mode) helps express "
     "already-constructed meanings with more clarity, precision, and sentence control. Judge (from "
@@ -2215,6 +2237,38 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         'coherent completion: recommend transition unless a specific material_gap remains", "reason": '
         '"ONE concise sentence", "confidence": "high|medium|low", "evidence": ["assignment + exact '
         'learner wording supporting the judgment"]}, '
+        '"learner_relative_sufficiency": {"value": "not_yet_sufficient|approaching_sufficiency|sufficient|'
+        'uncertain — judged through the INTERACTION of task + this learner\'s developmental organization '
+        '+ coherence of their constructed whole + value/cost of further instruction; NOT an external '
+        'ideal", "task_answered": "has THIS learner answered the assigned question adequately? concise", '
+        '"learner_accessible_target": "the HIGHEST meaningful organization realistically constructible by '
+        'THIS learner in this task/episode (from their initial response, revisions, current relational '
+        'organization, horizon, constructible whole, and coordination quality) — NOT the expert version; '
+        'e.g. stabilize one explicit abstract mapping, differentiate one central distinction, connect one '
+        'reason clearly to a position", "accessible_target_achieved": "yes|no|partial|uncertain", '
+        '"developmental_advance": "none|emerging|meaningful|substantial|uncertain — change RELATIVE TO '
+        'the learner\'s STARTING organization (what can they do now that was absent initially? what '
+        'relation became more explicit/stable/differentiated/coordinated? did they perform the operation '
+        'via their own revision?), NOT relative to an expert ideal", "organization_stability": '
+        '"unstable|emerging|sufficiently_stable|stable|uncertain — sufficiently_stable when the central '
+        'relation is explicit enough to guide the paragraph, used consistently enough to follow, the '
+        'whole no longer depends on Compass supplying the missing relation, and another prompt would '
+        'mostly ask for enrichment/refinement rather than a NEW necessary relation", '
+        '"self_contained_coherence": "no|partial|good_enough|strong|uncertain — good_enough when the '
+        'reader can identify the answer, follow the central relations, the communication does not '
+        'collapse without Compass, and remaining weaknesses do not prevent fulfilling the task at the '
+        'learner\'s current level", "further_growth_potential": "concise: what growth realistically '
+        'remains", "likely_value_of_further_instruction": "high|moderate|low|negligible|uncertain — high '
+        'only if a genuinely NEW accessible coordination remains that the task requires and that would '
+        'strengthen organization (not merely enrich prose)", "likely_cost_of_further_instruction": '
+        '"low|moderate|high|uncertain — high when repeating elaboration on the same relation, growing '
+        'length without organization, the learner already made the accessible move, or risking '
+        'frustration/dependency/loss of effectance", "effectance_risk": "low|emerging|high|uncertain — '
+        'rises with repeated elaboration of the same center, meaningful revisions left unacknowledged, a '
+        'response already coherent enough, or signals that effort never becomes sufficient", '
+        '"transition_recommendation": "stay_conceptual|sentence_craft|uncertain", "reason": "ONE concise '
+        'sentence", "confidence": "high|medium|low", "evidence": ["starting vs current organization + '
+        'task wording supporting the judgment"]}, '
         '"timely_success_status": {"value": "not_yet_available|within_reach|achieved|missed_opportunity — '
         'did accessible changes just bring the response to task-relative adequacy?", "what_changed": '
         '"what the learner just changed (empty if not achieved)", "how_it_improved": "how that change '
@@ -2302,6 +2356,21 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
                                "rather than acting on unreliable output.",
             "functions": {}, "functional_organization": {},
         }
+
+    # Defensive: the model, seeing many inline {value,...} objects in the DCO schema, occasionally
+    # wraps a TOP-LEVEL scalar selection field as an object too. The structure engine reads several of
+    # these with .lower(), so coerce any dict-wrapped scalar back to its string value (or "").
+    for _sk in ("status", "developmental_variation", "prior_constraint_reached_sufficiency",
+                "developmental_sufficiency", "confidence", "continuity_decision", "focus_status",
+                "instructional_action", "invitation_intent", "composition_integration_signal",
+                "dependent_work_possible", "student_facing_term"):
+        _sv = fd.get(_sk)
+        if isinstance(_sv, dict):
+            _iv = _sv.get("value")
+            fd[_sk] = _iv if isinstance(_iv, str) else ""
+    _fo = fd.get("functional_organization")
+    if isinstance(_fo, dict) and isinstance(_fo.get("status"), dict):
+        _fo["status"] = _fo["status"].get("value") if isinstance(_fo["status"].get("value"), str) else ""
 
     # Normalize INLINE developmental_cognition calibration: the model reliably emits confidence +
     # evidence when they are attached INLINE to each field ({value, confidence, evidence}) rather than
