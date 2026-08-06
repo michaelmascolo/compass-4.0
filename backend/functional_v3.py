@@ -1850,7 +1850,15 @@ _FUNCTION_SEL_SYS = (
     "(the present instructional_center), \"next\" (the likely_next_step), or \"deferred\" (outside the "
     "present center/whole or intentionally postponed). Do NOT include any node beyond the current "
     "instructional horizon. Labels must be plain and learner-friendly (no developmental jargon). It is "
-    "provisional and updates after every revision. CONSTITUTIONAL RULE: instruction "
+    "provisional and updates after every revision. Then produce completion_readiness + completion_message: "
+    "COMPLETION CONSTITUTIONAL RULE — Compass ENDS when the learner has constructed a communicatively "
+    "sufficient whole within the current instructional horizon and has completed an appropriate "
+    "sentence-level review; completion does NOT mean no further improvement is possible, only that the "
+    "present task has been fulfilled to a developmentally appropriate standard and further instruction "
+    "would no longer be necessary or proportionate within this episode; Compass must EXPLICITLY mark "
+    "completion and never leave the learner uncertain whether the work is finished. Fill "
+    "completion_message ONLY when completion_readiness is ready/nearly_ready, and name the ACTUAL "
+    "achievement (never generic praise). CONSTITUTIONAL RULE: instruction "
     "is limited "
     "to communicative organizations "
     "that are realistically constructible given the learner's current coordinative organization. Compass "
@@ -2181,6 +2189,22 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         '"evidence": ["what in the whole/sufficiency supports this"], "reason": "ONE concise sentence for '
         'the judgment", "developmental_work_remaining": "concise: developmental work (if any) that must '
         'occur before Sentence Craft can begin; empty string if none"}, '
+        '"completion_readiness": {"value": "not_ready|nearly_ready|ready|uncertain — is the writing '
+        'EPISODE ready to CLOSE? Do NOT require perfection: ready means the learner has constructed a '
+        'communicatively SUFFICIENT whole within the current instructional horizon AND no unresolved '
+        'issue materially prevents the paragraph from fulfilling the task. DERIVE from '
+        'current_instructional_sufficiency + whole_communication_requirements + '
+        'provisional_whole_communication + sentence_craft_readiness + sentence-level review status + any '
+        'unresolved high-priority issues", "confidence": "high|medium|low", "evidence": ["what supports '
+        'this"], "reason": "ONE concise sentence"}, '
+        '"completion_message": {"completion_statement": "learner-facing: ONE concise sentence that the '
+        'paragraph now communicates its central idea clearly enough FOR THIS ASSIGNMENT (fill ONLY when '
+        'completion_readiness is ready or nearly_ready; else empty string)", "achievement_statement": '
+        '"learner-facing: name the ACTUAL intellectual + communicative work the learner accomplished (no '
+        'generic praise; identify the real developmental achievement); empty string if not ready", '
+        '"boundary_statement": "learner-facing: completion means SUFFICIENT for the current task, not '
+        'perfect forever (e.g. we could keep polishing, but the paragraph has reached the goal we were '
+        'working toward); empty string if not ready"}, '
         '"constructible_whole_map": {"question": "ONE short learner-friendly line naming what this '
         'paragraph must accomplish (translate communicative_task; NO jargon)", "nodes": [{"label": "ONE '
         'learner-friendly communicative coordination in plain language (e.g. \'Explain what the growth '

@@ -200,6 +200,36 @@ export default function DevCognitionPanel({ sessionId, turnKey, onClose }) {
           </pre>
         )}
 
+        {dco && !showRaw && dco.completion_readiness && typeof dco.completion_readiness === "object" && (
+          <div data-testid="dco-completion_readiness"
+            style={{ marginBottom: 12, padding: "9px 11px", background: "#0c0a09",
+              border: "1px solid #3f3f46", borderLeft: "3px solid #22d3ee", borderRadius: 6 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", gap: 8 }}>
+              <span style={{ color: "#a8a29e", fontWeight: 600, textTransform: "uppercase", fontSize: 9, letterSpacing: "0.1em" }}>
+                Completion readiness
+              </span>
+              <span style={{ color: dco.completion_readiness.value === "ready" ? "#4ade80"
+                : dco.completion_readiness.value === "nearly_ready" ? "#fbbf24"
+                : dco.completion_readiness.value === "not_ready" ? "#f87171" : "#a8a29e",
+                fontWeight: 700, textTransform: "uppercase", fontSize: 9 }}>
+                {dco.completion_readiness.value || "—"}{dco.completion_readiness.confidence ? ` · ${dco.completion_readiness.confidence}` : ""}
+              </span>
+            </div>
+            {dco.completion_readiness.reason && <div style={{ color: "#f5f5f4", marginTop: 3, fontSize: 12 }}>{dco.completion_readiness.reason}</div>}
+            {dco.completion_message && (dco.completion_message.completion_statement || dco.completion_message.achievement_statement) && (
+              <div data-testid="dco-completion_message" style={{ marginTop: 6, paddingTop: 6, borderTop: "1px solid #292524" }}>
+                {[["completion_statement", "Completion"], ["achievement_statement", "Achievement"], ["boundary_statement", "Boundary"]].map(([k, lbl]) =>
+                  dco.completion_message[k] ? (
+                    <div key={k} style={{ marginBottom: 4 }}>
+                      <div style={{ color: "#a8a29e", textTransform: "uppercase", fontSize: 8.5, letterSpacing: "0.08em" }}>{lbl}</div>
+                      <div style={{ color: "#f5f5f4", fontSize: 12 }}>{dco.completion_message[k]}</div>
+                    </div>
+                  ) : null)}
+              </div>
+            )}
+          </div>
+        )}
+
         {dco && !showRaw && dco.learner_orientation && typeof dco.learner_orientation === "object" && (
           <div data-testid="dco-learner_orientation"
             style={{ marginBottom: 14, padding: "10px 11px", background: "#0c0a09",
