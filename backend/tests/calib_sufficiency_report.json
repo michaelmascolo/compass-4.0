@@ -1,0 +1,593 @@
+{
+  "cases": [
+    {
+      "id": "ai_education",
+      "session_id": "015c5fa5-1975-4323-9738-a85ba5ebffc2",
+      "turns": [
+        {
+          "turn": 1,
+          "learner_relative_sufficiency": {
+            "value": "approaching_sufficiency",
+            "task_answered": "Yes, adequately for the present level, though the sustaining mechanism is compressed.",
+            "learner_accessible_target": "Make the virtuous loop explicit by clarifying what motivation changes in the learner's behavior or approach and how that change enables or predicts the next effort.",
+            "accessible_target_achieved": "partial",
+            "developmental_advance": "meaningful—the learner is coordinating multiple abstract relations and has demonstrated the ability to differentiate types of AI, connect effort to learning, and propose a coherent mechanism. The learner has not yet made the recursion explicit, but is very close.",
+            "organization_stability": "sufficiently_stable—the central relation (guiding AI preserves learning by preserving effort) is explicit and consistently applied; the loop is asserted and guides the paragraph. Only the RECURSION within the loop is not yet differentiated.",
+            "self_contained_coherence": "good_enough—the reader can follow the argument and understand the proposed solution. The compression of the loop does not prevent comprehension, only deepens it.",
+            "further_growth_potential": "Making the virtuous loop explicit by unfolding its recursion; potentially connecting the loop back to the original problem (why students would prefer guiding tools to task-completion tools).",
+            "likely_value_of_further_instruction": "high—clarifying the one remaining compressed relation would complete the answer to the assignment and would strengthen the learner's understanding of how abstract mechanisms sustain themselves over time.",
+            "likely_cost_of_further_instruction": "low—this is a single, localized, high-leverage move; the learner has already done the hardest work.",
+            "effectance_risk": "low—the learner has produced a coherent, largely adequate response; one more targeted elaboration is likely to succeed and to feel like completion.",
+            "transition_recommendation": "stay_conceptual",
+            "reason": "One high-leverage, reachable developmental move remains: unfold the recursion of the virtuous loop to complete the answer.",
+            "confidence": "high",
+            "evidence": [
+              "The learner's current writing is organized around emerging abstract mappings that are coordinated but not yet fully differentiated.",
+              "The final compression (the virtuous loop) is the single most high-value target for further instruction.",
+              "The learner has demonstrated sufficient coordinative capacity to reach this target with appropriate scaffolding."
+            ]
+          },
+          "task_relative_adequacy": {
+            "value": "approaching_adequacy",
+            "task_expectations": [
+              "Identify a concrete problem with AI in education.",
+              "Propose a specific response to that problem.",
+              "Explain why the proposed response is better than existing approaches.",
+              "Make the response understandable and credible to a reader who may initially favor suppression."
+            ],
+            "expectations_met": [
+              "Concrete problem clearly stated (students use AI to avoid thinking).",
+              "Specific response proposed (build guiding tools instead of task-completing AI).",
+              "Existing approaches evaluated and rejected (banning is unenforceable; ignoring enables harm).",
+              "Mechanism explained adequately (guiding tools preserve learning by preserving effort)."
+            ],
+            "expectations_not_yet_met": [
+              "The sustaining cycle is named but not elaborated; a reader may not fully understand why the solution would persist over time or prevent reversion to convenience."
+            ],
+            "self_contained_coherence": "The paragraph is largely self-contained and coherent; a reader can follow the logic. The final relation (the virtuous loop) is present but compressed.",
+            "material_gap": "The compression of the virtuous loop—the reader understands that effort, success, and motivation form a sequence but may not grasp HOW motivation changes the learner's next effort or WHY this creates a recursive cycle rather than a one-time improvement. This gap is not large, but it prevents full adequacy because a reader cannot yet explain why guiding tools would sustain engagement.",
+            "transition_recommendation": "stay_conceptual",
+            "reason": "One concrete unresolved relation remains: the reader needs to understand the recursion of the virtuous loop to fully grasp the sustainability of the proposed solution.",
+            "confidence": "high",
+            "evidence": [
+              "Assignment: 'What should we do about AI in education?'",
+              "Learner response identifies what, explains why existing approaches fail, and proposes an alternative.",
+              "Missing: explicit elaboration of why the alternative sustains itself, which is necessary for a complete answer to 'what should we do.'"
+            ]
+          },
+          "timely_success_status": {
+            "value": "not_yet_available",
+            "what_changed": "",
+            "how_it_improved": "",
+            "now_meets_task": false,
+            "reason": "No revision has occurred yet; this is the initial analysis."
+          },
+          "sentence_craft_readiness": {
+            "value": "nearly_ready",
+            "confidence": "high",
+            "evidence": [
+              "The paragraph is largely self-contained and coherent; the ideas are organized logically.",
+              "Once the virtuous loop is unfolded, the conceptual work will be complete and sentence-level refinement can begin."
+            ],
+            "reason": "One significant conceptual unfolding remains; after it is complete, sentence-level work can proceed.",
+            "developmental_work_remaining": "Unfold the recursion of the virtuous loop by showing how motivation enables the next effort."
+          },
+          "completion_readiness": {
+            "value": "nearly_ready",
+            "confidence": "high",
+            "evidence": [
+              "The paragraph answers the assignment question and provides a coherent, largely complete response.",
+              "One high-value conceptual elaboration remains: making the virtuous loop explicit."
+            ],
+            "reason": "The paragraph is nearly complete; one focused developmental move will bring it to full adequacy and coherence."
+          }
+        },
+        {
+          "turn": 2,
+          "learner_relative_sufficiency": {
+            "value": "sufficient",
+            "task_answered": "Yes. The learner has answered the assigned question—what we should do—and explained why the proposal works.",
+            "learner_accessible_target": "Stabilize and make explicit the abstract mapping between learning-guiding AI design (guidance + reduced overwhelm) and outcome (preserved thinking and motivation), realized through a self-sustaining virtuous loop that the reader can follow step by step.",
+            "accessible_target_achieved": "yes",
+            "developmental_advance": "substantial — the learner moved from a compressed virtuous loop (initial draft) to a sequenced, explicitly causal loop (current draft). The learner demonstrated the ability to unpack abstract relationships into step-by-step causal chains and coordinate multiple abstract concepts (guided effort, success, willingness, genuine thinking, learning, motivation) into a coherent mechanism.",
+            "organization_stability": "sufficiently_stable — the central abstract mapping (learning-guiding AI preserves thinking and motivation through a virtuous loop) is now explicit and stable enough to guide the paragraph. The reader does not depend on Compass to infer the missing relation; the relation is on the page.",
+            "self_contained_coherence": "good_enough — the paragraph is self-contained, coherent, and adequate for the task. It answers the question, explains the solution, provides the mechanism, and shows why it is better than alternatives.",
+            "further_growth_potential": "The learner could unfold the loop's recursivity (what makes it self-sustaining) or add other dimensions (e.g., how to implement such tools, what barriers exist). Both lie within reach; neither is required for task adequacy.",
+            "likely_value_of_further_instruction": "moderate — unfolding the recursivity would strengthen the explanation of why the solution is superior and would represent meaningful conceptual work. However, the task is already adequately met.",
+            "likely_cost_of_further_instruction": "low — asking the learner to clarify one direction of the feedback or the stability condition would be brief, high-leverage work, not repetitive elaboration.",
+            "effectance_risk": "low — the learner has already demonstrated growth and constructed a coherent response. The risk of further instruction depends on whether it is framed as refinement (optional enrichment) vs. a new requirement (which could signal that the previous work was insufficient).",
+            "transition_recommendation": "sentence_craft",
+            "reason": "The learner has answered the task, achieved the accessible target, and constructed a coherent whole. Sentence-level refinement is appropriate; further conceptual elaboration is optional.",
+            "confidence": "high",
+            "evidence": [
+              "Task: explain what to do about AI in education. Learner: distinguish and build learning-guiding tools, and explained why (virtuous loop mechanism).",
+              "Revision shows developmental advance: loop sequenced and coordinated explicitly, not compressed.",
+              "Whole is self-contained and coherent; reader can follow central reasoning without ambiguity."
+            ]
+          },
+          "task_relative_adequacy": {
+            "value": "adequate",
+            "task_expectations": [
+              "Identify the problem with AI in education",
+              "Propose a solution",
+              "Explain why the solution works",
+              "Make the reader understand why it is better than current approaches",
+              "Be clear enough that a reader can follow the central reasoning"
+            ],
+            "expectations_met": [
+              "Problem identified: AI enables task-completion without thinking, blocking learning",
+              "Solution proposed: build AI that guides learning rather than completes tasks",
+              "Why it works: guides effort, removes overwhelm, preserves both thinking and motivation",
+              "Why it's better: current approaches (banning/ignoring) fail; the proposed approach is self-sustaining",
+              "Clarity: the reasoning is explicit and sequenced throughout"
+            ],
+            "expectations_not_yet_met": [],
+            "self_contained_coherence": "Yes; the paragraph is self-contained and coherent. A reasonable reader can identify the problem, follow the proposed solution, understand the mechanism, and see why it is superior.",
+            "material_gap": "",
+            "transition_recommendation": "transition_to_sentence_craft",
+            "reason": "The response adequately fulfills the assignment task; further conceptual elaboration would add refinement, not address material gaps.",
+            "confidence": "high",
+            "evidence": [
+              "Assignment asks 'What should we do about AI in education?' Learner answers: distinguish and build learning-guiding tools.",
+              "Assignment implicitly requires explanation. Learner provides: mechanism of how the tool works (guidance + reduced overwhelm) and outcome (virtuous loop).",
+              "A naive reader can follow: problem -> failed responses -> solution -> exemplar -> mechanism -> outcome."
+            ]
+          },
+          "timely_success_status": {
+            "value": "achieved",
+            "what_changed": "The learner unpacked the virtuous loop from a compressed statement into an explicit causal sequence: task broken into guided questions -> student finishes thinking -> success -> willingness to attempt next question -> each attempt is more genuine thinking -> learning and motivation feed each other.",
+            "how_it_improved": "The sequence is now visible and traceable for the reader. The causal chain from the tool's design to the outcome is explicit, not implicit. The reader understands the mechanism, not just the loop's existence.",
+            "now_meets_task": "true",
+            "reason": "The paragraph now adequately explains the solution and why it works through an explicit mechanism the reader can follow."
+          },
+          "sentence_craft_readiness": {},
+          "completion_readiness": {}
+        }
+      ],
+      "target_trajectory": {
+        "targets": [
+          "Make the virtuous loop explicit by clarifying what motivation changes in the learner's behavior or approach and how that change enables or predicts the next effort.",
+          "Stabilize and make explicit the abstract mapping between learning-guiding AI design (guidance + reduced overwhelm) and outcome (preserved thinking and motivation), realized through a self-sustaining virtuous loop that the reader can follow step by step."
+        ],
+        "achieved": [
+          "partial",
+          "yes"
+        ],
+        "transitions": [
+          "stay_conceptual",
+          "sentence_craft"
+        ]
+      }
+    },
+    {
+      "id": "homework_developing",
+      "session_id": "2ad87b5b-9320-4b06-a19e-1748aef0147a",
+      "turns": [
+        {
+          "turn": 1,
+          "learner_relative_sufficiency": {
+            "value": "not_yet_sufficient",
+            "task_answered": "Partially: the learner has taken a position and provided reasons, but has not yet shown coherent reasoning (reasons are unelaborated and disconnected).",
+            "learner_accessible_target": "Elaborate one central reason and organize the paragraph so the reasons relate to or support each other, forming a unified argument instead of a list.",
+            "accessible_target_achieved": "no",
+            "developmental_advance": "none yet—this is the first turn; the learner has not yet revised or elaborated.",
+            "organization_stability": "unstable—the current structure is a list with no clear relationship among ideas; one elaborated and organized reason would stabilize it.",
+            "self_contained_coherence": "partial—the paragraph contains related ideas but does not cohere into a unified argument.",
+            "further_growth_potential": "Substantial: once one reason is elaborated, the learner can organize it with supporting reasons; then the learner can work on choosing support/examples, and later on sentence clarity.",
+            "likely_value_of_further_instruction": "high—the next coordination (elaborating and organizing reasons) is necessary for the paragraph to fulfill the task and is constructible for this learner.",
+            "likely_cost_of_further_instruction": "low—one targeted instruction on elaborating one reason and showing its relation to others is proportionate and achievable.",
+            "effectance_risk": "low—the learner has a clear position; the next work is to unfold the reasoning, which is high-leverage and within reach.",
+            "transition_recommendation": "stay_conceptual",
+            "reason": "The learner must elaborate and organize reasons to fulfill the task; this is a constructible next move within their horizon.",
+            "confidence": "high",
+            "evidence": [
+              "Learner produced: position + unelaborated list of reasons.",
+              "Task requires: coherent reasoning, at least one elaborated reason.",
+              "Learner can realistically: elaborate one reason and organize it with supporting reasons (emerging mappings → unfolded and coordinated mappings)."
+            ]
+          },
+          "task_relative_adequacy": {
+            "value": "inadequate",
+            "task_expectations": [
+              "Take a clear position on the question",
+              "Provide at least one or two reasons that support that position",
+              "Organize those reasons coherently so a reader follows the argument",
+              "Make at least one reason clear enough that a reader understands its logic, not just the claim"
+            ],
+            "expectations_met": [
+              "Clear position: 'Schools should give less homework' ✓",
+              "Multiple reasons provided: stress, learning failure, need for other activities ✓"
+            ],
+            "expectations_not_yet_met": [
+              "Reasons are not organized coherently into a unified argument; they are listed separately",
+              "No reason is elaborated; each is asserted without explanation of why it matters",
+              "Reader cannot follow the logic of the argument because the reasons are disconnected"
+            ],
+            "self_contained_coherence": "Partial: the paragraph contains a position and reasons, but the reasons are disconnected and unexplained, so a reader cannot construct a coherent case.",
+            "material_gap": "The paragraph does not elaborate any reason or show how reasons relate to each other, so a reader cannot understand the writer's reasoning—only that multiple problems exist. This is a material gap for the assigned task.",
+            "transition_recommendation": "stay_conceptual",
+            "reason": "A specific material gap remains: reasons are asserted but not elaborated or organized, so the reader cannot follow the argument.",
+            "confidence": "high",
+            "evidence": [
+              "Assignment asks for position + reasoning; learner provides position but not yet coherent reasoning (reasons are stated but not unfolded or organized).",
+              "Expectations: one or two clear reasons, organized coherently; current: multiple reasons, listed without organization or elaboration."
+            ]
+          },
+          "timely_success_status": {
+            "value": "not_yet_available",
+            "what_changed": "",
+            "how_it_improved": "",
+            "now_meets_task": false,
+            "reason": "The learner has not yet revised; this is the initial analysis."
+          },
+          "sentence_craft_readiness": {
+            "value": "not_ready",
+            "confidence": "high",
+            "evidence": [
+              "The paragraph lacks elaboration and coherent organization; developmental work remains.",
+              "Sentence Craft focuses on clarity and precision of already-constructed meanings; the meanings here are not yet constructed (reasons are asserted but not unfolded)."
+            ],
+            "reason": "Developmental construction of elaborated, organized reasoning must occur before sentence-level work.",
+            "developmental_work_remaining": "Unfold at least one reason and organize the paragraph so reasons relate to or support each other."
+          },
+          "completion_readiness": {
+            "value": "not_ready",
+            "confidence": "high",
+            "evidence": [
+              "Task-relative adequacy: inadequate—material gap remains (no elaborated reasons, no organization).",
+              "Learner-relative sufficiency: not_yet_sufficient—the accessible target (elaborated, organized reasoning) has not been achieved.",
+              "Sentence Craft readiness: not_ready—developmental work must precede sentence work."
+            ],
+            "reason": "The paragraph does not yet fulfill the task; material developmental work remains."
+          }
+        },
+        {
+          "turn": 2,
+          "learner_relative_sufficiency": {
+            "value": "approaching_sufficiency",
+            "task_answered": "Yes; the learner has answered the assigned question with a clear position and central reason.",
+            "learner_accessible_target": "Unfold and differentiate the causal mechanism (stress/exhaustion → stops learning) so the paradox becomes fully understandable. This is the highest reachable organization given the learner's coordinative capacity and the current stage of their mapping.",
+            "accessible_target_achieved": "partial",
+            "developmental_advance": "meaningful—the learner moved from listing problems (homework is bad) to organizing them into a coherent paradox (excessive homework defeats its purpose). This is a substantial coordinative shift.",
+            "organization_stability": "sufficiently_stable—the learner can state and reinforce the paradox consistently; it organizes the paragraph.",
+            "self_contained_coherence": "good_enough—the reader can identify the position and understand the central logic.",
+            "further_growth_potential": "The learner can differentiate the mechanism and strengthen the warrant; they can likely construct one more concrete example or fuller explanation of the causal process.",
+            "likely_value_of_further_instruction": "moderate—unfolding the mechanism would meaningfully strengthen the response and deepen the learner's ability to explain causal reasoning. However, the response is already adequate for the task.",
+            "likely_cost_of_further_instruction": "moderate—another elaboration round requires the learner to engage in a similar (though differentiated) operation; risk of diminishing returns if the same function is asked multiple times.",
+            "effectance_risk": "low—the learner just produced a coherent argument and should experience that success before further work.",
+            "transition_recommendation": "sentence_craft",
+            "reason": "The response fulfills the task adequately; further conceptual development is valuable but not required; sentence-level clarity and precision would be the productive next step.",
+            "confidence": "high",
+            "evidence": [
+              "Prior draft: list of problems. Current draft: coherent paradoxical argument. This is meaningful development.",
+              "The response is self-contained and communicates a complete thought; remaining work is refinement within that thought."
+            ]
+          },
+          "task_relative_adequacy": {
+            "value": "approaching_adequacy",
+            "task_expectations": [
+              "State a clear position on homework reduction.",
+              "Provide at least one central reason that justifies the position.",
+              "Explain the reason clearly enough that a reader understands why it supports the position.",
+              "Maintain logical coherence throughout."
+            ],
+            "expectations_met": [
+              "Clear position stated.",
+              "Central reason provided (the paradox).",
+              "Logical coherence is present (the reader can follow the argument)."
+            ],
+            "expectations_not_yet_met": [
+              "The causal mechanism inside the reason is asserted but not fully explained; a reader understands the logic but may not fully grasp the human reality of why excessive homework prevents learning."
+            ],
+            "self_contained_coherence": "Yes; the paragraph is coherent and communicates a complete logical argument.",
+            "material_gap": "No material gap prevents understanding the position or its central justification. The mechanism is asserted sufficiently for a reader to follow; fuller unfolding would strengthen warrant but is not required for adequacy.",
+            "transition_recommendation": "transition_to_sentence_craft",
+            "reason": "The paragraph communicates its position and central reason coherently; further elaboration on the mechanism would be valuable but is not required for task adequacy.",
+            "confidence": "high",
+            "evidence": [
+              "Assignment: 'Should schools reduce homework?' Learner response: position stated, central reason provided, logic transparent.",
+              "A reader can identify and follow the argument, even if the mechanism could be more fully explained."
+            ]
+          },
+          "timely_success_status": {
+            "value": "achieved",
+            "what_changed": "The learner reorganized the paragraph to frame homework reduction as a solution to a logical paradox: excessive homework defeats its own purpose by creating stress/exhaustion that prevents learning.",
+            "how_it_improved": "The response moved from asserting separate problems to coordinating them into a single coherent argument. The reader now understands WHY the position follows, not merely that the writer believes it.",
+            "now_meets_task": true,
+            "reason": "The paragraph now presents a position with a clear, logically coherent central reason—the core requirement of the assignment."
+          },
+          "sentence_craft_readiness": {
+            "value": "ready",
+            "confidence": "high",
+            "evidence": [
+              "The learner has constructed a coherent logical organization (the paradox unfolded enough for reader understanding).",
+              "The paragraph communicates its central idea clearly; no unresolved conceptual development remains that must occur before sentence work.",
+              "Sentence-level refinement (clarity, precision, flow, word choice) is now the productive focus."
+            ],
+            "reason": "The communicative whole is sufficient and coherent; the learner is ready to shift to sentence-level expression.",
+            "developmental_work_remaining": ""
+          },
+          "completion_readiness": {
+            "value": "nearly_ready",
+            "confidence": "high",
+            "evidence": [
+              "The paragraph fulfills the task (position + reason).",
+              "The organization is coherent and logical.",
+              "Sentence-level review is the remaining step before closure."
+            ],
+            "reason": "The paragraph is conceptually complete and task-adequate; a sentence-level review will ensure clarity and precision before closing."
+          }
+        },
+        {
+          "turn": 3,
+          "learner_relative_sufficiency": {
+            "value": "sufficient",
+            "task_answered": "yes; the learner takes a clear position and provides a coherent reason",
+            "learner_accessible_target": "construct a coherent argument that excessive homework is counterproductive, supported by concrete example, organized so the reader follows the logic",
+            "accessible_target_achieved": "yes",
+            "developmental_advance": "meaningful; the learner moved from restating the problem in the first draft to grounding it in a concrete representational scenario (five hours, midnight, rushing, learning nothing). The learner also stabilized the thesis-to-example connection so the example now functions as support rather than illustration only.",
+            "organization_stability": "sufficiently_stable; the thesis is clear, the elaboration is present, the example is grounded and relevant, and the conclusion reaffirms the thesis. The reader does not need Compass to supply the missing piece; the paragraph stands on its own.",
+            "self_contained_coherence": "good_enough; the paragraph is coherent, self-contained, and fulfills the task. Remaining work (differentiating the mechanism further) would be optional refinement.",
+            "further_growth_potential": "the learner could differentiate what happens inside the student during overwhelming homework; could add a second example; could explicitly connect reduction to restored learning. But none of these is necessary for task fulfillment.",
+            "likely_value_of_further_instruction": "low; the task is answered, the argument is coherent, and further conceptual instruction would add refinement, not necessary development",
+            "likely_cost_of_further_instruction": "moderate; the learner has achieved the accessible target; asking for more elaboration on the same relation risks frustration and diminishing returns",
+            "effectance_risk": "emerging; the learner has successfully constructed a coherent response, which should be acknowledged; further instruction on the same relation without acknowledgment of this success risks undermining the learner's sense of effectance",
+            "transition_recommendation": "sentence_craft",
+            "reason": "The paragraph fulfills the task and achieves the learner's accessible target. Further conceptual development is optional; sentence-level refinement (clarity, precision, flow) is the appropriate next mode.",
+            "confidence": "high",
+            "evidence": [
+              "First draft: restated the problem (too much homework causes stress/exhaustion that prevents learning)",
+              "Current draft: grounded that problem in a concrete, time-bound example (five hours, midnight, rushing, learning nothing)",
+              "The learner performed a productive intellectual operation (moving from abstract to representational grounding) and improved the communication as a result",
+              "The paragraph now answers the assignment adequately and coherently"
+            ]
+          },
+          "task_relative_adequacy": {
+            "value": "adequate",
+            "task_expectations": [
+              "take a clear position on homework reduction (yes or no)",
+              "provide at least one clear reason for the position",
+              "make the reason understandable to a naive reader",
+              "organize the whole so the reader follows the argument"
+            ],
+            "expectations_met": [
+              "clear position: schools should give less homework",
+              "clear reason: excessive homework defeats its own purpose (prevents learning)",
+              "concrete example grounding the reason",
+              "coherent organization from thesis through example to restatement"
+            ],
+            "expectations_not_yet_met": [],
+            "self_contained_coherence": "yes; a reasonable reader can identify the position, follow the central argument, and understand why the learner holds this position",
+            "material_gap": "",
+            "transition_recommendation": "transition_to_sentence_craft",
+            "reason": "The paragraph fulfills the task: it answers the question with a clear position, offers a convincing reason, and supports the reason with a concrete example. The argument is coherent and self-contained. Further elaboration would be optional enrichment, not necessary construction.",
+            "confidence": "high",
+            "evidence": [
+              "Assignment: 'Should schools reduce homework?'",
+              "Learner response: clear yes, supported by a mechanism (excessive homework prevents learning) and an example (student rushing at midnight learns nothing)",
+              "A naive reader can follow and understand the argument without additional help"
+            ]
+          },
+          "timely_success_status": {
+            "value": "achieved",
+            "what_changed": "The learner added a concrete example: 'For example, a student with five hours of homework often rushes through it at midnight just to finish, learning nothing.'",
+            "how_it_improved": "The example grounds the abstract claim in a recognizable scenario, making the problem tangible and convincing. The reader can now visualize what 'too much homework' looks like and what effect it has. The paragraph's coherence and persuasiveness improved because the abstract reason is now supported by a representational scenario.",
+            "now_meets_task": true,
+            "reason": "The paragraph now provides a clear position (reduce homework) supported by a specific, grounded reason (excessive homework prevents learning, as shown by the example). The task is fulfilled."
+          },
+          "sentence_craft_readiness": {
+            "value": "ready",
+            "confidence": "high",
+            "evidence": [
+              "The whole communication is coherent and self-contained",
+              "The central relations are clear: thesis, elaboration (mechanism stated), support (concrete example), and reaffirmation",
+              "The learner has completed the necessary conceptual construction for this task",
+              "No unresolved developmental work remains that would prevent sentence-level refinement"
+            ],
+            "reason": "The paragraph has reached task-relative adequacy and communicates its central argument coherently. Sentence Craft can now focus on clarity, precision, and expression of meanings already constructed.",
+            "developmental_work_remaining": ""
+          },
+          "completion_readiness": {
+            "value": "nearly_ready",
+            "confidence": "high",
+            "evidence": [
+              "The paragraph fulfills the task (clear position, coherent reason, supporting example)",
+              "The whole is self-contained and coherent; a naive reader can follow the argument",
+              "The learner has achieved the accessible developmental target (grounding abstract claims in concrete representation)",
+              "Sentence Craft readiness is confirmed"
+            ],
+            "reason": "The paragraph is conceptually complete and ready for sentence-level review. A final sentence-craft pass to ensure clarity and precision would finalize the episode."
+          }
+        }
+      ],
+      "target_trajectory": {
+        "targets": [
+          "Elaborate one central reason and organize the paragraph so the reasons relate to or support each other, forming a unified argument instead of a list.",
+          "Unfold and differentiate the causal mechanism (stress/exhaustion → stops learning) so the paradox becomes fully understandable. This is the highest reachable organization given the learner's coordinative capacity and the current stage of their mapping.",
+          "construct a coherent argument that excessive homework is counterproductive, supported by concrete example, organized so the reader follows the logic"
+        ],
+        "achieved": [
+          "no",
+          "partial",
+          "yes"
+        ],
+        "transitions": [
+          "stay_conceptual",
+          "sentence_craft",
+          "sentence_craft"
+        ]
+      }
+    },
+    {
+      "id": "phones_short",
+      "session_id": "42f731f7-2f1c-4ac2-b0a8-6bd625a45b11",
+      "turns": [
+        {
+          "turn": 1,
+          "learner_relative_sufficiency": {
+            "value": "not_yet_sufficient",
+            "task_answered": "The learner has stated a position and identified a central reason, but has not yet explained the reasoning in a way a reader can follow or be persuaded by.",
+            "learner_accessible_target": "Elaborate one part of the cause-effect chain (phones → lost listening, or lost listening → impaired learning) with enough specificity that a reader understands not just the principle but how it works in a classroom context.",
+            "accessible_target_achieved": "no",
+            "developmental_advance": "emerging",
+            "organization_stability": "unstable",
+            "self_contained_coherence": "partial",
+            "further_growth_potential": "The learner can stabilize the representational mapping by elaborating one part of it (differentiating the mechanism or consequence) and grounding it in a concrete scenario. After that, the learner could add a second supporting detail or example if needed, then consolidate. Systems-level integration or counterargument is beyond the current horizon.",
+            "likely_value_of_further_instruction": "high",
+            "likely_cost_of_further_instruction": "low",
+            "effectance_risk": "low",
+            "transition_recommendation": "stay_conceptual",
+            "reason": "The learner has initiated a coherent argument but has not yet completed the elaboration that makes it followable; one instructional move to elaborate and differentiate the existing mapping will likely bring the learner to sufficiency with high developmental value and low cost.",
+            "confidence": "high",
+            "evidence": [
+              "Starting organization: position stated, reason asserted, but not elaborated (unstable mapping).",
+              "Current evidence: the learner can form a claim (phones → no listening → no learning); they have not yet shown they can differentiate or ground it.",
+              "Accessible target: unfold one part of the mapping concretely; this lies within representational mappings and is necessary for the paragraph to function.",
+              "The response is coherent enough to attempt elaboration without starting over; the mapping is present but compressed."
+            ]
+          },
+          "task_relative_adequacy": {
+            "value": "approaching_adequacy",
+            "task_expectations": [
+              "Take a clear position on phone allowance in class",
+              "Explain the central reasoning that supports the position (the 'why')",
+              "Make the reasoning followable and understandable to a reader",
+              "Express the reasoning in a coherent, single-paragraph form"
+            ],
+            "expectations_met": [
+              "Position is clear: 'Phones should not be allowed in class.'",
+              "Central reason is named: 'students look at them instead of listening, and when you are not listening you cannot learn what the teacher is explaining.'"
+            ],
+            "expectations_not_yet_met": [
+              "The reasoning is not yet made followable or visible to a reader; it is compressed into asserted principles without elaboration.",
+              "A reader understands the position and the general claim, but cannot yet see HOW the mechanism works or WHY the conclusion follows from the premise."
+            ],
+            "self_contained_coherence": "The paragraph is incomplete; it states a position and a reason but does not develop that reason into a coherent argument.",
+            "material_gap": "A material gap exists: the paragraph lacks elaboration of the central mechanism (how phones interrupt listening and thus learning). Without this unfolding, a reader cannot fully understand or be persuaded by the reasoning. A second sentence that restates the thesis does not fill this gap; it deepens it.",
+            "transition_recommendation": "stay_conceptual",
+            "reason": "The paragraph has a clear position and identified reason but lacks the elaboration required to make the reasoning coherent and followable; one more round of developmental instruction (elaboration of the mechanism or consequence) will likely bring it to task adequacy.",
+            "confidence": "high",
+            "evidence": [
+              "Position statement: clear and direct.",
+              "Reason statement: present but compressed.",
+              "Elaboration: absent; the second sentence restates rather than develops.",
+              "A reader can identify the position and general reasoning but cannot yet follow the logic or understand the intermediate steps, which is a material gap for task fulfillment."
+            ]
+          },
+          "timely_success_status": {
+            "value": "not_yet_available",
+            "what_changed": "",
+            "how_it_improved": "",
+            "now_meets_task": false,
+            "reason": "The draft has not yet been revised in response to instructional guidance; this is the initial turn."
+          },
+          "sentence_craft_readiness": {
+            "value": "not_ready",
+            "confidence": "high",
+            "evidence": [
+              "The paragraph lacks sufficient elaboration of its central claim; the mapping is compressed and unstable.",
+              "Sentence-level work (clarity, precision, variety) is premature until the communicative organization has been developed.",
+              "The functional organization is incomplete (missing elaboration and support); Sentence Craft is appropriate only after the whole has moved to coherent functioning."
+            ],
+            "reason": "The paragraph requires additional conceptual development (elaboration of the mechanism or consequence) before sentence-level refinement would be productive.",
+            "developmental_work_remaining": "Elaborate one part of the cause-effect chain so that the mapping is differentiated and the reader can follow the reasoning."
+          },
+          "completion_readiness": {
+            "value": "not_ready",
+            "confidence": "high",
+            "evidence": [
+              "The position is clear, but the reasoning is not yet elaborated or followable.",
+              "Material gap remains: the compressed mapping has not been unfolded.",
+              "Further conceptual development is necessary and high-value; the work is not yet sufficient."
+            ],
+            "reason": "The paragraph has stated its position and identified a reason, but lacks the elaboration that would make it a coherent, followable argument; the task is not yet adequately addressed."
+          }
+        },
+        {
+          "turn": 2,
+          "learner_relative_sufficiency": {
+            "value": "sufficient",
+            "task_answered": "Yes. The learner answers the question with a clear position and explains a central supporting reason.",
+            "learner_accessible_target": "State a position on phone policy and explain one causal reason that supports it in a coherent paragraph—the learner has achieved this.",
+            "accessible_target_achieved": "yes",
+            "developmental_advance": "meaningful—the learner moved from unstated position to clear thesis; from implied reason to stated causal logic; from disconnected ideas to coherent paragraph organization",
+            "organization_stability": "sufficiently_stable—the causal chain (phones → distraction → learning loss → ban phones) is consistent, the thesis is clear, and the paragraph does not require Compass to supply missing organization",
+            "self_contained_coherence": "good_enough—the reader can identify the position, follow the reasoning, and understand why the learner holds the position; the communication is self-contained",
+            "further_growth_potential": "elaborating the central causal mechanism (what learning consists of; how attention enables understanding) would deepen the explanation but is not necessary for task adequacy",
+            "likely_value_of_further_instruction": "low—the task is adequately fulfilled; additional elaboration would be enrichment, not necessary development",
+            "likely_cost_of_further_instruction": "moderate—risk of the learner producing elaboration that is tangential or over-extended rather than deepening the thesis; risk of instruction seeming to suggest the task is incomplete when it is not",
+            "effectance_risk": "high—if instruction continues on the same elaborative function after the task is adequate, the learner may interpret it as 'my answer is still wrong' rather than 'your answer is good enough; now we refine how you say it'",
+            "transition_recommendation": "sentence_craft",
+            "reason": "The learner has constructed a coherent, task-adequate response; further conceptual development would offer diminishing returns and risk undermining effectance. Shift to sentence-level refinement.",
+            "confidence": "high",
+            "evidence": [
+              "Task expectations all met: position clear, reason given, logic followable, paragraph coherent",
+              "Learner's coordinative capacity is sufficient for the task; further development would exceed what the task requires"
+            ]
+          },
+          "task_relative_adequacy": {
+            "value": "adequate",
+            "task_expectations": [
+              "State a clear position on phone policy",
+              "Give at least one causal reason supporting that position",
+              "Make the reason understandable to a reader (not vague or abstract)",
+              "Organize the ideas coherently in a paragraph"
+            ],
+            "expectations_met": [
+              "Position stated clearly: 'Phones should not be allowed in class'",
+              "Causal reason given: phones distract students → distraction prevents learning",
+              "Reason is understandable (not vague; the logic is evident)"
+            ],
+            "expectations_not_yet_met": [],
+            "self_contained_coherence": "The paragraph is self-contained, coherent, and answers the assignment question clearly enough for a reader to understand the position and the central supporting reason.",
+            "material_gap": "",
+            "transition_recommendation": "transition_to_sentence_craft",
+            "reason": "The paragraph adequately fulfills the assignment task: it states a position, supports it with a causal reason, and is organized coherently. Further conceptual development is optional enrichment, not necessary for task adequacy.",
+            "confidence": "high",
+            "evidence": [
+              "Assignment: 'Should phones be allowed in class?' | Learner response: States position (no) + gives central reason (distraction prevents learning) + is understandable + is coherent. All task requirements met."
+            ]
+          },
+          "timely_success_status": {
+            "value": "achieved",
+            "what_changed": "The learner did not add new elaboration, but the prior response was already task-adequate; this revision confirms the stability of that adequacy through consistent wording refinement.",
+            "how_it_improved": "The wording improvements ('end up looking', 'were kept in lockers during lessons', 'focus', 'material') make the expression slightly more precise without changing the communicative structure.",
+            "now_meets_task": "true",
+            "reason": "The paragraph stated a clear position and explained a central causal reason in both drafts; it met task adequacy in the prior turn, and the current revision maintains that adequacy."
+          },
+          "sentence_craft_readiness": {
+            "value": "ready",
+            "confidence": "high",
+            "evidence": [
+              "The whole communication is developmentally sufficient and task-adequate; the learner has constructed a coherent response; further refinement is now sentence-level expression, not conceptual construction"
+            ],
+            "reason": "The conceptual and communicative work is complete; sentence-level instruction can now help the learner refine clarity, precision, and variety.",
+            "developmental_work_remaining": ""
+          },
+          "completion_readiness": {
+            "value": "ready",
+            "confidence": "high",
+            "evidence": [
+              "Task adequacy met; learner target achieved; communication coherent and self-contained; no material gap prevents fulfilling the assignment; sentence-craft phase ready to begin"
+            ],
+            "reason": "The learner has constructed a communicatively sufficient, task-adequate paragraph; the conceptual work is complete and stable."
+          }
+        }
+      ],
+      "target_trajectory": {
+        "targets": [
+          "Elaborate one part of the cause-effect chain (phones → lost listening, or lost listening → impaired learning) with enough specificity that a reader understands not just the principle but how it works in a classroom context.",
+          "State a position on phone policy and explain one causal reason that supports it in a coherent paragraph—the learner has achieved this."
+        ],
+        "achieved": [
+          "no",
+          "yes"
+        ],
+        "transitions": [
+          "stay_conceptual",
+          "sentence_craft"
+        ]
+      }
+    }
+  ]
+}
