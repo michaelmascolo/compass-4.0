@@ -1835,7 +1835,15 @@ _FUNCTION_SEL_SYS = (
     "WHERE the learner is, WHAT the current work accomplishes, HOW the current part contributes to the "
     "whole, and WHAT is likely to come next; it must NOT expose the full DCO, prescribe the student's "
     "sentences, present the plan as fixed, overwhelm with every possible future task, or show work "
-    "beyond the learner's current constructible whole. CONSTITUTIONAL RULE: instruction "
+    "beyond the learner's current constructible whole. Then produce constructible_whole_map: a TINY "
+    "orientation visualization (NOT an outline, template, or required sequence) TRANSLATED — never newly "
+    "inferred — from provisional_whole_communication + instructional_center + "
+    "current_instructional_sufficiency + learner_orientation. AT MOST 5 nodes, each ONE communicative "
+    "coordination with exactly one state: \"established\" (already successfully constructed), \"current\" "
+    "(the present instructional_center), \"next\" (the likely_next_step), or \"deferred\" (outside the "
+    "present center/whole or intentionally postponed). Do NOT include any node beyond the current "
+    "instructional horizon. Labels must be plain and learner-friendly (no developmental jargon). It is "
+    "provisional and updates after every revision. CONSTITUTIONAL RULE: instruction "
     "is limited "
     "to communicative organizations "
     "that are realistically constructible given the learner's current coordinative organization. Compass "
@@ -2158,6 +2166,12 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         'structurally necessary + constructible coordination, or consolidate/conclude if the horizon is '
         'reached", "confidence": "high|medium|low", '
         '"evidence": ["what stability lets the coordination perform its role in the whole"]}, '
+        '"constructible_whole_map": {"question": "ONE short learner-friendly line naming what this '
+        'paragraph must accomplish (translate communicative_task; NO jargon)", "nodes": [{"label": "ONE '
+        'learner-friendly communicative coordination in plain language (e.g. \'Explain what the growth '
+        'mindset is\', \'Explain how that belief changes how students see failure\') — NEVER '
+        'developmental jargon like abstract mapping / interpretive mechanism", "state": '
+        '"established|current|next|deferred"}]}, '
         '"learner_orientation": {"current_direction": "CONCISE: the whole communication Compass currently '
         'believes the learner is BUILDING (derive from provisional_whole_communication + '
         'communicative_task) — plain, learner-friendly, no jargon", "where_we_are": "CONCISE: what the '
@@ -2217,8 +2231,10 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
     # into the flat dco.confidence / dco.evidence maps the trace + panel expect, and unwrap the value.
     _dco = fd.get("developmental_cognition")
     if isinstance(_dco, dict):
-        _conf = dict(_dco.get("confidence") or {})
-        _ev = dict(_dco.get("evidence") or {})
+        _c0 = _dco.get("confidence")
+        _e0 = _dco.get("evidence")
+        _conf = dict(_c0) if isinstance(_c0, dict) else {}
+        _ev = dict(_e0) if isinstance(_e0, dict) else {}
         for _k in list(_dco.keys()):
             if _k in ("confidence", "evidence"):
                 continue

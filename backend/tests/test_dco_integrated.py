@@ -64,6 +64,14 @@ lo_ok = isinstance(lo, dict) and all(k in lo for k in
 valid_est = {"probably one more step","probably one or two more steps","several steps remain","not yet estimable"}
 est_ok = isinstance(lo, dict) and lo.get("estimated_remaining_moves") in valid_est
 print("learner_orientation complete:", lo_ok, "| estimated_remaining_moves valid:", est_ok)
-ok = all(k in dco for k in new_fields) and not mc and not me and lo_ok and est_ok
+cwm = dco.get("constructible_whole_map")
+print("\n=== constructible_whole_map ===")
+print(json.dumps(cwm, indent=2, ensure_ascii=False))
+valid_states = {"established","current","next","deferred"}
+nodes = (cwm or {}).get("nodes") if isinstance(cwm, dict) else None
+cwm_ok = (isinstance(cwm, dict) and isinstance(nodes, list) and 1 <= len(nodes) <= 5
+          and all(isinstance(n, dict) and n.get("label") and n.get("state") in valid_states for n in nodes))
+print("constructible_whole_map valid (1-5 nodes, valid states):", cwm_ok)
+ok = all(k in dco for k in new_fields) and not mc and not me and lo_ok and est_ok and cwm_ok
 print("\nRESULT:", "PASS" if ok else "FAIL")
 sys.exit(0 if ok else 1)

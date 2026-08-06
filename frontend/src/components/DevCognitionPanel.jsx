@@ -205,6 +205,45 @@ export default function DevCognitionPanel({ sessionId, turnKey, onClose }) {
           </div>
         )}
 
+        {dco && !showRaw && dco.constructible_whole_map && Array.isArray(dco.constructible_whole_map.nodes)
+          && dco.constructible_whole_map.nodes.length > 0 && (
+          <div data-testid="dco-constructible_whole_map"
+            style={{ marginBottom: 14, padding: "10px 11px", background: "#0c0a09",
+              border: "1px solid #3f3f46", borderLeft: "3px solid #34d399", borderRadius: 6 }}>
+            <div style={{ color: "#34d399", fontWeight: 700, textTransform: "uppercase", fontSize: 9,
+              letterSpacing: "0.12em", marginBottom: 8 }}>
+              Current direction · provisional (Stage 1, dev-only)
+            </div>
+            {dco.constructible_whole_map.question && (
+              <>
+                <div data-testid="dco-map-question" style={{ color: "#d6d3d1", textTransform: "uppercase",
+                  fontSize: 9, letterSpacing: "0.1em", fontWeight: 600 }}>
+                  {dco.constructible_whole_map.question}
+                </div>
+                <div style={{ color: "#57534e", textAlign: "center", fontSize: 12, margin: "1px 0" }}>↓</div>
+              </>
+            )}
+            {dco.constructible_whole_map.nodes.slice(0, 5).map((n, i, arr) => {
+              const st = (n.state || "").toLowerCase();
+              const glyph = st === "established" ? "✓" : st === "current" ? "►" : st === "deferred" ? "⋯" : "○";
+              const color = st === "established" ? "#4ade80" : st === "current" ? "#38bdf8"
+                : st === "deferred" ? "#78716c" : "#d6d3d1";
+              return (
+                <div key={i} data-testid={`dco-map-node-${i}`}>
+                  <div style={{ display: "flex", gap: 8, alignItems: "flex-start",
+                    fontWeight: st === "current" ? 700 : 400, opacity: st === "deferred" ? 0.6 : 1 }}>
+                    <span style={{ color, fontSize: 13, lineHeight: "18px", width: 12 }}>{glyph}</span>
+                    <span style={{ color: st === "deferred" ? "#a8a29e" : "#f5f5f4", fontSize: 12 }}>{n.label}</span>
+                  </div>
+                  {i < Math.min(arr.length, 5) - 1 && (
+                    <div style={{ color: "#57534e", textAlign: "center", fontSize: 12, margin: "1px 0 1px 5px" }}>↓</div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+
         {dco && !showRaw && FIELDS.map(([key, label]) => {
           const raw = dco[key];
           const val = raw && typeof raw === "object" && !Array.isArray(raw) && "value" in raw ? raw.value : raw;
