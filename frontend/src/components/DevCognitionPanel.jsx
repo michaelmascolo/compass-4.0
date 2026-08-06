@@ -200,6 +200,59 @@ export default function DevCognitionPanel({ sessionId, turnKey, onClose }) {
           </pre>
         )}
 
+        {dco && !showRaw && dco.task_relative_adequacy && typeof dco.task_relative_adequacy === "object" && (
+          <div data-testid="dco-task_relative_adequacy"
+            style={{ marginBottom: 12, padding: "9px 11px", background: "#0c0a09",
+              border: "1px solid #3f3f46", borderLeft: "3px solid #f472b6", borderRadius: 6 }}>
+            {(() => {
+              const a = dco.task_relative_adequacy;
+              const vcol = a.value === "adequate" ? "#4ade80" : a.value === "approaching_adequacy" ? "#fbbf24"
+                : a.value === "inadequate" ? "#f87171" : "#a8a29e";
+              const row = (label, val) => val ? (
+                <div style={{ marginBottom: 4 }}>
+                  <div style={{ color: "#a8a29e", textTransform: "uppercase", fontSize: 8.5, letterSpacing: "0.08em" }}>{label}</div>
+                  <div style={{ color: "#f5f5f4", fontSize: 12 }}>{val}</div>
+                </div>
+              ) : null;
+              const list = (label, arr) => Array.isArray(arr) && arr.length ? (
+                <div style={{ marginBottom: 4 }}>
+                  <div style={{ color: "#a8a29e", textTransform: "uppercase", fontSize: 8.5, letterSpacing: "0.08em" }}>{label}</div>
+                  <ul style={{ margin: "1px 0 0", paddingLeft: 15, color: "#f5f5f4", fontSize: 12 }}>{arr.map((x,i)=><li key={i}>{x}</li>)}</ul>
+                </div>
+              ) : null;
+              return (
+                <>
+                  <div style={{ display: "flex", justifyContent: "space-between", gap: 8, marginBottom: 5 }}>
+                    <span style={{ color: "#f472b6", fontWeight: 700, textTransform: "uppercase", fontSize: 9, letterSpacing: "0.1em" }}>Task-relative adequacy</span>
+                    <span style={{ color: vcol, fontWeight: 700, textTransform: "uppercase", fontSize: 9 }}>{a.value || "—"}{a.confidence ? ` · ${a.confidence}` : ""}</span>
+                  </div>
+                  {list("Task expectations", a.task_expectations)}
+                  {list("Expectations met", a.expectations_met)}
+                  {list("Expectations not yet met", a.expectations_not_yet_met)}
+                  {row("Self-contained coherence", a.self_contained_coherence)}
+                  {row("Material gap", a.material_gap || "— none")}
+                  {row("Transition recommendation", a.transition_recommendation)}
+                  {row("Reason", a.reason)}
+                </>
+              );
+            })()}
+            {dco.timely_success_status && typeof dco.timely_success_status === "object" && (
+              <div data-testid="dco-timely_success_status" style={{ marginTop: 6, paddingTop: 6, borderTop: "1px solid #292524" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", gap: 8 }}>
+                  <span style={{ color: "#a8a29e", fontWeight: 600, textTransform: "uppercase", fontSize: 9, letterSpacing: "0.1em" }}>Timely success</span>
+                  <span style={{ color: dco.timely_success_status.value === "achieved" ? "#4ade80"
+                    : dco.timely_success_status.value === "within_reach" ? "#fbbf24"
+                    : dco.timely_success_status.value === "missed_opportunity" ? "#f87171" : "#a8a29e",
+                    fontWeight: 700, textTransform: "uppercase", fontSize: 9 }}>{dco.timely_success_status.value || "—"}</span>
+                </div>
+                {dco.timely_success_status.what_changed && <div style={{ color: "#f5f5f4", marginTop: 3, fontSize: 12 }}>changed: {dco.timely_success_status.what_changed}</div>}
+                {dco.timely_success_status.how_it_improved && <div style={{ color: "#a8a29e", fontSize: 11 }}>improved: {dco.timely_success_status.how_it_improved}</div>}
+                {dco.timely_success_status.reason && <div style={{ color: "#a8a29e", fontSize: 11 }}>{dco.timely_success_status.reason}</div>}
+              </div>
+            )}
+          </div>
+        )}
+
         {dco && !showRaw && dco.completion_readiness && typeof dco.completion_readiness === "object" && (
           <div data-testid="dco-completion_readiness"
             style={{ marginBottom: 12, padding: "9px 11px", background: "#0c0a09",

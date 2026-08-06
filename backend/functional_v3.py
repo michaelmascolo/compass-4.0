@@ -1835,7 +1835,23 @@ _FUNCTION_SEL_SYS = (
     "WHERE the learner is, WHAT the current work accomplishes, HOW the current part contributes to the "
     "whole, and WHAT is likely to come next; it must NOT expose the full DCO, prescribe the student's "
     "sentences, present the plan as fixed, overwhelm with every possible future task, or show work "
-    "beyond the learner's current constructible whole. Then produce sentence_craft_readiness: "
+    "beyond the learner's current constructible whole. Then produce task_relative_adequacy + "
+    "timely_success_status: the PRIMARY question is NOT 'would more instruction improve the response?' "
+    "but 'does the current response ADEQUATELY FULFILL THE TASK?'. Decision order: interpret the task "
+    "-> infer PROPORTIONATE task expectations -> evaluate the learner's current whole -> is it "
+    "self-contained and coherent? -> is there a MATERIAL GAP that prevents task adequacy? -> if no "
+    "material gap remains, mark task_relative_adequacy=adequate, treat the current conceptual "
+    "instructional problem as RESOLVED, recommend transition to Sentence Craft, and do NOT search for "
+    "another conceptual extension. PRESUMPTION IN FAVOR OF COHERENT COMPLETION: when a response is "
+    "self-contained, coherent, and adequately responsive, PRESUME conceptual construction is complete; "
+    "the burden shifts — request another conceptual move ONLY when you can name a specific material "
+    "gap; never request elaboration merely because another relation is available; err toward coherent "
+    "completion, not externally imposed extension. EFFECTIVENESS PRINCIPLE: genuine, TIMELY success "
+    "lets learners experience themselves as effective — define success through accessible changes that "
+    "bring the work to task-relative adequacy, not endless movement toward an ideal; when the learner's "
+    "own guided actions produce an adequate response, mark that success clearly and move forward. "
+    "Diminishing returns is SECONDARY — use it only when adequacy is uncertain. Then produce "
+    "sentence_craft_readiness: "
     "Developmental Construction and Sentence Craft are DISTINCT modes — Developmental Construction helps "
     "the learner construct coherent meanings/organizations; Sentence Craft (a LATER mode) helps express "
     "already-constructed meanings with more clarity, precision, and sentence control. Judge (from "
@@ -2181,6 +2197,29 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         'structurally necessary + constructible coordination, or consolidate/conclude if the horizon is '
         'reached", "confidence": "high|medium|low", '
         '"evidence": ["what stability lets the coordination perform its role in the whole"]}, '
+        '"task_relative_adequacy": {"value": "inadequate|approaching_adequacy|adequate|uncertain — has '
+        'the learner produced a SELF-CONTAINED, COHERENT response that satisfies the communicative '
+        'expectations of THIS task? Do NOT treat as inadequate merely because more could be added", '
+        '"task_expectations": ["the MINIMUM communicative expectations PROPORTIONATE to the assignment '
+        'wording + requested unit of writing + learner level + ordinary shared expectations for this '
+        'kind of task (e.g. identify the problem, state a position, explain the central reason, make the '
+        'solution understandable, connect solution to problem) — NOT comprehensiveness, every objection, '
+        'multiple examples, or every consequence"], "expectations_met": ["which expectations ARE met"], '
+        '"expectations_not_yet_met": ["which are NOT yet met"], "self_contained_coherence": "is the '
+        'current whole self-contained and coherent for a reasonable reader? ONE concise line", '
+        '"material_gap": "a SPECIFIC MATERIAL gap that PREVENTS task adequacy — one exists ONLY when a '
+        'reasonable reader could NOT understand the answer, identify the position, follow the essential '
+        'reasoning, or grasp the central required relation. It does NOT exist merely because something '
+        'could be richer/longer/more persuasive/have another example. Empty string if none", '
+        '"transition_recommendation": "stay_conceptual|transition_to_sentence_craft|uncertain — PRESUME '
+        'coherent completion: recommend transition unless a specific material_gap remains", "reason": '
+        '"ONE concise sentence", "confidence": "high|medium|low", "evidence": ["assignment + exact '
+        'learner wording supporting the judgment"]}, '
+        '"timely_success_status": {"value": "not_yet_available|within_reach|achieved|missed_opportunity — '
+        'did accessible changes just bring the response to task-relative adequacy?", "what_changed": '
+        '"what the learner just changed (empty if not achieved)", "how_it_improved": "how that change '
+        'improved the response (empty if not achieved)", "now_meets_task": "true|false — does the '
+        'response now meet the present task?", "reason": "ONE concise sentence"}, '
         '"sentence_craft_readiness": {"value": "not_ready|nearly_ready|ready|uncertain — is the current '
         'constructible whole developmentally SUFFICIENT enough to shift from CONSTRUCTING meaning to '
         'REFINING sentence-level expression? DERIVE from current_instructional_sufficiency + '
