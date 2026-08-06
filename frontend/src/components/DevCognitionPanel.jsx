@@ -38,6 +38,15 @@ const FIELDS = [
 const confColor = (c) =>
   c === "high" ? "#4ade80" : c === "medium" ? "#fbbf24" : c === "low" ? "#f87171" : "#78716c";
 
+const ORIENT_FIELDS = [
+  ["current_direction", "Current direction (the whole we're building)"],
+  ["where_we_are", "Where we are"],
+  ["current_work", "Current work — and why it matters"],
+  ["likely_next_step", "Likely next step"],
+  ["estimated_remaining_moves", "Estimated remaining moves"],
+  ["orientation_revision_reason", "Why the plan changed"],
+];
+
 export default function DevCognitionPanel({ sessionId, turnKey, onClose }) {
   const [trace, setTrace] = useState([]);
   const [idx, setIdx] = useState(0); // selected turn index within trace
@@ -172,6 +181,28 @@ export default function DevCognitionPanel({ sessionId, turnKey, onClose }) {
             background: "#0c0a09", border: "1px solid #44403c", borderRadius: 6, padding: 10, margin: 0, color: "#d6d3d1" }}>
             {JSON.stringify(dco, null, 2)}
           </pre>
+        )}
+
+        {dco && !showRaw && dco.learner_orientation && typeof dco.learner_orientation === "object" && (
+          <div data-testid="dco-learner_orientation"
+            style={{ marginBottom: 14, padding: "10px 11px", background: "#0c0a09",
+              border: "1px solid #3f3f46", borderLeft: "3px solid #38bdf8", borderRadius: 6 }}>
+            <div style={{ color: "#38bdf8", fontWeight: 700, textTransform: "uppercase", fontSize: 9,
+              letterSpacing: "0.12em", marginBottom: 7 }}>
+              Learner orientation · provisional (Stage 1, dev-only)
+            </div>
+            {ORIENT_FIELDS.map(([k, label]) => {
+              const v = dco.learner_orientation[k];
+              if (!v) return null;
+              return (
+                <div key={k} data-testid={`dco-orient-${k}`} style={{ marginBottom: 7 }}>
+                  <div style={{ color: "#a8a29e", fontWeight: 600, textTransform: "uppercase",
+                    fontSize: 8.5, letterSpacing: "0.09em" }}>{label}</div>
+                  <div style={{ color: "#f5f5f4", marginTop: 2, fontSize: 12 }}>{v}</div>
+                </div>
+              );
+            })}
+          </div>
         )}
 
         {dco && !showRaw && FIELDS.map(([key, label]) => {

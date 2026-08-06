@@ -1827,7 +1827,15 @@ _FUNCTION_SEL_SYS = (
     "constructible; instruction targets the next structurally necessary coordination WITHIN that "
     "constructible range. AFTER EVERY REVISION, update the current textual organization, the "
     "developmental reading of the learner, the provisional whole communication, the instructional "
-    "horizon, the instructional center, and the sufficiency judgment. CONSTITUTIONAL RULE: instruction "
+    "horizon, the instructional center, and the sufficiency judgment. Then produce the "
+    "learner_orientation object: at EVERY instructional moment Compass maintains a PROVISIONAL "
+    "representation of the constructible whole communication that both guides instruction internally AND "
+    "gives the learner a simple sense of current direction — NOT an outline to follow, but a "
+    "developmental hypothesis that may change as the learner develops. The orientation must communicate "
+    "WHERE the learner is, WHAT the current work accomplishes, HOW the current part contributes to the "
+    "whole, and WHAT is likely to come next; it must NOT expose the full DCO, prescribe the student's "
+    "sentences, present the plan as fixed, overwhelm with every possible future task, or show work "
+    "beyond the learner's current constructible whole. CONSTITUTIONAL RULE: instruction "
     "is limited "
     "to communicative organizations "
     "that are realistically constructible given the learner's current coordinative organization. Compass "
@@ -2150,6 +2158,18 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         'structurally necessary + constructible coordination, or consolidate/conclude if the horizon is '
         'reached", "confidence": "high|medium|low", '
         '"evidence": ["what stability lets the coordination perform its role in the whole"]}, '
+        '"learner_orientation": {"current_direction": "CONCISE: the whole communication Compass currently '
+        'believes the learner is BUILDING (derive from provisional_whole_communication + '
+        'communicative_task) — plain, learner-friendly, no jargon", "where_we_are": "CONCISE: what the '
+        'learner has ALREADY established or successfully constructed so far", "current_work": "CONCISE: '
+        'what relation/coordination is being developed RIGHT NOW and WHY it matters to the whole (derive '
+        'from instructional_center)", "likely_next_step": "CONCISE: the next PROBABLE instructional move '
+        'IF the present work becomes sufficient (derive from current_instructional_sufficiency + '
+        'provisional whole) — phrase as likely, not promised", "estimated_remaining_moves": "EXACTLY one '
+        'of: \'probably one more step\' | \'probably one or two more steps\' | \'several steps remain\' | '
+        '\'not yet estimable\' — never promise a fixed sequence or completion time", '
+        '"orientation_revision_reason": "if the direction CHANGED after a student revision, briefly why '
+        'Compass updated the working plan; otherwise empty string"}, '
         '"beyond_horizon": "what is probably BEYOND this learner\'s current instructional horizon (not '
         'yet reachable this turn)", '
         '"deferred_or_excluded_complexity": ["related ideas that should NOT be developed during the '

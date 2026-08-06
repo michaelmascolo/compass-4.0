@@ -56,6 +56,14 @@ print("missing confidence (meta set):", mc)
 print("missing evidence (meta set):", me)
 # required_relations should be gone
 print("old required_relations still present:", "required_relations" in dco)
-ok = all(k in dco for k in new_fields) and not mc and not me
+lo = dco.get("learner_orientation")
+print("\n=== learner_orientation ===")
+print(json.dumps(lo, indent=2, ensure_ascii=False))
+lo_ok = isinstance(lo, dict) and all(k in lo for k in
+    ["current_direction","where_we_are","current_work","likely_next_step","estimated_remaining_moves"])
+valid_est = {"probably one more step","probably one or two more steps","several steps remain","not yet estimable"}
+est_ok = isinstance(lo, dict) and lo.get("estimated_remaining_moves") in valid_est
+print("learner_orientation complete:", lo_ok, "| estimated_remaining_moves valid:", est_ok)
+ok = all(k in dco for k in new_fields) and not mc and not me and lo_ok and est_ok
 print("\nRESULT:", "PASS" if ok else "FAIL")
 sys.exit(0 if ok else 1)
