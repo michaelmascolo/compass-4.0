@@ -96,6 +96,11 @@ export const getFunctionalTrace = async (id) => {
   return data;
 };
 
+export const getSentenceCraft = async (id) => {
+  const { data } = await axios.get(`${API}/dev/sentence-craft/${id}`);
+  return data;
+};
+
 export const getNoticing = async (id) => {
   const { data } = await axios.post(`${API}/sessions/${id}/noticing`);
   return data;

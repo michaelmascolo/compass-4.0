@@ -2307,6 +2307,53 @@ async def get_functional_v3_trace(session_id: str):
     return {"session_id": session_id, "engine": "functional_v3", "count": len(records), "trace": records}
 
 
+@api_router.get("/dev/sentence-craft/{session_id}")
+async def get_sentence_craft(session_id: str):
+    """DEV-ONLY (Compass 4.3). On-demand Sentence Craft analysis for the latest submitted paragraph.
+    Reads the newest functional_v3 trace record for this session to obtain the draft + the DCO governing
+    context, then runs a single dedicated Sentence Craft LLM call. Does NOT touch coaching, the student
+    flow, or any stored state. Returns readiness (echoed from the DCO) + per-sentence analysis + the one
+    selected teaching lesson + the post-revision evaluation schema."""
+    latest = None
+    try:
+        if FUNCTIONAL_V3_TRACE_PATH.exists():
+            with open(FUNCTIONAL_V3_TRACE_PATH, "r") as fh:
+                for line in fh:
+                    brace = line.find("{")
+                    if brace == -1:
+                        continue
+                    try:
+                        rec = json.loads(line[brace:])
+                    except json.JSONDecodeError:
+                        continue
+                    if rec.get("session_id") == session_id:
+                        latest = rec
+    except Exception as e:  # noqa: BLE001
+        raise HTTPException(status_code=500, detail=f"trace read failed: {e}")
+    if not latest:
+        raise HTTPException(status_code=404, detail="no functional_v3 turn found for this session")
+
+    draft = latest.get("submitted_paragraph") or ""
+    prompt = latest.get("prompt") or ""
+    dco = latest.get("developmental_cognition") or {}
+    readiness = dco.get("sentence_craft_readiness") or {}
+
+    import functional_v3 as se
+    try:
+        cognition = await se.sentence_craft_cognition(session_id, prompt, draft, dco)
+    except Exception as e:  # noqa: BLE001
+        logger.error(f"[sentence_craft] session={session_id} failed: {e}")
+        raise HTTPException(status_code=500, detail=f"sentence craft failed: {e}")
+
+    return {
+        "session_id": session_id,
+        "engine": "functional_v3",
+        "sentence_craft_readiness": readiness,
+        "sentence_craft_cognition": cognition,
+    }
+
+
+
 
 class ReasoningModePatch(BaseModel):
     reasoning_mode: str  # exhaustive | triage_experimental

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { getFunctionalTrace } from "@/lib/api";
+import { getFunctionalTrace, getSentenceCraft } from "@/lib/api";
 
 // DEV-ONLY (Sprint 4.0-2). Shows the COMPLETE hidden Developmental Cognition Object — estimate +
 // confidence + evidence per field, plus the raw object verbatim — with TURN HISTORY (step back
@@ -54,7 +54,24 @@ export default function DevCognitionPanel({ sessionId, turnKey, onClose }) {
   const [error, setError] = useState("");
   const [showRaw, setShowRaw] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [sc, setSc] = useState(null);
+  const [scLoading, setScLoading] = useState(false);
+  const [scError, setScError] = useState("");
   const prevLenRef = useRef(0);
+
+  const loadSC = useCallback(async () => {
+    if (!sessionId) return;
+    setScLoading(true);
+    setScError("");
+    try {
+      const data = await getSentenceCraft(sessionId);
+      setSc(data);
+    } catch (e) {
+      setScError(e?.response?.data?.detail || e.message || "failed");
+    } finally {
+      setScLoading(false);
+    }
+  }, [sessionId]);
 
   const load = useCallback(async () => {
     if (!sessionId) return;
@@ -285,6 +302,111 @@ export default function DevCognitionPanel({ sessionId, turnKey, onClose }) {
         })}
 
         <div style={{ marginTop: 4, color: "#57534e" }}>GET /api/dev/functional-v3-trace/{sessionId}</div>
+
+        {dco && !showRaw && (
+          <div data-testid="sentence-craft-section" style={{ marginTop: 16, paddingTop: 12, borderTop: "1px solid #57534e" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8, marginBottom: 8 }}>
+              <span style={{ color: "#c084fc", fontWeight: 700, textTransform: "uppercase", fontSize: 10, letterSpacing: "0.12em" }}>
+                Sentence Craft · dev-only (Compass 4.3)
+              </span>
+              <button data-testid="sentence-craft-analyze" onClick={loadSC} disabled={scLoading}
+                style={{ ...btnStyle, width: "auto", padding: "0 9px", color: "#e7e5e4",
+                  borderColor: "#7e22ce", opacity: scLoading ? 0.5 : 1 }}>
+                {scLoading ? "Analyzing…" : "Analyze sentences"}
+              </button>
+            </div>
+
+            {(() => {
+              const scr = dco.sentence_craft_readiness;
+              if (!scr || typeof scr !== "object") return null;
+              return (
+                <div data-testid="dco-sentence_craft_readiness"
+                  style={{ marginBottom: 10, padding: "8px 10px", background: "#0c0a09",
+                    border: "1px solid #3f3f46", borderLeft: "3px solid #c084fc", borderRadius: 6 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", gap: 8 }}>
+                    <span style={{ color: "#a8a29e", fontWeight: 600, textTransform: "uppercase", fontSize: 9, letterSpacing: "0.1em" }}>
+                      Sentence Craft readiness
+                    </span>
+                    <span style={{ color: scr.value === "ready" ? "#4ade80" : scr.value === "nearly_ready" ? "#fbbf24"
+                      : scr.value === "not_ready" ? "#f87171" : "#a8a29e", fontWeight: 700, textTransform: "uppercase", fontSize: 9 }}>
+                      {scr.value || "—"}{scr.confidence ? ` · ${scr.confidence}` : ""}
+                    </span>
+                  </div>
+                  {scr.reason && <div style={{ color: "#f5f5f4", marginTop: 3, fontSize: 12 }}>{scr.reason}</div>}
+                  {scr.developmental_work_remaining && (
+                    <div style={{ color: "#a8a29e", marginTop: 3, fontSize: 11 }}>
+                      remaining developmental work: {scr.developmental_work_remaining}
+                    </div>
+                  )}
+                </div>
+              );
+            })()}
+
+            {scError && <div style={{ color: "#f87171", fontSize: 11 }}>error: {scError}</div>}
+            {!sc && !scError && !scLoading && (
+              <div style={{ color: "#78716c", fontSize: 11 }}>
+                Press "Analyze sentences" to run the dedicated Sentence Craft pass on the latest paragraph.
+              </div>
+            )}
+
+            {sc?.sentence_craft_cognition?.selected_teaching && (() => {
+              const t = sc.sentence_craft_cognition.selected_teaching;
+              return (
+                <div data-testid="sentence-craft-selected-teaching"
+                  style={{ marginBottom: 10, padding: "9px 10px", background: "#0c0a09",
+                    border: "1px solid #7e22ce", borderRadius: 6 }}>
+                  <div style={{ color: "#c084fc", fontWeight: 700, textTransform: "uppercase", fontSize: 9,
+                    letterSpacing: "0.1em", marginBottom: 6 }}>
+                    Selected teaching · sentence #{t.sentence_index}
+                  </div>
+                  {[["pattern_noticed", "Pattern noticed"], ["instructional_principle", "Instructional principle"],
+                    ["learner_invitation", "Learner invitation"], ["transferable_lesson", "Transferable lesson"]].map(([k, lbl]) =>
+                    t[k] ? (
+                      <div key={k} style={{ marginBottom: 5 }}>
+                        <div style={{ color: "#a8a29e", textTransform: "uppercase", fontSize: 8.5, letterSpacing: "0.08em" }}>{lbl}</div>
+                        <div style={{ color: "#f5f5f4", fontSize: 12 }}>{t[k]}</div>
+                      </div>
+                    ) : null)}
+                  {Array.isArray(t.meaningful_alternatives) && t.meaningful_alternatives.length > 0 && (
+                    <div>
+                      <div style={{ color: "#a8a29e", textTransform: "uppercase", fontSize: 8.5, letterSpacing: "0.08em" }}>Meaningful alternatives</div>
+                      <ul style={{ margin: "2px 0 0", paddingLeft: 16, color: "#f5f5f4", fontSize: 12 }}>
+                        {t.meaningful_alternatives.map((a, i) => <li key={i}>{a}</li>)}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              );
+            })()}
+
+            {Array.isArray(sc?.sentence_craft_cognition?.sentences) && sc.sentence_craft_cognition.sentences.map((s) => {
+              const imp = (s.importance_to_whole || "").toLowerCase();
+              const impColor = imp === "central" ? "#4ade80" : imp === "supporting" ? "#38bdf8"
+                : imp === "distracting" ? "#f87171" : "#a8a29e";
+              const prio = (s.teaching_priority || "").toLowerCase();
+              const isTeach = prio === "teach_now";
+              return (
+                <div key={s.sentence_index} data-testid={`sentence-craft-sentence-${s.sentence_index}`}
+                  style={{ marginBottom: 8, paddingBottom: 8, borderBottom: "1px solid #292524" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", gap: 8 }}>
+                    <span style={{ color: "#78716c", fontSize: 9 }}>#{s.sentence_index} · [{s.beginning_character_offset}-{s.ending_character_offset}]</span>
+                    <span style={{ display: "flex", gap: 6 }}>
+                      <span style={{ color: impColor, fontSize: 9, textTransform: "uppercase", fontWeight: 600 }}>{s.importance_to_whole || "—"}</span>
+                      <span style={{ color: isTeach ? "#c084fc" : "#78716c", fontSize: 9, textTransform: "uppercase", fontWeight: 700 }}>{s.teaching_priority || "—"}</span>
+                    </span>
+                  </div>
+                  <div style={{ color: "#e7e5e4", fontSize: 12, marginTop: 2, fontStyle: "italic" }}>"{s.exact_sentence_text}"</div>
+                  {s.communicative_purpose && <div style={{ color: "#a8a29e", fontSize: 11, marginTop: 2 }}>purpose: {s.communicative_purpose}</div>}
+                  {s.relation_to_constructible_whole && <div style={{ color: "#a8a29e", fontSize: 11 }}>role in whole: {s.relation_to_constructible_whole}</div>}
+                  {Array.isArray(s.observed_sentence_patterns) && s.observed_sentence_patterns.length > 0 && (
+                    <div style={{ color: "#fbbf24", fontSize: 11, marginTop: 2 }}>patterns: {s.observed_sentence_patterns.join("; ")}</div>
+                  )}
+                </div>
+              );
+            })}
+            {sc && <div style={{ marginTop: 2, color: "#57534e" }}>GET /api/dev/sentence-craft/{sessionId}</div>}
+          </div>
+        )}
       </div>
     </div>
   );

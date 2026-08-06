@@ -1835,7 +1835,14 @@ _FUNCTION_SEL_SYS = (
     "WHERE the learner is, WHAT the current work accomplishes, HOW the current part contributes to the "
     "whole, and WHAT is likely to come next; it must NOT expose the full DCO, prescribe the student's "
     "sentences, present the plan as fixed, overwhelm with every possible future task, or show work "
-    "beyond the learner's current constructible whole. Then produce constructible_whole_map: a TINY "
+    "beyond the learner's current constructible whole. Then produce sentence_craft_readiness: "
+    "Developmental Construction and Sentence Craft are DISTINCT modes — Developmental Construction helps "
+    "the learner construct coherent meanings/organizations; Sentence Craft (a LATER mode) helps express "
+    "already-constructed meanings with more clarity, precision, and sentence control. Judge (from "
+    "current_instructional_sufficiency + provisional_whole_communication + whole_communication_requirements "
+    "+ instructional_horizon + remaining developmental work — never a rigid equality test) whether the "
+    "whole is developmentally sufficient enough to become ELIGIBLE for Sentence Craft; this does NOT "
+    "change the visible flow. Then produce constructible_whole_map: a TINY "
     "orientation visualization (NOT an outline, template, or required sequence) TRANSLATED — never newly "
     "inferred — from provisional_whole_communication + instructional_center + "
     "current_instructional_sufficiency + learner_orientation. AT MOST 5 nodes, each ONE communicative "
@@ -2166,6 +2173,14 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         'structurally necessary + constructible coordination, or consolidate/conclude if the horizon is '
         'reached", "confidence": "high|medium|low", '
         '"evidence": ["what stability lets the coordination perform its role in the whole"]}, '
+        '"sentence_craft_readiness": {"value": "not_ready|nearly_ready|ready|uncertain — is the current '
+        'constructible whole developmentally SUFFICIENT enough to shift from CONSTRUCTING meaning to '
+        'REFINING sentence-level expression? DERIVE from current_instructional_sufficiency + '
+        'provisional_whole_communication + whole_communication_requirements + instructional_horizon + '
+        'remaining developmental work; do NOT use a rigid equality test", "confidence": "high|medium|low", '
+        '"evidence": ["what in the whole/sufficiency supports this"], "reason": "ONE concise sentence for '
+        'the judgment", "developmental_work_remaining": "concise: developmental work (if any) that must '
+        'occur before Sentence Craft can begin; empty string if none"}, '
         '"constructible_whole_map": {"question": "ONE short learner-friendly line naming what this '
         'paragraph must accomplish (translate communicative_task; NO jargon)", "nodes": [{"label": "ONE '
         'learner-friendly communicative coordination in plain language (e.g. \'Explain what the growth '
@@ -2239,7 +2254,7 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
             if _k in ("confidence", "evidence"):
                 continue
             _v = _dco[_k]
-            if isinstance(_v, dict) and "value" in _v:
+            if isinstance(_v, dict) and "value" in _v and set(_v.keys()) <= {"value", "confidence", "evidence"}:
                 if _v.get("confidence") is not None:
                     _conf[_k] = _v.get("confidence")
                 if _v.get("evidence") is not None:
@@ -2813,4 +2828,193 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
             "reconsideration": sel.get("_reconsideration") or {},
         },
         "_meta": efficiency,
+    }
+
+
+
+# ===========================================================================
+# COMPASS 4.3 — SENTENCE CRAFT COGNITION (DEVELOPER-ONLY, calibration).
+# A DISTINCT mode from developmental construction. Runs as a SEPARATE, dedicated
+# LLM call (on-demand from the dev panel), governed by the DCO. It does NOT change
+# coaching, selected_function, highlighting, completion, or student UI. Its purpose
+# is to build/calibrate the reasoning Compass will later use to guide the learner
+# sentence-by-sentence AFTER the paragraph is developmentally sufficient.
+# ===========================================================================
+
+# Sentence-level patterns (from the uploaded Writing Rubric "Iterative and Reflexive Sentence Revision"
+# + spec §6). Teaching opportunities, NOT auto-errors. Two governing rubric questions frame them:
+# (1) Would a NAIVE READER understand? (2) Is the sentence STRUCTURED appropriately?
+_SENTENCE_CRAFT_PATTERNS = (
+    "NAIVE-READER (understanding): passage not set up; assumes knowledge the naive reader lacks; needs "
+    "more setup; needs further elaboration (what question would the naive reader still have?); "
+    "imprecision or possible inaccuracy. STRUCTURE (appropriateness): too colloquial; colloquial 'you' "
+    "(prefer 'one'/'a person'/'a child'); contraction (spell it out); slang/cliche/overly-common "
+    "expression; run-on sentence; missing transition between sentences; weak/repetitive/vague "
+    "connective; main verb is a form of 'to be' (is/are/was/will be) or 'to have' (prefer an action "
+    "verb WHEN it expresses the relationship more precisely); passive construction (prefer active); "
+    "awkward syntax that 'sounds funny'; vague pronoun/referent; misplaced/unclear modifier; "
+    "nominalization; multiple ideas competing in one sentence; fragmented sentence; repetitive sentence "
+    "structure; compressed reasoning; sentence does not connect clearly to the preceding/following one; "
+    "meaning does not match likely intention; unclear purpose"
+)
+
+# Developer-only schema for the future post-revision check (spec §9). Not student-facing yet.
+POST_REVISION_EVALUATION_SCHEMA = {
+    "checks": [
+        "Did the sentence become clearer?",
+        "Did it preserve the learner's intended meaning?",
+        "Did it become more precise?",
+        "Does it still perform its communicative purpose?",
+        "Does it remain connected to the constructible whole?",
+        "Did the revision create a new ambiguity or grammatical problem?",
+        "Did the learner perform the target operation independently?",
+    ],
+    "note": "Developer-only schema. The student post-revision interaction is NOT implemented in this sprint.",
+}
+
+_SENTENCE_CRAFT_SYS = (
+    "You are Compass in SENTENCE CRAFT mode — a distinct instructional mode that begins only AFTER a "
+    "paragraph is developmentally sufficient. Sentence Craft helps a learner express ALREADY-CONSTRUCTED "
+    "meanings with greater clarity, precision, sentence control, and rhetorical effectiveness. It must "
+    "NOT replace, undo, or silently change the developmental goal or organization of the paragraph, and "
+    "it must never weaken the thesis, alter the learner's intended meaning, break a needed relation, "
+    "increase developmental complexity, or make a sentence less appropriate to its role in the whole. "
+    "CONSTITUTIONAL: Sentence Craft is GUIDED INSTRUCTION, not automated correction and not rubric "
+    "recitation. For each relevant pattern you identify the pattern, teach the underlying communicative "
+    "principle, demonstrate meaningful alternatives, explain how language choices shape meaning, and "
+    "return the revision to the learner. Sentence revision is often an operation on THOUGHT — choosing a "
+    "more precise verb/connective/modifier/structure can require the learner to clarify the relationship "
+    "they intend. The uploaded Writing Rubric frames sentence review around TWO governing questions: "
+    "(1) Would a NAIVE READER understand what is written? (is it set up; does it assume knowledge the "
+    "reader lacks; does it need more elaboration; what question would the reader still have; is it "
+    "precise/accurate?) and (2) Is the sentence STRUCTURED appropriately? (colloquial 'you', "
+    "contractions, slang; run-ons; transitions/connectives; 'to be'/'to have' vs action verbs; passive "
+    "vs active; syntax that 'sounds funny'). COGNITIVE LOAD: internally consider all potentially relevant patterns, but choose NO "
+    "MORE THAN ONE principal teaching target across the whole paragraph at a time; defer minor issues; "
+    "do NOT turn this into exhaustive proofreading; the use of 'is' is NOT automatically a problem, and "
+    "you must NOT require automatic elimination of 'to be' verbs. Every judgment is GOVERNED BY the "
+    "provided Developmental Cognition context; never evaluate a sentence independently of the task and "
+    "the constructible whole. Return ONLY a single JSON object; no prose, no code fences, no comments, "
+    "no trailing commas."
+)
+
+
+def _split_sentences(text: str) -> List[Dict[str, Any]]:
+    """Split a paragraph into sentences with EXACT character offsets (so the UI can later highlight one
+    sentence at a time without breaking the paragraph apart). Offsets index into the original text."""
+    text = text or ""
+    sentences: List[Dict[str, Any]] = []
+    # match up to a sentence-ending punctuation (. ! ?) optionally followed by closing quote/paren,
+    # else the trailing remainder. Keeps offsets aligned to the original string.
+    for i, m in enumerate(re.finditer(r"\s*(.+?[.!?]+[\"')\]]*|\S.*?$)(?=\s|$)", text, re.DOTALL)):
+        seg = m.group(1)
+        start = m.start(1)
+        end = start + len(seg)
+        if not seg.strip():
+            continue
+        sentences.append({
+            "sentence_index": len(sentences),
+            "exact_sentence_text": seg,
+            "beginning_character_offset": start,
+            "ending_character_offset": end,
+        })
+    return sentences
+
+
+def _dco_governing_context(dco: Dict[str, Any]) -> str:
+    """Compact DCO subset that governs sentence-level judgments (spec §11). Values may be inline objects."""
+    def _v(k):
+        x = (dco or {}).get(k)
+        if isinstance(x, dict) and "value" in x:
+            x = x.get("value")
+        if isinstance(x, list):
+            x = "; ".join(str(i) for i in x)
+        return str(x or "").strip()
+    fields = [
+        ("communicative_task", _v("communicative_task")),
+        ("task_orientation_relation", _v("task_orientation_relation")),
+        ("provisional_whole_communication", _v("provisional_whole_communication")),
+        ("whole_communication_requirements", _v("whole_communication_requirements")),
+        ("instructional_center", _v("instructional_center")),
+        ("structural_relations_and_dependencies", _v("structural_relations_and_dependencies")),
+        ("current_instructional_sufficiency", _v("current_instructional_sufficiency")),
+    ]
+    return "\n".join(f"- {k}: {val}" for k, val in fields if val)
+
+
+async def sentence_craft_cognition(session_id: str, prompt: str, draft: str,
+                                   dco: Dict[str, Any]) -> Dict[str, Any]:
+    """DEVELOPER-ONLY. Dedicated Sentence Craft analysis call. Splits the draft into sentences (offsets
+    computed in Python for exactness), asks the model for a COMPACT per-sentence analysis plus ONE full
+    guided lesson for the single highest-priority sentence, and attaches offsets + the post-revision
+    schema. One LLM round-trip. Governed by the DCO."""
+    sentences = _split_sentences(draft)
+    if not sentences:
+        return {"sentences": [], "selected_teaching": None,
+                "post_revision_evaluation_schema": POST_REVISION_EVALUATION_SCHEMA, "error": "no sentences"}
+
+    enumerated = "\n".join(f'[{s["sentence_index"]}] {s["exact_sentence_text"]}' for s in sentences)
+    schema = (
+        '{"sentences": [{"sentence_index": 0, "communicative_purpose": "what this sentence is DOING in '
+        'THIS paragraph (opening/orientation, thesis/organizing understanding, definition, distinction, '
+        'elaboration, causal explanation, transition, evidence, example, implication, qualification, '
+        'conclusion, or a mixed/other function — do NOT force a canonical category)", '
+        '"relation_to_constructible_whole": "briefly how this sentence contributes to the current whole", '
+        '"importance_to_whole": "central|supporting|contextual|optional|distracting (DERIVE from the task '
+        '+ constructible whole + structural relations, NOT from sentence position)", '
+        '"observed_sentence_patterns": ["0-3 potentially relevant patterns from the rubric list — '
+        'observations/opportunities, NOT automatic errors; [] if none noteworthy"], '
+        '"teaching_priority": "teach_now|useful_later|no_instruction_needed|uncertain"}], '
+        '"selected_teaching": {"sentence_index": 0, "pattern_noticed": "concise: what Compass notices '
+        '(e.g. \'This sentence uses is as its main verb.\')", "instructional_principle": "teach the '
+        'COMMUNICATIVE principle behind the pattern (NOT a bare grammar rule; for to-be verbs, explain '
+        'that a linking verb can be right when defining/identifying/classifying, but a more precise verb '
+        'can show the intended relationship more clearly, and choosing requires deciding what relationship '
+        'is expressed)", "meaningful_alternatives": ["2-4 alternatives ONLY when useful, each with the '
+        'different relationship it expresses; [] if not useful; NEVER rewrite the student\'s sentence"], '
+        '"learner_invitation": "a question returning authorship to the learner (the learner makes the '
+        'revision)", "transferable_lesson": "ONE concise broader principle"}}'
+    )
+    p = (
+        f"ASSIGNMENT / PROMPT:\n{prompt or '(not specified)'}\n\n"
+        f"DEVELOPMENTAL COGNITION — GOVERNING CONTEXT (every sentence judgment must respect this):\n"
+        f"{_dco_governing_context(dco) or '(unavailable)'}\n\n"
+        f"THE PARAGRAPH (keep intact; sentences are pre-split and indexed):\n\"\"\"\n{draft}\n\"\"\"\n\n"
+        f"ENUMERATED SENTENCES:\n{enumerated}\n\n"
+        f"RUBRIC PATTERN VOCABULARY (source for observed_sentence_patterns; teaching opportunities, not "
+        f"auto-errors): {_SENTENCE_CRAFT_PATTERNS}.\n\n"
+        "TASK: (1) Give a COMPACT analysis of EVERY sentence by index (do not omit any). (2) Select the "
+        "SINGLE highest-value teaching opportunity for the WHOLE paragraph — the sentence-level issue "
+        "with the greatest effect on the communicative whole and the greatest transferable value — and "
+        "produce ONE full guided lesson for exactly that sentence in selected_teaching. Do NOT produce a "
+        "lesson for every sentence. If no sentence needs instruction, set selected_teaching to null.\n\n"
+        f"Return ONLY this JSON object (same keys, one entry per sentence index):\n{schema}"
+    )
+    chat = LlmChat(api_key=_KEY, session_id=f"sentence-craft-{session_id}",
+                   system_message=_SENTENCE_CRAFT_SYS).with_model(*SEL_MODEL).with_params(max_tokens=8192)
+    raw = await chat.send_message(UserMessage(text=p))
+    try:
+        data = _extract_json(raw)
+    except (json.JSONDecodeError, ValueError):
+        data = {}
+
+    analysis_by_idx = {}
+    for a in (data.get("sentences") or []):
+        if isinstance(a, dict) and isinstance(a.get("sentence_index"), int):
+            analysis_by_idx[a["sentence_index"]] = a
+    merged = []
+    for s in sentences:
+        a = analysis_by_idx.get(s["sentence_index"], {})
+        merged.append({
+            **s,  # offsets + exact text (authoritative, computed in Python)
+            "communicative_purpose": a.get("communicative_purpose", ""),
+            "relation_to_constructible_whole": a.get("relation_to_constructible_whole", ""),
+            "importance_to_whole": a.get("importance_to_whole", ""),
+            "observed_sentence_patterns": a.get("observed_sentence_patterns") or [],
+            "teaching_priority": a.get("teaching_priority", ""),
+        })
+    return {
+        "sentences": merged,
+        "selected_teaching": data.get("selected_teaching"),
+        "post_revision_evaluation_schema": POST_REVISION_EVALUATION_SCHEMA,
     }
