@@ -63,7 +63,49 @@ const OrientationMarker = ({ state }) => {
   return <span aria-label="Not currently in focus" className="text-stone-300 w-3 inline-block text-center">○</span>;
 };
 
-const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, established, contract }) => {
+// Compass 4.6 — the Instructional Contract card. A compact, PERSISTENT strip (stays visible across
+// turns, independent of the collapsible coaching card): the goal is a fixed commitment for the
+// episode; "Where we are" updates each turn; "What happens next" updates only when the phase changes.
+const InstructionalContractCard = ({ contract }) => {
+  if (!contract || (!contract.goal && !contract.where_we_are)) return null;
+  return (
+    <div
+      data-testid="instructional-contract-card"
+      className={`mb-4 rounded-sm px-3.5 py-2.5 border ${
+        contract.achieved ? "border-emerald-300 bg-emerald-50/70" : "border-[#c9b48a] bg-[#faf6ee]"
+      }`}
+    >
+      {contract.achieved && (
+        <div
+          data-testid="contract-achieved-badge"
+          className="mb-1.5 inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.16em] font-mono-panel text-emerald-700"
+        >
+          <span className="font-bold">✓</span> Goal for this step accomplished
+        </div>
+      )}
+      {contract.where_we_are && (
+        <div className="mb-2" data-testid="contract-where-we-are">
+          <div className="text-[10px] uppercase tracking-[0.18em] text-stone-500 font-mono-panel">Where we are</div>
+          <div className="text-[13px] text-stone-800 leading-snug mt-0.5">{contract.where_we_are}</div>
+        </div>
+      )}
+      {contract.goal && (
+        <div className="mb-2" data-testid="contract-goal">
+          <div className="text-[10px] uppercase tracking-[0.18em] text-[#8C3A2A] font-mono-panel">Our goal for this step</div>
+          <div className="text-[13px] text-stone-900 leading-snug mt-0.5 font-medium">{contract.goal}</div>
+        </div>
+      )}
+      {contract.what_happens_next && (
+        <div data-testid="contract-what-happens-next">
+          <div className="text-[10px] uppercase tracking-[0.18em] text-stone-500 font-mono-panel">What happens next</div>
+          <div className="text-[13px] text-stone-600 leading-snug mt-0.5">{contract.what_happens_next}</div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, established }) => {
   const est = new Set(established || []);
   const stateOf = (name) => (name === focus ? "current" : est.has(name) ? "established" : "idle");
   const Row = ({ name, indented }) => {
@@ -104,49 +146,6 @@ const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, esta
   };
   return (
     <div data-testid="canonical-orientation" className="mb-4 space-y-3">
-      {contract && (contract.goal || contract.where_we_are) && (
-        <div
-          data-testid="instructional-contract-card"
-          className={`rounded-sm px-3 py-2.5 border ${
-            contract.achieved
-              ? "border-emerald-300 bg-emerald-50/70"
-              : "border-[#c9b48a] bg-[#faf6ee]"
-          }`}
-        >
-          {contract.achieved && (
-            <div
-              data-testid="contract-achieved-badge"
-              className="mb-1.5 inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.16em] font-mono-panel text-emerald-700"
-            >
-              <span className="font-bold">✓</span> Goal for this step accomplished
-            </div>
-          )}
-          {contract.where_we_are && (
-            <div className="mb-2" data-testid="contract-where-we-are">
-              <div className="text-[10px] uppercase tracking-[0.18em] text-stone-500 font-mono-panel">
-                Where we are
-              </div>
-              <div className="text-[13px] text-stone-800 leading-snug mt-0.5">{contract.where_we_are}</div>
-            </div>
-          )}
-          {contract.goal && (
-            <div className="mb-2" data-testid="contract-goal">
-              <div className="text-[10px] uppercase tracking-[0.18em] text-[#8C3A2A] font-mono-panel">
-                Our goal for this step
-              </div>
-              <div className="text-[13px] text-stone-900 leading-snug mt-0.5 font-medium">{contract.goal}</div>
-            </div>
-          )}
-          {contract.what_happens_next && (
-            <div data-testid="contract-what-happens-next">
-              <div className="text-[10px] uppercase tracking-[0.18em] text-stone-500 font-mono-panel">
-                What happens next
-              </div>
-              <div className="text-[13px] text-stone-600 leading-snug mt-0.5">{contract.what_happens_next}</div>
-            </div>
-          )}
-        </div>
-      )}
       <div
         data-testid="preview-focus-of-work"
         className="border border-stone-300 bg-stone-50 rounded-sm px-3 py-2"
@@ -880,6 +879,11 @@ export default function PublicPreview({ mode = "ot" }) {
               </p>
             )}
 
+            {/* Compass 4.6 — persistent Instructional Contract (visible across turns) */}
+            {activeCoaching && !busy && (
+              <InstructionalContractCard contract={activeCoaching.instructional_contract} />
+            )}
+
             {/* The passage — document canvas, editable in place. A transparent-text
                 overlay sits behind the textarea to tint the recognized thesis. */}
             <div className="relative bg-white border border-stone-300 rounded-sm">
@@ -972,7 +976,6 @@ export default function PublicPreview({ mode = "ot" }) {
                       thesis={activeCoaching.current_thesis}
                       thesisVerbatim={activeCoaching.thesis_is_verbatim}
                       established={activeCoaching.established_structures || []}
-                      contract={activeCoaching.instructional_contract}
                     />
                   )}
                   {SHOW_COMMUNICATIVE_DIAGRAM && focusName === "Elaboration" && (

@@ -1,0 +1,36 @@
+{
+  "summary": "RETEST of Sprint 4.6 Instructional Contract card persistence bug from iteration_7. Fix VERIFIED PASSING. On ?preview=writing, after first draft coaching completes (~81s), the instructional-contract-card renders with contract-goal, contract-where-we-are, and contract-what-happens-next. After submitting a revision and turn 2 completes (~216s), the card is STILL present in the DOM (visible without needing to click the coaching-marker), positioned above the document canvas (y=174 vs doc y=388). contract-goal text is BYTE-IDENTICAL to turn 1 (fixed commitment preserved), while contract-where-we-are updated from a long paragraph to 'Thesis' (turn-specific, as spec allows). preview-coaching-marker is present (big coach card collapsed) but the contract card renders independently.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/test_reports/retest_turn1.png",
+    "/app/test_reports/retest_turn2.png"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "The card is hidden during in-flight processing (activeCoaching && !busy). This matches the review-request-stated condition exactly and is intentional — during the ~180-210s AI turn the card is not in the DOM (observed count=0 in 71/79 3-second samples), and it re-appears the moment busy flips back to false. If the product wants literal continuous visibility (no flicker during processing), the guard would need to be relaxed to `activeCoaching && (!busy || previousContract)` or similar; but per the spec this behavior is by design.",
+    "contract-goal/contract-where-we-are visible text still concatenates the label with the value (e.g., 'Where we areThesis'), as previously flagged in iteration_7. Test-safe but worth splitting into a nested data-testid=contract-goal-text / contract-where-we-are-text for cleaner assertions.",
+    "Turn-2 'where_we_are' value from the backend degraded to a single word ('Thesis') vs. the rich turn-1 sentence. Not a card-render bug (this test scope) but reviewers may want to sanity check backend content quality on later turns.",
+    "PublicPreview.jsx is 1419 lines — same long-file concern as prior iterations; splitting the contract card + orientation + coaching card into their own modules would reduce regression risk."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "not tested (per request)", "frontend": "100% (all requested checks pass)"},
+  "seed_data_creation": "None. Fresh guest session via ?preview=writing.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Flow reminder: ?preview=writing goes StudentEntry -> WritingScreen -> Coaching. Selectors: [data-testid=student-assignment-input] + [data-testid=student-assignment-continue] on assignment step; [data-testid=writing-input] + [data-testid=writing-submit-button] for first draft; after first coaching completes, revisions use [data-testid=preview-document] (contenteditable) + [data-testid=preview-send-revision]. Coaching turn latency observed: ~81s (turn1), ~216s (turn2). Contract card is hidden by design while busy=true; assert persistence AFTER the next coaching turn completes, not during it.",
+  "verified_this_iteration": {
+    "turn1_contract_card_renders": true,
+    "turn2_contract_card_renders": true,
+    "contract_goal_identical_across_turns": true,
+    "contract_where_we_are_updated_across_turns": true,
+    "card_positioned_above_preview_document": true,
+    "card_visible_without_clicking_coach_marker": true,
+    "coach_marker_collapsed_on_turn2": true
+  },
+  "rca of the issue": "Prior regression (iteration_7) was that the contract card lived inside the collapsible preview-coaching-card and thus vanished when the big coach card auto-collapsed on turn 2. Fix (verified): InstructionalContractCard is now a standalone component rendered directly in the writing branch of PublicPreview.jsx at line ~883 under the guard `activeCoaching && !busy`, above the document canvas. This decouples it from the coach-card's collapsed state, so after any turn completes the card re-mounts with the latest turn's contract while preserving the fixed goal. Confirmed by observing the card at turn 2 with goal text byte-identical to turn 1 and where-we-are updated."
+}

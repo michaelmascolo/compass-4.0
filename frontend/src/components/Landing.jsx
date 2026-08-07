@@ -184,8 +184,11 @@ export default function Landing() {
       <section className="border-t border-stone-200 bg-stone-900 text-stone-50" data-testid="closing-cta">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-16 py-20 md:py-28">
           <h2 className="font-serif-display text-3xl sm:text-5xl tracking-tight leading-[1.05] max-w-3xl">
-            See what it feels like to be taught, not corrected.
+            Experience a different kind of AI writing support—guided, developmental, yet genuinely yours.
           </h2>
+          <p className="mt-5 text-base sm:text-lg text-stone-300 max-w-2xl leading-relaxed" data-testid="closing-cta-subline">
+            AI that supports rather than replaces the writer.
+          </p>
           <a
             href="?preview=teacher"
             data-testid="cta-try-compass"
