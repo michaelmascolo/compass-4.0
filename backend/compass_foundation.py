@@ -186,6 +186,10 @@ class InstructionalState(BaseModel):
     episode_contract_function: str = ""
     episode_contract_goal: str = ""
     episode_contract_next: str = ""
+    # 4.9.4 — set True once Compass has externalized the local arguments and asked the learner to SELECT
+    # a subset (structural-selection phase 1); the next structural-selection message turn then gives the
+    # single rewrite operation (phase 2). Reset when the paragraph is no longer overloaded.
+    awaiting_structural_selection: bool = False
     # --- Internal Instructional Decision analysis (never shown to the student; drives Teacher Review) ---
     instructional_analysis: Dict[str, Any] = Field(default_factory=dict)
     # count of consecutive continuation turns on the CURRENT target (0 on a fresh/first turn);
