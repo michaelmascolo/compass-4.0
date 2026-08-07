@@ -107,13 +107,16 @@ const InstructionalContractCard = ({ contract }) => {
 
 const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, established, operation }) => {
   const est = new Set(established || []);
-  const stateOf = (name) => (name === focus ? "current" : est.has(name) ? "established" : "idle");
   // 4.9.1 — the learner-facing focus reflects the ACTUAL instructional operation, not the canonical
   // paragraph stage. For structural selection / condensation, the work is choosing what the paragraph
   // should carry — not elaborating. (Only this operation case is remapped for now.)
   const isReduction = ["structural_selection", "condense_and_integrate"].includes(
     (operation || "").toLowerCase()
   );
+  // On a reduction turn no single canonical stage is the "current" step (the work cuts across the
+  // paragraph), so the structure map is a neutral reference rather than pinning an elaboration step.
+  const stateOf = (name) =>
+    (!isReduction && name === focus ? "current" : est.has(name) ? "established" : "idle");
   const focusLabel = isReduction ? "FOCUSING YOUR PARAGRAPH" : focus;
   const focusQuestion = isReduction
     ? "Your ideas are strong. The work now is deciding what this one paragraph should carry."
@@ -121,7 +124,7 @@ const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, esta
   const Row = ({ name, indented }) => {
     const s = stateOf(name);
     const slug = name.replace(/[^a-z]+/gi, "-").toLowerCase();
-    const fn = FUNCTION_QUESTIONS[name];
+    const fn = isReduction ? null : FUNCTION_QUESTIONS[name];
     return (
       <div
         data-testid={`writing-structure-row-${slug}`}
@@ -137,15 +140,19 @@ const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, esta
         >
           {name}
         </span>
-        <span aria-hidden="true" className="text-stone-400 shrink-0 select-none">→</span>
-        <span
-          data-testid={`writing-structure-function-${slug}`}
-          className={`text-[12px] leading-snug ${
-            s === "current" ? "text-stone-900" : s === "established" ? "text-stone-600" : "text-stone-500"
-          }`}
-        >
-          {fn}
-        </span>
+        {fn && (
+          <>
+            <span aria-hidden="true" className="text-stone-400 shrink-0 select-none">→</span>
+            <span
+              data-testid={`writing-structure-function-${slug}`}
+              className={`text-[12px] leading-snug ${
+                s === "current" ? "text-stone-900" : s === "established" ? "text-stone-600" : "text-stone-500"
+              }`}
+            >
+              {fn}
+            </span>
+          </>
+        )}
         {s === "current" && (
           <span className="ml-1 text-[9px] uppercase tracking-wider text-[#8C3A2A] border border-[#e0c4bd] rounded-sm px-1 py-px shrink-0 self-center">
             focus

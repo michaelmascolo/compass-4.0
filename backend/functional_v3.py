@@ -3489,6 +3489,18 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
         "achieved": _achievedF,
         "revision_reason": _revision_reasonF,
     }
+    # 4.9.1a — LEARNER-FACING contract reflects the CURRENT instructional commitment when communicative
+    # load has shifted the operation to structural selection/condensation. This does NOT rewrite or erase
+    # the pinned conceptual Episode Target: state.episode_contract_goal / episode_contract_next are left
+    # intact (preserved internally for history); only the displayed card is remapped for this turn.
+    if _operation in ("structural_selection", "condense_and_integrate"):
+        _contractF["where_we_are"] = "You have developed the main ideas you need."
+        _contractF["goal"] = ("We are deciding what this one paragraph should carry and what can be "
+                              "combined, shortened, or moved elsewhere.")
+        _contractF["what_happens_next"] = ("Once the paragraph is focused and proportionate, we will move "
+                                           "on to strengthening the writing sentence by sentence.")
+        _contractF["operation"] = _operation
+        _contractF["pinned_episode_target"] = state.episode_contract_goal  # preserved for reference/history
     _contract_alignmentF = {
         "alignment": _gate.get("alignment"),
         "heuristic_verdict": _gate.get("heuristic_verdict"),
