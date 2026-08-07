@@ -1232,7 +1232,8 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
                             emerging_constraints_context: str = "",
                             learner_message: str = "",
                             contract_constraint: str = "", achievement_context: str = "",
-                            closure_context: str = "", operation: str = "") -> str:
+                            closure_context: str = "", operation: str = "",
+                            structural_scaffold: str = "") -> str:
     src = _resolve_teaching_source(structure, obj)
     disp = src["display_name"]
     _action_hint = {
@@ -1505,19 +1506,37 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
         emerging_constraints_context = ""
         _ops_block = ""
         _focus_block = (
-            "THE INSTRUCTIONAL DECISION IS ALREADY MADE: this turn is STRUCTURAL SELECTION / REDUCTION, "
-            "NOT building, elaborating, unfolding, or developing any structure. The learner's current "
-            "draft already holds enough conceptual material; do NOT coach them to add, build, unfold, or "
-            "elaborate anything, and do NOT introduce a canonical structure name to 'work on'. Work only "
-            "with the organization of what is already written:\n"
-            "- FIRST name, in plain words, the ONE central movement the paragraph is really about.\n"
-            "- Point to where the SAME structural job is performed in more than one place, or where a "
-            "passage opens a SEPARATE line of explanation that pulls away from that central movement.\n"
-            "- Frame the structural CHOICE (one strong version rather than several; some material may "
-            "belong in a later paragraph) and hand authorship back: ask WHICH version says it best and "
-            "what to combine, condense, move, or remove.\n"
-            "- Do NOT rewrite or shorten the paragraph yourself, do NOT ask for a new relation, and NEVER "
-            "suggest the assignment should be an essay.\n"
+            "THE INSTRUCTIONAL DECISION IS ALREADY MADE: this turn is STRUCTURAL DECOMPOSITION COACHING "
+            "(structural selection / reduction), NOT building, elaborating, unfolding, or developing any "
+            "structure. The learner already has enough conceptual material; do NOT coach them to add, "
+            "build, unfold, or elaborate anything, and do NOT introduce a canonical structure name to "
+            "'work on'. A NOVICE writer may understand 'this paragraph does too much' yet have no idea "
+            "what to do next, so make the hidden organization of THEIR OWN paragraph visible and then give "
+            "ONE manageable operation. Follow these steps IN ORDER, in warm plain language:\n"
+            "1. DIAGNOSE PLAINLY (do not soften into a vague 'which part seems most important?'): say "
+            "directly that the paragraph is trying to do too much at once, that they have enough ideas, "
+            "and that the work now is deciding which ideas THIS ONE paragraph should carry.\n"
+            "2. RE-ANCHOR TO THE THESIS: restate, in one sentence, the central idea already organizing "
+            "their paragraph (this is Compass's reading of THEIR thesis, not a new one). If confidence is "
+            "low, phrase it provisionally ('I think your central idea is…').\n"
+            "3. EXTERNALIZE THE LOCAL ARGUMENTS: list, as a short lettered/bulleted set, the major lines "
+            "of argument ALREADY PRESENT in their paragraph, worded from their actual writing. Do NOT "
+            "invent arguments that are not there.\n"
+            "4. SHOW THE STRUCTURAL PROBLEM: explain that these ideas are related but are not all doing the "
+            "same local job — several could support SEPARATE paragraphs — and teach the distinction "
+            "between 'related to the topic' and 'belongs in THIS paragraph'.\n"
+            "5. REDUCE THE CHOICE SPACE: do not just ask 'what would you cut?'. Ask them to SELECT the two "
+            "or three of those arguments most necessary to develop the central idea in this paragraph. If "
+            "they seem unsure, be more directive — recommend a specific small subset that forms one clear "
+            "line of development — while making clear the final choice is theirs (scaffolding, not "
+            "authorship).\n"
+            "6. GIVE ONE CONCRETE OPERATION: tell them to REWRITE the paragraph using ONLY the selected "
+            "ideas, adding nothing new; use the first selected point to state the main explanation and the "
+            "others to develop it. Ask for ONLY this — do NOT also ask for sentence improvement, grammar, "
+            "transitions, new evidence, examples, or a counterargument.\n"
+            "7. STOP + RESUBMIT: tell them to stop when they have done that and submit the paragraph again.\n"
+            "Never rewrite the paragraph for them, and NEVER suggest the assignment should be an essay.\n"
+            + (structural_scaffold or "")
         )
     else:
         _focus_block = (
@@ -3460,6 +3479,27 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
         # RESCUE only after the learner remains stuck across continuation attempts, or asks for help.
         rescue = (dialogue_mode == "continuation"
                   and (state.current_target_attempts >= 2 or _wants_help(learner_content)))
+        # 4.9.3 — STRUCTURAL DECOMPOSITION scaffold, built ONLY from existing DCO fields (no extra LLM
+        # call): the central movement + the major local arguments already present + lines that likely
+        # belong elsewhere. The coach externalizes THIS material for the learner.
+        _structural_scaffold = ""
+        if _operation in ("structural_selection", "condense_and_integrate"):
+            _thesis_txt = (_structF.get("central_communicative_movement") or "").strip()
+            _local_args = [str(x).strip() for x in (_structF.get("current_structural_work") or []) if str(x).strip()]
+            _sec_txt = [str(x).strip() for x in (_secondary or []) if str(x).strip()]
+            _conf = (_structF.get("confidence") or "").strip()
+            _lines = ["\nCONCRETE MATERIAL FROM THIS LEARNER'S DRAFT — build the scaffold from THIS; do NOT invent arguments that are not here:\n"]
+            if _thesis_txt:
+                _lines.append(f"- CENTRAL MOVEMENT (restate as THEIR thesis in plain words; hedge with 'I think your central idea is…' if confidence is low, confidence={_conf or 'n/a'}): {_thesis_txt}\n")
+            if _local_args:
+                _lines.append("- MAJOR LOCAL ARGUMENTS ALREADY PRESENT (present these as the lettered list, reworded from their paragraph):\n")
+                for _i, _w in enumerate(_local_args):
+                    _lines.append(f"    {chr(65 + _i)}. {_w}\n")
+            if _sec_txt:
+                _lines.append("- LINES THAT LIKELY BELONG IN A SEPARATE PARAGRAPH (candidates to move/defer, not necessarily to delete):\n")
+                for _w in _sec_txt:
+                    _lines.append(f"    · {_w}\n")
+            _structural_scaffold = "".join(_lines)
         invitation, dlg_bytes = await generate_dialogue(state.id, assignment, unit, student_text,
                                                         target, obj, status, kind, instructional_action,
                                                         mode=dialogue_mode, sufficiency=developmental_sufficiency,
@@ -3471,7 +3511,8 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
                                                         contract_constraint=_contract_ctx,
                                                         achievement_context=_achievement_ctx,
                                                         closure_context=_closure_ctx,
-                                                        operation=_operation)
+                                                        operation=_operation,
+                                                        structural_scaffold=_structural_scaffold)
     t_dialogue = time.perf_counter() - t_d0
 
     # COMPASS 4.6 — SCOPE GATE: deterministic first-pass; LLM judge only when uncertain; regenerate
