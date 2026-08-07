@@ -38,6 +38,7 @@ Reuses Sprint 1-4 infrastructure UNCHANGED: persistent InstructionalState, the
 evidence/audit collections, and teacher override. No DB / audit / override redesign.
 """
 import json
+import logging
 import os
 import re
 import time
@@ -50,6 +51,7 @@ from compass_foundation import AuditEvent, InstructionalState, now_iso
 import compass_curriculum as CC
 import developmental_operations as DO
 
+logger = logging.getLogger("functional_v3")
 _KEY = os.environ.get("EMERGENT_LLM_KEY")
 SEL_MODEL = ("anthropic", "claude-haiku-4-5-20251001")   # fast, cheap structure selection
 DLG_MODEL = ("anthropic", "claude-sonnet-4-6")           # coaching dialogue
@@ -1228,7 +1230,8 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
                             rescue: bool = False, prior_student_text: str = "",
                             elaboration_context: str = "", reconsideration_context: str = "",
                             emerging_constraints_context: str = "",
-                            learner_message: str = "") -> str:
+                            learner_message: str = "",
+                            contract_constraint: str = "", achievement_context: str = "") -> str:
     src = _resolve_teaching_source(structure, obj)
     disp = src["display_name"]
     _action_hint = {
@@ -1496,6 +1499,22 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
         f"THE WRITER JUST {('REVISED' if kind == 'revise' else 'WROTE' if kind in ('writing','continue') else 'RESPONDED')}:\n"
         f"\"\"\"\n{student_text}\n\"\"\"\n\n"
         + (f"THE LEARNER'S MESSAGE THIS TURN (respond to it directly):\n\"\"\"\n{learner_message.strip()}\n\"\"\"\n\n" if (learner_message or '').strip() else "")
+        + ((
+            "INSTRUCTIONAL CONTRACT (SCOPE — BINDING): the pinned goal for THIS step is: "
+            f"\"{contract_constraint.strip()}\". Everything you say must serve ONLY this goal. Do NOT ask "
+            "for unrelated elaboration, a richer version of the argument, a second coordination, "
+            "expert-level differentiation, or any product enrichment not required by this goal, and do "
+            "NOT introduce work that belongs to a later step. Stay strictly inside this contract.\n\n"
+          ) if (contract_constraint or '').strip() else "")
+        + ((
+            "CONTRACT FULFILLED: the learner has JUST accomplished the goal for this step: "
+            f"\"{achievement_context.strip()}\". OPEN by explicitly and warmly acknowledging this "
+            "accomplishment in plain language (for example: \"You accomplished the goal for this step — "
+            "you made this relationship clear.\"), naming the specific relation they made clear. Do NOT "
+            "introduce a new developmental task and do NOT ask for further elaboration or enrichment. You "
+            "may note briefly that the next step will be making the writing itself stronger. Keep it "
+            "short.\n\n"
+          ) if (achievement_context or '').strip() else "")
         + f"{_mode_block}\n"
         f"{_support_block}\n"
         f"{_elab_block}"
@@ -2766,6 +2785,80 @@ def _unit_hint(session: Dict[str, Any]) -> str:
     return "one paragraph" if "paragraph" in task.lower() else (session.get("current_writing_task") or "one paragraph")
 
 
+# ---------------------------------------------------------------------------
+# COMPASS 4.6 — INSTRUCTIONAL CONTRACT scope-alignment gate (deterministic first,
+# LLM only on uncertainty). Keeps every coaching move subordinate to the pinned
+# Episode Target. Uses only already-computed structured fields.
+# ---------------------------------------------------------------------------
+_CONTRACT_DEV_FUNCTIONS = {"focus", "develop", "support", "functional_organization",
+                           "local_organization", "orient"}
+_CONTRACT_STOP = set(("the a an of to and or for in on with that this how what why we you your is are "
+                      "it as be by from into their they them our").split())
+
+
+def _next_opp_intrusion(inv_lower: str, next_opp: str, target: str) -> bool:
+    tgt = set(re.findall(r"[a-z]{5,}", (target or "").lower()))
+    opp = [w for w in re.findall(r"[a-z]{5,}", (next_opp or "").lower())
+           if w not in _CONTRACT_STOP and w not in tgt]
+    return sum(1 for w in set(opp) if w in inv_lower) >= 2
+
+
+def _contract_alignment_gate(pinned_target: str, contract_fn: str, sel_fn: str, achieved: bool,
+                             next_opp: str, invitation: str, coaching_path: str) -> Dict[str, Any]:
+    contract_fn = (contract_fn or "").strip().lower()
+    sel_fn = (sel_fn or "").strip().lower()
+    inv = (invitation or "").lower()
+    ev: List[str] = []
+
+    def out(align, verdict, reason, regen):
+        return {"alignment": align, "heuristic_verdict": verdict, "reason": reason, "evidence": ev,
+                "regeneration_required": regen, "llm_escalated": False, "regenerated": False}
+
+    if not pinned_target or not contract_fn:
+        return out("aligned", "aligned", "no pinned contract yet (first turn / re-diagnosis)", False)
+    if achieved:
+        if sel_fn in ("", "consolidate") or "CASE_2" in (coaching_path or ""):
+            return out("aligned", "aligned", "target achieved; move acknowledges / consolidates", False)
+        if sel_fn in _CONTRACT_DEV_FUNCTIONS:
+            ev.append(f"achieved but selected_function={sel_fn}")
+            return out("misaligned", "misaligned",
+                       "target achieved but the move opens NEW developmental work", True)
+        return out("uncertain", "uncertain", "achieved; move function ambiguous", False)
+    if sel_fn in ("", "consolidate", contract_fn):
+        if next_opp and _next_opp_intrusion(inv, next_opp, pinned_target):
+            ev.append("invitation overlaps next_developmental_opportunity keywords")
+            return out("uncertain", "uncertain", "possible next_developmental_opportunity intrusion", False)
+        return out("aligned", "aligned", "move scaffolds the contracted function", False)
+    if sel_fn in _CONTRACT_DEV_FUNCTIONS:
+        ev.append(f"selected_function={sel_fn} != contract_function={contract_fn}")
+        return out("misaligned", "misaligned",
+                   f"different instructional function ({sel_fn}) than the contract ({contract_fn})", True)
+    return out("uncertain", "uncertain", "ambiguous function vs contract", False)
+
+
+_CONTRACT_JUDGE_SYS = (
+    "You check whether a writing tutor's coaching move stays within a single pinned instructional goal. "
+    "Reply ONLY JSON: {\"alignment\":\"aligned|misaligned|partially_aligned\",\"reason\":\"one short clause\"}."
+)
+
+
+async def _llm_contract_judge(session_id: str, pinned_target: str, invitation: str,
+                              sel_fn: str, next_opp: str) -> Dict[str, Any]:
+    prompt = (
+        f"PINNED GOAL FOR THIS STEP: \"{pinned_target}\"\n"
+        f"WORK THAT BELONGS TO A LATER STEP (must NOT appear now): \"{next_opp or '(none)'}\"\n"
+        f"THE TUTOR'S COACHING MOVE:\n\"\"\"\n{invitation}\n\"\"\"\n\n"
+        "aligned = it scaffolds, teaches, or checks the pinned goal. misaligned = it asks for a "
+        "different relation, a richer or second coordination, expert differentiation, later-step work, "
+        "or broadens the task. JSON only."
+    )
+    chat = LlmChat(api_key=_KEY, session_id=f"contract-judge-{session_id}",
+                   system_message=_CONTRACT_JUDGE_SYS).with_model(*SEL_MODEL).with_params(max_tokens=300)
+    raw = await chat.send_message(UserMessage(text=prompt))
+    return _extract_json(raw)
+
+
+
 async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[str, Any]:
     """Full RP5 turn: select structure -> retrieve minimal object -> authoritative
     decision (persisted) -> dialogue bound to that target. Returns
@@ -2832,6 +2925,10 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
             # the model drifted (usually raised the bar after success) — enforce the pinned target
             _lrs0["_target_before_pin_enforcement"] = _produced
             _lrs0["learner_accessible_target"] = _pinned
+            _lrs0["episode_target_status"] = "kept"
+        else:
+            # pinned target is unchanged — normalize the status so mislabels ('set_this_turn' again)
+            # cannot cause the downstream Instructional Contract goal to be regenerated.
             _lrs0["episode_target_status"] = "kept"
         # Once the learner PERFORMS the pinned operation, the target is achieved — never leave it at
         # 'partial'/'no' merely because richer organization remains possible. Use the model's own
@@ -3021,6 +3118,25 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
     ))
 
     # STEP 4 — dialogue engine builds the FIXED structure (cannot re-decide)
+    # COMPASS 4.6 — compute the Instructional Contract context BEFORE coaching so the FIRST coaching
+    # move is generated INSIDE the pinned Episode Target (proactive), not merely checked afterward.
+    _dcoF = sel.get("_developmental_cognition") or {}
+    _lrsF = _dcoF.get("learner_relative_sufficiency") if isinstance(_dcoF.get("learner_relative_sufficiency"), dict) else {}
+    _orientF = _dcoF.get("learner_orientation") if isinstance(_dcoF.get("learner_orientation"), dict) else {}
+    _achievedF = (_lrsF.get("accessible_target_achieved") or "").strip().lower() == "yes"
+    _epstatF = (_lrsF.get("episode_target_status") or "").strip().lower()
+    _pinnedF = (state.episode_accessible_target or "").strip()
+    _sel_fnF = ((functional_decision.get("selected_function") or "") if isinstance(functional_decision, dict) else "").strip().lower()
+    _next_oppF = (_lrsF.get("next_developmental_opportunity") or "").strip()
+    # record the in-scope function + FIXED goal wording ONCE (when first pinned) — thereafter the goal
+    # is immutable for the episode; it is only regenerated on a genuine wrong-diagnosis re-assessment.
+    if _pinnedF and (not state.episode_contract_goal or _epstatF == "revised_wrong_diagnosis"):
+        if _sel_fnF:
+            state.episode_contract_function = _sel_fnF
+        state.episode_contract_goal = (_orientF.get("current_work") or "").strip() or _pinnedF
+    _contract_ctx = "" if not _pinnedF else (_pinnedF if not _achievedF else "")
+    _achievement_ctx = state.episode_contract_goal if (_pinnedF and _achievedF) else ""
+
     t_d0 = time.perf_counter()
     if instructional_need == "NO_CURRENT_INSTRUCTIONAL_TARGET":
         invitation, dlg_bytes = await generate_closure(state.id, assignment, student_text, established)
@@ -3041,8 +3157,83 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
                                                         elaboration_context=sel.get("_elaboration_context", ""),
                                                         reconsideration_context=sel.get("_reconsideration_context", ""),
                                                         emerging_constraints_context=sel.get("_emerging_constraints_context", ""),
-                                                        learner_message=learner_message)
+                                                        learner_message=learner_message,
+                                                        contract_constraint=_contract_ctx,
+                                                        achievement_context=_achievement_ctx)
     t_dialogue = time.perf_counter() - t_d0
+
+    # COMPASS 4.6 — SCOPE GATE: deterministic first-pass; LLM judge only when uncertain; regenerate
+    # ONCE on clear or LLM-confirmed misalignment (prefer constraining the move, not a wholesale reask).
+    _gate = _contract_alignment_gate(_pinnedF, state.episode_contract_function, _sel_fnF, _achievedF,
+                                     _next_oppF, invitation, coaching_path)
+    if _gate["alignment"] == "uncertain" and _pinnedF:
+        try:
+            _judge = await _llm_contract_judge(state.id, _pinnedF, invitation, _sel_fnF, _next_oppF)
+            _gate["llm_escalated"] = True
+            _jv = (_judge.get("alignment") or "uncertain").strip().lower()
+            _gate["alignment"] = _jv if _jv in ("aligned", "misaligned", "partially_aligned") else "uncertain"
+            _gate["reason"] = f"{_gate['reason']} | llm: {_judge.get('reason', '')}"
+            _gate["regeneration_required"] = _jv == "misaligned"
+        except Exception as _je:  # noqa: BLE001
+            logger.error(f"[contract] llm judge failed: {_je}")
+    if _gate.get("regeneration_required") and instructional_need != "NO_CURRENT_INSTRUCTIONAL_TARGET":
+        _tr0 = time.perf_counter()
+        try:
+            _con2 = "" if _achievedF else (_pinnedF or state.episode_contract_goal)
+            _ach2 = state.episode_contract_goal if _achievedF else ""
+            _inv2, _db2 = await generate_dialogue(state.id, assignment, unit, student_text,
+                                                  target, obj, status, kind, instructional_action,
+                                                  mode=("continuation" if bool(prior_student_text) else "first_turn"),
+                                                  sufficiency=developmental_sufficiency, rescue=False,
+                                                  prior_student_text=prior_student_text,
+                                                  elaboration_context=sel.get("_elaboration_context", ""),
+                                                  reconsideration_context=sel.get("_reconsideration_context", ""),
+                                                  emerging_constraints_context=sel.get("_emerging_constraints_context", ""),
+                                                  learner_message=learner_message,
+                                                  contract_constraint=_con2, achievement_context=_ach2)
+            if _inv2 and _inv2.strip():
+                invitation, dlg_bytes = _inv2, _db2
+                _gate["regenerated"] = True
+                t_dialogue += time.perf_counter() - _tr0
+        except Exception as _re:  # noqa: BLE001
+            logger.error(f"[contract] regeneration failed: {_re}")
+
+    _revision_reasonF = {"revised_wrong_diagnosis": "revised_wrong_diagnosis",
+                         "refined_wording": "reworded_only"}.get(_epstatF, "none")
+    _whereF = (_orientF.get("where_we_are") or "").strip() or (", ".join(established) if established else "")
+    _nextF = ("Once we've done that, we'll move on to making the writing itself stronger." if _achievedF
+              else (_orientF.get("likely_next_step") or "").strip())
+    if _nextF and _nextF != (state.episode_contract_next or ""):
+        state.episode_contract_next = _nextF
+    _contractF = {
+        "where_we_are": _whereF,
+        "goal": state.episode_contract_goal,
+        "what_happens_next": state.episode_contract_next,
+        "status": "achieved" if _achievedF else "active",
+        "achieved": _achievedF,
+        "revision_reason": _revision_reasonF,
+    }
+    _contract_alignmentF = {
+        "alignment": _gate.get("alignment"),
+        "heuristic_verdict": _gate.get("heuristic_verdict"),
+        "llm_escalated": bool(_gate.get("llm_escalated")),
+        "reason": _gate.get("reason"),
+        "evidence": _gate.get("evidence"),
+        "regeneration_required": bool(_gate.get("regeneration_required")),
+        "regenerated": bool(_gate.get("regenerated")),
+        "in_scope": _gate.get("alignment") == "aligned",
+        "selected_function": _sel_fnF,
+        "contract_function": state.episode_contract_function,
+    }
+    # surface for the dev panel + trace (injected AFTER the DCO normalizer, so no truncation risk)
+    if isinstance(_dcoF, dict):
+        _dcoF["instructional_contract"] = _contractF
+        _dcoF["instructional_contract_alignment"] = _contract_alignmentF
+    logger.info(f"[contract] session={state.id} alignment={_contract_alignmentF['alignment']} "
+                f"heuristic={_contract_alignmentF['heuristic_verdict']} escalated={_contract_alignmentF['llm_escalated']} "
+                f"regen={_contract_alignmentF['regenerated']} reason={_contract_alignmentF['reason']}")
+    # persist the contract state (goal/function/next were set AFTER the earlier _save_state above)
+    await F._save_state(state)
 
     ownership_ok = not bool(_DOES_WORK.search(invitation or ""))
 
@@ -3119,6 +3310,8 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
             "focus_region": sel.get("_focus_region") or "",
             "focus_portion": sel.get("_focus_portion") or "",
             "reconsideration": sel.get("_reconsideration") or {},
+            "instructional_contract": _contractF,
+            "contract_alignment": _contract_alignmentF,
         },
         "_meta": efficiency,
     }

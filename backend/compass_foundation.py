@@ -180,6 +180,12 @@ class InstructionalState(BaseModel):
     # episode; once set it is PINNED and held identical across turns (may only change on a genuine
     # wrong-diagnosis re-assessment, never because the learner reached it). Additive/defaulted.
     episode_accessible_target: str = ""
+    # Compass 4.6 — the learner-facing Instructional Contract for the current episode. The GOAL line
+    # is generated once (when the target is first pinned) and stays FIXED; the in-scope function gates
+    # coaching alignment; the "what happens next" line updates only when the phase genuinely changes.
+    episode_contract_function: str = ""
+    episode_contract_goal: str = ""
+    episode_contract_next: str = ""
     # --- Internal Instructional Decision analysis (never shown to the student; drives Teacher Review) ---
     instructional_analysis: Dict[str, Any] = Field(default_factory=dict)
     # count of consecutive continuation turns on the CURRENT target (0 on a fresh/first turn);

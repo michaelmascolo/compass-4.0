@@ -200,6 +200,49 @@ export default function DevCognitionPanel({ sessionId, turnKey, onClose }) {
           </pre>
         )}
 
+        {dco && !showRaw && (dco.instructional_contract || dco.instructional_contract_alignment) && (
+          <div data-testid="dco-instructional_contract"
+            style={{ marginBottom: 12, padding: "9px 11px", background: "#0c0a09",
+              border: "1px solid #3f3f46", borderLeft: "3px solid #38bdf8", borderRadius: 6 }}>
+            {(() => {
+              const c = dco.instructional_contract || {};
+              const a = dco.instructional_contract_alignment || {};
+              const acol = a.alignment === "aligned" ? "#4ade80" : a.alignment === "misaligned" ? "#f87171"
+                : a.alignment === "partially_aligned" ? "#fbbf24" : "#a8a29e";
+              const row = (label, val) => (val || val === false) ? (
+                <div style={{ marginBottom: 4 }}>
+                  <div style={{ color: "#a8a29e", textTransform: "uppercase", fontSize: 8.5, letterSpacing: "0.08em" }}>{label}</div>
+                  <div style={{ color: "#f5f5f4", fontSize: 12 }}>{String(val)}</div>
+                </div>
+              ) : null;
+              return (
+                <>
+                  <div style={{ display: "flex", justifyContent: "space-between", gap: 8, marginBottom: 5 }}>
+                    <span style={{ color: "#38bdf8", fontWeight: 700, textTransform: "uppercase", fontSize: 9, letterSpacing: "0.1em" }}>Instructional contract (4.6)</span>
+                    <span style={{ color: acol, fontWeight: 700, textTransform: "uppercase", fontSize: 9 }}>{a.alignment || "—"}{a.in_scope ? " · in-scope" : ""}</span>
+                  </div>
+                  {row("Pinned episode target", dco.learner_relative_sufficiency && dco.learner_relative_sufficiency.learner_accessible_target)}
+                  {row("Contract goal (student-facing, FIXED)", c.goal)}
+                  {row("Where we are", c.where_we_are)}
+                  {row("What happens next", c.what_happens_next)}
+                  {row("Contract status", c.status)}
+                  {row("Achieved", c.achieved)}
+                  {row("Contract revision reason", c.revision_reason)}
+                  <div style={{ borderTop: "1px dashed #3f3f46", margin: "6px 0 5px" }} />
+                  {row("Selected coaching function", a.selected_function)}
+                  {row("Contract function (in-scope)", a.contract_function)}
+                  {row("Heuristic verdict", a.heuristic_verdict)}
+                  {row("LLM escalated", a.llm_escalated)}
+                  {row("Regeneration required", a.regeneration_required)}
+                  {row("Regenerated", a.regenerated)}
+                  {row("Reason", a.reason)}
+                  {Array.isArray(a.evidence) && a.evidence.length ? row("Evidence", a.evidence.join(" · ")) : null}
+                </>
+              );
+            })()}
+          </div>
+        )}
+
         {dco && !showRaw && dco.learner_relative_sufficiency && typeof dco.learner_relative_sufficiency === "object" && (
           <div data-testid="dco-learner_relative_sufficiency"
             style={{ marginBottom: 12, padding: "9px 11px", background: "#0c0a09",

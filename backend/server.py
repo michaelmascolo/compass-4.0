@@ -620,6 +620,8 @@ class Turn(BaseModel):
     function_spans: Dict[str, str] = Field(default_factory=dict)  # Visible Interpretation: {structure: verbatim learner text}
     focus_region: str = ""  # verbatim text of the ENTIRE communicative function currently in focus
     focus_portion: str = ""  # smaller verbatim span within focus_region worked on this turn
+    instructional_contract: Optional[dict] = None  # Compass 4.6 student-facing contract (3-line card)
+    contract_alignment: Optional[dict] = None  # Compass 4.6 scope-gate verdict (dev-only)
     created_at: str = Field(default_factory=now_iso)
 
 
@@ -3758,6 +3760,8 @@ async def _finalize_structure_v5(session_id: str, ai_turn_id: str, req: Interact
                 t.function_spans = {k: v for k, v in (_dec.get("function_spans") or {}).items() if v}
                 t.focus_region = _dec.get("focus_region") or ""
                 t.focus_portion = _dec.get("focus_portion") or ""
+                t.instructional_contract = _dec.get("instructional_contract") or None
+                t.contract_alignment = _dec.get("contract_alignment") or None
                 if not t.current_thesis:
                     t.current_thesis = _dec.get("current_thesis") or ""
             break
