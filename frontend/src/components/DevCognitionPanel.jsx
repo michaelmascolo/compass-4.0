@@ -200,6 +200,50 @@ export default function DevCognitionPanel({ sessionId, turnKey, onClose }) {
           </pre>
         )}
 
+        {dco && !showRaw && dco.structural_load_analysis && typeof dco.structural_load_analysis === "object" && (
+          <div data-testid="dco-structural_load_analysis"
+            style={{ marginBottom: 12, padding: "9px 11px", background: "#0c0a09",
+              border: "1px solid #3f3f46", borderLeft: "3px solid #fb7185", borderRadius: 6 }}>
+            {(() => {
+              const s = dco.structural_load_analysis;
+              const scol = s.structural_load_status === "proportionate" ? "#4ade80"
+                : s.structural_load_status === "overloaded" ? "#f87171"
+                : s.structural_load_status === "crowded" ? "#fbbf24"
+                : s.structural_load_status === "underloaded" ? "#60a5fa" : "#a8a29e";
+              const row = (label, val) => {
+                if (val === null || val === undefined || val === "") return null;
+                const text = Array.isArray(val)
+                  ? val.map((v) => (typeof v === "object" ? JSON.stringify(v) : v)).join(" · ")
+                  : (typeof val === "object" ? JSON.stringify(val) : String(val));
+                if (!text) return null;
+                return (
+                  <div style={{ marginBottom: 4 }}>
+                    <div style={{ color: "#a8a29e", textTransform: "uppercase", fontSize: 8.5, letterSpacing: "0.08em" }}>{label}</div>
+                    <div style={{ color: "#f5f5f4", fontSize: 12 }}>{text}</div>
+                  </div>
+                );
+              };
+              return (
+                <>
+                  <div style={{ display: "flex", justifyContent: "space-between", gap: 8, marginBottom: 5 }}>
+                    <span style={{ color: "#fb7185", fontWeight: 700, textTransform: "uppercase", fontSize: 9, letterSpacing: "0.1em" }}>Structural load (4.9)</span>
+                    <span style={{ color: scol, fontWeight: 700, textTransform: "uppercase", fontSize: 9 }}>{s.structural_load_status || "—"}</span>
+                  </div>
+                  {row("Central movement", s.central_communicative_movement)}
+                  {row("Required structural work", s.required_structural_work)}
+                  {row("Current structural work", s.current_structural_work)}
+                  {row("Redundant structural work", s.redundant_structural_work)}
+                  {row("Competing structural work", s.competing_structural_work)}
+                  {row("Secondary trajectories", s.secondary_trajectories)}
+                  {row("Pruning needed", s.structural_pruning_needed)}
+                  {row("Recommended operation", s.recommended_structural_operation)}
+                  {row("Reason", s.reason)}
+                </>
+              );
+            })()}
+          </div>
+        )}
+
         {dco && !showRaw && dco.episode_closure && typeof dco.episode_closure === "object" && (
           <div data-testid="dco-episode_closure"
             style={{ marginBottom: 12, padding: "9px 11px", background: "#0c0a09",

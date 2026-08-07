@@ -1537,6 +1537,15 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
                        "reader-blocking gap; do not broaden to anything else.\n\n",
             "acknowledge_and_transition": "OPERATION (obey this) = ACKNOWLEDGE & TRANSITION: the "
                        "conceptual work is complete; acknowledge it and move on; do NOT elaborate.\n\n",
+            "structural_selection": "OPERATION (obey this) = STRUCTURAL SELECTION: the paragraph carries "
+                       "more structural work than one paragraph can hold. Do NOT add anything. Scaffold "
+                       "REDUCTION in the learner's own hands: (1) name the paragraph's central movement; "
+                       "(2) point out where the SAME structural job is done in more than one place, or "
+                       "where a passage begins a separate line of explanation; (3) frame the structural "
+                       "CHOICE (we need one strong version, not several; some material may belong in "
+                       "another paragraph); (4) hand authorship back by asking WHICH version says it best "
+                       "and what to combine, move, or remove. Do NOT rewrite or shorten the paragraph "
+                       "yourself, and do NOT ask for a new relation.\n\n",
           }.get((operation or '').strip().lower(), ""))
         + f"{_mode_block}\n"
         f"{_support_block}\n"
@@ -1902,7 +1911,16 @@ _FUNCTION_SEL_SYS = (
     "if fulfilling it would require the paragraph to become an essay, REDUCE/narrow the target or defer "
     "material to a later paragraph. When the central movement is established, the unit is self-contained "
     "and coherent, the task is adequately answered, the pinned target is achieved, AND remaining_capacity "
-    "is limited/none, PREFER transition to Sentence Craft over further conceptual elaboration. Then produce task_relative_adequacy + "
+    "is limited/none, PREFER transition to Sentence Craft over further conceptual elaboration. "
+    "STRUCTURAL LOAD (structural_load_analysis): judge what each span DOES relative to the thesis/task, "
+    "not whether its content is interesting. Detect redundant structural work (several spans doing the "
+    "SAME job) and competing/secondary trajectories (relevant-but-separate lines that stop serving the "
+    "central movement). NO ADDITION BEFORE STRUCTURAL BALANCE: if structural_load_status is crowded or "
+    "overloaded, do NOT add another conceptual relation — first combine, condense, remove, move, or "
+    "reorganize existing material; only after balance is restored may development resume, and only for a "
+    "task-required material gap. Prefer move_elsewhere (to another paragraph) over remove when material "
+    "is valuable but structurally secondary; remove only when it repeats work already done or does not "
+    "advance the task. Then produce task_relative_adequacy + "
     "timely_success_status: the PRIMARY question is NOT 'would more instruction improve the response?' "
     "but 'does the current response ADEQUATELY FULFILL THE TASK?'. Decision order: interpret the task "
     "-> infer PROPORTIONATE task expectations -> evaluate the learner's current whole -> is it "
@@ -2244,6 +2262,21 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         'belongs_now|condense_into_existing_relation|defer_to_next_paragraph|future_episode|outside_task|'
         'uncertain", "evidence": ["idea -> disposition"]}, "reason": "one clause", '
         '"confidence": "high|medium|low", "evidence": ["load drivers already present"]}, '
+        '"structural_load_analysis": {"central_communicative_movement": "the ONE controlling movement", '
+        '"required_structural_work": ["minimum structural jobs this task/thesis needs, e.g. establish '
+        'problem; state response; explain central reason; limited support; complete"], '
+        '"current_structural_work": ["what each major span DOES: orient|state_thesis|define|distinguish|'
+        'explain_reason|explain_mechanism|elaborate|exemplify|support|qualify|connect|conclude|'
+        'repeat_existing_function|open_new_trajectory|unrelated — judge FUNCTION, not content quality"], '
+        '"structural_load_status": "underloaded|proportionate|crowded|overloaded|uncertain", '
+        '"redundant_structural_work": ["spans performing the SAME function without a new necessary '
+        'relation"], "competing_structural_work": ["spans pulling control away from the central movement"], '
+        '"secondary_trajectories": ["relevant-but-separate lines (e.g. affordance theory, ZPD, effectance) '
+        'that no longer serve the central movement economically -> disposition move_elsewhere|defer|'
+        'condense_into_existing_relation"], "structural_pruning_needed": "no|light|moderate|substantial|'
+        'uncertain", "recommended_structural_operation": "keep|combine|condense|remove|move_elsewhere|'
+        'reorganize|transition|uncertain", "reason": "one clause", "confidence": "high|medium|low", '
+        '"evidence": ["span -> function"]}, '
         '"apparent_orientation_target": "what understanding THE LEARNER\'S CURRENT WRITING appears to be '
         'trying to construct — distinct from the assignment. Do NOT assume this adequately answers the '
         'assignment; do NOT reconstruct a coherent intended thesis from related material and then treat '
@@ -3282,10 +3315,17 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
     _coaching_permitted = _closure not in ("close_and_transition", "close_and_complete")
     _close_now = _closure in ("close_and_transition", "close_and_complete")
     # DETERMINISTIC instructional_operation (what the coaching generator MUST do), derived from
-    # communicative load/budget, task adequacy, learner sufficiency, Episode Target, and closure state.
+    # communicative load/budget, task adequacy, learner sufficiency, Episode Target, closure state, and
+    # STRUCTURAL LOAD (4.9). No addition before structural balance: crowded/overloaded outranks develop.
     _loadF = (_capF.get("current_communicative_load") or "").strip().lower()
+    _structF = _dcoF.get("structural_load_analysis") if isinstance(_dcoF.get("structural_load_analysis"), dict) else {}
+    _struct_status = (_structF.get("structural_load_status") or "").strip().lower()
     if _close_now:
         _operation = "acknowledge_and_transition"
+    elif _struct_status == "overloaded":
+        _operation = "structural_selection"
+    elif _struct_status == "crowded":
+        _operation = "condense_and_integrate"
     elif _closure == "reopen_only_if_material_gap":
         _operation = "address_material_gap"
     elif _budgetF in ("one_high_value_move", "exhausted") or _loadF == "high" or _overloadF == "high":
