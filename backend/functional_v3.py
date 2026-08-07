@@ -1551,8 +1551,12 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
             f"\"{achievement_context.strip()}\". OPEN by explicitly and warmly acknowledging this "
             "accomplishment in plain language (for example: \"You accomplished the goal for this step — "
             "you made this relationship clear.\"), naming the specific relation they made clear. Do NOT "
-            "introduce a new developmental task and do NOT ask for further elaboration or enrichment. You "
-            "may note briefly that the next step will be making the writing itself stronger. Keep it "
+            "introduce a new developmental task and do NOT ask for further elaboration or enrichment. "
+            "Conceptual sufficiency is NOT full completion: do NOT offer any FUTURE conceptual opportunity "
+            "(a counterargument, an additional reason, a new example, richer theory, or broader "
+            "implications) as the next step — such opportunities may never preempt the unfinished writing "
+            "process. The ONLY next step you may point to is strengthening HOW the writing communicates "
+            "(working sentence by sentence). Keep it "
             "short.\n\n"
           ) if (achievement_context or '').strip() else "")
         + ((
@@ -1561,7 +1565,11 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
             "a deeper mechanism, or another distinction. Briefly and warmly acknowledge that the "
             "conceptual work for this paragraph is sufficient (name what is now clear), note that adding "
             "another layer would make the paragraph more crowded rather than more effective, and signal "
-            "that the next step is strengthening HOW the writing communicates what is already there. "
+            "that the next step is strengthening HOW the writing communicates what is already there "
+            "(working sentence by sentence). Conceptual sufficiency is NOT full completion: do NOT offer "
+            "any FUTURE conceptual opportunity (a counterargument, an additional reason, a new example, "
+            "richer theory, or broader implications) — future opportunities may never preempt the "
+            "unfinished writing process; the only forward move now is sentence-level work. "
             "Keep it short.\n\n"
           ) if (closure_context or '').strip() else "")
         + ({
@@ -1575,19 +1583,31 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
             "address_material_gap": "OPERATION (obey this) = ADDRESS MATERIAL GAP: focus ONLY on the one "
                        "reader-blocking gap; do not broaden to anything else.\n\n",
             "acknowledge_and_transition": "OPERATION (obey this) = ACKNOWLEDGE & TRANSITION: the "
-                       "conceptual work is complete; acknowledge it and move on; do NOT elaborate.\n\n",
+                       "conceptual work is complete; acknowledge it and move on to strengthening HOW the "
+                       "writing communicates (sentence-level work). Do NOT elaborate, and do NOT offer "
+                       "any future conceptual opportunity (counterargument, extra reason, new example, "
+                       "richer theory, broader implications) — that would preempt the writing process.\n\n",
             "structural_selection": "OPERATION (obey this) = STRUCTURAL SELECTION: the learner's CURRENT "
                        "draft is asking this paragraph to carry more structural work than one paragraph "
                        "can hold (the assignment is fine as a paragraph — never suggest it should be an "
                        "essay). OPEN by warmly recognizing that enough conceptual material is already "
-                       "here — the issue is NOT that another idea is needed. Then scaffold REDUCTION in "
-                       "the learner's own hands: (1) name the paragraph's central movement; (2) point out "
-                       "where the SAME structural job is done in more than one place, or where a passage "
-                       "begins a separate line of explanation; (3) frame the structural CHOICE (we need "
-                       "one strong version, not several; some material may belong in another paragraph); "
-                       "(4) hand authorship back by asking WHICH version says it best and what to combine, "
-                       "move, or remove. Do NOT rewrite or shorten the paragraph yourself, do NOT ask for "
-                       "a new relation, and do NOT reject or rescope the assignment.\n\n",
+                       "here — the issue is NOT that another idea is needed. Then say PLAINLY and "
+                       "explicitly that the issue is that this one paragraph is carrying more work than it "
+                       "can organize clearly for a reader — some material develops the central argument "
+                       "directly while other parts begin separate lines of explanation. Then scaffold "
+                       "REDUCTION in the learner's own hands: (1) name the paragraph's central movement; "
+                       "(2) point out where the SAME structural job is done in more than one place, or "
+                       "where a passage begins a separate line of explanation; (3) frame the structural "
+                       "CHOICE (we need one strong version, not several; some material may belong in "
+                       "another paragraph); (4) hand authorship back by asking WHICH version says it best "
+                       "and what to keep, combine, condense, move, or remove. Close with ONE short "
+                       "sentence naming what comes after: once the paragraph is focused and proportionate, "
+                       "the next step will be strengthening it sentence by sentence (e.g. 'before we work "
+                       "sentence by sentence, let's decide what this paragraph most needs to do'). Do NOT "
+                       "rewrite or shorten the paragraph yourself, do NOT ask for a new relation, do NOT "
+                       "offer any future conceptual opportunity (counterargument, extra reason, new "
+                       "example, richer theory, broader implications), and do NOT reject or rescope the "
+                       "assignment.\n\n",
           }.get((operation or '').strip().lower(), ""))
         + f"{_mode_block}\n"
         f"{_support_block}\n"
@@ -1947,7 +1967,20 @@ _FUNCTION_SEL_SYS = (
     "STRUCTURAL LOAD (structural_load_analysis): judge what each span DOES relative to the thesis/task, "
     "not whether its content is interesting. Detect redundant structural work (several spans doing the "
     "SAME job) and competing/secondary trajectories (relevant-but-separate lines that stop serving the "
-    "central movement). NO ADDITION BEFORE STRUCTURAL BALANCE: if structural_load_status is crowded or "
+    "central movement). COUNT DISTINCT EXPLANATORY TRAJECTORIES: if the draft develops the central "
+    "movement AND ALSO carries additional substantially-independent explanatory lines (e.g. a survey of "
+    "several responses, a separate critique, multiple named theories/frameworks, extra examples), then "
+    "even when every part relates to the thesis the paragraph is carrying MULTIPLE trajectories and its "
+    "structural_load_status is crowded (or overloaded when they are many); it is NOT 'proportionate' and "
+    "pruning IS needed — record each such line in secondary_trajectories with a move/defer/condense "
+    "disposition. CONCEPTUAL SUFFICIENCY IS NOT FULL COMPLETION: task_relative_adequacy=adequate and/or "
+    "learner_relative_sufficiency=sufficient mean conceptual development is complete ENOUGH — they do NOT "
+    "mean the writing task is done and are NEVER permission to offer a new conceptual challenge. Once "
+    "sufficiency is reached the required order is: (a) is the current organization proportionate to the "
+    "unit's capacity? if NO -> structural_selection; if YES -> Sentence Craft; then Completion/Handoff. "
+    "Only after the present writing task is fully complete may a FUTURE conceptual opportunity "
+    "(counterargument, richer theory, more examples, broader implications) be mentioned — future "
+    "opportunities may NEVER preempt unfinished work in the current composition. NO ADDITION BEFORE STRUCTURAL BALANCE: if structural_load_status is crowded or "
     "overloaded, do NOT add another conceptual relation — first combine, condense, remove, move, or "
     "reorganize existing material; only after balance is restored may development resume, and only for a "
     "task-required material gap. COMMUNICATIVE LOAD IS THE LEARNER'S CURRENT DRAFT, NEVER THE ASSIGNMENT: "
@@ -3325,10 +3358,18 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
     _pruning = (_structF.get("structural_pruning_needed") or "").strip().lower()
     _competing = _structF.get("competing_structural_work") if isinstance(_structF.get("competing_structural_work"), list) else []
     _redundant = _structF.get("redundant_structural_work") if isinstance(_structF.get("redundant_structural_work"), list) else []
+    _secondary = _structF.get("secondary_trajectories") if isinstance(_structF.get("secondary_trajectories"), list) else []
+    # A non-empty secondary_trajectories entry BY DEFINITION names material that no longer serves the
+    # central movement economically (disposition move_elsewhere|defer|condense_into_existing_relation) —
+    # i.e. the paragraph is carrying a separate explanatory line. This is a reliable OVERLOAD signal even
+    # when the model labels structural_load_status "proportionate" with pruning "no" (observed drift).
+    _secondary_overload = any((str(x) or "").strip() for x in _secondary)
     _struct_imbalanced = (
         _struct_status == "overloaded"
         or (_struct_status == "crowded"
             and (_pruning in ("moderate", "substantial") or len(_competing) > 0 or len(_redundant) > 0))
+        or len(_competing) > 0
+        or _secondary_overload
     )
     # deterministic budget fallback when the model omitted it
     if _budgetF in ("", "uncertain"):
