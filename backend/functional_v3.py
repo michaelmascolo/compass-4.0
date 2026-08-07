@@ -1494,6 +1494,45 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
         + (f"MOST LIKELY for this {disp} turn (a hint, not a constraint — choose the one that truly fits "
            f"the learner's draft): {', '.join(_hints)}.\n" if _hints else "")
     )
+    # 4.9 — REDUCTION MODE: when the operation is structural selection/condensation, this turn is about
+    # SELECTING and REDUCING the learner's current draft, NOT building/elaborating any target structure.
+    # Suppress every "build / elaborate the focus structure" cue so the operation directive is obeyed.
+    _reduction_mode = (operation or "").strip().lower() in ("structural_selection", "condense_and_integrate")
+    if _reduction_mode:
+        _elab_block = ""
+        elaboration_context = ""
+        reconsideration_context = ""
+        emerging_constraints_context = ""
+        _ops_block = ""
+        _focus_block = (
+            "THE INSTRUCTIONAL DECISION IS ALREADY MADE: this turn is STRUCTURAL SELECTION / REDUCTION, "
+            "NOT building, elaborating, unfolding, or developing any structure. The learner's current "
+            "draft already holds enough conceptual material; do NOT coach them to add, build, unfold, or "
+            "elaborate anything, and do NOT introduce a canonical structure name to 'work on'. Work only "
+            "with the organization of what is already written:\n"
+            "- FIRST name, in plain words, the ONE central movement the paragraph is really about.\n"
+            "- Point to where the SAME structural job is performed in more than one place, or where a "
+            "passage opens a SEPARATE line of explanation that pulls away from that central movement.\n"
+            "- Frame the structural CHOICE (one strong version rather than several; some material may "
+            "belong in a later paragraph) and hand authorship back: ask WHICH version says it best and "
+            "what to combine, condense, move, or remove.\n"
+            "- Do NOT rewrite or shorten the paragraph yourself, do NOT ask for a new relation, and NEVER "
+            "suggest the assignment should be an essay.\n"
+        )
+    else:
+        _focus_block = (
+            "THE INSTRUCTIONAL DECISION IS ALREADY MADE. Help the writer build exactly this — do not "
+            "reconsider or broaden it. Use ONLY this canonical structure name with the learner; never use "
+            "any other or older name for it:\n"
+            f"- FOCUS (the one canonical structure to work on this turn): {disp}\n"
+            f"- WHAT IT IS (teach in your OWN plain words; do not recite verbatim): {src['what_it_is']}\n"
+            f"- WHAT INTELLECTUAL WORK IT PERFORMS: {src['function']}\n"
+            "- STRUCTURAL REQUIREMENTS a successful instance must satisfy (teach as constraints, do not "
+            f"prescribe one solution): {src['requirements']}\n"
+            "- WHAT IT LOOKS LIKE ONCE BUILT (the goal to move toward — NOT a verdict to read back): "
+            f"{src['goal']}\n"
+            f"- DECIDED ACTION (shapes HOW you deliver the one invitation): {action} — {_action_hint}\n"
+        )
     prompt = (
         f"ASSIGNMENT: {assignment or '(not specified)'}\n"
         f"UNIT: {unit or 'one paragraph'}\n"
@@ -1537,15 +1576,18 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
                        "reader-blocking gap; do not broaden to anything else.\n\n",
             "acknowledge_and_transition": "OPERATION (obey this) = ACKNOWLEDGE & TRANSITION: the "
                        "conceptual work is complete; acknowledge it and move on; do NOT elaborate.\n\n",
-            "structural_selection": "OPERATION (obey this) = STRUCTURAL SELECTION: the paragraph carries "
-                       "more structural work than one paragraph can hold. Do NOT add anything. Scaffold "
-                       "REDUCTION in the learner's own hands: (1) name the paragraph's central movement; "
-                       "(2) point out where the SAME structural job is done in more than one place, or "
-                       "where a passage begins a separate line of explanation; (3) frame the structural "
-                       "CHOICE (we need one strong version, not several; some material may belong in "
-                       "another paragraph); (4) hand authorship back by asking WHICH version says it best "
-                       "and what to combine, move, or remove. Do NOT rewrite or shorten the paragraph "
-                       "yourself, and do NOT ask for a new relation.\n\n",
+            "structural_selection": "OPERATION (obey this) = STRUCTURAL SELECTION: the learner's CURRENT "
+                       "draft is asking this paragraph to carry more structural work than one paragraph "
+                       "can hold (the assignment is fine as a paragraph — never suggest it should be an "
+                       "essay). OPEN by warmly recognizing that enough conceptual material is already "
+                       "here — the issue is NOT that another idea is needed. Then scaffold REDUCTION in "
+                       "the learner's own hands: (1) name the paragraph's central movement; (2) point out "
+                       "where the SAME structural job is done in more than one place, or where a passage "
+                       "begins a separate line of explanation; (3) frame the structural CHOICE (we need "
+                       "one strong version, not several; some material may belong in another paragraph); "
+                       "(4) hand authorship back by asking WHICH version says it best and what to combine, "
+                       "move, or remove. Do NOT rewrite or shorten the paragraph yourself, do NOT ask for "
+                       "a new relation, and do NOT reject or rescope the assignment.\n\n",
           }.get((operation or '').strip().lower(), ""))
         + f"{_mode_block}\n"
         f"{_support_block}\n"
@@ -1553,17 +1595,7 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
         f"{elaboration_context}"
         f"{reconsideration_context}"
         f"{_ops_block}"
-        f"THE INSTRUCTIONAL DECISION IS ALREADY MADE. Help the writer build exactly this — do not "
-        f"reconsider or broaden it. Use ONLY this canonical structure name with the learner; never use "
-        f"any other or older name for it:\n"
-        f"- FOCUS (the one canonical structure to work on this turn): {disp}\n"
-        f"- WHAT IT IS (teach in your OWN plain words; do not recite verbatim): {src['what_it_is']}\n"
-        f"- WHAT INTELLECTUAL WORK IT PERFORMS: {src['function']}\n"
-        f"- STRUCTURAL REQUIREMENTS a successful instance must satisfy (teach as constraints, do not "
-        f"prescribe one solution): {src['requirements']}\n"
-        f"- WHAT IT LOOKS LIKE ONCE BUILT (the goal to move toward — NOT a verdict to read back): "
-        f"{src['goal']}\n"
-        f"- DECIDED ACTION (shapes HOW you deliver the one invitation): {action} — {_action_hint}\n\n"
+        f"{_focus_block}\n"
         f"INTERNAL ANALYSIS — informs your choices; NOT for the learner. Never voice, quote, "
         f"paraphrase, or expose internal labels/status words. Locating the attempt (allowed) is a plain "
         f"observation in the learner's own terms, never a weakness list or status readout:\n"
@@ -1918,7 +1950,12 @@ _FUNCTION_SEL_SYS = (
     "central movement). NO ADDITION BEFORE STRUCTURAL BALANCE: if structural_load_status is crowded or "
     "overloaded, do NOT add another conceptual relation — first combine, condense, remove, move, or "
     "reorganize existing material; only after balance is restored may development resume, and only for a "
-    "task-required material gap. Prefer move_elsewhere (to another paragraph) over remove when material "
+    "task-required material gap. COMMUNICATIVE LOAD IS THE LEARNER'S CURRENT DRAFT, NEVER THE ASSIGNMENT: "
+    "load reflects only how much structural work the learner's CURRENT organization is making this "
+    "paragraph perform — the assignment is fixed and is always answerable in the assigned unit. NEVER "
+    "conclude or imply that the assignment is 'too much for a paragraph' or that it 'should be an essay'; "
+    "instead recognize that the current draft is asking this paragraph to do more work than it needs to, "
+    "and teach the learner to select and reduce so the paragraph's central job is served. Prefer move_elsewhere (to another paragraph) over remove when material "
     "is valuable but structurally secondary; remove only when it repeats work already done or does not "
     "advance the task. Then produce task_relative_adequacy + "
     "timely_success_status: the PRIMARY question is NOT 'would more instruction improve the response?' "
@@ -3276,6 +3313,23 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
     _budgetF = (_capF.get("remaining_communicative_budget") or "").strip().lower()
     _remCapF = (_capF.get("remaining_capacity") or "").strip().lower()
     _overloadF = (_capF.get("overload_risk") or "").strip().lower()
+    _loadF = (_capF.get("current_communicative_load") or "").strip().lower()
+    # STRUCTURAL LOAD (4.9) as a CONTINUOUS CONSTRAINT (not a separate stage): communicative load is
+    # judged from the LEARNER'S CURRENT DRAFT only (never the assignment). Genuine structural imbalance
+    # = the current organization is asking one paragraph to carry more structural work than it can hold
+    # (overloaded, or crowded with real pruning need / redundant / competing trajectories). When true,
+    # the instructional operation is REDUCTION (select/condense/combine/move) and the episode does NOT
+    # close on "achieved" until the organization is proportionate again (learner may still opt out).
+    _structF = _dcoF.get("structural_load_analysis") if isinstance(_dcoF.get("structural_load_analysis"), dict) else {}
+    _struct_status = (_structF.get("structural_load_status") or "").strip().lower()
+    _pruning = (_structF.get("structural_pruning_needed") or "").strip().lower()
+    _competing = _structF.get("competing_structural_work") if isinstance(_structF.get("competing_structural_work"), list) else []
+    _redundant = _structF.get("redundant_structural_work") if isinstance(_structF.get("redundant_structural_work"), list) else []
+    _struct_imbalanced = (
+        _struct_status == "overloaded"
+        or (_struct_status == "crowded"
+            and (_pruning in ("moderate", "substantial") or len(_competing) > 0 or len(_redundant) > 0))
+    )
     # deterministic budget fallback when the model omitted it
     if _budgetF in ("", "uncertain"):
         if _remCapF == "none" or _overloadF == "high":
@@ -3298,6 +3352,8 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
     # PRESUMPTION OF CLOSURE + BURDEN-OF-PROOF REVERSAL + LEARNER AGENCY (deterministic)
     if _ltr == "explicit" and not _has_gap:
         _closure = "close_and_transition"; _closure_reason = "learner explicitly requested to move on and no reader-blocking material gap remains"
+    elif _struct_imbalanced:
+        _closure = "continue_current_episode"; _closure_reason = "the current draft's organization is asking one paragraph to carry more structural work than it can hold; teach structural selection (select/condense/combine/move) before closing"
     elif _achievedF and not _has_gap:
         _closure = "close_and_transition"; _closure_reason = "pinned target achieved; burden reversed and no material deficiency remains"
     elif _adeq_ok and _suff_ok and not _has_gap and _capacity_tight:
@@ -3314,18 +3370,14 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
                         else "necessary_for_adequacy")
     _coaching_permitted = _closure not in ("close_and_transition", "close_and_complete")
     _close_now = _closure in ("close_and_transition", "close_and_complete")
-    # DETERMINISTIC instructional_operation (what the coaching generator MUST do), derived from
-    # communicative load/budget, task adequacy, learner sufficiency, Episode Target, closure state, and
-    # STRUCTURAL LOAD (4.9). No addition before structural balance: crowded/overloaded outranks develop.
-    _loadF = (_capF.get("current_communicative_load") or "").strip().lower()
-    _structF = _dcoF.get("structural_load_analysis") if isinstance(_dcoF.get("structural_load_analysis"), dict) else {}
-    _struct_status = (_structF.get("structural_load_status") or "").strip().lower()
+    # DETERMINISTIC instructional_operation (what the coaching generator MUST do), derived CONTINUOUSLY
+    # from communicative load/capacity, structural balance, task adequacy, learner sufficiency, Episode
+    # Target, and closure state. Structural imbalance (reduction) outranks closure and development, but
+    # yields to an explicit learner transition request (which already set _close_now above).
     if _close_now:
         _operation = "acknowledge_and_transition"
-    elif _struct_status == "overloaded":
+    elif _struct_imbalanced:
         _operation = "structural_selection"
-    elif _struct_status == "crowded":
-        _operation = "condense_and_integrate"
     elif _closure == "reopen_only_if_material_gap":
         _operation = "address_material_gap"
     elif _budgetF in ("one_high_value_move", "exhausted") or _loadF == "high" or _overloadF == "high":
@@ -3348,6 +3400,11 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
         else:
             _closure_ctx = "The paragraph is adequate, coherent, and near capacity."
         _achievement_ctx = ""  # closure_context supersedes the achievement wording
+    elif _struct_imbalanced:
+        # Structural selection is the CURRENT step: do not re-assert an elaboration scope and do not let
+        # the "contract fulfilled / transition to Sentence Craft" framing compete with teaching reduction.
+        _contract_ctx = ""
+        _achievement_ctx = ""
 
     t_d0 = time.perf_counter()
     if instructional_need == "NO_CURRENT_INSTRUCTIONAL_TARGET":
@@ -3392,7 +3449,8 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
             _gate["regeneration_required"] = _jv == "misaligned"
         except Exception as _je:  # noqa: BLE001
             logger.error(f"[contract] llm judge failed: {_je}")
-    if _gate.get("regeneration_required") and instructional_need != "NO_CURRENT_INSTRUCTIONAL_TARGET":
+    if (_gate.get("regeneration_required") and instructional_need != "NO_CURRENT_INSTRUCTIONAL_TARGET"
+            and _operation not in ("structural_selection", "condense_and_integrate", "acknowledge_and_transition")):
         _tr0 = time.perf_counter()
         try:
             _con2 = "" if (_achievedF or _close_now) else (_pinnedF or state.episode_contract_goal)
