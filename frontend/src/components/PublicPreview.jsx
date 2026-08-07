@@ -105,9 +105,19 @@ const InstructionalContractCard = ({ contract }) => {
   );
 };
 
-const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, established }) => {
+const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, established, operation }) => {
   const est = new Set(established || []);
   const stateOf = (name) => (name === focus ? "current" : est.has(name) ? "established" : "idle");
+  // 4.9.1 — the learner-facing focus reflects the ACTUAL instructional operation, not the canonical
+  // paragraph stage. For structural selection / condensation, the work is choosing what the paragraph
+  // should carry — not elaborating. (Only this operation case is remapped for now.)
+  const isReduction = ["structural_selection", "condense_and_integrate"].includes(
+    (operation || "").toLowerCase()
+  );
+  const focusLabel = isReduction ? "FOCUSING YOUR PARAGRAPH" : focus;
+  const focusQuestion = isReduction
+    ? "Your ideas are strong. The work now is deciding what this one paragraph should carry."
+    : FUNCTION_QUESTIONS[focus];
   const Row = ({ name, indented }) => {
     const s = stateOf(name);
     const slug = name.replace(/[^a-z]+/gi, "-").toLowerCase();
@@ -158,18 +168,18 @@ const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, esta
           className="mt-0.5 flex items-baseline gap-2 flex-wrap"
         >
           <span className="text-[15px] font-serif-display text-[#8C3A2A] font-bold uppercase tracking-wide shrink-0">
-            {focus}
+            {focusLabel}
           </span>
-          {FUNCTION_QUESTIONS[focus] && (
+          {focusQuestion && (
             <>
               <span aria-hidden="true" className="text-stone-400 shrink-0 select-none">→</span>
               <span data-testid="preview-focus-function" className="text-[13px] text-stone-800 leading-snug">
-                {FUNCTION_QUESTIONS[focus]}
+                {focusQuestion}
               </span>
             </>
           )}
         </div>
-        {description && (
+        {!isReduction && description && (
           <div className="text-[12px] text-stone-500 mt-1 leading-snug">{description}</div>
         )}
       </div>
@@ -976,6 +986,7 @@ export default function PublicPreview({ mode = "ot" }) {
                       thesis={activeCoaching.current_thesis}
                       thesisVerbatim={activeCoaching.thesis_is_verbatim}
                       established={activeCoaching.established_structures || []}
+                      operation={activeCoaching.instructional_operation}
                     />
                   )}
                   {SHOW_COMMUNICATIVE_DIAGRAM && focusName === "Elaboration" && (

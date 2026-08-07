@@ -613,6 +613,7 @@ class Turn(BaseModel):
     status: str = "complete"  # complete | processing | failed | cancelled (durable revision processing)
     reasoning_path: str = ""  # which reasoning path produced this AI turn (exhaustive_full | triage_focused | foundational_fallback_full)
     focus_of_work: str = ""  # canonical student-facing instructional object for this turn (Focus of Work display)
+    instructional_operation: str = ""  # 4.9.1 — deterministic operation governing THIS turn (drives learner-facing focus)
     focus_description: str = ""  # optional one-line description of the current focus
     current_thesis: str = ""  # learner's current thesis (organizing center) for the "Your Thesis" panel
     thesis_is_verbatim: bool = False  # True = exact learner quote (label "YOUR THESIS"); False = Compass paraphrase
@@ -3747,6 +3748,10 @@ async def _finalize_structure_v5(session_id: str, ai_turn_id: str, req: Interact
             t.status = "complete"
             t.reasoning_path = "structure_v5"
             _focus = (result.get("decision", {}) or {}).get("selected_instructional_object") or ""
+            # 4.9.1 — surface the deterministic instructional_operation governing this turn so the
+            # learner-facing focus reflects the ACTUAL operation, not the canonical paragraph stage.
+            _dco_fin = (result.get("decision", {}) or {}).get("developmental_cognition") or {}
+            t.instructional_operation = ((_dco_fin.get("episode_closure") or {}).get("instructional_operation")) or ""
             if doc.get("reasoning_mode") == "canonical_v2" and _focus in _FOCUS_DESCRIPTIONS:
                 t.focus_of_work = _focus
                 t.focus_description = _FOCUS_DESCRIPTIONS[_focus]
