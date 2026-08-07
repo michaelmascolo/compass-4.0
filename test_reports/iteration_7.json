@@ -1,0 +1,62 @@
+{
+  "summary": "Frontend visual validation of Sprint 4.6 (Instructional Contract card) and Sprint 4.7 (DCO Communicative Capacity panel) via ?preview=writing&dco. Turn 1 renders the contract card perfectly. DCO dev panel opens and both required sections render with populated values. HOWEVER, after submitting a revision (turn 2), the instructional-contract-card is NOT re-rendered in the writing area — nor are the right-side panels (Current Instructional Focus / Your Thesis / Writing Structure). Backend turn-2 data is correct (DCO panel confirms the fixed contract goal is preserved identically across turns), so this is a pure frontend rendering regression on the revision turn.",
+
+  "backend_issues": {"critical": [], "minor": []},
+
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "PublicPreview.jsx CanonicalOrientation / coaching-card rendering after revision",
+        "issue": "After clicking preview-send-revision and the turn-2 coaching completes (~90-180s), the writing area shows only the prose 'YOUR COACH' block. The instructional-contract-card (data-testid=instructional-contract-card), its children (contract-where-we-are, contract-goal, contract-what-happens-next), and the surrounding preview-coaching-card wrapper are absent from the DOM (count=0 across 250s polling). Sidebar panels ('Current Instructional Focus', 'Your Thesis', 'Writing Structure') also disappear on the revision view.",
+        "selector": "[data-testid=instructional-contract-card] / [data-testid=preview-coaching-card] / [data-testid=preview-focus-of-work] / [data-testid=preview-your-thesis] / [data-testid=writing-structure-map]",
+        "priority": "HIGH"
+      }
+    ],
+    "integration_issues": [
+      {
+        "flow": "Compose -> Coach -> Revise -> Coach again",
+        "issue": "Turn 2 coaching completes and turn.instructional_contract IS present in the backend trace (verified through DCO panel showing identical 'Contract goal' text to turn 1). But the frontend does not re-mount CanonicalOrientation / coaching card for the latest turn on the writing/revision screen. Net effect: the student can no longer see 'Our goal for this step' after revising, breaking the sprint 4.6 promise that the goal remains a visible fixed commitment across turns.",
+        "affected_selectors": ["[data-testid=instructional-contract-card]", "[data-testid=contract-goal]", "[data-testid=contract-where-we-are]"]
+      }
+    ],
+    "design_issues": []
+  },
+
+  "test_report_links": ["/app/test_reports/turn2_final.png", "/app/test_reports/final_dco.png", "/app/test_reports/final_turn2.png"],
+
+  "action_items": [
+    "Investigate why the coaching card / CanonicalOrientation is not re-rendered after preview-send-revision returns turn-2 activeCoaching. Suspect either (a) activeCoaching not being updated to turn 2 on the revision path, or (b) a conditional in PublicPreview.jsx that only shows the card in the pre-revision layout, or (c) the coaching card was collapsed in turn 1 and its collapsed state is being carried across without re-expanding for the new turn.",
+    "Also restore the 'Current Instructional Focus', 'Your Thesis', 'Writing Structure' panels in the revision view — they render on the initial coaching view but disappear after revision (count 1/3/1 -> 0/0/0)."
+  ],
+
+  "critical_code_review_comments": [
+    "The `contract-where-we-are` and `contract-goal` visible text include the LABEL prefix concatenated with the value (e.g., 'Where we areThesis' and 'Our goal for this stepClarify one reason...'). This is because the label and value are sibling nodes inside the same test-id container without a separator when text_content() concatenates them. Functionally correct, but any test relying on exact-match of the value alone must strip the label prefix. Consider putting the value in a nested element with its own data-testid (e.g., contract-goal-text).",
+    "The DCO panel matches the spec at a semantic level, but two exact keyword labels from the review request differ from what the DOM actually renders: 'pinned target' -> DOM 'Pinned episode target'; 'alignment verdict' -> DOM 'Heuristic verdict'. Not a bug, just a label mismatch reviewers may want to align.",
+    "PublicPreview.jsx remains ~1370 lines (previously flagged) — the revision-view regression above is plausibly a symptom of the file's complexity around activeCoaching state transitions."
+  ],
+
+  "updated_files": [],
+
+  "success_rate": {"backend": "not tested (per request)", "frontend": "75% (3 of 4 requested checks pass; turn-2 card visibility fails)"},
+
+  "seed_data_creation": "None. Fresh guest session via ?preview=writing&dco; assignment text + two drafts as specified in the review request.",
+
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+
+  "context_for_next_testing_agent": "Flow: (1) On assignment screen fill the single textarea with any assignment prompt, click [data-testid=student-assignment-continue]. (2) Writing screen exposes [data-testid=writing-input] (textarea) and [data-testid=writing-submit-button] — NOT preview-document (contenteditable). preview-document only exists AFTER first coaching turn on the revision layout. (3) First AI turn: ~90-150s. Contract card appears with data-testid=instructional-contract-card. (4) For revision, contenteditable is [data-testid=preview-document] and submit button is [data-testid=preview-send-revision]. (5) Second turn: turn-2 coaching prose does render, but instructional-contract-card and side panels do NOT re-render (repro rate 100% in this iteration). Verify goal stability via DCO panel dco-instructional_contract > 'Contract goal (student-facing, FIXED)' — that field IS identical across turns.",
+
+  "verified_this_iteration": {
+    "turn1_contract_card_renders": true,
+    "turn1_contract_goal_has_real_text": "Our goal for this step: 'Choose one effect (stress or ineffectiveness) and explain how it harms students, then connect that explanation to why homework should be reduced.'",
+    "turn1_what_happens_next_absent_when_empty": true,
+    "turn1_sidebar_panels_intact": true,
+    "turn2_contract_card_visible": false,
+    "goal_stability_verified_via_dco_panel": true,
+    "dco_communicative_capacity_renders_all_fields": ["writing unit", "unit purpose", "expected functional range", "central communicative movement", "current communicative load", "remaining capacity", "overload risk", "additions that still belong", "material to defer/exclude", "unit scope disposition", "reason"],
+    "dco_instructional_contract_renders_all_fields": ["Pinned episode target", "Contract goal (student-facing, FIXED)", "Where we are", "Contract status", "Achieved", "Selected coaching function", "Contract function (in-scope)", "Heuristic verdict", "Reason"],
+    "no_page_errors_or_console_errors_captured": true
+  },
+
+  "rca of the issue": "The turn-2 activeCoaching object appears not to trigger a re-render of the CanonicalOrientation component (and the surrounding preview-coaching-card wrapper) in the revision layout of PublicPreview.jsx. Evidence: DOM testid inventory contains preview-coaching-card / canonical-orientation / instructional-contract-card immediately after turn 1, but after preview-send-revision resolves those testids are absent from the DOM (count=0) while turn-2 'YOUR COACH' prose IS visible. The backend has the correct data (DCO panel > Instructional contract (4.6) shows the identical fixed 'Contract goal' text on turn 2). Likely fix location: whichever conditional in PublicPreview.jsx renders CanonicalOrientation — it needs to also fire on the revision/turn-2 branch, and/or activeCoaching.instructional_contract needs to be pulled from the latest turn after a revision send."
+}

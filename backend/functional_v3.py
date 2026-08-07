@@ -1854,7 +1854,32 @@ _FUNCTION_SEL_SYS = (
     "WHERE the learner is, WHAT the current work accomplishes, HOW the current part contributes to the "
     "whole, and WHAT is likely to come next; it must NOT expose the full DCO, prescribe the student's "
     "sentences, present the plan as fixed, overwhelm with every possible future task, or show work "
-    "beyond the learner's current constructible whole. Then produce task_relative_adequacy + "
+    "beyond the learner's current constructible whole. Produce communicative_capacity FIRST and let it "
+    "CONSTRAIN everything downstream (target, instructional_center, reachable next move, adequacy, "
+    "sufficiency, contract, transition). GOVERNING PRINCIPLE OF UNIT CAPACITY: a paragraph ordinarily "
+    "sustains ONE central communicative movement — a main claim/understanding, enough explanation for a "
+    "reader to grasp it, LIMITED support or one example, and a concise completion. A paragraph should "
+    "NOT be required to carry multiple independent theses, several parallel developments, exhaustive "
+    "comparison, multiple counterarguments, several theories, full systems-level explanation, or every "
+    "implication. Judge load from the NUMBER and complexity of functions/claims/relations/examples "
+    "already present, NOT a rigid word/sentence count. A one-paragraph Teacher-Review response may be a "
+    "COMPRESSED/mini argument (brief orientation, thesis, limited development of the most necessary "
+    "relation, concise support, brief completion) — but 'mini essay' means functional RICHNESS, not "
+    "essay-level capacity; never let it justify essay breadth, parallel developments, exhaustive "
+    "support, or indefinite growth; all functions stay economically integrated around ONE controlling "
+    "understanding. COMMUNICATIVE-LOAD TEST before proposing ANY conceptual addition: (1) does it serve "
+    "the central movement? (2) is it necessary for task adequacy? (3) can it fit without crowding the "
+    "unit? (4) if added, what must be shortened/combined/removed/moved? (5) does it improve organization "
+    "or merely accumulate? If it opens a NEW line of development rather than strengthening the existing "
+    "central movement, DEFER or EXCLUDE it (record in unit_scope_disposition / material_to_defer_or_exclude). "
+    "OPPORTUNITY-COST RULE: every addition has a cost; when the unit is approaching capacity, do NOT "
+    "append — choose integrate | replace | condense | defer | exclude | move; if you cannot name what "
+    "should give way, PRESUME the new material does not belong in this unit. CAPACITY-BOUNDED TARGET: "
+    "before pinning a learner_accessible_target, check it can be accomplished WITHIN the assigned unit; "
+    "if fulfilling it would require the paragraph to become an essay, REDUCE/narrow the target or defer "
+    "material to a later paragraph. When the central movement is established, the unit is self-contained "
+    "and coherent, the task is adequately answered, the pinned target is achieved, AND remaining_capacity "
+    "is limited/none, PREFER transition to Sentence Craft over further conceptual elaboration. Then produce task_relative_adequacy + "
     "timely_success_status: the PRIMARY question is NOT 'would more instruction improve the response?' "
     "but 'does the current response ADEQUATELY FULFILL THE TASK?'. Decision order: interpret the task "
     "-> infer PROPORTIONATE task expectations -> evaluate the learner's current whole -> is it "
@@ -1997,7 +2022,7 @@ async def _recover_dco_tail(session_id: str, assignment: str, unit: str, draft: 
     dedicated LLM call (small output cannot truncate) that returns ONLY the calibration tail objects,
     reasoning FROM the already-computed early-DCO fields. Mirrors the split used for Sentence Craft."""
     ctx = {k: partial_dco.get(k) for k in (
-        "communicative_task", "instructional_center", "current_relational_structure",
+        "communicative_task", "communicative_capacity", "instructional_center", "current_relational_structure",
         "coordinative_capacity", "developmental_constraint", "developmental_possibilities",
         "provisional_whole_communication", "whole_communication_requirements",
         "current_instructional_sufficiency", "instructional_horizon", "learner_orientation")
@@ -2174,6 +2199,24 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         'mean to separate interests from positions?\' -> \'The paragraph must explain the distinction '
         'between interests and positions and explain what the act of separating them consists of.\' '
         'State the communicative demand, not a rubric", '
+        '"communicative_capacity": {"writing_unit": "sentence|paragraph|multi_paragraph_response|essay|'
+        'other|uncertain — infer from the assignment wording / requested length / genre; for Teacher '
+        'Review a one-paragraph assignment is ALWAYS paragraph even if it performs several essay-like '
+        'functions", "unit_purpose": "one clause — what this unit must accomplish", '
+        '"expected_functional_range": "one clause — the functions a unit of this size can reasonably '
+        'carry", "reasonable_scope": "one clause — what fits within this unit", '
+        '"central_communicative_movement": "the ONE controlling understanding/movement this unit sustains", '
+        '"current_communicative_load": "low|moderate|high|uncertain — judge from the NUMBER and '
+        'complexity of functions/claims/relations/examples ALREADY carried, NOT a word count", '
+        '"remaining_capacity": "substantial|moderate|limited|none|uncertain", '
+        '"overload_risk": "low|emerging|high|uncertain", '
+        '"scope_status": "underdeveloped|proportionate|approaching_capacity|overloaded|uncertain", '
+        '"additions_that_still_belong": ["only additions that strengthen the CENTRAL movement and fit"], '
+        '"material_to_defer_or_exclude": ["important-but-nonessential ideas that would open a NEW line '
+        'of development"], "unit_scope_disposition": {"value": "for each important nonessential idea: '
+        'belongs_now|condense_into_existing_relation|defer_to_next_paragraph|future_episode|outside_task|'
+        'uncertain", "evidence": ["idea -> disposition"]}, "reason": "one clause", '
+        '"confidence": "high|medium|low", "evidence": ["load drivers already present"]}, '
         '"apparent_orientation_target": "what understanding THE LEARNER\'S CURRENT WRITING appears to be '
         'trying to construct — distinct from the assignment. Do NOT assume this adequately answers the '
         'assignment; do NOT reconstruct a coherent intended thesis from related material and then treat '

@@ -200,6 +200,52 @@ export default function DevCognitionPanel({ sessionId, turnKey, onClose }) {
           </pre>
         )}
 
+        {dco && !showRaw && dco.communicative_capacity && typeof dco.communicative_capacity === "object" && (
+          <div data-testid="dco-communicative_capacity"
+            style={{ marginBottom: 12, padding: "9px 11px", background: "#0c0a09",
+              border: "1px solid #3f3f46", borderLeft: "3px solid #f59e0b", borderRadius: 6 }}>
+            {(() => {
+              const cc = dco.communicative_capacity;
+              const scol = cc.scope_status === "proportionate" ? "#4ade80"
+                : cc.scope_status === "overloaded" ? "#f87171"
+                : cc.scope_status === "approaching_capacity" ? "#fbbf24"
+                : cc.scope_status === "underdeveloped" ? "#60a5fa" : "#a8a29e";
+              const row = (label, val) => {
+                if (val === null || val === undefined || val === "") return null;
+                const text = Array.isArray(val)
+                  ? val.map((v) => (typeof v === "object" ? JSON.stringify(v) : v)).join(" · ")
+                  : (typeof val === "object" ? (val.value || JSON.stringify(val)) : String(val));
+                if (!text) return null;
+                return (
+                  <div style={{ marginBottom: 4 }}>
+                    <div style={{ color: "#a8a29e", textTransform: "uppercase", fontSize: 8.5, letterSpacing: "0.08em" }}>{label}</div>
+                    <div style={{ color: "#f5f5f4", fontSize: 12 }}>{text}</div>
+                  </div>
+                );
+              };
+              return (
+                <>
+                  <div style={{ display: "flex", justifyContent: "space-between", gap: 8, marginBottom: 5 }}>
+                    <span style={{ color: "#f59e0b", fontWeight: 700, textTransform: "uppercase", fontSize: 9, letterSpacing: "0.1em" }}>Communicative capacity (4.7)</span>
+                    <span style={{ color: scol, fontWeight: 700, textTransform: "uppercase", fontSize: 9 }}>{cc.scope_status || "—"}</span>
+                  </div>
+                  {row("Writing unit", cc.writing_unit)}
+                  {row("Unit purpose", cc.unit_purpose)}
+                  {row("Expected functional range", cc.expected_functional_range)}
+                  {row("Central communicative movement", cc.central_communicative_movement)}
+                  {row("Current communicative load", cc.current_communicative_load)}
+                  {row("Remaining capacity", cc.remaining_capacity)}
+                  {row("Overload risk", cc.overload_risk)}
+                  {row("Additions that still belong", cc.additions_that_still_belong)}
+                  {row("Material to defer / exclude", cc.material_to_defer_or_exclude)}
+                  {row("Unit scope disposition", cc.unit_scope_disposition)}
+                  {row("Reason", cc.reason)}
+                </>
+              );
+            })()}
+          </div>
+        )}
+
         {dco && !showRaw && (dco.instructional_contract || dco.instructional_contract_alignment) && (
           <div data-testid="dco-instructional_contract"
             style={{ marginBottom: 12, padding: "9px 11px", background: "#0c0a09",
