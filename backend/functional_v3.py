@@ -1232,7 +1232,7 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
                             emerging_constraints_context: str = "",
                             learner_message: str = "",
                             contract_constraint: str = "", achievement_context: str = "",
-                            closure_context: str = "") -> str:
+                            closure_context: str = "", operation: str = "") -> str:
     src = _resolve_teaching_source(structure, obj)
     disp = src["display_name"]
     _action_hint = {
@@ -1525,6 +1525,19 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
             "that the next step is strengthening HOW the writing communicates what is already there. "
             "Keep it short.\n\n"
           ) if (closure_context or '').strip() else "")
+        + ({
+            "develop": "OPERATION (obey this) = DEVELOP: help the writer build/elaborate the ONE target "
+                       "relation more fully; stay on that single relation.\n\n",
+            "consolidate": "OPERATION (obey this) = CONSOLIDATE: help the writer stabilize and make "
+                           "EXPLICIT the relation they have begun; do NOT open a new relation.\n\n",
+            "condense_and_integrate": "OPERATION (obey this) = CONDENSE & INTEGRATE: the unit is near "
+                       "capacity — help the writer tighten, integrate, or reorganize what is already "
+                       "here; do NOT add a new conceptual relation.\n\n",
+            "address_material_gap": "OPERATION (obey this) = ADDRESS MATERIAL GAP: focus ONLY on the one "
+                       "reader-blocking gap; do not broaden to anything else.\n\n",
+            "acknowledge_and_transition": "OPERATION (obey this) = ACKNOWLEDGE & TRANSITION: the "
+                       "conceptual work is complete; acknowledge it and move on; do NOT elaborate.\n\n",
+          }.get((operation or '').strip().lower(), ""))
         + f"{_mode_block}\n"
         f"{_support_block}\n"
         f"{_elab_block}"
@@ -3268,6 +3281,19 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
                         else "necessary_for_adequacy")
     _coaching_permitted = _closure not in ("close_and_transition", "close_and_complete")
     _close_now = _closure in ("close_and_transition", "close_and_complete")
+    # DETERMINISTIC instructional_operation (what the coaching generator MUST do), derived from
+    # communicative load/budget, task adequacy, learner sufficiency, Episode Target, and closure state.
+    _loadF = (_capF.get("current_communicative_load") or "").strip().lower()
+    if _close_now:
+        _operation = "acknowledge_and_transition"
+    elif _closure == "reopen_only_if_material_gap":
+        _operation = "address_material_gap"
+    elif _budgetF in ("one_high_value_move", "exhausted") or _loadF == "high" or _overloadF == "high":
+        _operation = "condense_and_integrate"
+    elif _suffF == "approaching_sufficiency" or _adeqF == "approaching_adequacy":
+        _operation = "consolidate"
+    else:
+        _operation = "develop"
     # when closing (esp. learner-requested / budget-exhausted / achieved), the coaching move must
     # acknowledge sufficiency and transition — never elaborate.
     _closure_ctx = ""
@@ -3306,7 +3332,8 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
                                                         learner_message=learner_message,
                                                         contract_constraint=_contract_ctx,
                                                         achievement_context=_achievement_ctx,
-                                                        closure_context=_closure_ctx)
+                                                        closure_context=_closure_ctx,
+                                                        operation=_operation)
     t_dialogue = time.perf_counter() - t_d0
 
     # COMPASS 4.6 — SCOPE GATE: deterministic first-pass; LLM judge only when uncertain; regenerate
@@ -3340,7 +3367,8 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
                                                   emerging_constraints_context=sel.get("_emerging_constraints_context", ""),
                                                   learner_message=learner_message,
                                                   contract_constraint=_con2, achievement_context=_ach2,
-                                                  closure_context=(_closure_ctx if _close_now else ""))
+                                                  closure_context=(_closure_ctx if _close_now else ""),
+                                                  operation=_operation)
             if _inv2 and _inv2.strip():
                 invitation, dlg_bytes = _inv2, _db2
                 _gate["regenerated"] = True
@@ -3378,6 +3406,7 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
     # surface for the dev panel + trace (injected AFTER the DCO normalizer, so no truncation risk)
     _episode_closureF = {
         "episode_closure_decision": _closure,
+        "instructional_operation": _operation,
         "reason": _closure_reason,
         "coaching_permitted": _coaching_permitted,
         "learner_transition_request": _ltr,

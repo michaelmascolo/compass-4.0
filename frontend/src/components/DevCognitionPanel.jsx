@@ -221,6 +221,7 @@ export default function DevCognitionPanel({ sessionId, turnKey, onClose }) {
                     <span style={{ color: "#a78bfa", fontWeight: 700, textTransform: "uppercase", fontSize: 9, letterSpacing: "0.1em" }}>Episode closure (4.8)</span>
                     <span style={{ color: dcol, fontWeight: 700, textTransform: "uppercase", fontSize: 9 }}>{e.episode_closure_decision || "—"}</span>
                   </div>
+                  {row("Instructional operation", e.instructional_operation)}
                   {row("Coaching permitted", e.coaching_permitted)}
                   {row("Remaining communicative budget", e.remaining_communicative_budget)}
                   {row("Learner transition request", e.learner_transition_request)}
