@@ -1231,7 +1231,8 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
                             elaboration_context: str = "", reconsideration_context: str = "",
                             emerging_constraints_context: str = "",
                             learner_message: str = "",
-                            contract_constraint: str = "", achievement_context: str = "") -> str:
+                            contract_constraint: str = "", achievement_context: str = "",
+                            closure_context: str = "") -> str:
     src = _resolve_teaching_source(structure, obj)
     disp = src["display_name"]
     _action_hint = {
@@ -1515,6 +1516,15 @@ async def generate_dialogue(session_id: str, assignment: str, unit: str, student
             "may note briefly that the next step will be making the writing itself stronger. Keep it "
             "short.\n\n"
           ) if (achievement_context or '').strip() else "")
+        + ((
+            "EPISODE CLOSURE (the conceptual work for this paragraph is finished): "
+            f"{closure_context.strip()} Do NOT ask for any new conceptual elaboration, a new relation, "
+            "a deeper mechanism, or another distinction. Briefly and warmly acknowledge that the "
+            "conceptual work for this paragraph is sufficient (name what is now clear), note that adding "
+            "another layer would make the paragraph more crowded rather than more effective, and signal "
+            "that the next step is strengthening HOW the writing communicates what is already there. "
+            "Keep it short.\n\n"
+          ) if (closure_context or '').strip() else "")
         + f"{_mode_block}\n"
         f"{_support_block}\n"
         f"{_elab_block}"
@@ -2209,6 +2219,10 @@ async def _select_functions(session_id: str, assignment: str, unit: str, student
         '"current_communicative_load": "low|moderate|high|uncertain — judge from the NUMBER and '
         'complexity of functions/claims/relations/examples ALREADY carried, NOT a word count", '
         '"remaining_capacity": "substantial|moderate|limited|none|uncertain", '
+        '"remaining_communicative_budget": "substantial|moderate|one_high_value_move|exhausted|'
+        'uncertain — the remaining CONCEPTUAL/organizational room of THIS unit (distinct relations & '
+        'functions already carried, repetition, reader burden, whether it still reads as ONE movement); '
+        'not a word count", '
         '"overload_risk": "low|emerging|high|uncertain", '
         '"scope_status": "underdeveloped|proportionate|approaching_capacity|overloaded|uncertain", '
         '"additions_that_still_belong": ["only additions that strengthen the CENTRAL movement and fit"], '
@@ -2879,6 +2893,28 @@ def _contract_alignment_gate(pinned_target: str, contract_fn: str, sel_fn: str, 
     return out("uncertain", "uncertain", "ambiguous function vs contract", False)
 
 
+# Compass 4.8 — deterministic learner transition-request detector (explicit / implied / none).
+_TRANSITION_EXPLICIT = re.compile(
+    r"\b(i'?m\s+done(\s+elaborating)?|done\s+elaborating|move\s+on|next\s+step|go\s+to\s+the\s+next|"
+    r"that'?s\s+enough|this\s+is\s+enough|i\s+think\s+(this|that)\s+is\s+enough|stop\s+here|"
+    r"good\s+enough|let'?s\s+move\s+on|can\s+we\s+(move|go)\s+on|ready\s+to\s+move\s+on|i'?m\s+finished)\b",
+    re.IGNORECASE)
+_TRANSITION_IMPLIED = re.compile(
+    r"\b(i\s+think\s+i'?m\s+done|not\s+sure\s+what\s+else|nothing\s+(else|more)\s+to\s+add|"
+    r"is\s+(this|that)\s+(ok|okay|good|enough)|what\s+(else|now|next))\b", re.IGNORECASE)
+
+
+def _detect_transition_request(text: str) -> str:
+    t = (text or "").strip()
+    if not t:
+        return "none"
+    if _TRANSITION_EXPLICIT.search(t):
+        return "explicit"
+    if _TRANSITION_IMPLIED.search(t):
+        return "implied"
+    return "none"
+
+
 _CONTRACT_JUDGE_SYS = (
     "You check whether a writing tutor's coaching move stays within a single pinned instructional goal. "
     "Reply ONLY JSON: {\"alignment\":\"aligned|misaligned|partially_aligned\",\"reason\":\"one short clause\"}."
@@ -3180,6 +3216,73 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
     _contract_ctx = "" if not _pinnedF else (_pinnedF if not _achievedF else "")
     _achievement_ctx = state.episode_contract_goal if (_pinnedF and _achievedF) else ""
 
+    # ======================================================================
+    # COMPASS 4.8 — EPISODE CLOSURE CONTROLLER + FINITE COMMUNICATIVE RESOURCES.
+    # Decide WHETHER conceptual instruction should continue BEFORE generating any coaching move.
+    # Deterministic control from existing DCO signals + a learner transition-request detector.
+    # ======================================================================
+    _capF = _dcoF.get("communicative_capacity") if isinstance(_dcoF.get("communicative_capacity"), dict) else {}
+    _traF = _dcoF.get("task_relative_adequacy") if isinstance(_dcoF.get("task_relative_adequacy"), dict) else {}
+    _adeqF = (_traF.get("value") or "").strip().lower()
+    _suffF = (_lrsF.get("value") or "").strip().lower()
+    _cohF = (_lrsF.get("self_contained_coherence") or "").strip().lower()
+    _gapF = (_traF.get("material_gap") or "").strip()
+    _budgetF = (_capF.get("remaining_communicative_budget") or "").strip().lower()
+    _remCapF = (_capF.get("remaining_capacity") or "").strip().lower()
+    _overloadF = (_capF.get("overload_risk") or "").strip().lower()
+    # deterministic budget fallback when the model omitted it
+    if _budgetF in ("", "uncertain"):
+        if _remCapF == "none" or _overloadF == "high":
+            _budgetF = "exhausted"
+        elif _remCapF == "limited":
+            _budgetF = "one_high_value_move"
+        elif _remCapF == "moderate":
+            _budgetF = "moderate"
+        elif _remCapF == "substantial":
+            _budgetF = "substantial"
+    _capacity_tight = (_remCapF in ("limited", "none") or _budgetF in ("one_high_value_move", "exhausted")
+                       or _overloadF == "high")
+    _budget_exhausted = _budgetF == "exhausted" or _remCapF == "none"
+    _reader_can_reconstruct = _cohF in ("good_enough", "strong")
+    _has_gap = bool(_gapF) and _gapF.lower() not in ("none", "n/a", "-")
+    _ltr = _detect_transition_request(learner_content) if learner_content else "none"
+    _adeq_ok = _adeqF in ("adequate", "approaching_adequacy")
+    _suff_ok = _suffF in ("sufficient", "approaching_sufficiency")
+
+    # PRESUMPTION OF CLOSURE + BURDEN-OF-PROOF REVERSAL + LEARNER AGENCY (deterministic)
+    if _ltr == "explicit" and not _has_gap:
+        _closure = "close_and_transition"; _closure_reason = "learner explicitly requested to move on and no reader-blocking material gap remains"
+    elif _achievedF and not _has_gap:
+        _closure = "close_and_transition"; _closure_reason = "pinned target achieved; burden reversed and no material deficiency remains"
+    elif _adeq_ok and _suff_ok and not _has_gap and _capacity_tight:
+        _closure = "close_and_transition"; _closure_reason = "adequate + sufficient + coherent, and communicative capacity is limited/exhausted"
+    elif _budget_exhausted and not _has_gap:
+        _closure = "close_and_transition"; _closure_reason = "communicative budget exhausted; conceptual elaboration is closed for this paragraph"
+    elif _has_gap:
+        _closure = "reopen_only_if_material_gap"; _closure_reason = f"reader-blocking material gap: {_gapF[:120]}"
+    else:
+        _closure = "continue_current_episode"; _closure_reason = "conceptual development still has room and value"
+    # candidate move classification (deterministic surface for the panel)
+    _candidate_class = ("necessary_for_adequacy" if _has_gap
+                        else "useful_but_optional" if _closure.startswith("close")
+                        else "necessary_for_adequacy")
+    _coaching_permitted = _closure not in ("close_and_transition", "close_and_complete")
+    _close_now = _closure in ("close_and_transition", "close_and_complete")
+    # when closing (esp. learner-requested / budget-exhausted / achieved), the coaching move must
+    # acknowledge sufficiency and transition — never elaborate.
+    _closure_ctx = ""
+    if _close_now:
+        _contract_ctx = ""  # do not re-assert an elaboration scope
+        if _ltr == "explicit":
+            _closure_ctx = "The learner has said they are done and want to move on."
+        elif _budget_exhausted:
+            _closure_ctx = "This paragraph's conceptual budget is spent; more relations would crowd it."
+        elif _achievedF:
+            _closure_ctx = f"The learner accomplished the goal for this step: \"{state.episode_contract_goal or _pinnedF}\"."
+        else:
+            _closure_ctx = "The paragraph is adequate, coherent, and near capacity."
+        _achievement_ctx = ""  # closure_context supersedes the achievement wording
+
     t_d0 = time.perf_counter()
     if instructional_need == "NO_CURRENT_INSTRUCTIONAL_TARGET":
         invitation, dlg_bytes = await generate_closure(state.id, assignment, student_text, established)
@@ -3202,13 +3305,16 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
                                                         emerging_constraints_context=sel.get("_emerging_constraints_context", ""),
                                                         learner_message=learner_message,
                                                         contract_constraint=_contract_ctx,
-                                                        achievement_context=_achievement_ctx)
+                                                        achievement_context=_achievement_ctx,
+                                                        closure_context=_closure_ctx)
     t_dialogue = time.perf_counter() - t_d0
 
     # COMPASS 4.6 — SCOPE GATE: deterministic first-pass; LLM judge only when uncertain; regenerate
     # ONCE on clear or LLM-confirmed misalignment (prefer constraining the move, not a wholesale reask).
-    _gate = _contract_alignment_gate(_pinnedF, state.episode_contract_function, _sel_fnF, _achievedF,
-                                     _next_oppF, invitation, coaching_path)
+    # Compass 4.8 — when the episode is closing, treat the move like the achieved case: any move that
+    # opens NEW developmental work is misaligned and must be regenerated as an acknowledge-and-transition.
+    _gate = _contract_alignment_gate(_pinnedF, state.episode_contract_function, _sel_fnF,
+                                     (_achievedF or _close_now), _next_oppF, invitation, coaching_path)
     if _gate["alignment"] == "uncertain" and _pinnedF:
         try:
             _judge = await _llm_contract_judge(state.id, _pinnedF, invitation, _sel_fnF, _next_oppF)
@@ -3222,8 +3328,8 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
     if _gate.get("regeneration_required") and instructional_need != "NO_CURRENT_INSTRUCTIONAL_TARGET":
         _tr0 = time.perf_counter()
         try:
-            _con2 = "" if _achievedF else (_pinnedF or state.episode_contract_goal)
-            _ach2 = state.episode_contract_goal if _achievedF else ""
+            _con2 = "" if (_achievedF or _close_now) else (_pinnedF or state.episode_contract_goal)
+            _ach2 = state.episode_contract_goal if (_achievedF and not _close_now) else ""
             _inv2, _db2 = await generate_dialogue(state.id, assignment, unit, student_text,
                                                   target, obj, status, kind, instructional_action,
                                                   mode=("continuation" if bool(prior_student_text) else "first_turn"),
@@ -3233,7 +3339,8 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
                                                   reconsideration_context=sel.get("_reconsideration_context", ""),
                                                   emerging_constraints_context=sel.get("_emerging_constraints_context", ""),
                                                   learner_message=learner_message,
-                                                  contract_constraint=_con2, achievement_context=_ach2)
+                                                  contract_constraint=_con2, achievement_context=_ach2,
+                                                  closure_context=(_closure_ctx if _close_now else ""))
             if _inv2 and _inv2.strip():
                 invitation, dlg_bytes = _inv2, _db2
                 _gate["regenerated"] = True
@@ -3269,9 +3376,24 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
         "contract_function": state.episode_contract_function,
     }
     # surface for the dev panel + trace (injected AFTER the DCO normalizer, so no truncation risk)
+    _episode_closureF = {
+        "episode_closure_decision": _closure,
+        "reason": _closure_reason,
+        "coaching_permitted": _coaching_permitted,
+        "learner_transition_request": _ltr,
+        "reader_can_reconstruct": _reader_can_reconstruct,
+        "remaining_communicative_budget": _budgetF,
+        "candidate_move_classification": _candidate_class,
+        "burden_of_proof": ("reversed_after_achievement" if _achievedF else "normal"),
+        "material_gap": _gapF,
+        "closed": _close_now,
+    }
     if isinstance(_dcoF, dict):
         _dcoF["instructional_contract"] = _contractF
         _dcoF["instructional_contract_alignment"] = _contract_alignmentF
+        _dcoF["episode_closure"] = _episode_closureF
+    logger.info(f"[closure] session={state.id} decision={_closure} ltr={_ltr} budget={_budgetF} "
+                f"gap={bool(_has_gap)} permitted={_coaching_permitted} reason={_closure_reason}")
     logger.info(f"[contract] session={state.id} alignment={_contract_alignmentF['alignment']} "
                 f"heuristic={_contract_alignmentF['heuristic_verdict']} escalated={_contract_alignmentF['llm_escalated']} "
                 f"regen={_contract_alignmentF['regenerated']} reason={_contract_alignmentF['reason']}")

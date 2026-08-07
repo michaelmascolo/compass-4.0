@@ -200,6 +200,41 @@ export default function DevCognitionPanel({ sessionId, turnKey, onClose }) {
           </pre>
         )}
 
+        {dco && !showRaw && dco.episode_closure && typeof dco.episode_closure === "object" && (
+          <div data-testid="dco-episode_closure"
+            style={{ marginBottom: 12, padding: "9px 11px", background: "#0c0a09",
+              border: "1px solid #3f3f46", borderLeft: "3px solid #a78bfa", borderRadius: 6 }}>
+            {(() => {
+              const e = dco.episode_closure;
+              const dcol = e.episode_closure_decision === "continue_current_episode" ? "#4ade80"
+                : (e.episode_closure_decision || "").startsWith("close") ? "#f87171"
+                : e.episode_closure_decision === "reopen_only_if_material_gap" ? "#fbbf24" : "#a8a29e";
+              const row = (label, val) => (val === "" || val === null || val === undefined) ? null : (
+                <div style={{ marginBottom: 4 }}>
+                  <div style={{ color: "#a8a29e", textTransform: "uppercase", fontSize: 8.5, letterSpacing: "0.08em" }}>{label}</div>
+                  <div style={{ color: "#f5f5f4", fontSize: 12 }}>{String(val)}</div>
+                </div>
+              );
+              return (
+                <>
+                  <div style={{ display: "flex", justifyContent: "space-between", gap: 8, marginBottom: 5 }}>
+                    <span style={{ color: "#a78bfa", fontWeight: 700, textTransform: "uppercase", fontSize: 9, letterSpacing: "0.1em" }}>Episode closure (4.8)</span>
+                    <span style={{ color: dcol, fontWeight: 700, textTransform: "uppercase", fontSize: 9 }}>{e.episode_closure_decision || "—"}</span>
+                  </div>
+                  {row("Coaching permitted", e.coaching_permitted)}
+                  {row("Remaining communicative budget", e.remaining_communicative_budget)}
+                  {row("Learner transition request", e.learner_transition_request)}
+                  {row("Reader can reconstruct", e.reader_can_reconstruct)}
+                  {row("Candidate move classification", e.candidate_move_classification)}
+                  {row("Burden of proof", e.burden_of_proof)}
+                  {row("Material gap", e.material_gap)}
+                  {row("Reason", e.reason)}
+                </>
+              );
+            })()}
+          </div>
+        )}
+
         {dco && !showRaw && dco.communicative_capacity && typeof dco.communicative_capacity === "object" && (
           <div data-testid="dco-communicative_capacity"
             style={{ marginBottom: 12, padding: "9px 11px", background: "#0c0a09",
