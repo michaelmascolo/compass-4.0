@@ -3503,7 +3503,26 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
         _achievement_ctx = ""
 
     t_d0 = time.perf_counter()
-    if instructional_need == "NO_CURRENT_INSTRUCTIONAL_TARGET":
+    # SENTENCE CRAFT (4.10): once the paragraph is conceptually sufficient AND structurally proportionate
+    # (the engine reaches acknowledge_and_transition), or once already inside Sentence Craft, hand off to
+    # the sentence-level loop. Fully guarded/additive — never runs while conceptual/structural work remains.
+    _sc_active_turn = False
+    _sc_focus_label = ""
+    _sc_diag = None
+    if (state.sc_active or _operation == "acknowledge_and_transition") and (student_text or "").strip() and not state.sc_complete:
+        try:
+            _scr = await _sentence_craft_turn(state, assignment, student_text, _dcoF, learner_message, kind)
+        except Exception:
+            _scr = None
+        if _scr is not None:
+            _sc_active_turn = True
+            invitation = _scr["invitation"]
+            dlg_bytes = len(invitation or "")
+            _sc_focus_label = _scr["focus_label"]
+            _sc_diag = _scr["diagnostics"]
+    if _sc_active_turn:
+        pass  # coaching produced by the Sentence Craft path; skip normal coaching + contract gate
+    elif instructional_need == "NO_CURRENT_INSTRUCTIONAL_TARGET":
         invitation, dlg_bytes = await generate_closure(state.id, assignment, student_text, established)
     else:
         # FIRST-TURN vs CONTINUATION (Compass 3.0): a continuation turn is ANY follow-up turn that
@@ -3938,3 +3957,335 @@ async def sentence_craft_cognition(session_id: str, prompt: str, draft: str,
         "selected_teaching": data.get("selected_teaching"),
         "post_revision_evaluation_schema": POST_REVISION_EVALUATION_SCHEMA,
     }
+
+
+# ===========================================================================
+# SENTENCE CRAFT CONTROLLER (4.10) — DETERMINISTIC coordinated judgment.
+# Pure functions over the structured evidence from sentence_craft_cognition +
+# the persisted learner-pattern model. No LLM calls here (unit-testable). These
+# GOVERN the LLM: which ONE operation, at which scaffold, whether to route up or
+# advance, and how the provisional pattern model updates. Never trust a single
+# headline label; decisions derive from structured evidence.
+# ===========================================================================
+
+SC_OPERATIONS = ("orient_reader", "complete_meaning", "make_precise", "organize_sentence",
+                 "strengthen_expression", "improve_readability", "connect_thought")
+
+# developmental leverage order (higher-order sentence organization exerts downward control
+# over several surface symptoms -> greater payoff). Used only as ONE constituent of judgment.
+_SC_LEVERAGE = {"organize_sentence": 6, "orient_reader": 5, "complete_meaning": 4,
+                "connect_thought": 3, "make_precise": 2, "improve_readability": 1,
+                "strengthen_expression": 0}
+
+# map rubric/observed pattern phrases -> operation domain (substring match, lowercased)
+_SC_PATTERN_MAP = (
+    ("not set up", "orient_reader"), ("assumes knowledge", "orient_reader"),
+    ("needs more setup", "orient_reader"), ("reader lacks", "orient_reader"),
+    ("unexplained", "orient_reader"), ("unclear referent", "orient_reader"),
+    ("needs further elaboration", "complete_meaning"), ("compressed reasoning", "complete_meaning"),
+    ("mechanism unclear", "complete_meaning"), ("significance", "complete_meaning"),
+    ("meaning remains implicit", "complete_meaning"),
+    ("imprecis", "make_precise"), ("vague", "make_precise"), ("inaccura", "make_precise"),
+    ("ambiguous", "make_precise"), ("overly broad", "make_precise"),
+    ("run-on", "organize_sentence"), ("fragment", "organize_sentence"),
+    ("multiple ideas", "organize_sentence"), ("multiple independent", "organize_sentence"),
+    ("clause load", "organize_sentence"), ("competing in one sentence", "organize_sentence"),
+    ("to be", "strengthen_expression"), ("passive", "strengthen_expression"),
+    ("weak", "strengthen_expression"), ("nominalization", "strengthen_expression"),
+    ("colloquial", "strengthen_expression"), ("contraction", "strengthen_expression"),
+    ("slang", "strengthen_expression"), ("cliche", "strengthen_expression"),
+    ("padded", "strengthen_expression"), ("indirect verb", "strengthen_expression"),
+    ("awkward syntax", "improve_readability"), ("misplaced", "improve_readability"),
+    ("modifier", "improve_readability"), ("sounds funny", "improve_readability"),
+    ("hard to recover", "improve_readability"), ("rereading", "improve_readability"),
+    ("transition", "connect_thought"), ("connective", "connect_thought"),
+    ("does not connect", "connect_thought"), ("connect clearly", "connect_thought"),
+    ("relation between", "connect_thought"),
+)
+
+_SC_SCAFFOLD_LEVELS = ("more_support", "guided_attention", "self_monitoring",
+                       "independent_check", "independent")
+
+
+def sc_domain_for_pattern(text: str) -> str:
+    """Map an observed sentence-pattern phrase to a Sentence Craft operation domain ('' if none)."""
+    t = (text or "").strip().lower()
+    for needle, domain in _SC_PATTERN_MAP:
+        if needle in t:
+            return domain
+    return ""
+
+
+def _sc_find_pattern(patterns: List[Dict[str, Any]], domain: str) -> Optional[Dict[str, Any]]:
+    for p in patterns:
+        if p.get("domain") == domain:
+            return p
+    return None
+
+
+def sc_update_patterns(patterns: List[Dict[str, Any]], observed_domains: List[str]) -> List[Dict[str, Any]]:
+    """Accumulate provisional pattern evidence. A single occurrence is NOT a stable pattern;
+    a pattern becomes 'active' (confident) only at >=2 instances. Distinguishes occurrence vs pattern."""
+    patterns = [dict(p) for p in (patterns or [])]
+    for d in observed_domains:
+        if not d:
+            continue
+        p = _sc_find_pattern(patterns, d)
+        if p is None:
+            p = {"domain": d, "instances": 0, "supported_success": 0, "recognized": 0,
+                 "independent": 0, "scaffold_level": "more_support", "confidence": "tentative",
+                 "status": "occurrence"}
+            patterns.append(p)
+        p["instances"] = int(p.get("instances", 0)) + 1
+        if p["instances"] >= 3:
+            p["confidence"] = "high"; p["status"] = "pattern"
+        elif p["instances"] >= 2:
+            p["confidence"] = "moderate"; p["status"] = "pattern"
+    return patterns
+
+
+def sc_record_performance(patterns: List[Dict[str, Any]], domain: str,
+                          independent: bool = False, recognized: bool = False) -> List[Dict[str, Any]]:
+    """Record a (successful) learner revision for a domain and FADE the scaffold as control grows."""
+    patterns = [dict(p) for p in (patterns or [])]
+    p = _sc_find_pattern(patterns, domain)
+    if p is None:
+        return patterns
+    p["supported_success"] = int(p.get("supported_success", 0)) + 1
+    if recognized:
+        p["recognized"] = int(p.get("recognized", 0)) + 1
+    if independent:
+        p["independent"] = int(p.get("independent", 0)) + 1
+    p["scaffold_level"] = sc_scaffold_for_pattern(p)
+    if int(p.get("independent", 0)) >= 2:
+        p["status"] = "controlled"
+    return patterns
+
+
+def sc_scaffold_for_pattern(pattern: Optional[Dict[str, Any]]) -> str:
+    """Learner-relative scaffold: more evidence of control -> less support. Never below independent_check
+    while any material work remains."""
+    if not pattern:
+        return "more_support"
+    ind = int(pattern.get("independent", 0))
+    rec = int(pattern.get("recognized", 0))
+    succ = int(pattern.get("supported_success", 0))
+    if ind >= 2:
+        return "independent"
+    if ind >= 1:
+        return "independent_check"
+    if rec >= 1 or succ >= 2:
+        return "self_monitoring"
+    if succ >= 1:
+        return "guided_attention"
+    return "more_support"
+
+
+def sc_select_operation(active: Dict[str, Any], patterns: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """COORDINATED STRUCTURAL JUDGMENT (deterministic). Coordinates: current writing evidence,
+    part-whole relevance, developmental leverage, and recurring learner-pattern evidence.
+    Returns {'decision': route_upward|advance|operate, 'operation', 'scaffold_level', 'domain',
+    'pattern_recurrent': bool, 'reason'}."""
+    importance = (active.get("importance_to_whole") or "").strip().lower()
+    priority = (active.get("teaching_priority") or "").strip().lower()
+    observed = active.get("observed_sentence_patterns") or []
+    domains = [d for d in (sc_domain_for_pattern(x) for x in observed) if d]
+
+    # RELEVANCE BEFORE IMPROVEMENT: a misplaced / competing sentence is routed UP, never polished.
+    if importance in ("distracting", "optional") and priority != "no_instruction_needed":
+        return {"decision": "route_upward", "operation": "", "scaffold_level": "",
+                "domain": "", "pattern_recurrent": False,
+                "reason": "sentence does not belong / opens a competing trajectory"}
+
+    # SUFFICIENCY BEFORE EXCELLENCE: nothing material to teach -> advance.
+    if not domains and priority in ("no_instruction_needed", "useful_later", ""):
+        return {"decision": "advance", "operation": "", "scaffold_level": "",
+                "domain": "", "pattern_recurrent": False, "reason": "sentence is sufficient"}
+
+    # candidate domains present in THIS sentence, scored by (recurring pattern weight) + leverage.
+    def _score(d):
+        p = _sc_find_pattern(patterns, d)
+        recurrent = bool(p and int(p.get("instances", 0)) >= 2 and p.get("status") != "controlled")
+        # recurring, high-value pattern gets a boost, but leverage still counts (no auto-win).
+        return (2 if recurrent else 0) + _SC_LEVERAGE.get(d, 0) / 10.0
+
+    if not domains:
+        # priority says teach but no mapped domain -> default to precision (safest local move).
+        domains = ["make_precise"]
+    best = max(domains, key=_score)
+    p = _sc_find_pattern(patterns, best)
+    recurrent = bool(p and int(p.get("instances", 0)) >= 2 and p.get("status") != "controlled")
+    return {"decision": "operate", "operation": best,
+            "scaffold_level": sc_scaffold_for_pattern(p) if p else "more_support",
+            "domain": best, "pattern_recurrent": recurrent,
+            "reason": ("recurring learner pattern" if recurrent else "highest-leverage local issue")}
+
+
+# learner-facing focus labels per operation (never expose internal operation names, spec §13)
+SC_FOCUS_LABEL = {
+    "orient_reader": "Helping your reader follow this sentence",
+    "complete_meaning": "Making this idea complete for the reader",
+    "make_precise": "Making this meaning more precise",
+    "organize_sentence": "Untangling this sentence",
+    "strengthen_expression": "Strengthening how this is worded",
+    "improve_readability": "Making this sentence easier to read",
+    "connect_thought": "Connecting these ideas",
+}
+
+
+def _sc_actionable(a: Dict[str, Any]) -> bool:
+    """A sentence needs work if it is misplaced (route-up), flagged teach_now, or carries a mapped pattern."""
+    imp = (a.get("importance_to_whole") or "").lower()
+    pri = (a.get("teaching_priority") or "").lower()
+    if imp in ("distracting", "optional") and pri != "no_instruction_needed":
+        return True
+    if pri == "teach_now":
+        return True
+    return any(sc_domain_for_pattern(x) for x in (a.get("observed_sentence_patterns") or []))
+
+
+async def _sentence_craft_turn(state, assignment: str, draft: str, dco: Dict[str, Any],
+                               learner_message: str, kind: str) -> Optional[Dict[str, Any]]:
+    """Orchestrate ONE Sentence Craft turn: analyze (one call, reused), coordinate ONE operation
+    deterministically, update the provisional learner-pattern model, and produce a learner-facing move.
+    Returns None to fall back to the normal loop (e.g. no sentences)."""
+    analysis = await sentence_craft_cognition(state.id, assignment, draft, dco)
+    sents = analysis.get("sentences") or []
+    if not sents:
+        return None
+    n = len(sents)
+    idx = max(0, min(int(getattr(state, "sc_index", 0) or 0), n - 1))
+
+    # thesis / main point for reorientation (inherited, learner-facing)
+    _sl = dco.get("structural_load_analysis") if isinstance(dco.get("structural_load_analysis"), dict) else {}
+    thesis = (_sl.get("central_communicative_movement") or "").strip()
+
+    # scan from the active index for the next sentence that needs work
+    active_i = None
+    for j in range(idx, n):
+        if _sc_actionable(sents[j]):
+            active_i = j
+            break
+    diagnostics: Dict[str, Any] = {"sentence_count": n, "thesis": thesis,
+                                   "patterns_before": [dict(p) for p in (state.sc_patterns or [])]}
+
+    # ---- COMPLETION: no remaining sentence needs work ----
+    if active_i is None:
+        state.sc_index = n
+        state.sc_complete = True
+        state.sc_active = False
+        state.sc_operation = "complete"
+        cmsg = ((dco.get("completion") or {}) if isinstance(dco.get("completion"), dict) else {}).get("completion_message")
+        holistic = (
+            "Your paragraph now reads clearly, sentence by sentence, and each sentence is doing its job "
+            "for the reader. Let's do one last read of the whole thing together.\n\n"
+            "As you read it once through, ask yourself:\n"
+            "• Does this say what you actually intended?\n"
+            "• Would a reader new to the topic follow it?\n"
+            "• Does every sentence still contribute to your main point?\n\n"
+            "If yes, you're done — this is a finished paragraph."
+        )
+        invitation = (cmsg.strip() + "\n\n" + holistic) if isinstance(cmsg, str) and cmsg.strip() else holistic
+        diagnostics.update({"decision": "complete", "operation": "complete",
+                            "active_sentence_index": None, "focus_label": "Reviewing the whole paragraph",
+                            "patterns_after": [dict(p) for p in (state.sc_patterns or [])]})
+        return {"invitation": invitation, "focus_label": "Reviewing the whole paragraph",
+                "operation": "complete", "diagnostics": diagnostics}
+
+    active = sents[active_i]
+    state.sc_index = active_i
+    state.sc_active = True
+    domains = [d for d in (sc_domain_for_pattern(x) for x in (active.get("observed_sentence_patterns") or [])) if d]
+    # accumulate provisional pattern evidence from THIS sentence
+    state.sc_patterns = sc_update_patterns(state.sc_patterns or [], domains)
+
+    sel = sc_select_operation(active, state.sc_patterns)
+    diagnostics.update({"active_sentence_index": active_i,
+                        "active_sentence_text": active.get("exact_sentence_text", ""),
+                        "communicative_function": active.get("communicative_purpose", ""),
+                        "importance_to_whole": active.get("importance_to_whole", ""),
+                        "observed_patterns": active.get("observed_sentence_patterns") or [],
+                        "candidate_domains": domains,
+                        "selection": sel})
+
+    # transition preamble on first SC turn
+    preamble = ""
+    if not getattr(state, "sc_transitioned", False):
+        state.sc_transitioned = True
+        anchor = f' Your main point is: "{thesis}".' if thesis else ""
+        preamble = (
+            "You've now focused this paragraph and decided what belongs in it — that's real progress."
+            + anchor +
+            " Now we'll shift to *how* each sentence communicates that meaning to a reader, one at a time. "
+            "As we go, I'll also watch for patterns you tend to repeat — learning to catch one of those "
+            "yourself can strengthen a lot of your writing, not just one sentence.\n\n"
+        )
+
+    # ---- ROUTE UPWARD: sentence doesn't belong / opens a competing trajectory (never polish) ----
+    if sel["decision"] == "route_upward":
+        state.sc_route_upward = active.get("exact_sentence_text", "")[:200]
+        focus_label = "Deciding whether this belongs here"
+        invitation = preamble + (
+            f'Before we polish anything, look at this sentence:\n\n"{active.get("exact_sentence_text","")}"\n\n'
+            "It's written fine on its own, but it doesn't seem to do the job THIS paragraph needs — it "
+            "starts a different line of thought. Rather than rewording it, the better move is to decide "
+            "whether it belongs in this paragraph at all, or whether it points toward a separate one. "
+            "Where do you think this idea really belongs?"
+        )
+        diagnostics["decision"] = "route_upward"
+        diagnostics["patterns_after"] = [dict(p) for p in (state.sc_patterns or [])]
+        state.sc_operation = "route_upward"
+        return {"invitation": invitation, "focus_label": focus_label,
+                "operation": "route_upward", "diagnostics": diagnostics}
+
+    op = sel["operation"]
+    scaffold = sel["scaffold_level"] or "more_support"
+    state.sc_operation = op
+    state.sc_scaffold_level = scaffold
+    focus_label = SC_FOCUS_LABEL.get(op, "Working on this sentence")
+
+    # Build the learner-facing move. Reuse the cognition's guided lesson when it targets THIS sentence;
+    # otherwise compose from the operation aim. Adjust explicitness by scaffold level.
+    teach = analysis.get("selected_teaching") or {}
+    use_teach = isinstance(teach, dict) and teach.get("sentence_index") == active_i
+    sent_text = active.get("exact_sentence_text", "")
+    if use_teach and scaffold in ("more_support", "guided_attention"):
+        noticed = (teach.get("pattern_noticed") or "").strip()
+        principle = (teach.get("instructional_principle") or "").strip()
+        invite = (teach.get("learner_invitation") or "").strip()
+        alts = teach.get("meaningful_alternatives") or []
+        alt_txt = ""
+        if alts and scaffold == "more_support":
+            alt_txt = "\n\nSome directions it could take (you choose — I won't rewrite it for you):\n" + \
+                      "\n".join(f"• {a}" for a in alts[:4])
+        body = " ".join(x for x in (noticed, principle) if x)
+        invitation = preamble + (
+            f'Let\'s look at this sentence:\n\n"{sent_text}"\n\n{body}{alt_txt}\n\n{invite}'
+        ).strip()
+    else:
+        recurrent = sel.get("pattern_recurrent")
+        pat_note = ("This is one of those patterns I mentioned — it's come up more than once, so learning "
+                    "to catch it will help across your writing. ") if recurrent else ""
+        if scaffold in ("self_monitoring", "independent_check", "independent"):
+            invitation = preamble + (
+                f'{pat_note}Read this sentence again:\n\n"{sent_text}"\n\n'
+                "Looking at it as a reader who doesn't already know what you mean — is there anything you'd "
+                "make clearer or sharper here? Tell me what you notice, then revise it in the paragraph."
+            )
+        else:
+            aim = {
+                "orient_reader": "a reader might not yet have the background this sentence assumes",
+                "complete_meaning": "the idea is started but a reader may not yet have enough to fully understand it",
+                "make_precise": "the wording could point to more than one meaning",
+                "organize_sentence": "the sentence is carrying more than one job at once",
+                "strengthen_expression": "the wording could communicate this more directly",
+                "improve_readability": "the sentence is a little hard to follow on first read",
+                "connect_thought": "the link between this idea and the one around it isn't fully visible to the reader",
+            }.get(op, "this sentence could serve the reader a bit better")
+            invitation = preamble + (
+                f'{pat_note}Let\'s look at this sentence:\n\n"{sent_text}"\n\nHere, {aim}. '
+                "What could you change so a reader gets exactly what you mean? Revise it in the paragraph and resubmit."
+            )
+    diagnostics["decision"] = "operate"
+    diagnostics["patterns_after"] = [dict(p) for p in (state.sc_patterns or [])]
+    return {"invitation": invitation, "focus_label": focus_label, "operation": op, "diagnostics": diagnostics}

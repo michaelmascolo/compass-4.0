@@ -190,6 +190,18 @@ class InstructionalState(BaseModel):
     # a subset (structural-selection phase 1); the next structural-selection message turn then gives the
     # single rewrite operation (phase 2). Reset when the paragraph is no longer overloaded.
     awaiting_structural_selection: bool = False
+    # SENTENCE CRAFT (structural-readiness -> sentence-level phase). Minimal state per spec §17.
+    sc_active: bool = False              # currently in Sentence Craft mode
+    sc_transitioned: bool = False        # transition (handoff) message already delivered
+    sc_index: int = 0                    # active sentence index within the paragraph
+    sc_operation: str = ""               # last selected Sentence Craft operation
+    sc_scaffold_level: str = ""          # last scaffold level used
+    sc_complete: bool = False            # sentence-level review finished -> ready for completion/handoff
+    sc_route_upward: str = ""            # non-empty when a sentence revealed a higher-order problem
+    # Provisional learner-pattern model (spec §11): list of dicts, each:
+    # {domain, instances, contexts, support_required, supported_success, recognized, independent,
+    #  scaffold_level, confidence, status}
+    sc_patterns: List[Dict[str, Any]] = Field(default_factory=list)
     # --- Internal Instructional Decision analysis (never shown to the student; drives Teacher Review) ---
     instructional_analysis: Dict[str, Any] = Field(default_factory=dict)
     # count of consecutive continuation turns on the CURRENT target (0 on a fresh/first turn);
