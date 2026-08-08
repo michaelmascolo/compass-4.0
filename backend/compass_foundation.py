@@ -202,6 +202,12 @@ class InstructionalState(BaseModel):
     # {domain, instances, contexts, support_required, supported_success, recognized, independent,
     #  scaffold_level, confidence, status}
     sc_patterns: List[Dict[str, Any]] = Field(default_factory=list)
+    # R2b — mode-sensitive Sentence Craft cognition: persisted stable higher-order governing context so
+    # SC CONTINUATION turns can reuse it instead of regenerating the full conceptual DCO. Captured on
+    # every full SC turn. sc_force_full_next forces the next turn back onto the full higher-order engine
+    # (set when SC reveals an upward-routing problem — spec §3).
+    sc_governing_context: Dict[str, Any] = Field(default_factory=dict)
+    sc_force_full_next: bool = False
     # --- Internal Instructional Decision analysis (never shown to the student; drives Teacher Review) ---
     instructional_analysis: Dict[str, Any] = Field(default_factory=dict)
     # count of consecutive continuation turns on the CURRENT target (0 on a fresh/first turn);

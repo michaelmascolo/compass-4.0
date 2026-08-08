@@ -105,3 +105,54 @@ off-critical-path** call — it must never block a learner turn (spec §8–10).
 - `functional_v3.py`: `_FUNCTION_SEL_SYS` gained an OUTPUT-DISCIPLINE contract; `developmental_cognition`
   schema replaced with the slim version (330 verbose src lines → compact); `fn-sel` `max_tokens` 64000 → 8000.
 - Harness: `tests/latency_profile.py`. One-shot patcher record: `tests/_patch_dco_slim.py`. Backup: `/tmp/functional_v3.bak.py`.
+
+---
+
+## R2b — Mode-sensitive Sentence Craft CONTINUATION fast path (2026-06, DONE — verified)
+Approved follow-up, scoped ONLY to SC continuation turns (no bypass for conceptual/structural).
+
+### What it does
+On a genuine SC CONTINUATION turn, `run()` short-circuits BEFORE the full conceptual DCO: it reuses
+a persisted governing context and invokes the SAME production `sentence_craft_cognition` +
+deterministic controller. Gate (all required): `sc_active` AND `sc_transitioned` (so NOT the initial
+entry) AND not `sc_complete` AND not `sc_force_full_next` AND draft turn AND text present. Governing
+context (assignment, thesis, communicative task, `_dco_governing_context` fields, completion message)
+is captured on every FULL SC turn via `_sc_capture_governing` (thesis resolved from several DCO
+sources for reliability) and stored on `state.sc_governing_context`. Upward routing: when SC returns
+`route_upward`, the light path still delivers THAT turn's SC routing coaching (identical to the full
+path) and sets `state.sc_force_full_next=True` so the NEXT turn returns to the full higher-order
+engine (spec §3). Missing/insufficient governing context → `_run_sc_light` returns a fallback reason
+and `run()` uses the full path (spec §6, never improvise). Diagnostic: `sentence_craft.sc_light_path_used`
+(true/false) surfaced per turn; fallback reason logged.
+
+### Measured latency (per spec §8 — entry vs continuation reported SEPARATELY)
+| SC turn type | path | LLM calls | latency |
+|---|---|---|---|
+| ENTRY (transition into SC) | full | fn-sel + sentence-craft | ~33s |
+| CONTINUATION | **light** | **sentence-craft only** | **8.8–9.2s** ✅ under ≤10s target |
+| COMPLETION (holistic review) | light | sentence-craft only | ~10.2–10.9s |
+Continuation reduction vs entry: **~72–73%**. Light path makes exactly ONE LLM call (no fn-sel).
+
+### Regression (spec §7) — ALL PASS
+Multi-turn `tests/test_r2b_sc_light.py`: entry uses full path + captures governing context w/ thesis;
+continuation skips fn-sel (light) w/ coherent operation/focus; pattern state persists; active-sentence
+index tracked; completion reaches holistic review via light path; `sc_force_full_next` forces the next
+turn full + auto-clears; missing-context safe fallback. Plus re-run: `test_sc_controller` PASS,
+`test_structural_49` A+B PASS, `live_sc_path` PASS (full path untouched — the gate only affects SC
+continuation turns, so conceptual/structural behavior is unchanged by construction).
+
+### Net latency picture (baseline → R1b → R2b)
+- Conceptual turn: 83.6s → ~25–29s (R1b). (R2b does not touch conceptual — scoped out per instruction.)
+- Structural turn: 104.4s → ~37–41s (R1b).
+- Sentence Craft ENTRY: 104.4s → ~33s (R1b).
+- Sentence Craft CONTINUATION: 104.4s → ~34s (R1b) → **~9s (R2b)** ✅.
+
+### Remaining bottleneck & next lever
+Conceptual/structural/SC-ENTRY turns remain ~25–41s = genuine learner-critical cognition (`fn-sel`
+generating ~2–3k tokens at a measured ~107 tok/s). SC CONTINUATION now meets target. Next lever
+(NOT done; per §10 do not change models until measured): evaluate a faster inference route and/or
+streaming for the remaining full-DCO turns; an intermittent `dco-tail` recovery (~6s, pre-existing
+truncation guard) occasionally fires on full turns and could be tightened. R2b files:
+`compass_foundation.py` (+`sc_governing_context`, `sc_force_full_next`); `functional_v3.py`
+(`_sc_capture_governing`, `_run_sc_light`, run() continuation gate, full-path capture);
+test `tests/test_r2b_sc_light.py`.

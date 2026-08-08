@@ -2843,6 +2843,23 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
         state.last_learner_response = f"{kind}: {learner_message}"
     student_text = state.current_student_text or (learner_content if is_draft_turn else "") or ""
 
+    # R2b — SENTENCE CRAFT CONTINUATION FAST PATH (mode-sensitive cognition). A genuine SC
+    # continuation turn already has stable higher-order context, so we do NOT regenerate the full
+    # conceptual DCO (~20-33s). Reuse the persisted governing context and run the SAME production SC
+    # cognition + controller. Applies ONLY when: SC is active, the transition/handoff already happened
+    # (so NOT the initial entry), SC is not complete, no forced full re-run is pending, and this is a
+    # draft (paragraph) turn. Any missing/insufficient state falls back to the full path (spec §1,6).
+    if (state.sc_active and state.sc_transitioned and not state.sc_complete
+            and not state.sc_force_full_next and is_draft_turn and (student_text or "").strip()):
+        _light, _sc_light_fb = await _run_sc_light(state, assignment, student_text, learner_message, kind, t0)
+        if _light is not None:
+            logger.info(f"[sc-light] session={state.id} USED continuation fast path "
+                        f"total={_light['_meta']['t_total_s']}s")
+            return _light
+        logger.info(f"[sc-light] session={state.id} fallback to full path reason={_sc_light_fb}")
+    # a full turn is now running: clear the one-shot 'force full path' flag (spec §3)
+    if state.sc_force_full_next:
+        state.sc_force_full_next = False
     # honor an existing, unconsumed teacher override on the target (no override redesign)
     t_override = None
     for ov in reversed(state.teacher_overrides):
@@ -3229,6 +3246,14 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
             _sc_focus_label = _scr["focus_label"]
             _sc_diag = _scr["diagnostics"]
             _sc_payload = _sc_payload_from_diag(_sc_diag, _sc_focus_label)
+            _sc_payload["sc_light_path_used"] = False  # full path (governing context freshly generated)
+            # R2b — persist the stable higher-order governing context so subsequent SC CONTINUATION
+            # turns can reuse it via the fast path instead of regenerating the full conceptual DCO.
+            state.sc_governing_context = _sc_capture_governing(
+                _dcoF, assignment,
+                thesis_hint=(_sc_diag.get("thesis") or state.episode_accessible_target or ""))
+            if (_sc_diag.get("decision") or "") == "route_upward":
+                state.sc_force_full_next = True
     if _sc_active_turn:
         pass  # coaching produced by the Sentence Craft path; skip normal coaching + contract gate
     elif instructional_need == "NO_CURRENT_INSTRUCTIONAL_TARGET":
@@ -3841,6 +3866,88 @@ SC_FOCUS_LABEL = {
     "improve_readability": "Making this sentence easier to read",
     "connect_thought": "Connecting these ideas",
 }
+
+
+def _sc_capture_governing(dco: Dict[str, Any], assignment: str, thesis_hint: str = "") -> Dict[str, Any]:
+    """R2b — snapshot ONLY the stable higher-order context that Sentence Craft cognition consumes
+    (`_dco_governing_context` fields + thesis + completion message). Persisted on the state so an SC
+    CONTINUATION turn can reuse it instead of regenerating the full conceptual DCO. The thesis anchor
+    is resolved from several sources so it is reliably populated even when one DCO field is sparse."""
+    dco = dco or {}
+    def _val(x):
+        if isinstance(x, dict) and "value" in x:
+            return str(x.get("value") or "").strip()
+        return str(x or "").strip() if not isinstance(x, (dict, list)) else ""
+    sl = dco.get("structural_load_analysis") if isinstance(dco.get("structural_load_analysis"), dict) else {}
+    cap = dco.get("communicative_capacity") if isinstance(dco.get("communicative_capacity"), dict) else {}
+    thesis = (thesis_hint or "").strip() or (sl.get("central_communicative_movement") or "").strip() \
+        or (cap.get("central_communicative_movement") or "").strip() \
+        or _val(dco.get("provisional_whole_communication")) or _val(dco.get("instructional_center"))
+    return {
+        "assignment": assignment or "",
+        "structural_load_analysis": {"central_communicative_movement": thesis},
+        "communicative_task": dco.get("communicative_task"),
+        "task_orientation_relation": dco.get("task_orientation_relation"),
+        "provisional_whole_communication": dco.get("provisional_whole_communication"),
+        "whole_communication_requirements": dco.get("whole_communication_requirements"),
+        "instructional_center": dco.get("instructional_center"),
+        "structural_relations_and_dependencies": dco.get("structural_relations_and_dependencies"),
+        "current_instructional_sufficiency": dco.get("current_instructional_sufficiency"),
+        "completion": dco.get("completion") if isinstance(dco.get("completion"), dict) else {},
+    }
+
+
+async def _run_sc_light(state, assignment: str, student_text: str, learner_message: str,
+                        kind: str, t0: float):
+    """R2b — Sentence Craft CONTINUATION fast path. Reuses the persisted governing context (no full
+    conceptual DCO) and runs the SAME production sentence_craft_cognition + deterministic controller.
+    Returns (result_dict, None) on success or (None, fallback_reason) to fall back to the full path
+    (spec §6 — never improvise on missing/insufficient state)."""
+    gov = getattr(state, "sc_governing_context", None) or {}
+    thesis = ((gov.get("structural_load_analysis") or {}).get("central_communicative_movement") or "").strip()
+    if not gov:
+        return None, "missing_governing_context"
+    try:
+        _scr = await _sentence_craft_turn(state, gov.get("assignment") or assignment, student_text,
+                                          gov, learner_message, kind)
+    except Exception as e:  # noqa: BLE001
+        return None, f"sc_turn_error:{type(e).__name__}"
+    if _scr is None:
+        return None, "no_sentences"
+    invitation = _scr["invitation"]
+    _sc_diag = _scr["diagnostics"]
+    _sc_focus_label = _scr["focus_label"]
+    decision = _sc_diag.get("decision") or _scr.get("operation") or ""
+    # spec §3 — upward routing: SC revealed a paragraph-level problem the synthetic state must not try
+    # to solve. Return THIS turn's SC routing coaching (identical to the full path), then force the
+    # NEXT turn back onto the full higher-order engine.
+    if decision == "route_upward":
+        state.sc_force_full_next = True
+    _sc_payload = _sc_payload_from_diag(_sc_diag, _sc_focus_label)
+    _sc_payload["sc_light_path_used"] = True
+    await F._save_state(state)
+    eff = {"path": "sentence_craft_light", "llm_calls": 1, "sc_light_path_used": True,
+           "t_total_s": round(time.perf_counter() - t0, 2), "t_select_s": 0.0}
+    return {
+        "invitation": invitation,
+        "coaching_path": "sentence_craft_light",
+        "decision": {
+            "selected_instructional_object": state.selected_instructional_object or "",
+            "structure_status": "",
+            "established_structures": [],
+            "current_thesis": thesis,
+            "thesis_is_verbatim": False,
+            "developmental_cognition": {"episode_closure": {"instructional_operation": "sentence_craft"},
+                                        "_sc_light_path": True},
+            "function_spans": {},
+            "focus_region": "",
+            "focus_portion": "",
+            "instructional_contract": None,
+            "contract_alignment": None,
+            "sentence_craft": _sc_payload,
+        },
+        "_meta": eff,
+    }, None
 
 
 def _sc_payload_from_diag(diag: Dict[str, Any], focus_label: str) -> Dict[str, Any]:
