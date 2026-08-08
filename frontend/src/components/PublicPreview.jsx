@@ -105,6 +105,50 @@ const InstructionalContractCard = ({ contract }) => {
   );
 };
 
+// Compass 4.10 — SENTENCE CRAFT learner orientation. After a paragraph is structurally ready, the
+// work shifts to HOW each sentence communicates. This shows the ONE current sentence-level focus in
+// learner-facing language (never internal operation names) and keeps the thesis in view so the
+// learner reads each sentence in relation to the whole.
+const SentenceCraftOrientation = ({ focusLabel, thesis, routeUpward }) => {
+  return (
+    <div data-testid="sentence-craft-orientation" className="mb-4 space-y-3">
+      <div
+        data-testid="preview-sc-focus"
+        className="border border-[#e0c4bd] bg-[#fbf5f3] rounded-sm px-3 py-2"
+      >
+        <div className="text-[10px] uppercase tracking-[0.18em] text-[#8C3A2A] font-mono-panel">
+          Strengthening Sentence by Sentence
+        </div>
+        <div
+          data-testid="preview-sc-focus-label"
+          className="mt-0.5 text-[15px] font-serif-display text-[#8C3A2A] font-bold leading-snug"
+        >
+          {focusLabel || "Working on this sentence"}
+        </div>
+        <div className="text-[12px] text-stone-500 mt-1 leading-snug">
+          {routeUpward
+            ? "This sentence may belong somewhere else — let's decide where it fits before polishing anything."
+            : "Your paragraph is set. Now we shape one sentence at a time so a reader gets exactly what you mean."}
+        </div>
+      </div>
+      {thesis && (
+        <div
+          data-testid="preview-sc-thesis"
+          className="border border-stone-200 bg-stone-50 rounded-sm px-3 py-2"
+        >
+          <div className="text-[10px] uppercase tracking-[0.18em] text-stone-400 font-mono-panel">
+            Your main point (keep this in view)
+          </div>
+          <div className="text-[13px] text-stone-700 mt-1 leading-snug italic font-serif-display">
+            {thesis}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+
 const CanonicalOrientation = ({ focus, description, thesis, thesisVerbatim, established, operation }) => {
   const est = new Set(established || []);
   // 4.9.1 — the learner-facing focus reflects the ACTUAL instructional operation, not the canonical
@@ -431,6 +475,33 @@ export default function PublicPreview({ mode = "ot" }) {
     }
     return regs;
   }, [thesisRanges, activeUnitRanges, isThesisFocus, focusLabel]);
+  // Compass 4.10 — SENTENCE CRAFT: once the paragraph is structurally ready, foreground the ONE
+  // active sentence WITHIN the intact paragraph. Located by TEXT (robust to index shifts on revision),
+  // matching the existing thesis-highlight visual language: left accent bar + subtle background, and
+  // the rest of the paragraph left at full opacity (context is never visually suppressed).
+  const sc = activeCoaching?.sentence_craft || null;
+  const scActive = !!(sc && sc.active && sc.decision !== "complete" && (sc.active_sentence_text || "").trim());
+  const scRanges = useMemo(() => {
+    if (!scActive) return [];
+    const r = locateUnit(draft, sc.active_sentence_text);
+    return r ? snapRangesToSentences(draft, [r]) : [];
+  }, [draft, scActive, sc?.active_sentence_text]);
+  const scRegions = useMemo(
+    () =>
+      scRanges.map(([s, e]) => ({
+        start: s,
+        end: e,
+        className: "vi-region vi-region-sc",
+        label: "THIS SENTENCE",
+        testid: "vi-sc-active-region",
+      })),
+    [scRanges]
+  );
+  // While Sentence Craft is active, render ONLY the active-sentence region (no thesis/working-unit
+  // shading competing for attention) so the active sentence is foregrounded but the paragraph stays whole.
+  const renderRegions = scActive ? scRegions : interpretationRegions;
+  const renderPortionRanges = scActive ? [] : portionRanges;
+  const renderFocusClass = scActive ? "vi-focus-sc" : focusClass;
   // Auto-grow the writing canvas so the WHOLE draft is always visible (no inner scroll / cut-off).
   // The overlay is absolute inset-0, so growing the textarea grows the container and keeps them aligned.
   const fitDoc = useCallback(() => {
@@ -910,7 +981,7 @@ export default function PublicPreview({ mode = "ot" }) {
                 data-testid="preview-document-highlight"
                 className="absolute inset-0 overflow-hidden pointer-events-none px-7 sm:px-10 py-8 text-[17px] leading-9 font-serif-display whitespace-pre-wrap break-words text-transparent"
               >
-                {renderInterpretationSegments(draft, interpretationRegions, portionRanges, focusClass)}
+                {renderInterpretationSegments(draft, renderRegions, renderPortionRanges, renderFocusClass)}
                 {"\n"}
               </div>
               <textarea
@@ -986,15 +1057,23 @@ export default function PublicPreview({ mode = "ot" }) {
                       <X className="h-4 w-4" />
                     </button>
                   </div>
-                  {activeCoaching.focus_of_work && (
-                    <CanonicalOrientation
-                      focus={activeCoaching.focus_of_work}
-                      description={activeCoaching.focus_description}
-                      thesis={activeCoaching.current_thesis}
-                      thesisVerbatim={activeCoaching.thesis_is_verbatim}
-                      established={activeCoaching.established_structures || []}
-                      operation={activeCoaching.instructional_operation}
+                  {scActive ? (
+                    <SentenceCraftOrientation
+                      focusLabel={sc.focus_label}
+                      thesis={sc.thesis}
+                      routeUpward={sc.decision === "route_upward"}
                     />
+                  ) : (
+                    activeCoaching.focus_of_work && (
+                      <CanonicalOrientation
+                        focus={activeCoaching.focus_of_work}
+                        description={activeCoaching.focus_description}
+                        thesis={activeCoaching.current_thesis}
+                        thesisVerbatim={activeCoaching.thesis_is_verbatim}
+                        established={activeCoaching.established_structures || []}
+                        operation={activeCoaching.instructional_operation}
+                      />
+                    )
                   )}
                   {SHOW_COMMUNICATIVE_DIAGRAM && focusName === "Elaboration" && (
                     <div

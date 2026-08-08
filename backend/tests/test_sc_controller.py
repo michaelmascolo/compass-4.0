@@ -65,4 +65,27 @@ check("controlled pattern not force-selected", not (r["operation"] == "connect_t
 # focus labels exist for every operation, none expose internal names
 check("focus label for every op", all(op in sc.SC_FOCUS_LABEL for op in sc.SC_OPERATIONS))
 
+# ---- surfaced payload architecture (must leave room for pattern-focused SC behavior) ----
+# simulate an 'operate' turn diagnostics with an established recurring pattern
+_patt = sc.sc_update_patterns(sc.sc_update_patterns([], ["make_precise"]), ["make_precise"])  # 2 instances
+_sel = sc.sc_select_operation(A(observed_sentence_patterns=["vague reference"]), _patt)
+_diag = {"sentence_count": 4, "thesis": "Homework harms rest.", "active_sentence_index": 1,
+         "active_sentence_text": "It is bad.", "communicative_function": "supporting",
+         "decision": "operate", "selection": _sel,
+         "patterns_after": [dict(p) for p in _patt]}
+pay = sc._sc_payload_from_diag(_diag, sc.SC_FOCUS_LABEL.get(_sel["operation"], ""))
+_req = ["active", "decision", "active_sentence_index", "active_sentence_text", "focus_label",
+        "operation", "scaffold_level", "pattern", "pattern_influenced_operation", "evidence_of_control"]
+check("payload has all architecture fields", all(k in pay for k in _req))
+check("payload active + text surfaced (index-robust)", pay["active"] and pay["active_sentence_text"] == "It is bad.")
+check("payload focus_label is learner-facing (no internal op name)", pay["focus_label"] and pay["focus_label"] not in sc.SC_OPERATIONS)
+check("payload pattern hypothesis present", isinstance(pay["pattern"], dict) and pay["pattern"]["domain"] == "make_precise")
+check("payload records pattern influence", pay["pattern_influenced_operation"] is True)
+check("payload carries control evidence object", isinstance(pay["evidence_of_control"], dict))
+
+# completion diagnostics -> graceful payload (no selection / no pattern)
+_cdiag = {"sentence_count": 4, "thesis": "", "active_sentence_index": None, "decision": "complete"}
+cpay = sc._sc_payload_from_diag(_cdiag, "Reviewing the whole paragraph")
+check("completion payload graceful", cpay["decision"] == "complete" and cpay["pattern"] is None and cpay["active_sentence_text"] == "")
+
 print("\nRESULT:", "PASS" if not fails else f"FAIL ({len(fails)})")

@@ -3509,6 +3509,7 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
     _sc_active_turn = False
     _sc_focus_label = ""
     _sc_diag = None
+    _sc_payload = None
     if (state.sc_active or _operation == "acknowledge_and_transition") and (student_text or "").strip() and not state.sc_complete:
         try:
             _scr = await _sentence_craft_turn(state, assignment, student_text, _dcoF, learner_message, kind)
@@ -3520,6 +3521,7 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
             dlg_bytes = len(invitation or "")
             _sc_focus_label = _scr["focus_label"]
             _sc_diag = _scr["diagnostics"]
+            _sc_payload = _sc_payload_from_diag(_sc_diag, _sc_focus_label)
     if _sc_active_turn:
         pass  # coaching produced by the Sentence Craft path; skip normal coaching + contract gate
     elif instructional_need == "NO_CURRENT_INSTRUCTIONAL_TARGET":
@@ -3765,6 +3767,7 @@ async def run(session: Dict[str, Any], learner_content: str, kind: str) -> Dict[
             "reconsideration": sel.get("_reconsideration") or {},
             "instructional_contract": _contractF,
             "contract_alignment": _contract_alignmentF,
+            "sentence_craft": _sc_payload,
         },
         "_meta": efficiency,
     }
@@ -4131,6 +4134,61 @@ SC_FOCUS_LABEL = {
     "improve_readability": "Making this sentence easier to read",
     "connect_thought": "Connecting these ideas",
 }
+
+
+def _sc_payload_from_diag(diag: Dict[str, Any], focus_label: str) -> Dict[str, Any]:
+    """Assemble the FRONTEND-facing Sentence Craft payload from the turn diagnostics.
+
+    Deliberately structured (not just index+operation) so the specified pattern-focused
+    behavior can be surfaced later WITHOUT redesigning the SC state:
+      active sentence · selected operation · learner-facing focus label ·
+      relevant learner-pattern hypothesis · whether the pattern influenced the operation ·
+      current scaffold/support level · evidence of increasing learner control.
+    The active sentence is surfaced as TEXT (not just an index) so the UI can locate and
+    highlight it robustly even when a revision shifts sentence indexes.
+    """
+    diag = diag or {}
+    sel = diag.get("selection") or {}
+    decision = diag.get("decision") or diag.get("operation") or ""
+    dom = (sel.get("domain") or "").strip()
+    patt = None
+    for p in (diag.get("patterns_after") or []):
+        if p.get("domain") == dom and dom:
+            patt = p
+            break
+    pattern_obj = None
+    control_obj = None
+    if patt:
+        pattern_obj = {
+            "domain": patt.get("domain", ""),
+            "status": patt.get("status", ""),            # occurrence | pattern | controlled
+            "confidence": patt.get("confidence", ""),    # tentative | moderate | high
+            "instances": int(patt.get("instances", 0) or 0),
+            "recognized": int(patt.get("recognized", 0) or 0),
+            "independent": int(patt.get("independent", 0) or 0),
+            "supported_success": int(patt.get("supported_success", 0) or 0),
+        }
+        control_obj = {
+            "independent": pattern_obj["independent"],
+            "recognized": pattern_obj["recognized"],
+            "supported_success": pattern_obj["supported_success"],
+            "scaffold_level": (sel.get("scaffold_level") or patt.get("scaffold_level") or ""),
+        }
+    return {
+        "active": True,
+        "decision": decision,                                   # operate | route_upward | advance | complete
+        "active_sentence_index": diag.get("active_sentence_index"),
+        "active_sentence_text": diag.get("active_sentence_text") or "",
+        "sentence_count": diag.get("sentence_count"),
+        "thesis": diag.get("thesis") or "",
+        "focus_label": focus_label or "",                       # learner-facing (never an internal op name)
+        "operation": sel.get("operation") or diag.get("operation") or "",  # internal (dev/trace only)
+        "scaffold_level": sel.get("scaffold_level") or "",
+        "communicative_function": diag.get("communicative_function") or "",
+        "pattern": pattern_obj,                                 # relevant learner-pattern hypothesis (may be null)
+        "pattern_influenced_operation": bool(sel.get("pattern_recurrent")),
+        "evidence_of_control": control_obj,                     # increasing-control evidence (may be null)
+    }
 
 
 def _sc_actionable(a: Dict[str, Any]) -> bool:

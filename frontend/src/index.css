@@ -65,6 +65,14 @@ body {
 }
 .vi-region-thesis::before { color: #1d4ed8; border-color: #1d4ed8; }  /* blue */
 .vi-region-active::before { color: #c2410c; border-color: #c2410c; }  /* orange */
+/* Compass 4.10 — Sentence Craft: the ONE active sentence, foregrounded within the intact paragraph.
+   Left accent bar (inset box-shadow, so no layout shift / char misalignment) + a subtle terracotta
+   background; the surrounding paragraph is deliberately left un-dimmed (context stays fully available). */
+.vi-region-sc {
+    background: rgba(140, 58, 42, 0.08);                    /* subtle terracotta tint (coach accent) */
+    box-shadow: inset 3px 0 0 0 #8C3A2A;                    /* left accent bar, no layout shift */
+}
+.vi-region-sc::before { color: #8C3A2A; border-color: #8C3A2A; }  /* terracotta label */
 /* L3: the specific passage Compass is discussing now — a DOTTED UNDERLINE only, coloured to
    match its unit. No background tint here, so the unit's shading stays perfectly uniform. */
 .vi-focus-marker {
@@ -74,6 +82,7 @@ body {
 }
 .vi-focus-thesis { border-bottom-color: #1d4ed8; }  /* blue focus underline */
 .vi-focus-active { border-bottom-color: #c2410c; }  /* orange focus underline */
+.vi-focus-sc { border-bottom-color: #8C3A2A; }      /* terracotta focus underline (Sentence Craft) */
 
 
 /* paper grain */

@@ -623,6 +623,7 @@ class Turn(BaseModel):
     focus_portion: str = ""  # smaller verbatim span within focus_region worked on this turn
     instructional_contract: Optional[dict] = None  # Compass 4.6 student-facing contract (3-line card)
     contract_alignment: Optional[dict] = None  # Compass 4.6 scope-gate verdict (dev-only)
+    sentence_craft: Optional[dict] = None  # Compass 4.10 — SC payload (active sentence, focus label, learner-pattern hypothesis, scaffold, control evidence)
     created_at: str = Field(default_factory=now_iso)
 
 
@@ -3767,6 +3768,13 @@ async def _finalize_structure_v5(session_id: str, ai_turn_id: str, req: Interact
                 t.focus_portion = _dec.get("focus_portion") or ""
                 t.instructional_contract = _dec.get("instructional_contract") or None
                 t.contract_alignment = _dec.get("contract_alignment") or None
+                # Compass 4.10 — Sentence Craft: when the SC path produced this turn, surface the
+                # structured SC payload and mark the operation so the learner UI renders SC mode
+                # (intact paragraph + highlighted active sentence + learner-facing focus).
+                _sc = _dec.get("sentence_craft") or None
+                if _sc and _sc.get("active"):
+                    t.sentence_craft = _sc
+                    t.instructional_operation = "sentence_craft"
                 if not t.current_thesis:
                     t.current_thesis = _dec.get("current_thesis") or ""
             break
