@@ -1379,3 +1379,14 @@ Owner architectural clarification. Sprint 3 accepted & frozen; this does NOT reo
 
 ## NEXT (P0): Completion & Handoff UX
 - When SC completes / completion_readiness==ready: inline completion panel (completion message → brief holistic review) → Final Handoff screen with Save/Print/Copy/Return buttons.
+
+## Compass P0 Latency Remediation R1(+R2 core) (2026-06, DONE — verified, engine cognition)
+- MEASURED remediation of the DCO latency (diagnosis: fn-sel DCO = 91–95% of every turn, generating ~8–10k output tokens). Full report: `/app/memory/LATENCY_REMEDIATION_R1_R2.md`.
+- R1a (kept but insufficient): OUTPUT-DISCIPLINE contract in `_FUNCTION_SEL_SYS` + max_tokens cap. Cap alone TRUNCATED the still-verbose output → invalid-JSON retry (structural went to 150s). Lesson: slim schema first, then cap.
+- R1b (primary win): replaced the ~330-line verbose `developmental_cognition` output schema with a SLIM schema — keeps every consumed/SC-governing field + terse reasoning anchors, drops ~28 Class-C calibration fields + all `evidence[]` arrays. `max_tokens` 64000→8000.
+- Measured (n=2): total turn latency BASELINE→R1b — conceptual 83.6s→~25–29s, structural 104.4s→~37–41s, sentence-craft 104.4s→~34–35s (~55–70% cut). DCO output ~32–41k chars → ~8–13k. Now 2 serial LLM calls/turn (was 3–4); no retry/dco-tail. Non-LLM ≈0.
+- R2 core ACHIEVED via R1b: all development/calibration fields removed from the per-turn BLOCKING output; none were consumed by any runtime decision path (only a dev-panel aggregation that degrades gracefully). Verbose schema preserved in git + `/tmp/functional_v3.bak.py` for a future dev-only off-critical-path call.
+- Regression PASS: test_sc_controller (deterministic), test_structural_49 (A+B), live_sc_path (SC e2e), test_492 DCO-checks (overload/sufficiency/op/scaffolds/no-counterargument). Two `PASS:False` sub-criteria are coaching-LLM keyword variance + a pre-existing 4.10 SC-wiring/old-test interaction — NOT DCO regressions (R1b did not touch generate_dialogue).
+- ≤10s target NOT met (~25–41s remain = genuine learner-critical cognition at ~107 tok/s). Recommended next (NOT implemented, awaiting approval): R2b mode-sensitive cognition (skip heavy conceptual DCO on SC-continuation turns → SC ~12s; MED risk, needs multi-turn SC regression) + inference-path/streaming evaluation for coaching.
+
+## DEFERRED (queued, not started): Developer "Direct Sentence Craft" test entry (from the prior user message) — superseded by the P0 latency sprint.
