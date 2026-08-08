@@ -741,6 +741,8 @@ class Session(BaseModel):
     revision_history: List[RevisionRecord] = Field(default_factory=list)
     teacher_edits: List[dict] = Field(default_factory=list)
     is_preview: bool = False
+    sentence_craft_test_entry: bool = False  # DEV-ONLY: session created via the direct Sentence Craft test entry (isolated from real learner evidence)
+    sc_test_thesis_inferred: bool = False     # DEV-ONLY: the thesis/main point was inferred (not supplied) for this SC test
     preview_analytics: dict = Field(default_factory=dict)
     ot: Optional[dict] = None  # Organizing Thought (OT) state — set only when the student enters OT before Writing
     experience_control: Optional[ExperienceControl] = None  # Experience Compass — set ONLY on preview sessions
@@ -1928,7 +1930,114 @@ async def create_preview_session(payload: Optional[PreviewStart] = None):
     return session
 
 
-@api_router.get("/sessions/{session_id}/canonical-trace")
+# ---------------------------------------------------------------------------
+# DEVELOPER-ONLY — Direct Sentence Craft test entry. Bypasses ONLY the composition
+# scaffolding (conceptual development -> structural readiness -> normal SC handoff)
+# by synthesizing the minimum structurally-ready governing context, then routes into
+# the EXACT production Sentence Craft engine (functional_v3 light path: real
+# sentence_craft_cognition + deterministic controller + coaching). Not a second SC
+# implementation — only state initialization differs. Isolated from real learner
+# evidence (per-session instructional state; flagged sentence_craft_test_entry).
+# ---------------------------------------------------------------------------
+class SentenceCraftTestRequest(BaseModel):
+    assignment: str                                   # required — writing purpose/task
+    paragraph: str                                    # required — paragraph to test
+    thesis: Optional[str] = ""                        # optional — main point; inferred if empty
+    grade_level: Optional[str] = ""                   # optional — learner level
+    known_pattern: Optional[str] = ""                 # optional — seed a recurring learner-pattern hypothesis
+    pattern_confidence: Optional[str] = ""            # optional — tentative|moderate|high
+    scaffold_level: Optional[str] = ""                # optional — more_support|guided_attention|self_monitoring|independent_check
+    start_sentence: Optional[int] = 1                 # optional — 1-based sentence to start from
+
+
+@api_router.post("/sessions/sentence-craft-test", response_model=Session)
+async def create_sentence_craft_test(req: SentenceCraftTestRequest):
+    import functional_v3 as _fv3
+    import compass_foundation as _fb
+
+    assignment = (req.assignment or "").strip()
+    paragraph = (req.paragraph or "").strip()
+    if not assignment or not paragraph:
+        raise HTTPException(status_code=422, detail="assignment and paragraph are required")
+
+    # thesis: use if supplied, else infer a provisional one from the paragraph (first sentence).
+    thesis = (req.thesis or "").strip()
+    inferred = False
+    if not thesis:
+        _sents = _fv3._split_sentences(paragraph)
+        thesis = (_sents[0]["exact_sentence_text"].strip() if _sents else paragraph[:160]).strip()
+        inferred = True
+
+    session = Session(
+        assignment=assignment,
+        pedagogical_purpose=PREVIEW_BOOTSTRAP.pedagogical_purpose,
+        current_writing_task=PREVIEW_BOOTSTRAP.current_writing_task,
+        teacher_notes=f"DIRECT SENTENCE CRAFT TEST. THE ASSIGNMENT: {assignment}",
+        telos=Telos(governing_pedagogical_purpose=PREVIEW_BOOTSTRAP.pedagogical_purpose,
+                    immediate_task_purpose=PREVIEW_BOOTSTRAP.current_writing_task,
+                    teacher_intentions="direct sentence craft test entry", assignment_context=assignment),
+        is_preview=True,
+        sentence_craft_test_entry=True,
+        sc_test_thesis_inferred=inferred,
+        reasoning_mode="canonical_v2",
+        experience_control=ExperienceControl(),
+    )
+    await db.sessions.insert_one(session.model_dump())
+
+    # Synthesize the minimum structurally-ready SC state the normal transition would have produced.
+    state = await _fb.get_or_create_state_for_session(session.model_dump())
+    state.assignment_purpose = assignment
+    state.grade_level = (req.grade_level or "").strip()
+    state.current_student_text = paragraph
+    from compass_foundation import RevisionEntry
+    state.revision_history.append(RevisionEntry(text=paragraph))
+    state.sc_active = True
+    state.sc_transitioned = True         # direct entry: no composition-style handoff preamble
+    state.sc_complete = False
+    state.sc_force_full_next = False
+    state.sc_index = max(0, int(req.start_sentence or 1) - 1)
+    # optional learner-pattern injection (compact hypothesis; strictly for targeted testing)
+    state.sc_patterns = []
+    if (req.known_pattern or "").strip():
+        _dom = _fv3.sc_domain_for_pattern(req.known_pattern.strip()) or req.known_pattern.strip()
+        state.sc_patterns = [{
+            "domain": _dom, "instances": 2, "contexts": [], "support_required": True,
+            "supported_success": 0, "recognized": 0, "independent": 0,
+            "scaffold_level": (req.scaffold_level or "guided_attention").strip(),
+            "confidence": (req.pattern_confidence or "moderate").strip(), "status": "pattern",
+        }]
+    if (req.scaffold_level or "").strip():
+        state.sc_scaffold_level = req.scaffold_level.strip()
+    # synthetic governing context consumed by the production SC cognition (thesis + governing subset)
+    state.sc_governing_context = {
+        "assignment": assignment,
+        "structural_load_analysis": {"central_communicative_movement": thesis},
+        "communicative_task": assignment,
+        "task_orientation_relation": {"value": "directly responsive (synthetic test entry)"},
+        "provisional_whole_communication": {"value": thesis},
+        "whole_communication_requirements": {"value": ""},
+        "instructional_center": {"value": ""},
+        "structural_relations_and_dependencies": {"value": []},
+        "current_instructional_sufficiency": {"value": "sufficient for sentence-level work (test entry)"},
+        "completion": {},
+        "_sc_test_entry": True,
+    }
+    await _fb._save_state(state)
+
+    # append the paragraph as the student turn + a processing placeholder, then run the FIRST SC turn
+    # in the background through the normal pipeline (routes to functional_v3 light path).
+    session.turns.append(Turn(role="student", kind="writing", content=paragraph, status="complete"))
+    ai_turn = Turn(role="ai", kind="pending", content="", status="processing")
+    session.turns.append(ai_turn)
+    session.updated_at = now_iso()
+    await db.sessions.update_one(
+        {"id": session.id},
+        {"$set": {"turns": [t.model_dump() for t in session.turns], "updated_at": session.updated_at}},
+    )
+    asyncio.create_task(_run_reasoning(session.id, ai_turn.id, InteractRequest(content=paragraph, kind="revise")))
+    logger.info(f"[sc-test] created direct Sentence Craft test session={session.id} inferred_thesis={inferred} "
+                f"start_sentence={state.sc_index + 1} pattern={bool(state.sc_patterns)}")
+    return session
 async def canonical_trace(session_id: str):
     """READ-ONLY diagnostic (TEST-ONLY). Per-turn canonical selection trace:
     selected structure, developmental variation, status, developmental sufficiency,

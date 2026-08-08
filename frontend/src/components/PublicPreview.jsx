@@ -836,6 +836,27 @@ export default function PublicPreview({ mode = "ot" }) {
   const showQuestionBanner = !!questionText && !showWelcome && !onEntryScreen && !inReflection;
   return (
     <div className="min-h-screen paper-grain flex flex-col items-center">
+      {session?.sentence_craft_test_entry && (
+        <div
+          data-testid="sc-test-banner"
+          style={{ position: "fixed", top: 12, right: 12, zIndex: 70 }}
+          className="flex items-center gap-2 rounded-full bg-[#1c1917] text-[#e7e5e4] pl-3 pr-1.5 py-1 shadow-lg border border-[#57534e]"
+        >
+          <span className="text-[10px] uppercase tracking-[0.16em] font-mono-panel text-[#e0a89a]">
+            SC Test Mode{session?.sc_test_thesis_inferred ? " · inferred thesis" : ""}
+          </span>
+          <button
+            data-testid="sc-test-new-button"
+            onClick={() => {
+              try { localStorage.removeItem("compass_student_session"); } catch (e) { /* ignore */ }
+              window.location.href = "?sctest";
+            }}
+            className="rounded-full bg-[#8C3A2A] text-white text-[11px] px-2.5 py-1 hover:bg-[#75301f] transition-colors"
+          >
+            New SC Test
+          </button>
+        </div>
+      )}
       {SHOW_DCO && session?.id && (
         <>
           <button

@@ -6,6 +6,7 @@ import StudentWorkspace from "@/components/StudentWorkspace";
 import DevelopmentPanel from "@/components/DevelopmentPanel";
 import TestHarness from "@/components/TestHarness";
 import PublicPreview from "@/components/PublicPreview";
+import SentenceCraftTest from "@/components/SentenceCraftTest";
 import TeacherReview from "@/components/TeacherReview";
 import Landing from "@/components/Landing";
 import PreviewBridge from "@/components/PreviewBridge";
@@ -35,6 +36,11 @@ function App() {
   const params = new URLSearchParams(window.location.search);
   if (params.has("tests")) {
     return <TestHarness />;
+  }
+  // Developer-only DIRECT Sentence Craft test entry (?sctest) — setup form that jumps straight into
+  // the production Sentence Craft experience, bypassing composition scaffolding. Not learner-facing.
+  if (params.has("sctest")) {
+    return <SentenceCraftTest />;
   }
   // Public Preview / student entries (?preview).
   //   ?preview=writing → genuine STUDENT Composition entry (student-facing)

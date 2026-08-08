@@ -13,6 +13,12 @@ export const startPreview = async (opts) => {
   return data;
 };
 
+// DEV-ONLY: direct Sentence Craft test entry (bypasses composition scaffolding).
+export const createSentenceCraftTest = async (payload) => {
+  const { data } = await axios.post(`${API}/sessions/sentence-craft-test`, payload);
+  return data;
+};
+
 export const previewContinue = async (id) => {
   const { data } = await axios.post(`${API}/sessions/${id}/preview-continue`);
   return data;
